@@ -1,0 +1,21 @@
+body {
+    background-color: #272727;
+}
+
+div {
+    margin-top: 1rem;
+    text-align: center;
+    color: white;
+}
+
+p {
+    font-size: 15em;
+}
+
+button{
+    width: 50%;
+    height: 3rem;
+    text-align: center;
+    background-color: #55535365;
+    border-width: .5rem;
+}
