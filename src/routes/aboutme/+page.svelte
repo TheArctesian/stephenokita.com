@@ -64,8 +64,8 @@
         everything i do is on my <a
             class="code"
             href="https://github.com/thearctesian">github</a
-        >, for now until i migrate to a platform who's company policy does not go 
-        against my vision of open source projects
+        >, for now until i migrate to a platform who's company policy does not
+        go against my vision of open source projects
     </p>
 </div>
 
