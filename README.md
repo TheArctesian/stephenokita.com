@@ -1,19 +1,38 @@
-# Personal Website
+# create-svelte
 
-## Overview
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-My personal website built in Rust
+## Creating a project
 
-## Info
+If you're seeing this, you've probably already done this step. Congrats!
 
+```bash
+# create a new project in the current directory
+npm create svelte@latest
+
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
-email (business)  : me@danielokita.com
-twitter           : @theArctesian
-discord           : 0xArctesian#8968
-telegram          : @TheArctesian
-signal            : @Arctesian
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-## <span style="color: red"> PSA!! </span>
+## Building
 
-This project is licensed under [GPL-3](https://www.gnu.org/licenses/quick-guide-gplv3.html). If you have a problem with it cry about it. In short, any fork of this project must maintain the license and adhere to the 4 essential freedoms of free software as listed by the [FSF](https://www.gnu.org/philosophy/free-sw.en.html).
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

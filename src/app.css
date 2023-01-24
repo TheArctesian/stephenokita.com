@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg: #282A36;
+    --fg: #F8F8F2;
+    --white: #ffffff;
+    --black: #000000;
+    --comment: #6272A4;
+    --selection: #44475A;
+    --cyan: #8BE9FD;
+    --green: #50FA7B;
+    --orange: #FFB86C;
+    --pink: #FF79C6;
+    --purple: #BD93F9;
+    --red: #FF5555;
+    --yellow: #F1FA8C;
+}
+::selection {
+  background: var(--purple) ;/* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background:  var(--purple); /* Gecko Browsers */
+}
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
