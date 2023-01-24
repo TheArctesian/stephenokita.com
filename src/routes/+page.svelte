@@ -3,42 +3,51 @@
     import Typewriter from "svelte-typewriter";
 </script>
 
-<div class="head flex">
+<div class="head flex flex-col">
     <div class="header flex alight-center text-center flex-col">
         <img
             alt="A photo with me wearing glasses"
-            src="/images/glasses.jpg"
+            src="/images/meGuitar.jpeg"
             class="shadow-2xl"
         />
         <br />
-        <Typewriter interval=100>
-        <p1 class="margin-auto text-center">A photo of me with cool glasses</p1>
+        <Typewriter interval="100">
+            <p1 class="margin-auto text-center">A photo of me</p1>
         </Typewriter>
     </div>
     <div class="header text">
-            <p2>
-                hello my name is <span class="daniel">Daniel Okita,</span>
-            </p2>
+        <p2>
+            hello my name is <span class="daniel">Daniel Okita,</span>
+            welcome to my website. i am a FOSS programmer looking to understand and
+            change the world </p2
+        >
+    </div>
+    <div class="header text">
+        <p2>
+            if you would for some reason wish to know more about me this website
+            is for you!
             <br />
-            <p2>
-                welcome to my website. if you would for some reason wish to know
-                more about me this website i structured in a way that might be a
-                little deceiving.
-                <br />
-                <br />
-                <a href="/home" class="code">`home`</a> => the story of my
-                background, where i from, what i am according to myself
-                <br />
-                <br />
-                <a href="/aboutme" class="code">`about me’</a> => the
-                superficial approach, the quantifiable achievements and skills
-                that i have that make me of value to society or you.
-                <br />
-                <br />
-                <a href="/blog" class="code">`blog’</a> => does not need
-                explanation and is simply the place i ramble into the oblivion
-                <br />
-            </p2>
+            <br />
+            the structure of this website in a way that might be a little deceiving.
+            <br />
+            <br />
+            <a href="/home" class="code">`home`</a> => the story of my
+            background, where i from, what i am according to myself.
+            <br />
+            <br />
+            <a href="/aboutme" class="code">`about me’</a> => the superficial
+            approach, the quantifiable achievements and skills that i have that
+            make me of value to society or you.
+            <br />
+            <br />
+            <a href="/blog" class="code">`blog’</a> => does not need explanation
+            and is simply the place i ramble into the oblivion.
+            <br />
+            <br />
+            So that is to say once you leave this page unless you change the domain
+            to <span class="code">`/`</span> you will not get back to this wall of
+            text.
+        </p2>
     </div>
 </div>
 
@@ -82,7 +91,7 @@
         .header {
             margin-top: 0.2;
         }
-        img{
+        img {
             width: auto;
             height: fit-content;
         }

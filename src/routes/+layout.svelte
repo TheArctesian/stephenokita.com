@@ -15,22 +15,26 @@
         <h1 class="text-center ">Email me at <span class="underline">me@danielokita.com</span></h1>
         <h1 class="text-center ">Or find me on these places <h1>
     <div class="content">
-    	<div class="element c1">
+    	<div class="element">
     		<a href="https://www.linkedin.com/in/stephen-okita-a9427b1b2/">
                 <img src="https://simpleicons.org/icons/linkedin.svg" />
     		</a>
     	</div>
-    	<div class="element c2">
+    	<div class="element">
     		<a href="https://mastodon.world/@thearctesian">
     			<img src="https://simpleicons.org/icons/mastodon.svg" />
     		</a>
     	</div>
-    	<div class="element c3">
+    	<div class="element">
     		<a href="https://github.com/TheArctesian">
     			<img src="https://simpleicons.org/icons/github.svg"/>
     		</a>
         </div>
-
+        <div class="element">
+    		<a href="https://discord.com/users/682753580943278083">
+    			<img src="https://simpleicons.org/icons/discord.svg"/>
+    		</a>
+        </div>
     </div>
     as well as the source code for this website <a class="s" href="https://github.com/TheArctesian/danielokita.com">here</a>
     </div>
