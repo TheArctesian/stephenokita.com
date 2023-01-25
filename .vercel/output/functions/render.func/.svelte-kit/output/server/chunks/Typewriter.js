@@ -1,6 +1,6 @@
 import { c as create_ssr_component, i as is_promise, n as noop, d as is_void } from "./index.js";
 /* empty css                                          */const css = {
-  code: "@keyframes svelte-1gv2i7t-cursorFade{0%,100%{opacity:1}50%{opacity:0}}.typewriter-container.svelte-1gv2i7t *:not(.typing):not(.finished-typing):not([data-static]){display:none}.typewriter-container.svelte-1gv2i7t .finished-typing::after{content:none}.cursor.svelte-1gv2i7t .typing::after{content:'';width:var(--cursor-width, 1ch);height:2ch;display:inline-block;vertical-align:text-top;background-color:var(--cursor-color, #000000);animation:svelte-1gv2i7t-cursorFade 1.25s infinite}",
+  code: "@keyframes svelte-qbxowd-cursorFade{0%,100%{opacity:1}50%{opacity:0}}.typewriter-container.svelte-qbxowd *:not(.typing):not(.finished-typing):not([data-static]){display:none}.typewriter-container.svelte-qbxowd .finished-typing::after{content:none}.cursor.svelte-qbxowd .typing::after{content:'';width:var(--cursor-width, 1ch);height:2ch;display:inline-block;vertical-align:text-top;background-color:var(--cursor-color, #000000);animation:svelte-qbxowd-cursorFade 1.25s infinite}",
   map: null
 };
 const Typewriter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -72,11 +72,11 @@ const Typewriter = create_ssr_component(($$result, $$props, $$bindings, slots) =
   delayPromise = () => new Promise((resolve) => setTimeout(() => resolve(delay), delay));
   return `<noscript>${slots.default ? slots.default({}) : ``}</noscript>
 
-${disabled ? `<div class="${"typewriter-container svelte-1gv2i7t"}">${slots.default ? slots.default({}) : ``}</div>` : `${function(__value) {
+${disabled ? `<div class="${"typewriter-container svelte-qbxowd"}">${slots.default ? slots.default({}) : ``}</div>` : `${function(__value) {
     if (is_promise(__value)) {
       __value.then(null, noop);
       return `
-            ${showCursorOnDelay ? `<div class="${"typewriter-container cursor svelte-1gv2i7t"}"><p class="${"typing"}"></p></div>` : ``}
+            ${showCursorOnDelay ? `<div class="${"typewriter-container cursor svelte-qbxowd"}"><p class="${"typing"}"></p></div>` : ``}
         `;
     }
     return function() {
@@ -89,7 +89,7 @@ ${disabled ? `<div class="${"typewriter-container svelte-1gv2i7t"}">${slots.defa
         return function(selectedMode) {
           return `
                 ${((tag) => {
-            return tag ? `<${element} class="${["typewriter-container svelte-1gv2i7t", cursor ? "cursor" : ""].join(" ").trim()}">${is_void(tag) ? "" : `${slots.default ? slots.default({}) : ``}`}${is_void(tag) ? "" : `</${tag}>`}` : "";
+            return tag ? `<${element} class="${["typewriter-container svelte-qbxowd", cursor ? "cursor" : ""].join(" ").trim()}">${is_void(tag) ? "" : `${slots.default ? slots.default({}) : ``}`}${is_void(tag) ? "" : `</${tag}>`}` : "";
           })(element)}
             `;
         }();
