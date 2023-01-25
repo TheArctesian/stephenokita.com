@@ -93,7 +93,7 @@
         }
         img {
             width: auto;
-            height: fit-content;
+            height: auto;
         }
     }
 </style>
