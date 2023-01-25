@@ -63,7 +63,7 @@
             general. my learning takes many forms and many directions.
         </p>
     </div>
-    <div class="header ilike flex flex-row">
+    <div class="header ilike flex flex-col">
         <p class="txt">
             it can take the form of learning about the world. both in reading
             the histories of the world and travailing it.
@@ -72,6 +72,7 @@
             <img
                 src="/images/been.JPG"
                 alt="the place I have been in the world"
+                class="been"
             />
             <p class="txt text-center">
                 attached here is the export of my <a
@@ -146,6 +147,10 @@
         justify-content: center;
         margin: 1rem;
         border-radius: 2rem;
+        margin: auto;
+    }
+    img{
+        border-radius: 1rem;
     }
     .element{
         margin: 1rem;
