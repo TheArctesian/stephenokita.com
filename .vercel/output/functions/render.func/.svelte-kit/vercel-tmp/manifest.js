@@ -4,7 +4,7 @@ export const manifest = {
 	assets: new Set(["favicon.png","images/been.JPG","images/glasses.jpg","images/meBass.jpeg","images/meGuitar.jpeg","images/meOnAfence.jpeg","images/meWater.jpeg","other/Stephen_Activites_Resume.pdf"]),
 	mimeTypes: {".png":"image/png",".JPG":"image/jpeg",".jpg":"image/jpeg",".jpeg":"image/jpeg",".pdf":"application/pdf"},
 	_: {
-		entry: {"file":"_app/immutable/start-beb76a5b.js","imports":["_app/immutable/start-beb76a5b.js","_app/immutable/chunks/index-8705c0e5.js","_app/immutable/chunks/singletons-95aacd88.js","_app/immutable/chunks/preload-helper-41c905a7.js"],"stylesheets":[],"fonts":[]},
+		entry: {"file":"_app/immutable/start-270e3b41.js","imports":["_app/immutable/start-270e3b41.js","_app/immutable/chunks/index-8705c0e5.js","_app/immutable/chunks/singletons-95aacd88.js","_app/immutable/chunks/preload-helper-41c905a7.js"],"stylesheets":[],"fonts":[]},
 		nodes: [
 			() => import('../output/server/nodes/0.js'),
 			() => import('../output/server/nodes/1.js'),
@@ -40,22 +40,22 @@ export const manifest = {
 				endpoint: null
 			},
 			{
-				id: "/blog/book",
-				pattern: /^\/blog\/book\/?$/,
+				id: "/blog/computers",
+				pattern: /^\/blog\/computers\/?$/,
 				params: [],
 				page: { layouts: [0], errors: [1], leaf: 5 },
 				endpoint: null
 			},
 			{
-				id: "/blog/movies",
-				pattern: /^\/blog\/movies\/?$/,
+				id: "/blog/lit",
+				pattern: /^\/blog\/lit\/?$/,
 				params: [],
 				page: { layouts: [0], errors: [1], leaf: 6 },
 				endpoint: null
 			},
 			{
-				id: "/blog/tvshow",
-				pattern: /^\/blog\/tvshow\/?$/,
+				id: "/blog/media",
+				pattern: /^\/blog\/media\/?$/,
 				params: [],
 				page: { layouts: [0], errors: [1], leaf: 7 },
 				endpoint: null

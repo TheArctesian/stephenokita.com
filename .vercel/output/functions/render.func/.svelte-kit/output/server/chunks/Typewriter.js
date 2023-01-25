@@ -1,6 +1,5 @@
 import { c as create_ssr_component, i as is_promise, n as noop, d as is_void } from "./index.js";
-const Typewriter_svelte_svelte_type_style_lang = "";
-const css = {
+/* empty css                                          */const css = {
   code: "@keyframes svelte-1gv2i7t-cursorFade{0%,100%{opacity:1}50%{opacity:0}}.typewriter-container.svelte-1gv2i7t *:not(.typing):not(.finished-typing):not([data-static]){display:none}.typewriter-container.svelte-1gv2i7t .finished-typing::after{content:none}.cursor.svelte-1gv2i7t .typing::after{content:'';width:var(--cursor-width, 1ch);height:2ch;display:inline-block;vertical-align:text-top;background-color:var(--cursor-color, #000000);animation:svelte-1gv2i7t-cursorFade 1.25s infinite}",
   map: null
 };
