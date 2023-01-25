@@ -1,7 +1,6 @@
 <script>
     import "../../app.css";
     import Typewriter from "svelte-typewriter";
-    import Carousel from "svelte-carousel";
 
     let imgs = [
         "meBass.jpeg",
