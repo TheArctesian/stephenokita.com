@@ -1293,7 +1293,12 @@ async function render_response({
     const segments = event.url.pathname.slice(base.length).split("/").slice(2);
     resolved_assets = segments.length > 0 ? segments.map(() => "..").join("/") : ".";
   }
-  const prefixed = (path) => path.startsWith("/") ? path : `${resolved_assets}/${path}`;
+  const prefixed = (path) => {
+    if (path.startsWith("/")) {
+      return base + path;
+    }
+    return `${resolved_assets}/${path}`;
+  };
   const serialized = { data: "", form: "null", error: "null" };
   try {
     serialized.data = `[${branch.map(({ server_data }) => {
@@ -2282,6 +2287,7 @@ async function respond(request, options2, manifest, state) {
   }
   let trailing_slash = void 0;
   const headers = {};
+  let cookies_to_add = {};
   const event = {
     // @ts-expect-error `cookies` and `fetch` need to be created after the `event` itself
     cookies: null,
@@ -2360,6 +2366,7 @@ async function respond(request, options2, manifest, state) {
       url,
       trailing_slash ?? "never"
     );
+    cookies_to_add = new_cookies;
     event.cookies = cookies;
     event.fetch = create_fetch({ event, options: options2, manifest, state, get_cookie_header });
     if (state.prerendering && !state.prerendering.fallback)
@@ -2375,7 +2382,7 @@ async function respond(request, options2, manifest, state) {
             value
           );
         }
-        add_cookies_to_headers(response2.headers, Object.values(new_cookies));
+        add_cookies_to_headers(response2.headers, Object.values(cookies_to_add));
         if (state.prerendering && event2.route.id !== null) {
           response2.headers.set("x-sveltekit-routeid", encodeURI(event2.route.id));
         }
@@ -2424,11 +2431,9 @@ async function respond(request, options2, manifest, state) {
     return response;
   } catch (e) {
     if (e instanceof Redirect) {
-      if (is_data_request) {
-        return redirect_json_response(e);
-      } else {
-        return redirect_response(e.status, e.location);
-      }
+      const response = is_data_request ? redirect_json_response(e) : redirect_response(e.status, e.location);
+      add_cookies_to_headers(response.headers, Object.values(cookies_to_add));
+      return response;
     }
     return await handle_fatal_error(event, options2, e);
   }
