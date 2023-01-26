@@ -25,6 +25,6 @@
 	"type": "module",
 	"dependencies": {
 		"svelte-typewriter": "^3.1.4",
-		"@sveltejs/kit": "next"
+		"@sveltejs/kit": "^1.0.0"
 	}
 }
