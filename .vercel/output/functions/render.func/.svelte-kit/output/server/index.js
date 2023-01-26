@@ -422,21 +422,21 @@ async function handle_action_json_request(event, options2, server) {
       });
     }
   } catch (e) {
-    const error2 = normalize_error(e);
-    if (error2 instanceof Redirect) {
+    const err = normalize_error(e);
+    if (err instanceof Redirect) {
       return action_json({
         type: "redirect",
-        status: error2.status,
-        location: error2.location
+        status: err.status,
+        location: err.location
       });
     }
     return action_json(
       {
         type: "error",
-        error: await handle_error_and_jsonify(event, options2, check_incorrect_fail_use(error2))
+        error: await handle_error_and_jsonify(event, options2, check_incorrect_fail_use(err))
       },
       {
-        status: error2 instanceof HttpError ? error2.status : 500
+        status: err instanceof HttpError ? err.status : 500
       }
     );
   }
@@ -447,11 +447,11 @@ function check_incorrect_fail_use(error2) {
 function action_json(data, init2) {
   return json(data, init2);
 }
-function is_action_request(event, leaf_node) {
-  return leaf_node.server && event.request.method !== "GET" && event.request.method !== "HEAD";
+function is_action_request(event) {
+  return event.request.method === "POST";
 }
 async function handle_action_request(event, server) {
-  const actions = server.actions;
+  const actions = server?.actions;
   if (!actions) {
     event.setHeaders({
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
@@ -483,17 +483,17 @@ async function handle_action_request(event, server) {
       };
     }
   } catch (e) {
-    const error2 = normalize_error(e);
-    if (error2 instanceof Redirect) {
+    const err = normalize_error(e);
+    if (err instanceof Redirect) {
       return {
         type: "redirect",
-        status: error2.status,
-        location: error2.location
+        status: err.status,
+        location: err.location
       };
     }
     return {
       type: "error",
-      error: check_incorrect_fail_use(error2)
+      error: check_incorrect_fail_use(err)
     };
   }
 }
@@ -1592,7 +1592,7 @@ async function render_page(event, route, page, options2, manifest, state, resolv
     );
     let status = 200;
     let action_result = void 0;
-    if (is_action_request(event, leaf_node)) {
+    if (is_action_request(event)) {
       action_result = await handle_action_request(event, leaf_node.server);
       if (action_result?.type === "redirect") {
         return redirect_response(action_result.status, action_result.location);
@@ -1610,7 +1610,7 @@ async function render_page(event, route, page, options2, manifest, state, resolv
     const should_prerender = get_option(nodes, "prerender");
     if (should_prerender) {
       const mod = leaf_node.server;
-      if (mod && mod.actions) {
+      if (mod?.actions) {
         throw new Error("Cannot prerender pages with actions");
       }
     } else if (state.prerendering) {
