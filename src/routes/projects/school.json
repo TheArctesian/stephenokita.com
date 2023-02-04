@@ -1,0 +1,57 @@
+[
+    {
+        "projectName": "Flexi",
+        "description": "A schedule hub for my school's Flexi period",
+        "link": "https://github.com/TheArctesian/Flexi"
+    },
+    {
+        "projectName": "IB Psychology Articulate",
+        "description": "Cards, and eventually a game for IB psychology",
+        "link": "https://github.com/TheArctesian/coalas"
+    },
+    {
+        "projectName": "Malthus",
+        "description": "This was the code needed for me to write my math IA (an ib thing), basicity I was trying to disprove malthusian population theory after reading Marx and George then kinda proved it right.",
+        "link": "https://github.com/TheArctesian/coalas"
+    },
+    {
+        "projectName": "Skl-DiD",
+        "description": "Digital ID cards for school",
+        "link": "https://github.com/TheArctesian/Skl-Did"
+    },
+    {
+        "projectName": "btcvstock",
+        "description": "A research paper I am writing looking at: To what extent is bitcoin’s price dictated by the movements of stock markets?",
+        "link": "https://github.com/TheArctesian/btcvstock"
+    },
+    {
+        "projectName": "Powerschool Calandar app",
+        "description": "Someone else made this I attempted to maintain it but got bored",
+        "link": "https://github.com/TheArctesian/ps-calendar.git"
+    },
+    {
+        "projectName": "ibdb",
+        "description": "A revision village alternative my friend and I made to help people study. We are intending to flesh this out and gameafy it.",
+        "link": "https://github.com/TheArctesian/ibdb"
+    },
+    {
+        "projectName": "cubesat",
+        "description": "The code needed to work a cubesat satellite I made with a group of friends for a competition",
+        "link": "https://github.com/TheArctesian/cubesat"
+    },
+    {
+        "projectName": "CarpoolBuddy",
+        "description": "A uber clone to let people carpool to school",
+        "link": "https://github.com/TheArctesian/CarPoolBuddy-Svelte"
+    },
+    {
+        "projectName": "QuantumStuff",
+        "description": "My notes and programs around quantum computing using qiskit and IBM's quantum computer",
+        "link": "https://github.com/TheArctesian/QuantumStuff"
+    },
+    {
+        "projectName": "Eatrium",
+        "description": "An app to help automate the jobs of out school poor lunch ladies, this is a joke it was a school assignment and was never implemented",
+        "link": "https://github.com/TheArctesian/Eatrium"
+    }
+]

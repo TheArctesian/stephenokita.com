@@ -1,0 +1,48 @@
+[
+    {
+        "projectName": "My Dot files",
+        "description": "My personal configuration for Unix based systems, this is not a big project for most people but is the one I work on the most.",
+        "link": "https://github.com/TheArctesian/DotFiles",
+        "gitrepo": ""
+    },
+    {
+        "projectName": "danielokita.com",
+        "description": "This very website that you are on right now",
+        "link": "https://github.com/TheArctesian/danielokita.com"
+    },
+    {
+        "projectName": "alex-okita.com",
+        "description": "My brothers website, he is a lovely and I forgot to buy him a christmas gift so I spent the morning of christmas eve making him this. It is pretty poorly made but he seemed to like it.",
+        "link": "https://github.com/TheArctesian/alex-okita.com"
+    },
+    {
+        "projectName": "Start Page",
+        "description": "My personal 'home page' or the tab that opens up when I open up a new time. I switch between qutebrowser, firefox and brave but this always stays with me. It is very useful especially with vimium so I don't have to type into a searchbar. I am a programmer I am hardwiring to be lazy.",
+        "link": "https://github.com/TheArctesian/startpage"
+    },
+    {
+        "projectName": "Clear Beacon",
+        "description": "Asset Work and website for Clear Beacon",
+        "link": "https://github.com/TheArctesian/clearbeacon"
+    },
+    {
+        "projectName": "TI-84",
+        "description": "A collection of TI-84 apps",
+        "link": "https://github.com/TheArctesian/TI-84"
+    },
+    {
+        "projectName": "Template",
+        "description": "My template for creating new projects, gives donation links and GPL-3 licence",
+        "link": "https://github.com/TheArctesian/Template"
+    },
+    {
+        "projectName": "Crypto Donations",
+        "description": "A collection of snip bits for interacting with different blockchain payment systems. Intended to make donations easy.",
+        "link": "https://github.com/TheArctesian/CryptoDonations"
+    },
+    {
+        "projectName": "Fractals",
+        "description": "Some cool fractals I made in python",
+        "link": "https://github.com/TheArctesian/Fractals"
+    }
+]

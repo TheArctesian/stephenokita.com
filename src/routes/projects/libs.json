@@ -1,0 +1,17 @@
+[
+    {
+        "projectName": "Coalas",
+        "description": "An array based CSV parser",
+        "link": "https://github.com/TheArctesian/coalas"
+    },
+    {
+        "projectName": "Daddy Base",
+        "description": "A naive bayes sentiment analyser for custom models. Built this because I was using sklearn and there was a bug so taking the GNU philosophy I modularised it",
+        "link": "https://github.com/TheArctesian/DaddyBayes"
+    },
+    {
+        "projectName": "PercentIncrease",
+        "description": "A simple lib to practice rust, calculates percent increase with the og number and a new number",
+        "link": "https://github.com/TheArctesian/PercentIncrease"
+    }
+]

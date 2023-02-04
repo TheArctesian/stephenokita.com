@@ -5,6 +5,7 @@
 <div class="sub flex alight-center text-center ">
     <a href="/home" class="home">home, </a>
     <a href="/aboutme" class="about">&nbsp about, </a>
+    <a href="/projects" class="projects">&nbsp projects, </a>
     <a href="/blog" class="blog">&nbsp blog,</a>
 </div>
 
@@ -12,31 +13,50 @@
 
 <div class="wrapper">
     <div class="text">
-        <h1 class="text-center ">Email me at <span class="underline">me@danielokita.com</span></h1>
-        <h1 class="text-center ">Or find me on these places <h1>
-    <div class="content">
-    	<div class="element">
-    		<a href="https://www.linkedin.com/in/stephen-okita-a9427b1b2/">
-                <img src="https://simpleicons.org/icons/linkedin.svg" />
-    		</a>
-    	</div>
-    	<div class="element">
-    		<a href="https://mastodon.world/@thearctesian">
-    			<img src="https://simpleicons.org/icons/mastodon.svg" />
-    		</a>
-    	</div>
-    	<div class="element">
-    		<a href="https://github.com/TheArctesian">
-    			<img src="https://simpleicons.org/icons/github.svg"/>
-    		</a>
-        </div>
-        <div class="element">
-    		<a href="https://discord.com/users/682753580943278083">
-    			<img src="https://simpleicons.org/icons/discord.svg"/>
-    		</a>
-        </div>
-    </div>
-    as well as the source code for this website <a class="s" href="https://github.com/TheArctesian/danielokita.com">here</a>
+        <h1 class="text-center ">
+            Email me at <span class="underline">me@danielokita.com</span>
+        </h1>
+        <h1 class="text-center ">
+            Or find me on these places <h1>
+                <div class="content">
+                    <div class="element">
+                        <a
+                            href="https://www.linkedin.com/in/stephen-okita-a9427b1b2/"
+                        >
+                            <img
+                                src="https://simpleicons.org/icons/linkedin.svg"
+                            />
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="https://mastodon.world/@thearctesian">
+                            <img
+                                src="https://simpleicons.org/icons/mastodon.svg"
+                            />
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="https://github.com/TheArctesian">
+                            <img
+                                src="https://simpleicons.org/icons/github.svg"
+                            />
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="https://discord.com/users/682753580943278083">
+                            <img
+                                src="https://simpleicons.org/icons/discord.svg"
+                            />
+                        </a>
+                    </div>
+                </div>
+                as well as the source code for this website<a
+                    class="s"
+                    href="https://github.com/TheArctesian/danielokita.com"
+                    >here</a
+                >
+            </h1>
+        </h1>
     </div>
 </div>
 
@@ -50,10 +70,15 @@
     a {
         margin: auto;
         text-decoration: none;
-        font-size: 5vw;
+        font-size: 2vw;
         transition: all ease-in-out 400ms;
     }
-    .s{
+    @media (max-width: 750px) {
+        a {
+            font-size: 3.8vw;
+        }
+    }
+    .s {
         font-size: larger;
         font-style: italic;
         color: var(--comment);
@@ -62,20 +87,23 @@
         letter-spacing: 0.1em;
     }
     .home {
-        color: var(--red);
+        color: var(--orange);
     }
     .about {
         color: var(--pink);
     }
-    .blog {
+    .projects {
         color: var(--purple);
+    }
+    .blog {
+        color: var(--red);
     }
     :global(body) {
         background-color: var(--bg);
         font-family: "Fira Code", monospace;
         letter-spacing: 0.1em; /* Adjust as needed */
     }
-      .wrapper{
+    .wrapper {
         font-size: small;
         display: flex;
         justify-content: center;
@@ -83,21 +111,37 @@
         align-items: center;
         margin: 1rem;
     }
-     .content{
+    .content {
         display: flex;
         justify-content: center;
         margin: 1rem;
         border-radius: 2rem;
     }
-    .element{
+    .element {
         margin: 1rem;
+        border-radius: 3rem;
+        padding: 1rem;
+        border: 0.2rem solid var(--fg);
     }
-    .text{
+    .element:hover {
+        border: 0.2rem solid var(--purple);
+    }
+
+    @media (max-width: 750px) {
+        .element {
+            margin: 0.6rem;
+            border-radius: 0rem;
+            padding: 0rem;
+
+            border: 0.2rem solid var(--fg);
+        }
+    }
+    .text {
         background-color: var(--fg);
         padding: 1rem;
         border-radius: 1rem;
     }
-    img{
+    img {
         transition: all ease-in-out 200ms;
         width: 10vw;
     }

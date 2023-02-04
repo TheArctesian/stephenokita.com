@@ -1,20 +1,15 @@
 <script>
     import "../../app.css";
     import Typewriter from "svelte-typewriter";
-
-    let imgs = [
-        "meBass.jpeg",
-        "meGuitar.jpeg",
-        "meWater.jpeg",
-        "meOnAfence.jpeg",
-    ];
 </script>
 
 <div class="wrapper">
     <div class="text flex">
         <Typewriter interval="100">
             <p1 class="text-center"
-                >hello my name is <span class="daniel">Stephen Okita-<span id="ir">O'Riordan</span></p1
+                >hello my name is <span class="daniel"
+                    >Stephen Okita-<span id="ir">O'Riordan</span></span
+                ></p1
             >
         </Typewriter>
     </div>
@@ -95,6 +90,7 @@
             <img
                 src="https://img.icons8.com/ios/512/jazz.png"
                 alt="instruments image"
+                class="globe"
             />
         </div>
     </div>
@@ -114,13 +110,17 @@
                     <a
                         href="https://www.goodreads.com/user/show/155512706-stephen-okita"
                     >
-                        <img src="https://simpleicons.org/icons/goodreads.svg" />
+                        <img
+                            src="https://simpleicons.org/icons/goodreads.svg"
+                        />
                     </a>
                 </div>
                 <div class="element code">
                     Letter Box
                     <a href="https://letterboxd.com/danielOkita/">
-                        <img src="https://simpleicons.org/icons/letterboxd.svg" />
+                        <img
+                            src="https://simpleicons.org/icons/letterboxd.svg"
+                        />
                     </a>
                 </div>
             </div>
@@ -134,24 +134,24 @@
         color: var(--comment);
         transition: all ease-in-out 200ms;
     }
-    .wrap{
+    .wrap {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
         margin: 1rem;
     }
-     .content{
+    .content {
         display: flex;
         justify-content: center;
         margin: 1rem;
         border-radius: 2rem;
         margin: auto;
     }
-    img{
+    img {
         border-radius: 1rem;
     }
-    .element{
+    .element {
         margin: 1rem;
     }
     .txt {
@@ -162,6 +162,10 @@
     }
     #ir {
         color: var(--green);
+    }
+    .been {
+        width: 50%;
+        margin: auto;
     }
     #ld {
         color: var(--comment);

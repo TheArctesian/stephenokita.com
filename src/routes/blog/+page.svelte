@@ -45,14 +45,12 @@
 <style>
   .head {
     color: var(--black);
-    transition: all ease-in-out 200ms;
-    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 0.2rem solid var(--fg);
   }
   .head:hover {
-    border-radius: 1rem;
-    border: 0.2rem solid var(--pink);
-    padding: 1rem;
-    letter-spacing: 0.2em; /* Adjust as needed */
+    border: 0.2rem solid var(--orange);
   }
   a {
     font-size: larger;
