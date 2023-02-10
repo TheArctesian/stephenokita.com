@@ -1,57 +1,62 @@
 [
-    {
-        "projectName": "Blockchess",
-        "description": "A dApp using NFT's as 'skin' for chess",
-        "link": "https://github.com/TheArctesian/blockchess-rs"
-    },
-    {
-        "projectName": "Remail",
-        "description": "A GTK email client for rust [incomplete]",
-        "link": "https://github.com/TheArctesian/Flexi"
-    },
-    {
-        "projectName": "Fortune",
-        "description": "The CLI tool fortune applied to the phone, so that people can get fun random notifications from time to time. Idk one of my teachers recommand me to build it an Apple is probs never going to except it.",
-        "link": "https://github.com/TheArctesian/fortuneApp"
-    },
-    {
-        "projectName": "YT-graph",
-        "description": "Inspired by obsidian, a way of presenting youtube videos in a obsidian graph [incomplete]",
-        "link": "https://github.com/TheArctesian/YT-graph"
-    },
-    {
-        "projectName": "csv-tui",
-        "description": "My first attempts making a TUI in rust, trying to parse, display and edit CSV content in the terminal (like libreoffice but lightweight and worse)",
-        "link": "https://github.com/TheArctesian/csv-tui"
-    },
-    {
-        "projectName": "decentrland",
-        "description": "The first game I made in decentrland (Web3 metaverse thing)",
-        "link": "https://github.com/TheArctesian/decentrland"
-    },
-    {
-        "projectName": "Blockchess Unity",
-        "description": "My first attempt at making a crypto chess dapp",
-        "link": "https://github.com/TheArctesian/blockChess-unity"
-    },
-    {
-        "projectName": "ERC-721Example",
-        "description": "Example and docs on how to make an NFT",
-        "link": "https://github.com/TheArctesian/ERC-721Example"
-    },
-    {
-        "projectName": "VoxelRemesh",
-        "description": "A program in C and Rust to convert mesh into Voxels, was made for sandbox but I stopped working for that company",
-        "link": "https://github.com/TheArctesian/VoxelRemesh"
-    },
-    {
-        "projectName": "ipfs",
-        "description": "My first attempt at making an IPFS blog",
-        "link": "https://github.com/TheArctesian/ipfs"
-    },
-    {
-        "projectName": "react-whiteboard",
-        "description": "A whiteboard in react, was pretty early on so I didn't know how to turn this into a package",
-        "link": "https://github.com/TheArctesian/react-whiteboard"
-    }
+  {
+    "projectName": "Tablequestions.net",
+    "description": "An app for generating deep and fun questions to get to know your friends better",
+    "link": "https://tablequestions.net/"
+  },
+  {
+    "projectName": "Blockchess",
+    "description": "A dApp using NFT's as 'skin' for chess",
+    "link": "https://github.com/TheArctesian/blockchess-rs"
+  },
+  {
+    "projectName": "Remail",
+    "description": "A GTK email client for rust [incomplete]",
+    "link": "https://github.com/TheArctesian/Flexi"
+  },
+  {
+    "projectName": "Fortune",
+    "description": "The CLI tool fortune applied to the phone, so that people can get fun random notifications from time to time. Idk one of my teachers recommand me to build it an Apple is probs never going to except it.",
+    "link": "https://github.com/TheArctesian/fortuneApp"
+  },
+  {
+    "projectName": "YT-graph",
+    "description": "Inspired by obsidian, a way of presenting youtube videos in a obsidian graph [incomplete]",
+    "link": "https://github.com/TheArctesian/YT-graph"
+  },
+  {
+    "projectName": "csv-tui",
+    "description": "My first attempts making a TUI in rust, trying to parse, display and edit CSV content in the terminal (like libreoffice but lightweight and worse)",
+    "link": "https://github.com/TheArctesian/csv-tui"
+  },
+  {
+    "projectName": "decentrland",
+    "description": "The first game I made in decentrland (Web3 metaverse thing)",
+    "link": "https://github.com/TheArctesian/decentrland"
+  },
+  {
+    "projectName": "Blockchess Unity",
+    "description": "My first attempt at making a crypto chess dapp",
+    "link": "https://github.com/TheArctesian/blockChess-unity"
+  },
+  {
+    "projectName": "ERC-721Example",
+    "description": "Example and docs on how to make an NFT",
+    "link": "https://github.com/TheArctesian/ERC-721Example"
+  },
+  {
+    "projectName": "VoxelRemesh",
+    "description": "A program in C and Rust to convert mesh into Voxels, was made for sandbox but I stopped working for that company",
+    "link": "https://github.com/TheArctesian/VoxelRemesh"
+  },
+  {
+    "projectName": "ipfs",
+    "description": "My first attempt at making an IPFS blog",
+    "link": "https://github.com/TheArctesian/ipfs"
+  },
+  {
+    "projectName": "react-whiteboard",
+    "description": "A whiteboard in react, was pretty early on so I didn't know how to turn this into a package",
+    "link": "https://github.com/TheArctesian/react-whiteboard"
+  }
 ]

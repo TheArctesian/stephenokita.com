@@ -122,7 +122,7 @@
     font-style: italic;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 1000px) {
     .control {
       flex-direction: column;
     }
