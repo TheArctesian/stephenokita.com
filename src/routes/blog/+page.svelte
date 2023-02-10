@@ -11,10 +11,10 @@
   }
   import writings from "./political.json";
 
-  function show(): any{
-    let element: Element | null= document.querySelector('.content');
-    element.style.display = "flex"
-  }
+  // function show(): any{
+  //   let element: Element | null= document.querySelector('.content');
+  //   element.style.display = "flex"
+  // }
 </script>
 
 <div class="flex flex-wrap">
@@ -22,7 +22,7 @@
     <h1 class="font-bold tit">Political</h1>
     <div class="flex card-holder margin-auto" >
       {#each writings as i}
-        <button on:click={show()} class="card text flex" >
+        <div class="card text flex" >
           <div class="">
             <h1 class="text-lg font-bold">{i.title}</h1>
             <br />
@@ -36,7 +36,7 @@
               <br />
             {/each}
           </div>
-        </button>
+        </div>
       {/each}
     </div>
   </div>
@@ -69,7 +69,6 @@
     margin: 1rem;
   }
   .content { 
-    display: none;
   }
   .card {
     flex-direction: column;
