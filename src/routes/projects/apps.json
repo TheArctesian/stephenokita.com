@@ -1,5 +1,10 @@
 [
   {
+    "projectName": "marxist.store",
+    "description": "Still a mess rn, but will be a site the uses the LuLu API to print Marxist and marxist adjacent books ",
+    "link": "https://github.com/TheArctesian/marxist.store"
+  },
+  {
     "projectName": "Tablequestions.net",
     "description": "An app for generating deep and fun questions to get to know your friends better",
     "link": "https://tablequestions.net/"

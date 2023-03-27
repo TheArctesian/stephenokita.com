@@ -56,7 +56,7 @@
         overflow: hidden;
     }
     img {
-        border-radius: 1rem;
+        border-radius: 0.2rem;
         animation: fadeIn 5s;
         margin: auto;
         width: 39%;
@@ -66,7 +66,7 @@
         margin: auto;
         background-color: var(--fg);
         padding: 1rem;
-        border-radius: 1rem;
+        border-radius: 0.2rem;
         margin: 1rem;
     }
     .daniel {

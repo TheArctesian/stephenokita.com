@@ -1,5 +1,10 @@
 [
     {
+        "projectName": "medaitimeline.danielokita.com",
+        "description": "I stupid visualiser for the books and movies I have seen",
+        "link": "https://github.com/TheArctesian/danielokita.com"
+    },
+    {
         "projectName": "My Dot files",
         "description": "My personal configuration for Unix based systems, this is not a big project for most people but is the one I work on the most.",
         "link": "https://github.com/TheArctesian/DotFiles",

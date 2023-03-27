@@ -13,18 +13,8 @@
         the world. this section will describe me as a programmer
     </p>
 </div>
-<div class="text flex flex-col text-center">
-    <div>
-        My resume can be downloaded here
-        <button
-            type="submit"
-            onclick="window.open('/other/Stephen_Activites_Resume.pdf')"
-            class="btn"
-            ><i class="fa fa-download" /> Download</button
-        >
-    </div>
-</div>
-<div class="text">
+
+<!-- <div class="text">
     <p>
         The languages list is not complete in there. in the ream of computers i
         speak (and the specifics frameworks for that language):
@@ -47,7 +37,7 @@
     <li>r (rocket, bevy)</li>
     <li>rust</li>
     <li>solidity</li>
-</div>
+</div> -->
 <div class="text">
     <p>
         as a foss man i daily boot some form of linux. i have tried and worked
@@ -66,7 +56,17 @@
             href="/projects">projects page</a>
     </p>
 </div>
-
+<div class="text flex flex-col text-center">
+    <div>
+        My resume can be downloaded here
+        <button
+            type="submit"
+            onclick="window.open('/other/Stephen_Activites_Resume.pdf')"
+            class="btn"
+            ><i class="fa fa-download" /> Download</button
+        >
+    </div>
+</div>
 <style>
     .btn {
         width: fit-content;

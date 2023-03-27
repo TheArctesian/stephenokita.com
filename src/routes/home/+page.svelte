@@ -8,7 +8,7 @@
         <Typewriter interval="100">
             <p1 class="text-center"
                 >hello my name is <span class="daniel"
-                    >Stephen Okita-<span id="ir">O'Riordan</span></span
+                    >Stephen Daniel Okita-O'Riordan</span
                 ></p1
             >
         </Typewriter>
@@ -174,7 +174,7 @@
         background-color: var(--fg);
         padding: 1rem;
         text-align: center;
-        border-radius: 1rem;
+        border-radius: 0.2rem;
         font-size: small;
         margin: 1rem;
     }
@@ -187,14 +187,14 @@
     }
     .img {
         margin: auto;
-        border-radius: 1rem;
+        border-radius: 0.2rem;
         animation: fadeIn 5s;
         width: 39%;
     }
     .header {
         background-color: var(--fg);
         padding: 1rem;
-        border-radius: 1rem;
+        border-radius: 0.2rem;
         margin: 1rem;
         transition: all ease-in-out 200ms;
     }

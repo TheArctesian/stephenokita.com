@@ -3,12 +3,12 @@
   import Typewriter from "svelte-typewriter";
   import BlogEntery from "../../lib/components/blogEntery.svelte";
 
-  type article = { 
+  type article = {
     title: string;
     date: string;
     abstract: string;
     content: string[];
-  }
+  };
   import writings from "./political.json";
 
   // function show(): any{
@@ -19,23 +19,13 @@
 
 <div class="flex flex-wrap">
   <div class="head flex flex-col">
-    <h1 class="font-bold tit">Political</h1>
-    <div class="flex card-holder margin-auto" >
+    <h1 class="font-bold tit">All posts (WORK IN PROGRESS)</h1>
+    <div class="flex card-holder margin-auto">
       {#each writings as i}
-        <div class="card text flex" >
-          <div class="">
-            <h1 class="text-lg font-bold">{i.title}</h1>
-            <br />
-            <h1 class="text-base"><b>Date:</b> {i.date}</h1>
-            <h1 class="text-base"><b>Abstract: </b>{i.abstract}</h1>
-          </div>
+        <div class="case-holder flex text-center">
+          <h1 class="text-lg">{i.date}: &ensp;   </h1>
+          <h1 class="text-lg font-bold">{i.title}</h1>
           <br />
-          <div class="content flex-col float-left">
-            {#each i.content as x}
-              <p class="text-m float-left">{x}</p>
-              <br />
-            {/each}
-          </div>
         </div>
       {/each}
     </div>
@@ -45,6 +35,7 @@
 <!-- <BlogEntery /> -->
 <style>
   .tit {
+    margin: auto;
     background-color: var(--fg);
     padding: 1rem;
     border-radius: 0.2rem;
@@ -52,6 +43,10 @@
     font-size: large;
     text-align: center;
     margin: 1rem;
+  }
+  .head {
+    margin: auto;
+    width: 100%;
   }
   a {
     font-size: larger;
@@ -68,17 +63,16 @@
     font-size: small;
     margin: 1rem;
   }
-  .content { 
-  }
+
   .card {
     flex-direction: column;
   }
-  .card:hover{
-    background-color: var(--red);
-  }
   .card-holder {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: var(--fg);
+    flex-direction: column;
   }
-
   @media (max-width: 750px) {
     .card-holder {
       flex-direction: column;
