@@ -71,7 +71,7 @@
   }
   @media (max-width: 750px) {
     a {
-      font-size: 3.8vw;
+      font-size: 3.7vw;
     }
   }
   .s {
