@@ -54,9 +54,7 @@
     .head:hover {
         border: 0.2rem solid var(--pink);
     }
-    img {
-        width: 20rem;
-    }
+
     h1 {
         font-weight: bold;
     }
