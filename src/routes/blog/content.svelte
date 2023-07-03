@@ -1,5 +1,7 @@
 <script lang="ts">
     import "../../app.css";
+
+  import { fly } from "svelte/transition";
     type jsonList = {
         title: string;
         date: string;
@@ -32,7 +34,7 @@
         </div>
     </div>
     <Collapsible bind:isOpen>
-        <div class="float-left">
+        <div class="float-left"  transition:fly|global>
             <p><b>Abstract: </b>{data.abstract}</p>
             <br />
             {#each data.content as parg}

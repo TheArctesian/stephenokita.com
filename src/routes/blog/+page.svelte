@@ -12,10 +12,10 @@
 
 <div class="flex flex-wrap">
   <div class="head flex flex-col">
-    <div class="flex card-holder ">
+    <div class="flex card-holder">
       {#each writings as i}
-        <div class="case-holder flex ">
-          <Content data={i}></Content>
+        <div class="case-holder flex" >
+          <Content data={i} />
           <br />
         </div>
       {/each}
@@ -25,7 +25,6 @@
 
 <!-- <BlogEntery /> -->
 <style>
-
   .head {
     width: 100%;
   }

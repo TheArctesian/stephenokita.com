@@ -1,29 +1,21 @@
-<script context="module">
-  /** @type {import('@sveltejs/kit').Load} */
-  export const load = async ({ url }) => ({ props: { url } });
-</script>
-
 <script lang="ts">
   import "../app.css";
-  import PageTransition from "../lib/components/pagetransition.svelte";
-  export let url: string;
 </script>
 
-<div class="sub flex alight-center text-center ">
+<div class="sub flex alight-center text-center">
   <a href="/home" class="home">home, </a>
   <a href="/aboutme" class="about">&nbsp about, </a>
   <a href="/projects" class="projects">&nbsp projects, </a>
   <a href="/blog" class="blog">&nbsp blog,</a>
 </div>
-<PageTransition {url}>
-  <slot />
-</PageTransition>
+<slot />
+
 <div class="wrapper">
   <div class="text">
-    <h1 class="text-center ">
+    <h1 class="text-center">
       Email me at <span class="underline">me@danielokita.com</span>
     </h1>
-    <h1 class="text-center ">
+    <h1 class="text-center">
       Or find me on these places <h1>
         <div class="content">
           <div class="element">
@@ -47,7 +39,7 @@
             </a>
           </div>
         </div>
-        as well as the source code for this website <a
+        as well as the source code for this website<a
           class="s"
           href="https://github.com/TheArctesian/danielokita.com">here</a
         >
