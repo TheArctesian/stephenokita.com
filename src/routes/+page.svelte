@@ -17,31 +17,31 @@
     </div>
     <div class="header text">
         <p2>
-            hello my name is <span class="daniel">Daniel Okita,</span>
-            welcome to my website. i am a FOSS programmer looking to understand and
-            change the world </p2
+            Hello my name is <span class="daniel">Daniel Okita,</span>
+            welcome to my website. I am a FOSS programmer looking to understand and
+            change the world! </p2
         >
     </div>
     <div class="header text">
         <p2>
-            if you would for some reason wish to know more about me this website
+            If you would for some reason wish to know more about me this website
             is for you!
             <br />
             <br />
-            the structure of this website in a way that might be a little deceiving.
+            The structure of this website in a way that might be a little deceiving.
             <br />
             <br />
-            <a href="/home" class="code">`home`</a> => the story of my
-            background, where i from, what i am according to myself.
+            <a href="/home" class="code">`home`</a> => The story of my
+            background, where I from, what I am according to myself.
             <br />
             <br />
-            <a href="/aboutme" class="code">`about me’</a> => the superficial
+            <a href="/aboutme" class="code">`about me’</a> => The superficial
             approach, the quantifiable achievements and skills that i have that
             make me of value to society or you.
             <br />
             <br />
             <a href="/blog" class="code">`blog’</a> => does not need explanation
-            and is simply the place i ramble into the oblivion.
+            and is simply the place I ramble into the oblivion.
             <br />
             <br />
             So that is to say once you leave this page unless you change the domain

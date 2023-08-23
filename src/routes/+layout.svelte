@@ -6,7 +6,7 @@
   <a href="/home" class="home">home, </a>
   <a href="/aboutme" class="about">&nbsp about, </a>
   <a href="/projects" class="projects">&nbsp projects, </a>
-  <a href="/blog" class="blog">&nbsp blog,</a>
+  <a href="/blog" class="blog">&nbsp blog</a>
 </div>
 <slot />
 

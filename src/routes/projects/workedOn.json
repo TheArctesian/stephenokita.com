@@ -1,37 +1,42 @@
 [
-    {
-        "projectName": "Xmonad",
-        "description": "A DWM clone in haskell",
-        "link": "https://github.com/xmonad/xmonad"
-    },
-    {
-        "projectName": "svelte-coutdown",
-        "description": "A lib to display the coutdown time to a date in svelte",
-        "link": "https://github.com/TheArctesian/svelte-countdown"
-    },
-    {
-        "projectName": "nfetch-src",
-        "description": "A system information tool written in nim with a friend I met on the UnixPorn discord server",
-        "link": "https://github.com/TheArctesian/nfetch-src"
-    },
-    {
-        "projectName": "ly",
-        "description": "display manager for TTY's. Like GDM but cooler",
-        "link": "https://github.com/TheArctesian/ly"
-    },
-    {
-        "projectName": "skyWM",
-        "description": "A rust DWM clone adhering to the KISS and Unix philosophy.",
-        "link": "https://github.com/TheArctesian/skyWM"
-    },
-    {
-        "projectName": "lgit",
-        "description": "A git automation app so you don't have to write so many commands for doing simple git commands.",
-        "link": "https://github.com/TheArctesian/lgit"
-    },
-    {
-        "projectName": "stackcord",
-        "description": "A website a couple of my friends and I made for teachers and students to connect and ask question in low band width environments. Was for a hackathon that we won.",
-        "link": "https://github.com/TheArctesian/stackcord"
-    }
+  {
+    "projectName": "gnome-shell-extensions-useless-gaps",
+    "description": "A gnome extensions to put gaps between your windows when you auto maximise them",
+    "link": "https://github.com/mipmip/gnome-shell-extensions-useless-gaps"
+  },
+  {
+    "projectName": "Xmonad",
+    "description": "A DWM clone in haskell",
+    "link": "https://github.com/xmonad/xmonad"
+  },
+  {
+    "projectName": "svelte-coutdown",
+    "description": "A lib to display the coutdown time to a date in svelte",
+    "link": "https://github.com/TheArctesian/svelte-countdown"
+  },
+  {
+    "projectName": "nfetch-src",
+    "description": "A system information tool written in nim with a friend I met on the UnixPorn discord server",
+    "link": "https://github.com/TheArctesian/nfetch-src"
+  },
+  {
+    "projectName": "ly",
+    "description": "display manager for TTY's. Like GDM but cooler",
+    "link": "https://github.com/TheArctesian/ly"
+  },
+  {
+    "projectName": "skyWM",
+    "description": "A rust DWM clone adhering to the KISS and Unix philosophy.",
+    "link": "https://github.com/TheArctesian/skyWM"
+  },
+  {
+    "projectName": "lgit",
+    "description": "A git automation app so you don't have to write so many commands for doing simple git commands.",
+    "link": "https://github.com/TheArctesian/lgit"
+  },
+  {
+    "projectName": "stackcord",
+    "description": "A website a couple of my friends and I made for teachers and students to connect and ask question in low band width environments. Was for a hackathon that we won.",
+    "link": "https://github.com/TheArctesian/stackcord"
+  }
 ]
