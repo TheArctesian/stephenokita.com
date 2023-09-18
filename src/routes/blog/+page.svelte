@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
   import PostCard from "$lib/components/post-card.svelte";
   import { concurrent } from "svelte-typewriter";
-  let posts = [
-    { title: "Post 1", description: "Short description 1", url: "/blog/post1" },
-    { title: "Post 2", description: "Short description 2", url: "/post2" },
-  ];
+  import { formatDate } from "$lib/utils.js";
+  export let data
+
 </script>
 
 <div class="text flex-wrap">
@@ -22,6 +21,28 @@
     </h1>
   </div>
 </div>
+
+<div class="text flex-wrap">
+  <div class="head flex  flex-col">
+<section>
+	<ul class="posts">
+		{#each data.posts as post}
+			<li class="post">
+        <hr>
+        <br>
+				<a href={post.slug} class="title">{post.title}</a>
+				<p class="date">Published at {formatDate(post.date)}</p>
+        <p class="date">Location: {post.location}</p>
+				<p class="description">{post.description}</p>
+        <br>
+        <hr>
+			</li>
+		{/each}
+	</ul>
+</section>
+  </div>
+</div>
+
 
 <!--  
 {#each posts as post}
@@ -54,4 +75,33 @@
       display: block;
     }
   }
+  .posts {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.post {
+	}
+
+	.post:not(:last-child) {
+		border-bottom: 1px solid var(--border);
+		padding-bottom: var(--size-7);
+	}
+
+	.title {
+    font-size: larger;
+    font-weight: bold;
+    color: var(--bg);
+	}
+
+	.date {
+		color: var(--bg);
+	}
+
+	.description {
+		margin-top: 1rem;
+    margin-left: 1rem;
+    color:var(--bg)
+	}
+
 </style>

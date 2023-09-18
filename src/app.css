@@ -42,3 +42,79 @@
 b {
     font-weight: bold;
 }
+
+/* ... */
+.prose :is(a){
+    text-decoration: none;
+    color: var(--purple);
+    font-style: italic;
+
+  }
+.prose :is(h2, h3, h4, h5, h6) {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.prose p:not(:is(h2, h3, h4, h5, h6) + p) {
+	margin-top: 1rem;
+}
+
+.prose :is(ul, ol) {
+	list-style-type:disc;
+	padding-left: 1rem;
+}
+
+.prose :is(ul, ol) li {
+	margin-block: 0.1rem;
+	padding-inline-start: 0.1rem;
+}
+
+.prose pre {
+	max-inline-size: 100%;
+	padding: 1rem;
+	border-radius: 8px;
+	tab-size: 2;
+}
+
+
+:root {
+	color-scheme: dark;
+    color:#282A36
+}
+
+
+img {
+	border-radius: var(--radius-3);
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+li {
+	padding-inline-start: 0;
+}
+
+.surface-1 {
+	background-color: var(--bg);
+}
+
+.surface-2 {
+	background-color: var(--surface-2);
+	color: var(--text-2);
+}
+
+.surface-3 {
+	background-color: var(--surface-3);
+	color: var(--text-1);
+}
+
+.surface-4 {
+	background-color: var(--surface-4);
+	color: var(--text-1);
+}
+hr{
+    border-color: var(--bg);
+  }
