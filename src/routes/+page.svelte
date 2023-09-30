@@ -1,9 +1,6 @@
 <script>
     import "../app.css";
     import Typewriter from "svelte-typewriter";
-    import { dev } from '$app/environment';
-    import { inject } from '@vercel/analytics';
-    inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 <div class="head flex flex-col">
