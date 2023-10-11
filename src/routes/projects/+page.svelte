@@ -41,7 +41,7 @@
   }
     .rotate {
     transform: rotate(90deg);
-    transition: transform 0.2s ease-in-out;
+    transition:  0.2s ease-in-out;
   }
   .text {
     background-color: var(--fg);

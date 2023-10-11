@@ -378,6 +378,10 @@
             Portainer
         </div>
         <div class="m-2 flex flex-col text-center">
+            <img src="https://simpleicons.org/icons/nginxproxymanager.svg" />
+            Nginx Proxy Manager
+        </div>
+        <div class="m-2 flex flex-col text-center">
             <img src="https://simpleicons.org/icons/nextcloud.svg" />
             Nextcloud
         </div>
