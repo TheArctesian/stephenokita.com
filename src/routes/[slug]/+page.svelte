@@ -39,6 +39,8 @@
     padding: 1rem;
     color: var(--bg);
     border-radius: 0.2rem;
+
+    overflow: wrap;
     margin: 1rem;
   }
 
@@ -64,6 +66,7 @@
     padding: 1rem;
     border-radius: 0.2rem;
     margin: 1rem !important;
+
   }
   .blog {
     color: var(--red);

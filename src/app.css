@@ -44,6 +44,7 @@ b {
 }
 
 /* ... */
+
 .prose :is(a){
     text-decoration: none;
     color: var(--purple);
@@ -69,8 +70,16 @@ b {
 	padding-inline-start: 0.1rem;
 }
 
+code{
+    width: fit-content;
+}
+code span{
+    display: flex;
+    flex-wrap: wrap;
+    overflow:scroll;
+    font-size: small;
+}
 .prose pre {
-	max-inline-size: 100%;
 	padding: 1rem;
 	border-radius: 8px;
 	tab-size: 2;
