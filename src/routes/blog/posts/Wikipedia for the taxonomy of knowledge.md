@@ -1,6 +1,6 @@
 ---
 title: Wikipedia For the Taxonomy of Knowledge 
-description: Hello World! Welcome to my blog. 
+description: Trying to scrape wikipedia for the root of knowledge
 date: '2023-10-17'
 location: Berkeley
 categories: 
@@ -26,6 +26,9 @@ With this messy data I did a preliminary sweep with this little slice of regex  
 
 After that I had a 20gb file of strings stored in a `.txt` file, but some of them are a bit weird here is an example of what the data looked like at that point.
 
+
+<br>
+
 ```cs
 Imperial cult  
 File:Imperial Seal of Japan.svg|thumb|right|120px|[[Imperial Seal of Japan|Japanese Imperial kamon  
@@ -39,6 +42,8 @@ Emperor Kanmu
 ```
 
 After doing more regex to remove the data after the `|` and any line that had 'File:' on it I had about a 10 GB file of workable data. I then wrote a simple counting script and let it run for 20 min. When it finished I opened the file excited to see the answer to knowledge but instead saw this.
+
+<br>
 
 ```json
 wp:aes: 2991227
@@ -55,7 +60,9 @@ wikipedia:articles for deletion/pagename (2nd nomination): 477692
 
 Disappointed I put in a little more regex and was finlay left with a GB long file with the secrets to the organisation of all knowledge.
 
-So what did I find well you can look through the data yourself [here](ADD THIS LINK), but as a sneak peak here are the top 50:
+So what did I find well you can look through the data yourself [here](https://drive.google.com/file/d/1xqywfPbgk_bEUqD0WYvkQRxEhte54f66/view?usp=sharing), but as a sneak peak here are the top 50:
+
+<br>
 
 ```cs
 united states: 376794
