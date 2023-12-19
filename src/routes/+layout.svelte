@@ -10,6 +10,7 @@
   <a href="/home" class="home">home, </a>
   <a href="/aboutme" class="about">&nbsp about, </a>
   <a href="/projects" class="projects">&nbsp projects, </a>
+  <a href="/art" style="color: var(--cyan)">&nbsp arts, </a>
   <a href="/blog" class="blog">&nbsp blog</a>
 </div>
 <slot />
@@ -110,7 +111,7 @@
   }
   .element {
     margin: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.2;
     padding: 1rem;
     border: 0.2rem solid var(--fg);
   }

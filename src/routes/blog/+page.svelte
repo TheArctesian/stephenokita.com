@@ -11,7 +11,7 @@
       class="text-center"
       use:concurrent={{
         mode: "loop",
-        delay: 500,
+        delay: 10,
         wordInterval: 100,
         interval: 100,
       }}

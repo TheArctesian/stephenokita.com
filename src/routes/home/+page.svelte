@@ -29,7 +29,7 @@
   <div class="contWrapper">
     <div class="header flex grow-1">
       <div class="float-right grow txt ">
-        I currently live in <span id="hk"> Hong Kong</span>,
+        I currently attend  <span id="ld"> UC Berkeley</span>,
         I grew up in <span id="hk"> Hong Kong</span>,
         I was born in <span id="ld">London</span>,
         my mother is from <span id="ir">Ireland</span>, 

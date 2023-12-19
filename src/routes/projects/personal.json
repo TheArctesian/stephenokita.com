@@ -1,13 +1,18 @@
 [
+{
+    "projectName": "Taxonomy of Knowledge using Wikipedia",
+    "description": "These are the py files for my blog post",
+    "link": "https://github.com/TheArctesian/Wikipedia-Knowledge-Taxonomy"
+  },
   {
     "projectName": "world.danielokita.com",
-    "description": "I stupid visualiser for the books, games and movies I have read/played/watched",
-    "link": "https://github.com/TheArctesian/danielokita.com"
+    "description": "A visualiser for all the places I have been in the world",
+    "link": "https://github.com/TheArctesian/world.danielokita.com"
   },
   {
     "projectName": "medaitimeline.danielokita.com",
-    "description": "I stupid visualiser for the books and movies I have seen",
-    "link": "https://github.com/TheArctesian/danielokita.com"
+    "description": "A stupid visualiser for the books and movies I have seen",
+    "link": "https://github.com/TheArctesian/mediatimeline.danielokita.com"
   },
   {
     "projectName": "My Dot files",
