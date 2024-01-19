@@ -1,10 +1,34 @@
 <script lang="ts">
   import "../../app.css";
+  import Carousel from "svelte-carousel";
+  import Youtube from "svelte-youtube-embed";
+  import music from "./music.json";
+  import animations from "./animations.json";
   import casper from "./imgs/Caspar_David_Friedrich’s_Wanderer_above_the_Sea_of_Fog_with_a_sea_of_buildings.png";
+  let carousel; // for calling methods of the carousel instance
+  const handleNextClick = () => {
+    carousel.goToNext();
+  };
 </script>
 
 <div class="text wrapper">
   <h1>This is a collection of my music musings</h1>
+  <div class="flex gap-4">
+    <Carousel
+      bind:this={carousel}
+      let:loaded
+      autoplay
+      autoplayDuration={3000}
+      autoplayProgressVisible
+    >
+      {#each music as song}
+        <div class="">
+          <h1>{song.title}</h1>
+          <Youtube id={song.id}></Youtube>
+        </div>
+      {/each}
+    </Carousel>
+  </div>
 </div>
 
 <div class="text wrapper">
@@ -20,11 +44,27 @@
 
 <div class="text wrapper">
   <h1>This is a collection of my animations</h1>
+  <div class="flex gap-4">
+    <Carousel
+      bind:this={carousel}
+      let:loaded
+      autoplay
+      autoplayDuration={3000}
+      autoplayProgressVisible
+    >
+      {#each animations as anim}
+        <div class="">
+          <h1>{anim.title}</h1>
+          <Youtube id={anim.id}></Youtube>
+        </div>
+      {/each}
+    </Carousel>
+  </div>
 </div>
 
-<div class="text wrapper">
+<!-- <div class="text wrapper">
   <h1>These are some cool photos I have seen in the wild</h1>
-</div>
+</div> -->
 
 <style>
   .img {
