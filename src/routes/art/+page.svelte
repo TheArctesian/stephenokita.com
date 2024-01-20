@@ -1,5 +1,6 @@
 <script>
   import "../../app.css";
+
   import Carousel from "svelte-carousel";
   import Youtube from "svelte-youtube-embed";
   import music from "./music.json";
@@ -9,11 +10,12 @@
   const handleNextClick = () => {
     carousel.goToNext();
   };
+  
 </script>
 
 <div class="text wrapper">
-  <h1>This is a collection of my music musings</h1>
-  <div class="flex gap-4 h-1/4">
+  <h1>This is a collection of my music musings, these are not structured songs but just cool sounds I make while fooling around</h1>
+  <div>
     <Carousel
       bind:this={carousel}
       let:loaded
@@ -41,7 +43,7 @@
 
 <div class="text wrapper">
   <h1>This is a collection of my animations</h1>
-  <div class="flex gap-4 h-1/4">
+  <div>
     <Carousel
       bind:this={carousel}
       let:loaded
