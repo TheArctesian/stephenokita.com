@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import "../../app.css";
   import Carousel from "svelte-carousel";
   import Youtube from "svelte-youtube-embed";
@@ -13,18 +13,15 @@
 
 <div class="text wrapper">
   <h1>This is a collection of my music musings</h1>
-  <div class="flex gap-4">
+  <div class="flex gap-4 h-1/4">
     <Carousel
       bind:this={carousel}
       let:loaded
-      autoplay
-      autoplayDuration={3000}
-      autoplayProgressVisible
     >
       {#each music as song}
         <div class="">
-          <h1>{song.title}</h1>
-          <Youtube id={song.id}></Youtube>
+          <h1 class="text-center text-xl font-bold">{song.title}</h1>
+          <Youtube id={song.id} />
         </div>
       {/each}
     </Carousel>
@@ -44,18 +41,16 @@
 
 <div class="text wrapper">
   <h1>This is a collection of my animations</h1>
-  <div class="flex gap-4">
+  <div class="flex gap-4 h-1/4">
     <Carousel
       bind:this={carousel}
       let:loaded
-      autoplay
-      autoplayDuration={3000}
-      autoplayProgressVisible
     >
       {#each animations as anim}
         <div class="">
-          <h1>{anim.title}</h1>
-          <Youtube id={anim.id}></Youtube>
+          <h1 class="text-center text-xl font-bold">{anim.title}</h1>
+          <br>
+          <Youtube id={anim.id} />
         </div>
       {/each}
     </Carousel>
@@ -65,7 +60,6 @@
 <!-- <div class="text wrapper">
   <h1>These are some cool photos I have seen in the wild</h1>
 </div> -->
-
 <style>
   .img {
     margin: 1rem;
