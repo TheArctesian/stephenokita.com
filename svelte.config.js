@@ -20,6 +20,11 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   extensions: [".svelte", ".md"],
+   vite: {
+      optimizeDeps: {
+        include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
+      }
+    },
   preprocess: [
     preprocess({
       postcss: true,

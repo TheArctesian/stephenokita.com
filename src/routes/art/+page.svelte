@@ -1,6 +1,6 @@
 <script>
   import "../../app.css";
-
+  import { browser } from '$app/environment';
   import Carousel from "svelte-carousel";
   import Youtube from "svelte-youtube-embed";
   import music from "./music.json";
@@ -12,7 +12,7 @@
   };
   
 </script>
-
+{#if browser}
 <div class="text wrapper">
   <h1>This is a collection of my music musings, these are not structured songs but just cool sounds I make while fooling around</h1>
   <div>
@@ -58,7 +58,7 @@
     </Carousel>
   </div>
 </div>
-
+{/if}
 <!-- <div class="text wrapper">
   <h1>These are some cool photos I have seen in the wild</h1>
 </div> -->

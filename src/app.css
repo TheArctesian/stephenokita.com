@@ -74,10 +74,6 @@ code{
     width: fit-content;
 }
 code span{
-    display: flex;
-    flex-wrap: wrap;
-    overflow:scroll;
-    font-size: small;
 }
 .prose pre {
 	padding: 1rem;
