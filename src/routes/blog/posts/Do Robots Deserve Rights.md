@@ -2,10 +2,10 @@
 title: Do Robots Deserve Rights
 description: Playing with utilitarianism to convince you to be nice to machines 
 date: '2024-1-20'
-location: Berkeley
+location: Hong Kong
 categories: 
     - Philosophy
-    - Critical Theory
+    - Computer Science
 published: true
 ---
 Recently I was watching Lex Friedman's interview of Peter Singer. Lex has always been one of my favorite podcastser, and Singer is the most important philosopher of the last 50 years. This episode is a rather early edition of Lex's podcast and Lex's questions show his lack of experience. The podcast is for the most part a bore, Lex asking trivial questions and Signer responding enthusiastically. It got to a point where Lex decided to remind his audience that he is in fact an AI researcher, and he asked, what I believe Signer assumed to be another trivial question, Do Robots Deserve Rights?

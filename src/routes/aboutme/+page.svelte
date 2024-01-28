@@ -404,18 +404,9 @@
 </div>
 
 <div class="text flex flex-col ">
-    For other things, I am knowledgable about literature, political-economy, history, philosophy (ethics) and culture. I also love learning and thinking in different languages.
+    For other things, I am knowledgable about literature, political-economy, history, philosophy and culture. I also love learning and thinking in different languages.
 </div>
-<div class="text flex flex-col text-center">
-    <div>
-        My resume can be downloaded here
-        <button
-            type="submit"
-            onclick="window.open('/other/Stephen_Activites_Resume.pdf')"
-            class="btn"><i class="fa fa-download" /> Download</button
-        >
-    </div>
-</div>
+
 
 <style>
     img {

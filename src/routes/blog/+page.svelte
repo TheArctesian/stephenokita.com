@@ -16,7 +16,7 @@
         interval: 100,
       }}
     >
-      Forever a Work in progress...
+      Forever a work in progress...
     </h1>
   </div>
 </div>

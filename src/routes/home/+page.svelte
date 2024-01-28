@@ -8,7 +8,7 @@
     <Typewriter interval="100">
       <p1 class="cen"
         >hello my name is <span class="daniel"
-          >Stephen Daniel Okita-O'Riordan</span
+          >Stephen Daniel Okita</span
         ></p1
       >
     </Typewriter>
