@@ -4,7 +4,7 @@
     import { inject } from '@vercel/analytics';
     inject({ mode: dev ? 'development' : 'production' });
     import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
-
+    injectSpeedInsights()
 </script>
 
 <div class="sub flex alight-center text-center">
