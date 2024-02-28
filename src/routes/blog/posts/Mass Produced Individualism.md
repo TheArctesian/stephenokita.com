@@ -1,7 +1,7 @@
 ---
 title: Mass Produced Individualism
 description: A poor attempt at critical theory
-date: '2024-1-28'
+date: '2024-01-28'
 location: Berkeley
 categories: 
     - Philosophy
