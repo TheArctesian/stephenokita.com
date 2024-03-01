@@ -29,22 +29,12 @@
               <img src="https://simpleicons.org/icons/linkedin.svg" />
             </a>
           </div>
-          <div class="element">
-            <a href="https://mastodon.world/@thearctesian">
-              <img src="https://simpleicons.org/icons/mastodon.svg" />
-            </a>
-          </div>
-          <div class="element">
+         <div class="element">
             <a href="https://github.com/TheArctesian">
               <img src="https://simpleicons.org/icons/github.svg" />
             </a>
           </div>
-          <div class="element">
-            <a href="https://discord.com/users/682753580943278083">
-              <img src="https://simpleicons.org/icons/discord.svg" />
-            </a>
-          </div>
-        </div>
+       </div>
         as well as the source code for this website<a
           class="s"
           href="https://github.com/TheArctesian/danielokita.com">here</a

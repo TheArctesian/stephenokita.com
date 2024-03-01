@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import "../../app.css";
 </script>
 
@@ -7,6 +7,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
 
+<div class="text float text-center">
+    TLDR or just want a resume: <a class="code" href="/other/Stephen Okita Resume 2024.pdf">Here it is</a>
+</div>
 <div class="text float">
     <p>
         As stated before i am a FOSS programmer looking to understand and change
@@ -404,7 +407,7 @@
 </div>
 
 <div class="text flex flex-col ">
-    For other things, I am knowledgable about literature, political-economy, history, philosophy and culture. I also love learning and thinking in different languages.
+    For other things, I am knowledgeable about literature, political-economy, history, philosophy and culture. I also love learning and thinking in different languages.
 </div>
 
 
