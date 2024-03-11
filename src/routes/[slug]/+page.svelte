@@ -66,7 +66,6 @@
     padding: 1rem;
     border-radius: 0.2rem;
     margin: 1rem !important;
-
   }
   .blog {
     color: var(--red);

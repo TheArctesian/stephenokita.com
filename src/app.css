@@ -73,8 +73,7 @@ b {
 code{
     width: fit-content;
 }
-code span{
-}
+
 .prose pre {
 	padding: 1rem;
 	border-radius: 8px;
@@ -94,7 +93,6 @@ img {
 
 ul,
 ol {
-	list-style: none;
 	padding: 0;
 }
 
