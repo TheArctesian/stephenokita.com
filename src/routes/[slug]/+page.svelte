@@ -32,7 +32,8 @@
   <a href="/blog" class="blog text">Back to blog</a>
 </div>
 
-  <span class="m-1"></span>
+<span class="m-1" />
+
 <style>
   article {
     background-color: var(--fg);
@@ -50,7 +51,7 @@
     margin-bottom: 1rem;
     font-size: larger;
   }
- 
+
   h1 + p {
     color: var(--selection);
   }

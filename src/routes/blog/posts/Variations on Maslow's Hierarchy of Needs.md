@@ -39,4 +39,4 @@ That looks very good, still the static issue is there, but I think we can just i
 
 While there are other's that form turn this hierarchy into more complex matrices, I think this general model stands as quite a good guide for human nature. 
 
-Agian sorry for the poor writing I am in a rush to get the weekley in.
+Agian sorry for the poor writing I am in a rush to get the weekly in.
