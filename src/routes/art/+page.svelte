@@ -16,7 +16,7 @@
 {#if browser}
   <div class="text wrapper">
     <h1>Quotes that I really like</h1>
-    <Carousel bind:this={carousel} let:loaded>
+    <Carousel bind:this={carousel} let:loaded autoplay autoplayDuration={2000}>
       {#each quotes as q}
         <div class="text-center p-5 m-auto">
           <h1>"{q.text}"</h1>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="text wrapper">
-    <h1>
+    <h1 class="text-center">
       This is a collection of my music musings, these are not structured songs
       but just cool sounds I make while fooling around
     </h1>

@@ -25,7 +25,7 @@
       Or find me on these places <h1>
         <div class="content">
           <div class="element">
-            <a href="https://www.linkedin.com/in/stephen-okita-a9427b1b2/">
+            <a href="https://www.linkedin.com/in/stephen-okita/">
               <img src="https://simpleicons.org/icons/linkedin.svg" />
             </a>
           </div>
@@ -34,8 +34,13 @@
               <img src="https://simpleicons.org/icons/github.svg" />
             </a>
           </div>
+         <div class="element">
+            <a href="https://www.instagram.com/stephen.okita/">
+              <img src="https://simpleicons.org/icons/instagram.svg" />
+            </a>
+          </div>
        </div>
-        as well as the source code for this website<a
+        as well as the source code for this website <a
           class="s"
           href="https://github.com/TheArctesian/danielokita.com">here</a
         >
@@ -102,7 +107,7 @@
   }
   .element {
     margin: 1rem;
-    border-radius: 0.2;
+    border-radius: 0.5rem;
     padding: 1rem;
     border: 0.2rem solid var(--fg);
   }
