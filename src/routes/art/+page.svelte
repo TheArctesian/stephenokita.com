@@ -16,7 +16,7 @@
 {#if browser}
   <div class="text wrapper">
     <h1>Quotes that I really like</h1>
-    <Carousel bind:this={carousel} let:loaded autoplay autoplayDuration={10000}>
+    <Carousel bind:this={carousel} let:loaded autoplay autoplayDuration={30000}>
       {#each quotes as q}
         <div class="text-center p-5 m-auto">
           <h1>"{q.text}"</h1>
