@@ -1,16 +1,16 @@
 <script lang="ts">
   import "../app.css";
-    import { dev } from '$app/environment';
-    import { inject } from '@vercel/analytics';
-    inject({ mode: dev ? 'development' : 'production' });
-    import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
-    injectSpeedInsights()
+  import { dev } from "$app/environment";
+  import { inject } from "@vercel/analytics";
+  inject({ mode: dev ? "development" : "production" });
+  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+  injectSpeedInsights();
 </script>
 
 <div class="sub flex alight-center text-center">
   <a href="/home" class="home">home, </a>
   <a href="/aboutme" class="about">&nbsp about, </a>
-  <a href="/projects" class="projects">&nbsp projects, </a>
+  <!-- <a href="/projects" class="projects">&nbsp projects, </a> -->
   <a href="/art" style="color: var(--cyan)">&nbsp arts, </a>
   <a href="/blog" class="blog">&nbsp blog</a>
 </div>
@@ -29,18 +29,18 @@
               <img src="https://simpleicons.org/icons/linkedin.svg" />
             </a>
           </div>
-         <div class="element">
+          <div class="element">
             <a href="https://github.com/TheArctesian">
               <img src="https://simpleicons.org/icons/github.svg" />
             </a>
           </div>
-         <div class="element">
+          <div class="element">
             <a href="https://www.instagram.com/stephen.okita/">
               <img src="https://simpleicons.org/icons/instagram.svg" />
             </a>
           </div>
-       </div>
-        as well as the source code for this website <a
+        </div>
+        as well as the source code for this website<a
           class="s"
           href="https://github.com/TheArctesian/danielokita.com">here</a
         >
