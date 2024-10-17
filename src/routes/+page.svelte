@@ -4,20 +4,9 @@
 </script>
 
 <div class="head flex flex-col">
-  <div class="header flex alight-center text-center flex-col">
-    <img
-      alt="A photo with me wearing glasses"
-      src="/images/meGuitar.jpeg"
-      class="shadow-2xl"
-    />
-    <br />
-    <Typewriter interval="100">
-      <p1 class="margin-auto text-center">A photo of me</p1>
-    </Typewriter>
-  </div>
   <div class="header text">
     <p2>
-      Hello my name is <span class="daniel">Daniel Okita,</span>
+      Hello my name is <span class="daniel">Stephen Okita,</span>
       welcome to my website. I am a FOSS programmer looking to understand and change
       the world!
     </p2>
