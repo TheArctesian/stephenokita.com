@@ -1,6 +1,6 @@
 ---
-title: Why are we moral relativists
-description: Cultural relativism makes no sense, but then why is it so common
+title: Why are we moral relativists? 
+description: Cultural relativism makes no sense, but then why is it so common? I think the answer is subjective realism, which I don't know if is a new term I made up but is probably my favourite piece of writing in a long time.
 date: '2025-1-05'
 location: Hong Kong
 categories: 

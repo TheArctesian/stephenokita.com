@@ -51,7 +51,7 @@
                   />
                   <span>Location: {post.location}</span>
                 </p>
-                <p class="mt-1">{post.description}</p>
+                <p class="mt-2 ml-8">{post.description}</p>
               </div>
               <br />
             </div>
@@ -80,7 +80,8 @@
     padding: 1rem;
     border-radius: 0.2rem;
     background-color: var(--fg);
-    margin: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
   .text {
     padding: 1rem;
@@ -99,18 +100,20 @@
     transform: rotate(90deg);
     transition: 0.2s ease-in-out;
   }
-
-  @media (min-width: 750px) {
+  .posts {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+  }
+  @media (max-width: 1000px) {
     .text-size {
       display: block;
     }
-    .post {
+    .posts {
       grid-template-columns: repeat(auto-fill, 100vw);
     }
   }
-  .posts {
-    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
-  }
+  
 
   .post {
     margin: 1rem;
