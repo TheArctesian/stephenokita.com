@@ -52,8 +52,15 @@ b {
 
   }
 .prose :is(h2, h3, h4, h5, h6) {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: large;
+
+}
+
+.prose :is(h1) {
+    font-weight: bold;
+    font-size:x-large;
+    text-align: center;
 }
 
 .prose p:not(:is(h2, h3, h4, h5, h6) + p) {

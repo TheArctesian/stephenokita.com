@@ -5,8 +5,8 @@
   export let data;
 </script>
 
-<div class="text flex-wrap">
-  <div class="head flex text-center flex-col">
+<div class="flex-wrap">
+  <div class="head flex text1 text-center flex-col">
     <h1
       class="text-center"
       use:concurrent={{
@@ -21,27 +21,46 @@
   </div>
 </div>
 
-<div class="text flex-wrap">
+<div class="flex-wrap">
   <div class="head flex flex-col">
     <section>
       <ul class="posts">
         {#each data.posts as post}
           <a href={post.slug}>
-            <li class="post">
+            <div class="post">
+              <h1 href={post.slug} class="title text-center">{post.title}</h1>
               <hr />
+              <div class="m-3">
+                <p class="date flex items-center">
+                  <img
+                    src="   https://cdn-icons-png.flaticon.com/512/61/61469.png "
+                    alt="date icon"
+                    class="inline-block mr-4"
+                    width="20"
+                    height="20"
+                  />
+                  <span>Released: {formatDate(post.date)}</span>
+                </p>
+                <p class="date flex items-center">
+                  <img
+                    src="   https://cdn-icons-png.flaticon.com/512/3177/3177361.png "
+                    alt="date icon"
+                    class="inline-block mr-4"
+                    width="20"
+                    height="20"
+                  />
+                  <span>Location: {post.location}</span>
+                </p>
+                <p class="mt-1">{post.description}</p>
+              </div>
               <br />
-              <h1 href={post.slug} class="title">{post.title}</h1>
-              <p class="date">Published at {formatDate(post.date)}</p>
-              <p class="date">Location: {post.location}</p>
-              <p class="description">{post.description}</p>
-              <br />
-              <hr />
-            </li>
+            </div>
           </a>
         {/each}
       </ul>
     </section>
   </div>
+  <br />
 </div>
 
 <!--  
@@ -51,43 +70,59 @@
  -->
 
 <style>
+  right {
+    float: right;
+  }
   b {
     font-weight: bold;
   }
-
-  .text {
+  .text1 {
+    padding: 1rem;
+    border-radius: 0.2rem;
     background-color: var(--fg);
+    margin: 1rem;
+  }
+  .text {
     padding: 1rem;
     border-radius: 0.2rem;
     margin: 1rem;
   }
-  li{
+  li {
     padding: auto;
-    transition:0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
   }
-  li:hover{
+  li:hover {
     transition: 0.2s ease-in-out;
     padding: 0.2rem;
   }
   .rotate {
     transform: rotate(90deg);
-    transition:0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
   }
 
-  @media (max-width: 750px) {
-    .card-holder {
-      flex-direction: column;
-    }
+  @media (min-width: 750px) {
     .text-size {
       display: block;
     }
+    .post {
+      grid-template-columns: repeat(auto-fill, 100vw);
+    }
   }
   .posts {
-    display: grid;
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
   }
 
   .post {
+    margin: 1rem;
+    background-color: var(--fg);
+    height: 100%;
+    text-wrap: wrap;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    transition: all ease-in-out 100ms;
+  }
+  .post:hover {
+    border: 0.2rem solid var(--purple);
   }
 
   .post:not(:last-child) {
@@ -98,16 +133,6 @@
   .title {
     font-size: larger;
     font-weight: bold;
-    color: var(--bg);
-  }
-
-  .date {
-    color: var(--bg);
-  }
-
-  .description {
-    margin-top: 1rem;
-    margin-left: 1rem;
     color: var(--bg);
   }
 </style>

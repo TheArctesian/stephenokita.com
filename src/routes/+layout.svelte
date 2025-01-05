@@ -26,7 +26,9 @@
         <div class="content">
           <div class="element">
             <a href="https://www.linkedin.com/in/stephen-okita/">
-              <img src="https://simpleicons.org/icons/linkedin.svg" />
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3536/3536569.png"
+              />
             </a>
           </div>
           <div class="element">

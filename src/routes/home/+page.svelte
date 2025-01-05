@@ -4,44 +4,20 @@
 </script>
 
 <div class="wrapper">
-  <div class="text flex">
+  <div class="text flex w-auto">
     <Typewriter interval="100">
-      <p1 class="cen"
-        >hello my name is <span class="daniel"
-          >Stephen Daniel Okita</span
-        ></p1
+      <p1 class="m-auto"
+        >Hello my name is <span class="daniel">Stephen Daniel Okita</span></p1
       >
     </Typewriter>
   </div>
-  <div class="header flex text-center flex-col">
-    <div class="flex img flex-row">
-      <img
-        alt="A photo with me wearing glasses"
-        src="/images/glasses.jpg"
-        class="shadow-2xl flex-shrink"
-      />
-      <br />
-    </div>
-    <Typewriter interval="100">
-      <p1 class="margin-auto text-center">A photo of me with cool glasses</p1>
-    </Typewriter>
-  </div>
   <div class="contWrapper">
-    <div class="header flex grow-1">
+    <div class="header flex grow">
       <div class="float-right grow txt ">
-        I currently attend  <span id="ld"> UC Berkeley</span>,
-        I grew up in <span id="hk"> Hong Kong</span>,
-        I was born in <span id="ld">London</span>,
-        my mother is from <span id="ir">Ireland</span>, 
-        my father is <span id="ld">American</span>-<span id="hk">Japanese</span
-        >.
-        I can communicate in <span id="hk">中文</span>, English,
-        <span id="hk">廣東話(广东话)</span>, and
-        <span id="ld">français</span>
-        and <span id="hk">廣東話</span>,
-        I am also learning <span id="hk">spanish.</span>
+            I am a <b>Computer Science </b>and <b>Philosophy </b>major at <span id="ld"
+              >UC Berkeley</span
+            >
       </div>
-     
     </div>
 
     <div class="header txt flex">
@@ -57,7 +33,9 @@
       <p class="txt">
         it can take the form of learning about the world. Both in reading the
         histories of the world and travailing it. You can find a list of these
-        places on this <a href="https://world.danielokita.com">experimental website.</a>
+        places on this <a href="https://world.danielokita.com"
+          >experimental website.</a
+        >
       </p>
     </div>
 
@@ -132,6 +110,11 @@
     margin: 1rem;
     border-radius: 0.2rem;
     margin: auto;
+    transition: all ease-in-out 200ms;
+  }
+
+  .header:hover {
+    border: .3em solid var(--purple); 
   }
   img {
     border-radius: 1rem;
