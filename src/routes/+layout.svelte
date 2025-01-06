@@ -8,11 +8,11 @@
 </script>
 
 <div class="sub flex alight-center text-center">
-  <a href="/home" class="home">home, </a>
-  <a href="/aboutme" class="about">&nbsp about, </a>
+  <a href="/" class="home">~/, </a>
+  <a href="/aboutme" class="about">&nbsp /about, </a>
   <!-- <a href="/projects" class="projects">&nbsp projects, </a> -->
-  <a href="/art" style="color: var(--cyan)">&nbsp arts, </a>
-  <a href="/blog" class="blog">&nbsp blog</a>
+  <a href="/art" style="color: var(--cyan)">&nbsp /arts, </a>
+  <a href="/blog" class="blog">&nbsp /blog</a>
 </div>
 <slot />
 
@@ -42,9 +42,9 @@
             </a>
           </div>
         </div>
-        as well as the source code for this website<a
+        as well as the source code for this website <a
           class="s"
-          href="https://github.com/TheArctesian/danielokita.com">here</a
+          href="https://github.com/TheArctesian/danielokita.com"> here</a
         >
       </h1>
     </h1>
@@ -92,7 +92,6 @@
   :global(body) {
     background-color: var(--bg);
     font-family: "Fira Code", monospace;
-    letter-spacing: 0.1em; /* Adjust as needed */
   }
   .wrapper {
     font-size: small;

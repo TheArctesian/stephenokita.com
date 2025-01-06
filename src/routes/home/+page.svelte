@@ -83,23 +83,14 @@
 </div>
 
 <style>
-  a {
-    font-style: italic;
-    color: var(--comment);
-    transition: all ease-in-out 200ms;
-  }
 
-  .code {
-    font-style: italic;
-    color: var(--comment);
-    transition: all ease-in-out 200ms;
-  }
+
+
   .wrap {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
   }
   .contWrapper {
     display: flex;

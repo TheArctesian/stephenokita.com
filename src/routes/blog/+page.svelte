@@ -3,64 +3,62 @@
   import { concurrent } from "svelte-typewriter";
   import { formatDate } from "$lib/utils.js";
   export let data;
+  import { blur, fade, slide} from "svelte/transition";
 </script>
 
-<div class="flex-wrap">
-  <div class="head flex text1 text-center flex-col">
-    <h1
-      class="text-center"
-      use:concurrent={{
-        mode: "loop",
-        delay: 10,
-        wordInterval: 100,
-        interval: 100,
-      }}
-    >
-      Forever a work in progress...
-    </h1>
-  </div>
-</div>
+<div out:blur>
+    <div class="flex text1 text-center flex-col">
+      <h1
+        class="text-center"
+        use:concurrent={{
+          mode: "loop",
+          delay: 10,
+          wordInterval: 100,
+          interval: 100,
+        }}
+      >
+        Forever a work in progress...
+      </h1>
+    </div>
 
-<div class="flex-wrap">
-  <div class="head flex flex-col">
-    <section>
-      <ul class="posts">
-        {#each data.posts as post}
-          <a href={post.slug}>
-            <div class="post">
-              <h1 href={post.slug} class="title text-center">{post.title}</h1>
-              <hr />
-              <div class="m-3">
-                <p class="date flex items-center">
-                  <img
-                    src="   https://cdn-icons-png.flaticon.com/512/61/61469.png "
-                    alt="date icon"
-                    class="inline-block mr-4"
-                    width="20"
-                    height="20"
-                  />
-                  <span>Released: {formatDate(post.date)}</span>
-                </p>
-                <p class="date flex items-center">
-                  <img
-                    src="   https://cdn-icons-png.flaticon.com/512/3177/3177361.png "
-                    alt="date icon"
-                    class="inline-block mr-4"
-                    width="20"
-                    height="20"
-                  />
-                  <span>Location: {post.location}</span>
-                </p>
-                <p class="mt-2 ml-8">{post.description}</p>
+      <section class="">
+        <div class="posts">
+          {#each data.posts as post}
+            <a href={post.slug}>
+              <div class="post">
+                <h1 href={post.slug} class="title ">{post.title}</h1>
+                <hr />
+                <div class="mt-3">
+                  <p class="date flex items-center">
+                    <img
+                      src="   https://cdn-icons-png.flaticon.com/512/61/61469.png "
+                      alt="date icon"
+                      class="inline-block mr-4"
+                      width="20"
+                      height="20"
+                    />
+                    <span> <b>Released:</b> {formatDate(post.date)}</span>
+                  </p>
+                  <p class="date flex items-center">
+                    <img
+                      src="   https://cdn-icons-png.flaticon.com/512/3177/3177361.png "
+                      alt="date icon"
+                      class="inline-block mr-4"
+                      width="20"
+                      height="20"
+                    />
+                    <span><b>Location: </b>{post.location}</span>
+
+                  </p>
+                  <p class="mt-2 mr-4">{post.description}</p>
+                </div>
+                <br />
               </div>
-              <br />
-            </div>
-          </a>
-        {/each}
-      </ul>
-    </section>
-  </div>
-  <br />
+            </a>
+          {/each}
+        </div>
+      </section>
+    <br />
 </div>
 
 <!--  
@@ -103,20 +101,13 @@
   .posts {
     display: grid;
     gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
   }
-  @media (max-width: 1000px) {
-    .text-size {
-      display: block;
-    }
-    .posts {
-      grid-template-columns: repeat(auto-fill, 100vw);
-    }
-  }
-  
-
-  .post {
-    margin: 1rem;
+.post {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     background-color: var(--fg);
     height: 100%;
     text-wrap: wrap;
@@ -124,6 +115,19 @@
     border-radius: 0.2rem;
     transition: all ease-in-out 100ms;
   }
+  @media (max-width: 1000px) {
+    .posts {
+      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fill, 100%);
+    }
+    .post {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+  }
+
+  
   .post:hover {
     border: 0.2rem solid var(--purple);
   }
