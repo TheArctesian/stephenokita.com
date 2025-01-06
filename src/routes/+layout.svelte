@@ -8,12 +8,13 @@
 </script>
 
 <div class="sub flex alight-center text-center">
-  <a href="/" class="home">~/, </a>
-  <a href="/aboutme" class="about">&nbsp /about, </a>
+  <a href="/" class="text-d-orange">~/, </a>
+  <a href="/aboutme" class="text-d-pink">&nbsp /about, </a>
   <!-- <a href="/projects" class="projects">&nbsp projects, </a> -->
-  <a href="/art" style="color: var(--cyan)">&nbsp /arts, </a>
-  <a href="/blog" class="blog">&nbsp /blog</a>
+  <a href="/art" class="text-d-purple">&nbsp /arts, </a>
+  <a href="/blog" class="text-d-red">&nbsp /blog</a>
 </div>
+
 <slot />
 
 <div class="wrapper">
@@ -42,9 +43,11 @@
             </a>
           </div>
         </div>
-        as well as the source code for this website <a
+        as well as the source code for this website&nbsp<a
           class="s"
-          href="https://github.com/TheArctesian/danielokita.com"> here</a
+          href="https://github.com/TheArctesian/danielokita.com"
+        >
+          here</a
         >
       </h1>
     </h1>
@@ -52,85 +55,93 @@
 </div>
 
 <style>
+  :global(body) {
+    background-color: var(--bg);
+    font-family: "Fira Code", monospace;
+  }
+
   .sub {
     margin: 1rem;
     background-color: var(--fg);
     padding: 1rem;
     border-radius: 0.2rem;
+    font-weight: 500;
   }
+
   a {
     margin: auto;
     text-decoration: none;
     font-size: 2vw;
     transition: all ease-in-out 400ms;
   }
-  @media (max-width: 750px) {
-    a {
-      font-size: 3.7vw;
-    }
+
+  a:hover {
+    letter-spacing: 0.2em;
   }
+
   .s {
     font-size: larger;
     font-style: italic;
     color: var(--comment);
   }
-  a:hover {
-    letter-spacing: 0.2em;
-  }
-  .home {
-    color: var(--orange);
-  }
-  .about {
-    color: var(--pink);
-  }
-  .projects {
-    color: var(--purple);
-  }
-  .blog {
-    color: var(--red);
-  }
-  :global(body) {
-    background-color: var(--bg);
-    font-family: "Fira Code", monospace;
-  }
+
+
   .wrapper {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem;
-  }
-  .content {
-    display: flex;
-    justify-content: center;
-    margin: 1rem;
-    border-radius: 0.2rem;
-  }
-  .element {
-    margin: 1rem;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    border: 0.2rem solid var(--fg);
-  }
-  .element:hover {
-    border: 0.2rem solid var(--purple);
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
 
-  @media (max-width: 750px) {
-    .element {
-      margin: 0.6rem;
-      border-radius: 0rem;
-      padding: 0rem;
-
-      border: 0.2rem solid var(--fg);
-    }
-  }
   .text {
     background-color: var(--fg);
     padding: 1rem;
     border-radius: 0.2rem;
+    width: 100%;
   }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .element {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .element a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   img {
+    width: 100%;
+    max-width: 8vw;
     transition: all ease-in-out 200ms;
-    width: 10vw;
+  }
+
+  .element:hover img {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 1000px) {
+    a {
+      font-size: 3.7vw;
+    }
+
+    img {
+      max-width: 15vw;
+    }
+
+    .content {
+      gap: 1rem;
+    }
   }
 </style>

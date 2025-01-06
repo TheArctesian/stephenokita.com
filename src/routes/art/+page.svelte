@@ -78,7 +78,7 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2" out:blur>
+  <div class="grid grid-cols-1 md:grid-cols-2 mb-4" out:blur>
     <div class="text wrapper1">
       <h1 class="text-center">
         This is a collection of my music musings, these are not structured songs
