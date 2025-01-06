@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 :root {
+
     --bg: #282a36;
     --fg: #f8f8f2;
     --white: #ffffff;

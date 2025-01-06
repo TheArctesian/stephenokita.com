@@ -75,7 +75,7 @@
     color: var(--comment);
   }
   a:hover {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
   }
   .home {
     color: var(--orange);
