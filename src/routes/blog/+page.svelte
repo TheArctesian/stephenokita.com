@@ -110,6 +110,7 @@
     margin-bottom: 1rem;
     background-color: var(--fg);
     height: 100%;
+    color: var(--bg);
     text-wrap: wrap;
     padding: 1rem;
     border-radius: 0.2rem;

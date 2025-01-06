@@ -39,7 +39,6 @@
     background-color: var(--fg);
     padding: 1rem;
     border-radius: 0.2rem;
-    font-size: small;
     margin: 2rem;
   }
 </style>

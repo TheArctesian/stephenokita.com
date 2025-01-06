@@ -94,7 +94,6 @@
     font-family: "Fira Code", monospace;
   }
   .wrapper {
-    font-size: small;
     justify-content: center;
     flex-direction: column;
     align-items: center;
