@@ -7,8 +7,9 @@
   import libs from "./libs.json";
   import school from "./school.json";
   import workedOn from "./workedOn.json";
-
+  import { slide } from "svelte/transition";
 </script>
+
 <!-- 
 <div class="text-center">
   <h1 class="dis ">
@@ -16,13 +17,14 @@
     to copy over before I automate this
   </h1> 
 </div> -->
-<div>
-<Project data={apps} name="Apps"></Project>
-<Project data={personal} name="Personal"></Project>
-<Project data={workedOn} name="Projects I have worked on"></Project>
-<Project data={libs} name="Libs"></Project>
-<Project data={school} name="School"></Project>
+<div out:slide>
+  <Project data={apps} name="Apps"></Project>
+  <Project data={personal} name="Personal"></Project>
+  <Project data={workedOn} name="Projects I have worked on"></Project>
+  <Project data={libs} name="Libs"></Project>
+  <Project data={school} name="School"></Project>
 </div>
+
 <style>
   .head {
     color: var(--black);
@@ -39,9 +41,9 @@
   h1 {
     font-weight: bold;
   }
-    .rotate {
+  .rotate {
     transform: rotate(90deg);
-    transition:  0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
   }
   .text {
     background-color: var(--fg);

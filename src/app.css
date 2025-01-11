@@ -25,9 +25,17 @@
     /* WebKit/Blink Browsers */
 }
 
+.t {
+    transition: all ease-in-out 200ms;
+}
+
 a {
     color: var(--comment);
     transition: all ease-in-out 200ms;
+}
+
+a:hover {
+    color: var(--purple);
 }
 
 .code {

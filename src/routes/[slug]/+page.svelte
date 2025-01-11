@@ -1,5 +1,6 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
+  import { fade } from "svelte/transition";
 
   export let data;
 </script>
@@ -11,28 +12,24 @@
   <meta property="og:title" content={data.meta.title} />
 </svelte:head>
 
-<article>
-  <!-- Title -->
-  <hgroup>
-    <h1>{data.meta.title}</h1>
-    <p>Published at {formatDate(data.meta.date)}</p>
-  </hgroup>
+<div in:fade out:slide>
+  <article in:fade out:fade>
+    <!-- Title -->
+    <hgroup>
+      <h1>{data.meta.title}</h1>
+      <p>Published at {formatDate(data.meta.date)}</p>
+    </hgroup>
 
-  <br />
-  <hr />
-  <br />
-  <!-- Post -->
-  <div class="prose">
-    <svelte:component this={data.content} />
-  </div>
-</article>
+    <br />
+    <hr />
+    <br />
+    <!-- Post -->
+    <div class="prose">
+      <svelte:component this={data.content} />
+    </div>
+  </article>
 
-<div>
-  <br />
-  <a href="/blog" class="blog text">Back to blog</a>
 </div>
-
-<span class="m-1" />
 
 <style>
   article {

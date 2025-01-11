@@ -5,9 +5,9 @@
   import music from "./music.json";
   import quotes from "./quotes.json";
   import animations from "./animations.json";
-  import { onMount } from 'svelte';
-  import { blur, fade, fly } from 'svelte/transition';
-  import { elasticOut } from 'svelte/easing';
+  import { onMount } from "svelte";
+  import { blur, fade, fly, scale, slide } from "svelte/transition";
+  import { elasticIn } from "svelte/easing";
 
   let currentQuoteIndex = 0;
   let currentMusicIndex = 0;
@@ -22,9 +22,8 @@
   }
 
   function prevQuote() {
-    currentQuoteIndex = currentQuoteIndex === 0 
-      ? quotes.length - 1 
-      : currentQuoteIndex - 1;
+    currentQuoteIndex =
+      currentQuoteIndex === 0 ? quotes.length - 1 : currentQuoteIndex - 1;
     quoteKey++;
   }
 
@@ -34,9 +33,8 @@
   }
 
   function prevMusic() {
-    currentMusicIndex = currentMusicIndex === 0 
-      ? music.length - 1 
-      : currentMusicIndex - 1;
+    currentMusicIndex =
+      currentMusicIndex === 0 ? music.length - 1 : currentMusicIndex - 1;
     musicKey++;
   }
 
@@ -46,9 +44,10 @@
   }
 
   function prevAnimation() {
-    currentAnimationIndex = currentAnimationIndex === 0 
-      ? animations.length - 1 
-      : currentAnimationIndex - 1;
+    currentAnimationIndex =
+      currentAnimationIndex === 0
+        ? animations.length - 1
+        : currentAnimationIndex - 1;
     animationKey++;
   }
 
@@ -58,19 +57,25 @@
   });
 </script>
 
-{#if browser}
-  <div class="text wrapper" out:blur>
-    <h1 class="text-center">Quotes I have come across that I really like</h1>
+<div out:slide>
+  <div class="text wrapper" in:fade={{ delay: 1 * 150, duration: 300 }}>
+    <h1 class="z mb-4">Quotes I have come across the resonated with me</h1>
+    <hr />
     <div class="carousel">
       <button class="nav-arrow left" on:click={prevQuote}>{"<"}</button>
       <div class="quote-container">
         {#key quoteKey}
-          <div 
-            class="text-center p-5 m-auto" in:fade={{duration: 200, easing: elasticOut}}
-          >
-            <h1>"{quotes[currentQuoteIndex].text}"</h1>
+          <div class="text-left p-5 m-auto">
+            <h1 in:scale={{ delay: 200, duration: 200 }}>
+              "{quotes[currentQuoteIndex].text}"
+            </h1>
             <br />
-            <h1 class="text-right font-bold">{quotes[currentQuoteIndex].name}</h1>
+            <h1
+              in:scale={{ delay: 500, duration: 200 }}
+              class="text-right font-bold"
+            >
+              {quotes[currentQuoteIndex].name}
+            </h1>
           </div>
         {/key}
       </div>
@@ -78,51 +83,95 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 mb-4" out:blur>
-    <div class="text wrapper1">
-      <h1 class="text-center">
-        This is a collection of my music musings, these are not structured songs
-        but just cool sounds I make while fooling around
-      </h1>
-      <br>
-      <hr>
-      <br>
-      <div class="carousel">
-        <button class="nav-arrow left" on:click={prevMusic}>{"<"}</button>
-        <div class="youtube-container">
-          {#key musicKey}
-            <div>
-              <h1 class="text-center text-xl font-bold">{music[currentMusicIndex].title}</h1>
-              <br>
-              <Youtube id={music[currentMusicIndex].id} />
-            </div>
-          {/key}
-        </div>
-        <button class="nav-arrow right" on:click={nextMusic}>{">"}</button>
-      </div>
+  <div class=" flex flex-row ml-4 mr-4 gap-4 mb-4">
+    <div class=" z text w" in:fade={{ delay: 2 * 150, duration: 300 }}>
+      it can take form through Music. I enjoy to learning new instruments right
+      now knowing 7, those being instruments: <span id="ld"
+        >Electric Bass, Contrabass, Guitar, Ukulele, Piano, Harmonica and Drums</span
+      >. I also like to create music, both spontaneously with friends in jam
+      sessions or by myself.
     </div>
-
-    <div class="text wrapper2">
-      <h1>This is a collection of my animations</h1>
-      <br>
-      <hr>
-      <br>
-      <div class="carousel">
-        <button class="nav-arrow left" on:click={prevAnimation}>{"<"}</button>
-        <div class="youtube-container">
-          {#key animationKey}
-            <div >
-              <h1 class="text-center text-xl font-bold">{animations[currentAnimationIndex].title}</h1>
-              <br />
-              <Youtube id={animations[currentAnimationIndex].id} />
-            </div>
-          {/key}
+    <div class=" z text w" in:fade={{ delay: 2 * 150, duration: 300 }}>
+      I enjoy reading books and watching videos, whether it be youtube, films,
+      tv shows or reels. I have a <a href="https://letterboxd.com/danielOkita/"
+        >Letterboxd</a
+      > account where I keep track of the movies I have watched and the ones I want
+      to watch. I also have a Goodreads account where I keep track of the books I
+      have read and the ones I want to read.
+    </div>
+    <div
+      class="flex text w z flex-col sm:flex-row"
+      in:fade={{ delay: 3 * 150, duration: 300 }}
+    >
+      <div class="flex flex-row sm:flex-row">
+        <div class="t hover:scale-125">
+          <a href="https://www.goodreads.com/user/show/155512706-stephen-okita">
+            <img
+              class="w-[10rem] h-[4rem]"
+              src="https://simpleicons.org/icons/goodreads.svg"
+            />
+          </a>
         </div>
-        <button class="nav-arrow right" on:click={nextAnimation}>{">"}</button>
+        <div class="t bg-d-bg w-4 h-4/5 rounded m-auto ml-4 mr-4"></div>
+        <div class="t hover:scale-125">
+          <a href="https://letterboxd.com/danielOkita/">
+            <img
+              class="w-[10rem] h-[4rem]"
+              src="https://simpleicons.org/icons/letterboxd.svg"
+            />
+          </a>
+        </div>
       </div>
     </div>
   </div>
-{/if}
+
+  {#if browser}
+    <div class="grid grid-cols-1 md:grid-cols-2 mb-4">
+      <div class="text wrapper1" in:fade={{ delay: 4 * 150, duration: 300 }}>
+        <h1 class="z mb-4">This is a collection of my music musings:</h1>
+        <hr />
+        <br />
+        <div class="carousel">
+          <button class="nav-arrow left" on:click={prevMusic}>{"<"}</button>
+          <div class="youtube-container">
+            {#key musicKey}
+              <div>
+                <h1 class="text-center text-xl font-bold">
+                  {music[currentMusicIndex].title}
+                </h1>
+                <br />
+                <Youtube id={music[currentMusicIndex].id} />
+              </div>
+            {/key}
+          </div>
+          <button class="nav-arrow right" on:click={nextMusic}>{">"}</button>
+        </div>
+      </div>
+
+      <div class="text wrapper2" in:fade={{ delay: 5 * 150, duration: 300 }}>
+        <h1 class="z mb-4">This is a collection of my animations:</h1>
+        <hr />
+        <br />
+        <div class="carousel">
+          <button class="nav-arrow left" on:click={prevAnimation}>{"<"}</button>
+          <div class="youtube-container">
+            {#key animationKey}
+              <div>
+                <h1 class="text-center text-xl font-bold">
+                  {animations[currentAnimationIndex].title}
+                </h1>
+                <br />
+                <Youtube id={animations[currentAnimationIndex].id} />
+              </div>
+            {/key}
+          </div>
+          <button class="nav-arrow right" on:click={nextAnimation}>{">"}</button
+          >
+        </div>
+      </div>
+    </div>
+  {/if}
+</div>
 
 <style>
   .img {
@@ -137,6 +186,11 @@
     background-color: var(--fg);
     padding: 1rem;
     border-radius: 0.2rem;
+  }
+  .w {
+    justify-content: center;
+    gap: 1rem;
+    transition: all ease-in-out 200ms;
   }
   .wrapper {
     justify-content: center;
@@ -171,7 +225,13 @@
       margin-right: 1rem;
     }
   }
- 
+
+  .z {
+    transition: all ease-in-out 200ms;
+  }
+  .z:hover {
+    border-left: 0.5rem solid var(--purple);
+  }
   .element {
     margin: 1rem;
     border-radius: 0.2rem;
@@ -238,9 +298,7 @@
   }
 
   hr {
-    border: none;
-    border-top: 1px solid var(--selection);
-    width: 100%;
-    opacity: 0.5;
+    border-top: 5px solid var(--bg);
+    border-radius: 0.3rem;
   }
 </style>

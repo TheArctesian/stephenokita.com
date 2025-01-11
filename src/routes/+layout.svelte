@@ -10,8 +10,8 @@
 <div class="sub flex alight-center text-center">
   <a href="/" class="text-d-orange">~/, </a>
   <a href="/aboutme" class="text-d-pink">&nbsp /about, </a>
-  <!-- <a href="/projects" class="projects">&nbsp projects, </a> -->
-  <a href="/art" class="text-d-purple">&nbsp /arts, </a>
+  <a href="/art" class="text-d-purple">&nbsp /person, </a>
+  <a href="/projects" class="projects">&nbsp /projects, </a>
   <a href="/blog" class="text-d-red">&nbsp /blog</a>
 </div>
 
@@ -85,7 +85,6 @@
     color: var(--comment);
   }
 
-
   .wrapper {
     width: 100%;
     padding: 0 1rem;
@@ -123,7 +122,7 @@
 
   img {
     width: 100%;
-    max-width: 8vw;
+    max-width: 10vw;
     transition: all ease-in-out 200ms;
   }
 
@@ -133,7 +132,7 @@
 
   @media (max-width: 1000px) {
     a {
-      font-size: 3.7vw;
+      font-size: 3.5vw;
     }
 
     img {
@@ -142,6 +141,15 @@
 
     .content {
       gap: 1rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    a {
+      font-size: 3vw;
+    }
+    a:hover {
+      letter-spacing: 0.1em;
     }
   }
 </style>

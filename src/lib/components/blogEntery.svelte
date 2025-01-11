@@ -6,9 +6,6 @@
 </script>
 
   <div class="head text ov flex flex-col">
-    <div class="close">
-        
-    </div>
     <h1 class="text-2xl float-left">Title: {title}</h1>
     <h1 class="text-xl">Date: {title}</h1>
     <br>
