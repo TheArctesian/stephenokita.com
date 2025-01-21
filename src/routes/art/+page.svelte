@@ -83,7 +83,7 @@
     </div>
   </div>
 
-  <div class=" flex flex-row ml-4 mr-4 gap-4 mb-4">
+  <div class="flex flex-row ml-4 mr-4 gap-4 mb-4">
     <div class=" z text w" in:fade={{ delay: 2 * 150, duration: 300 }}>
       it can take form through Music. I enjoy to learning new instruments right
       now knowing 7, those being instruments: <span id="ld"
@@ -99,32 +99,31 @@
       to watch. I also have a Goodreads account where I keep track of the books I
       have read and the ones I want to read.
     </div>
-    <div
-      class="flex text w z flex-col sm:flex-row"
-      in:fade={{ delay: 3 * 150, duration: 300 }}
-    >
-      <div class="flex flex-row sm:flex-row">
-        <div class="t hover:scale-125">
-          <a href="https://www.goodreads.com/user/show/155512706-stephen-okita">
-            <img
-              class="w-[10rem] h-[4rem]"
-              src="https://simpleicons.org/icons/goodreads.svg"
-            />
-          </a>
-        </div>
-        <div class="t bg-d-bg w-4 h-4/5 rounded m-auto ml-4 mr-4"></div>
-        <div class="t hover:scale-125">
-          <a href="https://letterboxd.com/danielOkita/">
-            <img
-              class="w-[10rem] h-[4rem]"
-              src="https://simpleicons.org/icons/letterboxd.svg"
-            />
-          </a>
-        </div>
+  </div>
+  <div
+    class="wrapper flex text w  flex-row"
+    in:fade={{ delay: 3 * 150, duration: 300 }}
+  >
+    <div class="flex flex-row">
+      <div class="m-auto t hover:scale-125">
+        <a href="https://www.goodreads.com/user/show/155512706-stephen-okita">
+          <img
+            class="w-[10rem] h-[4rem]"
+            src="https://simpleicons.org/icons/goodreads.svg"
+          />
+        </a>
+      </div>
+      <div class="t bg-d-bg w-4 h-4/5 rounded m-auto"></div>
+      <div class="m-auto t hover:scale-125">
+        <a href="https://letterboxd.com/danielOkita/">
+          <img
+            class="w-[10rem] h-[4rem]"
+            src="https://simpleicons.org/icons/letterboxd.svg"
+          />
+        </a>
       </div>
     </div>
   </div>
-
   {#if browser}
     <div class="grid grid-cols-1 md:grid-cols-2 mb-4">
       <div class="text wrapper1" in:fade={{ delay: 4 * 150, duration: 300 }}>
