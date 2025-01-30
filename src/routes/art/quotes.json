@@ -1,8 +1,7 @@
 [
   {
-    "name": "Ibn Sina", 
+    "name": "Ibn Sina",
     "text": "I prefer a short life with width to a narrow one with length."
-
   },
   {
     "name": "Oscar Wilde, Picture of Dorian Gray",
@@ -57,11 +56,20 @@
     "text": "Taking your own life, taking it from who, once it's over it's not you who'll miss it. Your own death is something that happens to everyone else, your life is not your own keep your hands off it."
   },
   {
-      "name": "Jean Racine",
-      "text": "Life is a comedy to those who think, a tragedy to those who feel."
+    "name": "Jean Racine",
+    "text": "Life is a comedy to those who think, a tragedy to those who feel."
   },
+  {
+    "name": "Rene Descartes, Discourse on Method",
+    "text": "No worries or passions to trouble me."
+  },
+
   {
     "name": "郝景芳, 北京摺疊",
     "text": "寧為玉碎 不為瓦全—寧願為正義的事情犧牲，也不要低聲下氣的活著"
+  },
+  {
+    "name": "Plato, The Republic",
+    "text": "Knowledge is of what is, ignorance of what is not, and opinion is intermediate between the two."
   }
 ]
