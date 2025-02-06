@@ -1,6 +1,6 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
-  import { fade } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
 
   export let data;
 </script>
@@ -28,7 +28,6 @@
       <svelte:component this={data.content} />
     </div>
   </article>
-
 </div>
 
 <style>

@@ -10,7 +10,7 @@
 <div class="sub flex alight-center text-center">
   <a href="/" class="text-d-orange">~/, </a>
   <a href="/aboutme" class="text-d-pink">&nbsp /about, </a>
-  <a href="/art" class="text-d-purple">&nbsp /person, </a>
+  <a href="/person" class="text-d-purple">&nbsp /person, </a>
   <a href="/projects" class="projects">&nbsp /projects, </a>
   <a href="/blog" class="text-d-red">&nbsp /blog</a>
 </div>
