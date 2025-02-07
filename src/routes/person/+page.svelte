@@ -81,10 +81,10 @@
         <img
           src={me}
           alt="something wrong with the picture"
-          class="m-auto rounded w-1/2 max-h-30"
+          class="m-auto rounded w-1/2"
         />
       </div>
-      <div class="flex w-full flex-col text-wrap">
+      <div class="flex w-full flex-col text-wrap w">
         <div>
           <p class="mb-2">
             This side of the website is an insight to who I am as a person not a
@@ -92,8 +92,10 @@
           </p>
           <hr />
         </div>
-        <div class="flex flex-col md:flex-row mt-2 ml-4">
-          <div>
+        <div
+          class="flex flex-col grow md:flex-row align-middle justify-center ml-4"
+        >
+          <div class="grow">
             <li><b>Born: </b>London, UK</li>
             <li><b>Raised: </b>Hong Kong</li>
             <li>
@@ -126,7 +128,7 @@
               <a href="https://world.danielokita.com">Map Blog</a>
             </li>
           </div>
-          <div class="">
+          <div class="grow">
             <li>
               <b>Languages:</b>
               <dd class="ml-4">
@@ -146,7 +148,7 @@
               </dd>
             </li>
           </div>
-          <div class="">
+          <div class="grow">
             <li>
               <b>Personality Traits:</b>
               <dd class="ml-4">
@@ -167,7 +169,7 @@
               </dd>
             </li>
           </div>
-          <div class="">
+          <div class="grow">
             <li>
               <b>Hobbies/Interests</b>
               <dd class="ml-4">

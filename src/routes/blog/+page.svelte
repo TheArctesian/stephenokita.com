@@ -4,7 +4,6 @@
   import { formatDate } from "$lib/utils.js";
   export let data;
   import { blur, fade, slide, fly, scale } from "svelte/transition";
-  import { elasticIn } from "svelte/easing";
 </script>
 
 <div out:slide>
@@ -22,13 +21,10 @@
     </h1>
   </div>
 
-  <section class="">
+  <section class="mb-2">
     <div class="posts">
       {#each data.posts as post, i}
-        <!-- <a href={post.slug} in:scale={{ delay: i * 200, duration: 300 }}> -->
         <a href={post.slug} in:fade={{ delay: i * 150, duration: 300 }}>
-          <!-- <a href={post.slug} in:fly={{ delay: i * 150, duration: 300 }}> -->
-          <!-- <a href={post.slug} in:slide={{ delay: i * 150, duration: 100 }}> -->
           <div class="post">
             <h1 href={post.slug} class="title">{post.title}</h1>
             <hr />

@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../../app.css";
+    import { fly } from "svelte/transition";
 
-  import { fly } from "svelte/transition";
     type jsonList = {
         title: string;
         date: string;
