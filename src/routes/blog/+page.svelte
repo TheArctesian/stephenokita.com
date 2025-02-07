@@ -1,27 +1,14 @@
 <script lang="ts">
-  import PostCard from "$lib/components/post-card.svelte";
-  import { concurrent } from "svelte-typewriter";
   import { formatDate } from "$lib/utils.js";
   export let data;
-  import { blur, fade, slide, fly, scale } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
+  import projects from "./unfinishedprojects.json";
+  import writings from "./unfinishedwriting.json";
+  import { each } from "svelte/internal";
 </script>
 
 <div out:slide>
-  <div in:fade class="flex text1 text-center flex-col">
-    <h1
-      class="text-center"
-      use:concurrent={{
-        mode: "loop",
-        delay: 10,
-        wordInterval: 100,
-        interval: 100,
-      }}
-    >
-      Forever a work in progress...
-    </h1>
-  </div>
-
-  <section class="mb-2">
+  <section class="">
     <div class="posts">
       {#each data.posts as post, i}
         <a href={post.slug} in:fade={{ delay: i * 150, duration: 300 }}>
@@ -57,10 +44,52 @@
       {/each}
     </div>
   </section>
-  <br />
+</div>
+<div class="mt-4">
+  <div class="wrapper">
+    <h1 class="font-bold">Unfinished/expired ideas</h1>
+    <p>
+      Ideas for projects and essays that are no longer mine to write and that I
+      wrote down to do. Look at the article of the same name for more info.
+    </p>
+  </div>
+  <div class="text-center font-bold wrapper">
+    <h1>Essays that should be written</h1>
+  </div>
+  <div class="posts mb-4">
+    {#each writings as w}
+      <div class="ideas" in:fade={{ delay: 1000, duration: 300 }}>
+        <h1>{w.idea}</h1>
+        <h1 class="float-right font-bold">{w.date}</h1>
+      </div>
+    {/each}
+  </div>
+  <div class="text-center font-bold wrapper">
+    <h1>Project that should be done</h1>
+  </div>
+  <div class="posts mb-4">
+    {#each projects as w}
+      <div class="ideas" in:fade={{ delay: 1000, duration: 300 }}>
+        <h1>{w.idea}</h1>
+        <h1 class="float-right font-bold">{w.date}</h1>
+      </div>
+    {/each}
+  </div>
 </div>
 
 <style>
+  .wrapper {
+    background-color: var(--fg);
+    padding: 1rem;
+    border-radius: 0.2rem;
+    background-color: var(--fg);
+    margin: 1rem;
+    margin-top: 0;
+  }
+  .ideas {
+    background-color: var(--fg);
+    padding: 1rem;
+  }
   right {
     float: right;
   }
@@ -91,7 +120,6 @@
     grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
   }
   .post {
-    margin-top: 1rem;
     margin-bottom: 1rem;
     background-color: var(--fg);
     height: 100%;
