@@ -1,6 +1,6 @@
 ---
-title: Unfinished or Expired Ideas
-description: A collection of titles/topics to writings I want to finish but have no had the time for.
+title: Unfinished or Expired Ideas and Authenticity
+description: Introducing cult of done, rant about self fulfilling nature of productivism, long exposition on the self action and identity spectra. Conclusion of introducing the idea grave yard at the bottom of the page.
 date: "2025-2-06"
 location: Berkeley
 categories:
