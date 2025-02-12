@@ -30,20 +30,39 @@
         </div>
       </div>
       <Collapsible bind:isOpen>
-        {#each data as i}
-          <div class="head">
-            <a href={i.link} class="flex flex-col" transition:fly|global>
-              <h1>Project Name: {i.projectName}</h1>
-              <p>{i.description}</p>
-            </a>
-          </div>
-        {/each}
+        <div class="posts">
+          {#each data as i}
+            <div class="post">
+              <a href={i.link} class="flex flex-col" transition:fly|global>
+                <h1>Project Name: {i.projectName}</h1>
+                <p>{i.description}</p>
+              </a>
+            </div>
+          {/each}
+        </div>
       </Collapsible>
     </div>
   </div>
 </div>
 
 <style>
+  .posts {
+    display: grid;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+  }
+  .post {
+    margin-bottom: 1rem;
+    background-color: var(--fg);
+    height: 100%;
+    color: var(--bg);
+    text-wrap: wrap;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    transition: all ease-in-out 100ms;
+  }
   .head {
     color: var(--black);
     border-radius: 1rem;

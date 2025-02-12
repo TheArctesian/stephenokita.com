@@ -23,7 +23,7 @@
       Email me at <span class="underline">me@danielokita.com</span>
     </h1>
     <h1 class="text-center">
-      Or find me on these places <h1>
+      <h1>
         <div class="content">
           <div class="element">
             <a href="https://www.linkedin.com/in/stephen-okita/">

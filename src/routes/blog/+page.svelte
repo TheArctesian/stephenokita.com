@@ -4,7 +4,6 @@
   import { fade, slide } from "svelte/transition";
   import projects from "./unfinishedprojects.json";
   import writings from "./unfinishedwriting.json";
-  import { each } from "svelte/internal";
 </script>
 
 <div out:slide>
@@ -13,7 +12,7 @@
       {#each data.posts as post, i}
         <a href={post.slug} in:fade={{ delay: i * 150, duration: 300 }}>
           <div class="post">
-            <h1 href={post.slug} class="title">{post.title}</h1>
+            <a href={post.slug} class="title">{post.title}</a>
             <hr />
             <div class="mt-3">
               <p class="date flex items-center">
@@ -56,22 +55,23 @@
   <div class="text-center font-bold wrapper">
     <h1>Essays that should be written</h1>
   </div>
-  <div class="posts mb-4">
+  <div class="posts">
     {#each writings as w}
-      <div class="ideas" in:fade={{ delay: 1000, duration: 300 }}>
+      <div class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
         <h1>{w.idea}</h1>
-        <h1 class="float-right font-bold">{w.date}</h1>
+        <h1 class="mt-auto ml-auto mb-4 font-bold">{w.date}</h1>
       </div>
     {/each}
+    <div></div>
   </div>
   <div class="text-center font-bold wrapper">
-    <h1>Project that should be done</h1>
+    <h1 class="">Project that should be done</h1>
   </div>
   <div class="posts mb-4">
     {#each projects as w}
-      <div class="ideas" in:fade={{ delay: 1000, duration: 300 }}>
+      <div class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
         <h1>{w.idea}</h1>
-        <h1 class="float-right font-bold">{w.date}</h1>
+        <h1 class="mt-auto ml-auto mb-4 font-bold">{w.date}</h1>
       </div>
     {/each}
   </div>
@@ -84,7 +84,6 @@
     border-radius: 0.2rem;
     background-color: var(--fg);
     margin: 1rem;
-    margin-top: 0;
   }
   .ideas {
     background-color: var(--fg);

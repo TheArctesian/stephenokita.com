@@ -414,7 +414,7 @@
                 class="text-d-pink m-auto sm:text-2xl mb-2 font-bold text-xl"
                 >Me?</span
               >
-              <a href="/art">
+              <a href="/person">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png"
                   alt="Who am I"
@@ -440,13 +440,28 @@
 
           <div class="element" in:fade={{ delay: 6 * 150, duration: 300 }}>
             <div class="b flex flex-col">
-              <span class="text-d-red m-auto sm:text-2xl mb-2 font-bold text-xl"
+              <span
+                class="text-d-comment m-auto sm:text-2xl mb-2 font-bold text-xl"
                 >Projects</span
               >
               <a href="https://github.com/TheArctesian">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/11450/11450628.png"
                   alt="Projects"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div class="element" in:fade={{ delay: 7, duration: 300 }}>
+            <div class="b flex flex-col">
+              <span class="text-d-red m-auto sm:text-2xl mb-2 font-bold text-xl"
+                >Blog</span
+              >
+              <a href="/blog">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/4922/4922073.png"
+                  alt="Blog"
                 />
               </a>
             </div>

@@ -12,23 +12,33 @@
   <meta property="og:title" content={data.meta.title} />
 </svelte:head>
 
-<div in:fade out:slide>
-  <article in:fade out:fade>
+<div out:slide>
+  <article in:slide={{ delay: 2 * 150, duration: 300 }}>
     <!-- Title -->
     <hgroup>
-      <h1>{data.meta.title}</h1>
-      <p>Published at {formatDate(data.meta.date)}</p>
+      <div class="flex flex-col">
+        <h1 in:fade={{ delay: 3 * 150, duration: 300 }}>{data.meta.title}</h1>
+        <p in:fade={{ delay: 4 * 150, duration: 300 }}>
+          Published at {formatDate(data.meta.date)} |
+          <a
+            href="/blog"
+            class="ml-auto"
+            in:fade={{ delay: 7 * 200, duration: 500 }}>Back to blog page</a
+          >
+        </p>
+      </div>
     </hgroup>
 
     <br />
-    <hr />
+    <hr in:fade={{ delay: 6 * 150, duration: 300 }} />
     <br />
     <!-- Post -->
-    <div class="prose">
+    <div class="prose" in:fade={{ delay: 6 * 150, duration: 300 }}>
       <svelte:component this={data.content} />
     </div>
   </article>
 </div>
+in:fade out:fade
 
 <style>
   article {

@@ -10,13 +10,9 @@
   import { slide } from "svelte/transition";
 </script>
 
-<!-- 
 <div class="text-center">
-  <h1 class="dis ">
-    Disclaimer this is not a complete project list just the ones I have the time
-    to copy over before I automate this
-  </h1> 
-</div> -->
+  <h1 class="dis">This is out of date from 2022. I will update this soon.</h1>
+</div>
 <div out:slide>
   <Project data={apps} name="Apps"></Project>
   <Project data={personal} name="Personal"></Project>
@@ -57,6 +53,7 @@
     font-size: small;
     padding: 1rem;
     margin: 1rem;
+    color: var(--red);
     background-color: var(--fg);
   }
   .code {
