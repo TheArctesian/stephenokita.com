@@ -38,7 +38,6 @@
     </div>
   </article>
 </div>
-in:fade out:fade
 
 <style>
   article {
