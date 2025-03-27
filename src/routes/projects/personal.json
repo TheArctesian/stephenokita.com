@@ -7,7 +7,7 @@
     "tags": [
       "svelte",
       "typescript",
-      "tailwind",
+      "tailwindcss",
       "css",
       "vercel"
     ]
@@ -20,7 +20,7 @@
     "tags": [
       "svelte",
       "typescript",
-      "tailwind",
+      "tailwindcss",
       "css",
       "vercel"
     ]
@@ -33,7 +33,7 @@
     "tags": [
       "svelte",
       "typescript",
-      "tailwind",
+      "tailwindcss",
       "css",
       "vercel",
       "python"
@@ -49,11 +49,12 @@
       "c",
       "haskell",
       "lua",
-      "bash",
+      "gnubash",
+      "fishshell",
       "linux",
       "css",
       "python",
-      "lisp",
+      "commonlisp",
       "rust"
     ]
   },
@@ -64,7 +65,7 @@
     "date": "2022-05-02",
     "tags": [
       "svelte",
-      "tailwind",
+      "tailwindcss",
       "css",
       "vercel",
       "typescript"
@@ -77,7 +78,7 @@
     "link": "https://github.com/TheArctesian/alex-okita.com",
     "tags": [
       "svelte",
-      "tailwind",
+      "tailwindcss",
       "css",
       "vercel",
       "typescript"
@@ -90,7 +91,7 @@
     "date": "2022-05-11",
     "tags": [
       "svelte",
-      "tailwind",
+      "tailwindcss",
       "css",
       "vercel",
       "typescript"
@@ -115,7 +116,10 @@
       "solidity",
       "haskell",
       "python",
-      "javascript"
+      "javascript",
+      "ethereum",
+      "bitcoin",
+      "solana"
     ]
   },
   {
@@ -124,7 +128,6 @@
     "link": "https://github.com/TheArctesian/Houdini-Vex-",
     "tags": [
       "houdini",
-      "3d",
       "c"
     ],
     "date": "2021-09-11"

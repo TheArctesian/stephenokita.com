@@ -7,10 +7,9 @@
             "svelte",
             "python",
             "css",
-            "tailwind",
+            "tailwindcss",
             "javascript",
-            "vercel",
-            "gpt"
+            "vercel"
         ],
         "date": "2024-05-03"
     },
@@ -20,11 +19,11 @@
         "link": "https://rjatool.org/",
         "tags": [
             "python",
-            "nextJS",
-            "qdrant",
-            "AI",
-            "vercel",
-            "gpt"
+            "nextdotjs",
+            "langchain",
+            "ollama",
+            "linux",
+            "vercel"
         ],
         "date": "2024-10-01"
     },
@@ -34,11 +33,11 @@
         "link": "http://techjusticelab.org/",
         "tags": [
             "python",
-            "nextJS",
-            "qdrant",
-            "AI",
-            "vercel",
-            "gpt"
+            "nextdotjs",
+            "langchain",
+            "ollama",
+            "linux",
+            "vercel"
         ],
         "date": "2025-03-16"
     },
@@ -48,8 +47,8 @@
         "link": "https://github.com/TheArctesian/blockChess-unity",
         "date": "2021-12-17",
         "tags": [
-            "c-sharp",
-            "unity"
+            "unity",
+            "linux"
         ]
     },
     {
@@ -58,18 +57,21 @@
         "link": "https://github.com/TheArctesian/blockChess-unity",
         "date": "2021-12-17",
         "tags": [
-            "c-sharp",
-            "unity"
+            "unity",
+            "javascript",
+            "html5",
+            "linux"
         ]
     },
     {
-        "name": "Blockchess",
-        "description": "My first attempt at making a crypto chess dapp",
-        "link": "https://github.com/TheArctesian/blockChess-unity",
-        "date": "2021-12-17",
+        "name": "Eem",
+        "description": " I kept making the joke of needing an assistant or clone of myself and my mother said to just train an AI on it. I originally dismissed it but after coming back after a night out I thought it would be funny to try it. So I built it a personal chatbot of me using ollama and langchain. The methods are on the github so you can build a replica one for yourself",
+        "date": "2025-03-5",
+        "link": "https://github.com/TheArctesian/eem",
         "tags": [
-            "c-sharp",
-            "unity"
+            "langchain",
+            "ollama",
+            "python"
         ]
     }
 ]

@@ -5,7 +5,7 @@
         "link": "https://github.com/TheArctesian/Flexi",
         "tags": [
             "svelte",
-            "tailwind",
+            "tailwindcss",
             "typescript",
             "nginx",
             "linux",
@@ -19,10 +19,9 @@
         "link": "https://25a.stephenokita.com/",
         "tags": [
             "svelte",
-            "tailwind",
+            "tailwindcss",
             "typescript",
-            "python",
-            "llm"
+            "python"
         ],
         "date": "2024-12-18"
     },
@@ -32,7 +31,7 @@
         "link": "https://github.com/TheArctesian/Articulate-IBPsychologySL",
         "tags": [
             "svelte",
-            "tailwind",
+            "tailwindcss",
             "typescript",
             "python"
         ],
@@ -44,12 +43,13 @@
         "link": "https://github.com/TheArctesian/malthus",
         "tags": [
             "python",
-            "maths"
+            "pandas",
+            "scipy"
         ],
         "date": "2022-09-18"
     },
     {
-        "name": "btcvstock",
+        "name": "Btcvstock",
         "description": "THe code for a research paper I am writing looking at: To what extent is bitcoin’s price dictated by the movements of stock markets?",
         "link": "https://github.com/TheArctesian/btcvstock",
         "tags": [
@@ -76,7 +76,7 @@
         "link": "https://github.com/TheArctesian/ibdb",
         "tags": [
             "svelte",
-            "tailwind",
+            "tailwindcss",
             "javascript",
             "typescript",
             "python",
@@ -91,7 +91,7 @@
         "link": "https://github.com/TheArctesian/cubesat",
         "tags": [
             "python",
-            "c++"
+            "cplusplus"
         ],
         "date": "2022-04-20"
     },
@@ -101,12 +101,12 @@
         "link": "https://github.com/TheArctesian/CarPoolBuddy-Svelte",
         "tags": [
             "svelte",
-            "tailwind",
+            "tailwindcss",
             "typescript",
             "firebase",
             "java",
             "android",
-            "springboot"
+            "spring"
         ],
         "date": "2022-02-03"
     },
@@ -127,8 +127,8 @@
         "tags": [
             "typescript",
             "java",
-            "android",
-            "sql"
+            "androidstudio",
+            "mysql"
         ],
         "date": "2021-10-27"
     },
@@ -138,7 +138,7 @@
         "link": "https://cs61a.org/",
         "tags": [
             "python",
-            "lisp",
+            "commonlisp",
             "c"
         ],
         "date": "2023-11-01"
@@ -148,8 +148,7 @@
         "description": "Designed and implemented a 2D procedural world generation engine in Java that leverages graph theory algorithms to create interconnected environments. Developed a system where rooms are represented as vertices and hallways as edges in a graph structure, employing algorithms like depth-first search and minimum spanning trees to ensure fully connected, exploration-friendly layouts. The project features pseudorandom generation based on user-provided seeds, interactive gameplay mechanics, and a custom rendering system with heads-up display (HUD). Built with a robust architecture supporting state persistence, deterministic behaviors, and room connectivity validation through graph traversal algorithms, ensuring every generated world provides a coherent, navigable space. (This was LLM generated)",
         "link": "https://sp24.datastructur.es/projects/proj3/",
         "tags": [
-            "java",
-            "gamedev"
+            "java"
         ],
         "date": "2024-04-03"
     },
@@ -161,7 +160,7 @@
             "react",
             "typescript",
             "firebase",
-            "nest"
+            "nextdotjs"
         ],
         "date": "2021-11-14"
     }

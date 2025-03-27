@@ -1,20 +1,36 @@
 [
- {
+  {
     "title": "Getting hit by a bus",
     "id": "bthVu-5usYE"
   },
-
-
+  {
+    "title": "Vortex",
+    "id": "dlSxFdxWFCU"
+  },
+  {
+    "title": "Render Jam Entry",
+    "id": "e9NMJUKRbDs"
+  },
+  {
+    "title": "Game Concept Test 1",
+    "id": "CXMKiQ15Z7A"
+  },
+  {
+    "title": "Game Concept Test 2",
+    "id": "7P4l5R7M2ak"
+  },
+  {
+    "title": "Long Ke Drone Shot",
+    "id": "aQQ2nyHGzVE"
+  },
+  {
+    "title": "Trueflation, weirdly was paid for this",
+    "id": "KivVjOgQ5Sk"
+  },
   {
     "title": "Skull Viscosity Testing",
     "id": "KkeBUhjnxJA"
   },
-
-  {
-    "title": "Vortex Sim",
-    "id": "d_udFR_-KLw"
-  },
-
   {
     "title": "Object Instancing with physics",
     "id": "JiWDNGKAkcU"
@@ -22,6 +38,10 @@
   {
     "title": "Procedural Masking",
     "id": "lIblIYVl3Og"
+  },
+  {
+    "title": "Weird Monkey Thing",
+    "id": "qpAQjD-seFI"
   },
   {
     "title": "Obligatory Wireframe Bloom",

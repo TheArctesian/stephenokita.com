@@ -451,10 +451,9 @@
   }
 
   .youtube-container {
-    width: 100%;
+    display: flex;
     padding: 0 3rem;
     min-height: 400px;
-    display: flex;
     align-items: center;
     justify-content: center;
   }

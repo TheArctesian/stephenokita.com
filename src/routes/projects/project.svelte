@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { slide, fade, scale } from "svelte/transition";
   import "../../app.css";
   import { onMount } from "svelte";
 
@@ -69,6 +70,26 @@
     }
   }
 
+  // Function to handle SimpleIcons properly
+  function getIconUrl(tag: string): string {
+    // Convert tag to lowercase and handle special cases
+    const normalizedTag = tag
+      .toLowerCase()
+      .replace(/\s+/g, "") // Remove spaces
+      .replace(/\./g, "dot") // Replace dots with 'dot'
+      .replace(/\+/g, "plus"); // Replace + with 'plus'
+
+    return `https://simpleicons.org/icons/${normalizedTag}.svg`;
+  }
+
+  // Function to check if an icon exists
+  function handleIconError(event: Event) {
+    const target = event.target as HTMLImageElement;
+    // Replace with text fallback if icon fails to load
+    const tag = target.getAttribute("data-tag") || "";
+    target.outerHTML = `<span class="tag-text">${tag}</span>`;
+  }
+
   // Modal state
   let showModal = false;
   let selectedProject: ProjectData | null = null;
@@ -99,15 +120,20 @@
   });
 </script>
 
-<div class="text">
+<div class="text" out:slide>
   <h1 class="section-title">{name}</h1>
 </div>
 
-<div class="section-container">
+<div
+  class="section-container"
+  out:slide
+  in:fade={{ delay: 4 * 150, duration: 300 }}
+>
   <div class="projects-grid">
-    {#each sortedProjects as project}
+    {#each sortedProjects as project, i}
       <div
         class="project-card"
+        in:fade={{ delay: (i + 5) * 150, duration: 300 }}
         on:click={() => openModal(project)}
         on:keydown={(e) => e.key === "Enter" && openModal(project)}
         tabindex="0"
@@ -127,11 +153,19 @@
         </p>
         <div class="card-footer">
           <div class="tags-preview">
-            {#each project.tags.slice(0, 2) as tag}
-              <span class="tag">{tag}</span>
+            {#each project.tags.slice(0, 4) as tag}
+              <span class="tag">
+                <img
+                  src={getIconUrl(tag)}
+                  class="icon-img"
+                  alt={tag}
+                  data-tag={tag}
+                  on:error={handleIconError}
+                />
+              </span>
             {/each}
-            {#if project.tags.length > 2}
-              <span class="more-tags">+{project.tags.length - 2}</span>
+            {#if project.tags.length > 4}
+              <span class="more-tags">+{project.tags.length - 4}</span>
             {/if}
           </div>
           <div class="date">{formatDate(project.date)}</div>
@@ -144,7 +178,7 @@
 <!-- Modal -->
 {#if showModal && selectedProject}
   <div class="modal-overlay" on:click={closeModal}>
-    <div class="modal-content" on:click|stopPropagation>
+    <div class="modal-content" on:click|stopPropagation in:scale out:scale>
       <button
         class="close-button"
         on:click={closeModal}
@@ -182,7 +216,16 @@
               <span class="metadata-label">Technologies:</span>
               <div class="modal-tags">
                 {#each selectedProject.tags as tag}
-                  <span class="mtag">{tag}</span>
+                  <span class="mtag">
+                    <img
+                      src={getIconUrl(tag)}
+                      class="icon-img-modal"
+                      alt={tag}
+                      data-tag={tag}
+                      on:error={handleIconError}
+                    />
+                    <span class="tag-name">{tag}</span>
+                  </span>
                 {/each}
               </div>
             </div>
@@ -230,6 +273,30 @@
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
+  }
+
+  /* Icon styling */
+  .icon-img {
+    width: 16px;
+    height: 16px;
+    filter: invert(1);
+    display: block;
+  }
+
+  .icon-img-modal {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+  }
+
+  .tag-name {
+    margin-left: 4px;
+  }
+
+  .tag-text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   /* Custom scrollbar styling */
@@ -338,21 +405,23 @@
   .tag {
     background-color: var(--bg);
     color: var(--fg);
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.2rem;
-    font-size: 0.7rem;
-    font-weight: 500;
-    white-space: nowrap;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mtag {
     background-color: var(--fg);
     color: var(--bg);
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.2rem;
-    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
     font-weight: 500;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
   }
 
   .more-tags {

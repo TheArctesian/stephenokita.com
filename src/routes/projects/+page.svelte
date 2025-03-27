@@ -7,12 +7,12 @@
   import personal from "./personal.json";
   import libs from "./libs.json";
   import school from "./school.json";
-  import { slide } from "svelte/transition";
+  import { slide, fade } from "svelte/transition";
 </script>
 
-<div out:slide>
+<div out:slide in:fade={{ delay: 2 * 150, duration: 300 }}>
   <Project data={work} name="Professional Work"></Project>
-  <Project data={projects} name="Passion Projects"></Project>
+  <Project data={projects} name="Projects"></Project>
   <Project data={personal} name="Personal Projects"></Project>
   <Project data={libs} name="Libraries"></Project>
   <Project data={school} name="School Projects"></Project>
