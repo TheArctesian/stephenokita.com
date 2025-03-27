@@ -1,57 +1,168 @@
 [
     {
-        "projectName": "Flexi",
-        "description": "A schedule hub for my school's Flexi period",
-        "link": "https://github.com/TheArctesian/Flexi"
+        "name": "Flexi",
+        "description": "A schedule hub for my school's Flexi period (OH equivalent for Secondary School). The school had a google sheet to organize the flexi period, which would crash every flexi time when 1000 students logged onto it. This app allowed students to easily see their flexi schedule and make changes. I no longer host or the domain, the app is being hosted by the school now (i think). The link goes to the github. There was a second iteration of this where I replaced the entire backend with a Go server called flexi2.",
+        "link": "https://github.com/TheArctesian/Flexi",
+        "tags": [
+            "svelte",
+            "tailwind",
+            "typescript",
+            "nginx",
+            "linux",
+            "go"
+        ],
+        "date": "2022-09-02"
     },
     {
-        "projectName": "IB Psychology Articulate",
-        "description": "Cards, and eventually a game for IB psychology",
-        "link": "https://github.com/TheArctesian/coalas"
+        "name": "25a Study Game",
+        "description": "Another game I based off tablequestions, this one was specific to Berkeley's 25a final. I played this with a couple friends to make sure we understood ancient philosophy. It was kinda method to procrastinate that had the vail of productivity. It began as a challenge from my friend that I couldn't get a study game built and hosted in 30 mins, I think it ended up taking me like 45 mins.",
+        "link": "https://25a.stephenokita.com/",
+        "tags": [
+            "svelte",
+            "tailwind",
+            "typescript",
+            "python",
+            "llm"
+        ],
+        "date": "2024-12-18"
     },
     {
-        "projectName": "Malthus",
-        "description": "This was the code needed for me to write my math IA (an ib thing), basicity I was trying to disprove malthusian population theory after reading Marx and George then kinda proved it right.",
-        "link": "https://github.com/TheArctesian/coalas"
+        "name": "IB Psychology Articulate",
+        "description": "Study cards, and eventually an Articulate based online game for IB psychology. Is based off of my other tablequestion, with the questions and functionality amended to match the IB psychology syllabus. I also stopped hosting it as it was too expensive, but the code is still there.",
+        "link": "https://github.com/TheArctesian/Articulate-IBPsychologySL",
+        "tags": [
+            "svelte",
+            "tailwind",
+            "typescript",
+            "python"
+        ],
+        "date": "2023-01-04"
     },
     {
-        "projectName": "Skl-DiD",
-        "description": "Digital ID cards for school",
-        "link": "https://github.com/TheArctesian/Skl-Did"
+        "name": "Malthus",
+        "description": "This was the code needed for me to write my maths IA (IB project). I can't find my final report but it was inspired by Marx and Henry George's inductive destruction of Malthusian Population theory. I wanted to deductively analyse it and model the changes, the report kinda showed malthus was right an resources (GDP) could be modeled with a Arithmetic sequence and population with a geometric sequence. The Malthusian point (intersection of the two lines) I think I found to be around the early 2100, which intuitively lines up.",
+        "link": "https://github.com/TheArctesian/malthus",
+        "tags": [
+            "python",
+            "maths"
+        ],
+        "date": "2022-09-18"
     },
     {
-        "projectName": "btcvstock",
-        "description": "A research paper I am writing looking at: To what extent is bitcoin’s price dictated by the movements of stock markets?",
-        "link": "https://github.com/TheArctesian/btcvstock"
+        "name": "btcvstock",
+        "description": "THe code for a research paper I am writing looking at: To what extent is bitcoin’s price dictated by the movements of stock markets?",
+        "link": "https://github.com/TheArctesian/btcvstock",
+        "tags": [
+            "python",
+            "haskell",
+            "julia"
+        ],
+        "date": "2022-06-27"
     },
     {
-        "projectName": "Powerschool Calandar app",
-        "description": "Someone else made this I attempted to maintain it but got bored",
-        "link": "https://github.com/TheArctesian/ps-calendar.git"
+        "name": "Powerschool Calendar app",
+        "description": "This was to import PowerSchool class cal for my secondary school into google cal. Someone else made this and I maintain it. I originally did pen testing on it and found a bunch of vulnerabilities that I patched. I don't know the current state of the project.",
+        "link": "https://github.com/TheArctesian/ps-calendar.git",
+        "tags": [
+            "python",
+            "javascript",
+            "php"
+        ],
+        "date": "2022-02-02"
     },
     {
-        "projectName": "ibdb",
-        "description": "A revision village alternative my friend and I made to help people study. We are intending to flesh this out and gameafy it.",
-        "link": "https://github.com/TheArctesian/ibdb"
+        "name": "ibdb",
+        "description": "Revision village was a popular IB resource for past papers and markschemes, but it was expensive. The laws around distributed past papers are quite strict so we made this internal school website so all students could get past paper questions. We did some OCR and NLP to extract questions and markschemes based on topics for each test. The site is also no longer up.",
+        "link": "https://github.com/TheArctesian/ibdb",
+        "tags": [
+            "svelte",
+            "tailwind",
+            "javascript",
+            "typescript",
+            "python",
+            "firebase",
+            "vercel"
+        ],
+        "date": "2023-05-01"
     },
     {
-        "projectName": "cubesat",
-        "description": "The code needed to work a cubesat satellite I made with a group of friends for a competition",
-        "link": "https://github.com/TheArctesian/cubesat"
+        "name": "Cubesat Spectroscopy",
+        "description": "This is the code for our submission to the HKU Cubesat competition. We designed and made a mini satellite that would use spectroscopy to analyse the chemical composition of the ozone. As the cubesat journeyed around the earth it would relay the information to a server setup in HKU so we could trace emissions and pollution levels. We didn't win, but it was fun to work to do extraterrestrial networking and electrical engineering. We had a team of 7 but really only 2 of us did any work. A funny story was the submission that won the popular vote (based on instagram likes) was a satellite that would send ashes up to space. This was a well built satellite but they somehow did not consider Newton's third law, when the ashes release they would set the satellite containing many other cubesats off course.",
+        "link": "https://github.com/TheArctesian/cubesat",
+        "tags": [
+            "python",
+            "c++"
+        ],
+        "date": "2022-04-20"
     },
     {
-        "projectName": "CarpoolBuddy",
-        "description": "A uber clone to let people carpool to school",
-        "link": "https://github.com/TheArctesian/CarPoolBuddy-Svelte"
+        "name": "CarpoolBuddy",
+        "description": "Another school project for orgnising car pools to school. Our school was ontop of a hill so all 3000 staff and students had to go through one road of traffic to get up. It was getting to be a really big problem, in the mornings it would take 30 mins to get up a hill that was a 20min walk. This was an app that allowed parents to create carpool groups, it was built off of uber with chat functionality. The linked one is the svelte+firebase version, I also made a Java (android) springboot version which is on my github. This is also no longer hosted.",
+        "link": "https://github.com/TheArctesian/CarPoolBuddy-Svelte",
+        "tags": [
+            "svelte",
+            "tailwind",
+            "typescript",
+            "firebase",
+            "java",
+            "android",
+            "springboot"
+        ],
+        "date": "2022-02-03"
     },
     {
-        "projectName": "QuantumStuff",
-        "description": "My notes and programs around quantum computing using qiskit and IBM's quantum computer",
-        "link": "https://github.com/TheArctesian/QuantumStuff"
+        "name": "QuantumStuff",
+        "description": "My notes and projects in for IBMs quantum computing course. This was cool as hello world in qiskit (IBM's quantum lib) is super difficult.",
+        "link": "https://github.com/TheArctesian/QuantumStuff",
+        "tags": [
+            "python",
+            "latex"
+        ],
+        "date": "2022-01-01"
     },
     {
-        "projectName": "Eatrium",
-        "description": "An app to help automate the jobs of out school poor lunch ladies, this is a joke it was a school assignment and was never implemented",
-        "link": "https://github.com/TheArctesian/Eatrium"
+        "name": "Eatrium",
+        "description": "A school project to replace the system our cafeteria used for ordering. It was made for those big screen android devices. It was a lot of fun to build and it also no longer hosted.",
+        "link": "https://github.com/TheArctesian/Eatrium",
+        "tags": [
+            "typescript",
+            "java",
+            "android",
+            "sql"
+        ],
+        "date": "2021-10-27"
+    },
+    {
+        "name": "Scheme (Lisp) Interpreter, CS61A",
+        "description": "A simple Scheme interpreter written in Python. This was a fun project to understand the inner workings of a programming language and how to parse and execute code. This was for Berkeley's CS61A course. The website link may or may not have the project details there depending on when you are looking at it. Their archived website are only available to Berkeley students and my personal submission is can't be shared (so other people don't steal it when doing the project in later semesters. This was really difficult and I spent a lot of time on it, was fun to work with program interpretation and lisp (scheme)",
+        "link": "https://cs61a.org/",
+        "tags": [
+            "python",
+            "lisp",
+            "c"
+        ],
+        "date": "2023-11-01"
+    },
+    {
+        "name": "World Generation, DIY Gameengine for CS61B",
+        "description": "Designed and implemented a 2D procedural world generation engine in Java that leverages graph theory algorithms to create interconnected environments. Developed a system where rooms are represented as vertices and hallways as edges in a graph structure, employing algorithms like depth-first search and minimum spanning trees to ensure fully connected, exploration-friendly layouts. The project features pseudorandom generation based on user-provided seeds, interactive gameplay mechanics, and a custom rendering system with heads-up display (HUD). Built with a robust architecture supporting state persistence, deterministic behaviors, and room connectivity validation through graph traversal algorithms, ensuring every generated world provides a coherent, navigable space. (This was LLM generated)",
+        "link": "https://sp24.datastructur.es/projects/proj3/",
+        "tags": [
+            "java",
+            "gamedev"
+        ],
+        "date": "2024-04-03"
+    },
+    {
+        "projectName": "stackcord",
+        "description": "A website a couple of my friends and I made for teachers and students to connect in under developed countires. This was our submission for 2 Microsoft x UN Hackathons which we won.",
+        "link": "https://github.com/SkullCutter02/stackcord",
+        "tags": [
+            "react",
+            "typescript",
+            "firebase",
+            "nest"
+        ],
+        "date": "2021-11-14"
     }
 ]

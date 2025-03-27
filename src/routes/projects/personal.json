@@ -1,63 +1,114 @@
 [
-{
-    "projectName": "Taxonomy of Knowledge using Wikipedia",
-    "description": "These are the py files for my blog post",
-    "link": "https://github.com/TheArctesian/Wikipedia-Knowledge-Taxonomy"
-  },
   {
-    "projectName": "world.danielokita.com",
+    "name": "world.danielokita.com",
     "description": "A visualiser for all the places I have been in the world",
-    "link": "https://github.com/TheArctesian/world.danielokita.com"
+    "link": "https://github.com/TheArctesian/world.danielokita.com",
+    "date": "",
+    "tags": [
+      "svelte",
+      "typescript"
+    ]
   },
   {
-    "projectName": "medaitimeline.danielokita.com",
+    "name": "medaitimeline.danielokita.com",
     "description": "A stupid visualiser for the books and movies I have seen",
-    "link": "https://github.com/TheArctesian/mediatimeline.danielokita.com"
+    "link": "https://github.com/TheArctesian/mediatimeline.danielokita.com",
+    "date": "",
+    "tags": [
+      "svelte",
+      "typescript",
+      "python"
+    ]
   },
   {
-    "projectName": "My Dot files",
+    "name": "My Dotfiles",
     "description": "My personal configuration for Unix based systems, this is not a big project for most people but is the one I work on the most.",
     "link": "https://github.com/TheArctesian/DotFiles",
-    "gitrepo": ""
+    "date": "",
+    "tags": [
+      "react",
+      "c",
+      "haskell",
+      "lua",
+      "bash",
+      "linux",
+      "css",
+      "python",
+      "lisp",
+      "rust"
+    ]
   },
   {
-    "projectName": "danielokita.com",
+    "name": "danielokita.com",
     "description": "This very website that you are on right now",
-    "link": "https://github.com/TheArctesian/danielokita.com"
+    "link": "https://github.com/TheArctesian/danielokita.com",
+    "date": "",
+    "tags": [
+      "svelte",
+      "typescript"
+    ]
   },
   {
-    "projectName": "alex-okita.com",
+    "name": "alex-okita.com",
     "description": "My brothers website, he is a lovely and I forgot to buy him a christmas gift so I spent the morning of christmas eve making him this. It is pretty poorly made but he seemed to like it.",
     "link": "https://github.com/TheArctesian/alex-okita.com"
   },
   {
-    "projectName": "Start Page",
+    "name": "Start Page",
     "description": "My personal 'home page' or the tab that opens up when I open up a new time. I switch between qutebrowser, firefox and brave but this always stays with me. It is very useful especially with vimium so I don't have to type into a searchbar. I am a programmer I am hardwiring to be lazy.",
-    "link": "https://github.com/TheArctesian/startpage"
+    "link": "https://github.com/TheArctesian/startpage",
+    "date": "",
+    "tags": [
+      "svelte",
+      "typescript"
+    ]
   },
   {
-    "projectName": "Clear Beacon",
-    "description": "Asset Work and website for Clear Beacon",
-    "link": "https://github.com/TheArctesian/clearbeacon"
-  },
-  {
-    "projectName": "TI-84",
+    "name": "TI-84",
     "description": "A collection of TI-84 apps",
-    "link": "https://github.com/TheArctesian/TI-84"
+    "link": "https://github.com/TheArctesian/TI-84",
+    "date": "",
+    "tags": [
+      "c"
+    ]
   },
   {
-    "projectName": "Template",
+    "name": "Template",
     "description": "My template for creating new projects, gives donation links and GPL-3 licence",
     "link": "https://github.com/TheArctesian/Template"
   },
   {
-    "projectName": "Crypto Donations",
+    "name": "Crypto Donations",
     "description": "A collection of snip bits for interacting with different blockchain payment systems. Intended to make donations easy.",
-    "link": "https://github.com/TheArctesian/CryptoDonations"
+    "link": "https://github.com/TheArctesian/CryptoDonations",
+    "date": "",
+    "tags": [
+      "solidity",
+      "haskell", 
+      "python",
+      "javascript"
+    ]
   },
+
   {
-    "projectName": "Fractals",
-    "description": "Some cool fractals I made in python",
-    "link": "https://github.com/TheArctesian/Fractals"
-  }
+    "name": "Houdini",
+    "description": "My procedural generations scripts for Houdini, a 3D simulation software. I use this for creating 3D models and simulations for fun.",
+    "link": "https://github.com/TheArctesian/Houdini-Vex-",
+    "tags": [
+      "houdini",
+      "3d",
+      "c"
+    ],
+    "date": "2021-09-11"
+  },
+    {
+        "name": "",
+        "description": "",
+        "link": "",
+        "date": "",
+        "tags": [
+            ""
+        ]
+    }
+
 ]

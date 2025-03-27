@@ -1,17 +1,110 @@
 [
     {
-        "projectName": "Coalas",
-        "description": "An array based CSV parser",
-        "link": "https://github.com/TheArctesian/coalas"
+        "name": "Coalas",
+        "description": "An array based CSV parser for python",
+        "link": "https://github.com/TheArctesian/coalas",
+        "date": "2022-06-07",
+        "tags": [
+            "python",
+            "data-science",
+            "csv",
+            "pandas"
+        ]
     },
     {
-        "projectName": "Daddy Base",
-        "description": "A naive bayes sentiment analyser for custom models. Built this because I was using sklearn and there was a bug so taking the GNU philosophy I modularised it",
-        "link": "https://github.com/TheArctesian/DaddyBayes"
+        "name": "Voxel Remesh",
+        "description": "A program in C and Rust to convert mesh into Voxels for sandbox integration",
+        "link": "https://github.com/TheArctesian/VoxelRemesh",
+        "date": "2022-02-03",
+        "tags": [
+            "c",
+            "rust",
+            "python",
+            "3d"
+        ]
     },
     {
-        "projectName": "PercentIncrease",
-        "description": "A simple lib to practice rust, calculates percent increase with the og number and a new number",
-        "link": "https://github.com/TheArctesian/PercentIncrease"
+        "name": "React Whiteboard",
+        "description": "A whiteboard implementation in React",
+        "link": "https://github.com/TheArctesian/react-whiteboard",
+        "date": "2022-10-19",
+        "tags": [
+            "javascript",
+            "css",
+            "react"
+        ]
+    },
+    {
+        "name": "Useless Gaps",
+        "description": "A GNOME Shell Extension which adds aesthetic gaps around tiled and maximized windows",
+        "link": "https://github.com/mipmip/gnome-shell-extensions-useless-gaps",
+        "date": "2022-04-19",
+        "tags": [
+            "javascript",
+            "shell",
+            "linux"
+        ]
+    },
+    {
+        "name": "Xmonad",
+        "description": "The core of xmonad, a small but functional ICCCM-compliant tiling window manager",
+        "link": "https://github.com/xmonad/xmonad",
+        "date": "2022-06-19",
+        "tags": [
+            "haskell",
+            "linux"
+        ]
+    },
+    {
+        "name": "svelte-countdown",
+        "description": "A simple css-agnostic countdown component for Svelte 3 with just 1 dependency",
+        "link": "https://github.com/TheArctesian/svelte-countdown",
+        "date": "2022-03-03",
+        "tags": [
+            "svelte",
+            "javascript"
+        ]
+    },
+    {
+        "name": "nfetch-src",
+        "description": "A system information tool (Like Neofetch) written in Nim",
+        "link": "https://github.com/yummy-licorice/nfetch-src",
+        "date": "2022-05-22",
+        "tags": [
+            "nim",
+            "shell"
+        ]
+    },
+    {
+        "name": "ly",
+        "description": "A lightweight TUI display manager with console UI for Linux and BSD",
+        "link": "https://github.com/fairyglade/ly",
+        "date": "2022-10-03",
+        "tags": [
+            "c",
+            "shell",
+            "makefile"
+        ]
+    },
+    {
+        "name": "skyWM",
+        "description": "An extensible tiling window manager written in Rust adhering to the KISS and Unix philosophy",
+        "link": "https://github.com/TheArctesian/skyWM",
+        "date": "2022-09-03",
+        "tags": [
+            "rust",
+            "linux"
+        ]
+    },
+    {
+        "name": "lgit",
+        "description": "A lazy git tool for automating common git commands",
+        "link": "https://github.com/TheArctesian/lgit",
+        "date": "2022-05-07",
+        "tags": [
+            "rust",
+            "shell",
+            "git"
+        ]
     }
 ]
