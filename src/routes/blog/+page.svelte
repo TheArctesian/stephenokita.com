@@ -55,7 +55,7 @@
   <div class="text-center font-bold wrapper">
     <h1>Essays that should be written</h1>
   </div>
-  <div class="posts">
+  <div class="posts flex-wrap overflow-hidden">
     {#each writings as w}
       <div class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
         <h1>{w.idea}</h1>
@@ -67,7 +67,7 @@
   <div class="text-center font-bold wrapper">
     <h1 class="">Project that should be done</h1>
   </div>
-  <div class="posts mb-4">
+  <div class="posts mb-4 flex-wrap overflow-hidden">
     {#each projects as w}
       <div class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
         <h1>{w.idea}</h1>
