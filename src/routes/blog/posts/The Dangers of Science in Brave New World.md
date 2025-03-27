@@ -9,25 +9,9 @@ categories:
 published: true
 ---
 
-# The Dangers of Science in _Brave New World_
-
-Stephen Okita
-
-[**Document Analysis 1**](#document-analysis)
-
-[**Story Summary and Style 3**](#story-summary-and-style)
-
-[**Aldous Huxley 4**](#aldous-huxley)
-
-[**Historical Context 5**](#historical-context)
-
-[**Analysis 9**](#analysis)
-
-[**Citations 12**](#citations)
-
 Aldous Leonard Huxley (1894-1963) released his magnum opus in 1932 when he was 38 years old. The novel presented a dystopian (or utopian, depending on interpretation) vision of a future society known as the World State, where human beings are mass-produced in laboratories and conditioned to be content with their predestined roles in the strictly hierarchised society. Individuality and personal freedom are sacrificed for societal stability, with the government maintaining control through the use of technology and psychological manipulation. The story follows Bernard Marx, who is an outsider in the supposedly utopian world, and John the Savage, a man raised outside the World State who struggles with the shallow hedonism of the new world. The novel comes at a unique period in history where science seeped more and more into the lives and politics of the world. This essay will show how _Brave New World_ demonstrates the dangers of approaches to incorporate science into the world.
 
-# Document Analysis {#document-analysis}
+# Document Analysis
 
 _Brave New World_ stands as one of the 20th century's best-selling novels, with translations in over 20 languages[^1]. By the time of its publication, Aldous Huxley had already established his literary reputation in novels such as "Crome Yellow'' (1921) and "Antic Hay'' (1923), and his thought-provoking essays. The story's enduring popularity has led to adaptations in various formats, including movies, television shows, and comic books. The novel's characters and its depiction of a dystopian society have become deeply embedded in our cultural consciousness and are frequently included in school curricula.
 
@@ -36,13 +20,13 @@ The document in question is a 2009 release of the _Brave New World_ by Penguin R
 Books published by Penguin are known for their quality, affordability and iconic design. Originally the books were colour coated to denote the genre, as the publishing company grew more comprehensive schemes of organisation were needed. Penguin Random House split its work into the categories with subsidiary companies managing each line, Pelican Books (non-fiction works), Puffin Books (children’s books) and Penguin Classics. The ‘Vintage Classics' line, from which the document hails, is a subcategory within Penguin Classics that republishes the greatest works of classic literature featuring the likes of Jane Austin, Leo Tolstoy, Charles Dickens, James Joyce… The works are published with a red binding, uniquely designed covers and introductions from notable authors and scholars.  
  The document is 13 cm by 20cm by 2cm, containing 312 pages. The cover of the book features a red graphic of the earth with white swirls flowing out of it, denoting how Huxley’s world of control could spiral into our reality. Underneath the graphic is a blue quote from Margaret Atwood, saying ‘A masterpiece of speculation’. The book's binding features the vintage classic brand of red with the author, written in blue, the title of the book, written in white, and the word ‘VINTAGE’ denoting the series. All the words on the cover are written in uppercase letters to attract readers attention. The back of the features a quote from novelist J.G. Ballard, emphasises the ‘uncannily prophetic’ nature of the novel. Beneath the quote includes a blurb written in grey outlining the narrative while re-emphasising the insight and warnings Huxley’s 1932 novel provides to the present. The presentation of the document is striking, communicating its evocatory nature. This copy was purchased in the world-famous Foyles bookshop in London for £9.99, with the price imprinted on the back of the book. Millions of copies have been sold in bookshops across the globe.[^3]
 
-## Story Summary and Style {#story-summary-and-style}
+## Story Summary and Style
 
 . The first 4 pages contain a short biography, comments on the work by notable newspapers, authors and pundits and licensing information. This is followed by the introduction which features two passages from Canadian novelist Margaret Atwood (1939-present), known for her dystopian novel ‘The Handmaid's Tale’, and philosopher David Bradshaw (1944-present). Atwood provided a more semantic interpretation of the work, commenting on how the ideas/themes and how permuted society as well as an homage to his literary prowess, Bradshaw offers a more traditional record of Huxley's life and his impact on literature. After the introduction, there is a short forward from Huxley himself written in 1946, detailing some amendments he would make to the book given 14 years of rumination.  
  Finally, the text itself begins. The text itself is split into 18 chapters, denoted by Roman numerals, spanning 230 pages. The first 3 chapters (I-III) introduce the World state and the lifestyle of its citizens as seen through the main characters. The following 3 chapters (IV-VI) cover Bernard Marx dissatisfaction of the world state and longing for individuality. The next 3 chapters (VII-IX) detail Bernard and Lenina Crowne’s visit to the savage reservation, where they meet John and serve as a contrast to the depravity of absolute individualism. The 4 chapters following that (X-XIII) catalogues John the Savage’s experiences in the World State and his conflicting views of the society. After the death of his mother, the next 3 chapters (XIV-XVI) demonstrate the conflicting ideologies of John and the World State. The last 2 chapters (XVII-XVIII) form the climax of the book with John’s debate with the world controller on emotion vs societal stability, in essence the value of Millian higher vs lower pleasures, as well as John’s eventual suicide following his experience of absolute freedom.  
 Huxley's _Brave New World_ is first and foremost a satire crafted with a tapestry of symbols, allusions, and metaphors. The novel is in a sense a satirical dialectic with the hypothesis of the World State, a society driven and ruled by unshackled science and materialism, the antithesis of life on the Reservation and John. Huxley drew heavily upon the events of his time without obfuscation, such as the deification of Ford or the use of political figures as character names. The writing is not subtle, Huxley transports the reader to the dystopian world and continually rams the message down the reader's throat.
 
-## Aldous Huxley {#aldous-huxley}
+## Aldous Huxley
 
 Aldous Huxley was born on July 26, 1894, in Godalming, Surrey, England, into what could rightly be called 'intellectual aristocracy'. His grandfather, Thomas Henry Huxley (1825–1895), was a prominent biologist and the most fervent supporter of Charles Darwin (1809–1882) following the publication of "On the Origin of Species". Known as "Darwin's Bulldog", Thomas Henry Huxley was a formidable force in the scientific community of his time. Aldous Huxley's granduncle, Matthew Arnold (1822–1888), was a noted Victorian poet and author, adding another layer of intellectual heritage to his lineage.
 
@@ -54,7 +38,7 @@ Huxley's exploration of human consciousness, pacifism, and potential dangers of 
 
 Despite the change in career, Huxley retained a lifelong love for science, which found its way into his literary work. This passion for science did not dim as he grew older. In his final piece, "Literature and Science" (1963), published two months before his death, he stated: "the precondition of any fruitful relationship between literature and science is knowledge." This belief served as his guiding principle, and he strove to ensure art was not ignorant of science, and scientists did not forget humanity. His fear was that ignorance on either side could lead to a dystopian society akin to the one he depicted in _Brave New World_.
 
-# Historical Context {#historical-context}
+# Historical Context
 
 1932 was a tumultuous year. The horrors of ‘The Great War’, the opulence of the roaring 20s and the pain of the great depression were fresh in humanities collective consciousness. In conjunction humanity was on the cusp of eugenics zenith and its subsequent fall. These events and wider historical context bleed throughout _Brave New World_. This section will elaborate on the context of the time that would go on to inspire _Brave New World_.  
 The Great War (1914-1918) showed the world the destructive power of science. Nicknamed the ‘Chemist War’, it featured devastating innovation such as Fritz Haber (1868 –1934) mustard gas and Walther Nernst (1864 –1941) twisting of thermodynamics to create devastating bombs[^4]. WW1 from an epoch of science's relation to the state. Science changed into warfare, shaped science from just being the tool of entrepreneurs and academics but a fundamental organ of the state. Scientists were no longer curious academics, but the needle politicians used to inflict mass destruction and murder.  
@@ -65,14 +49,14 @@ Galton said “On The _Origin of Species_ formed a new epoch in my own mental de
 Eugenics was further developed by the founding president of Stanford, David Star Jordan (1851-1931). Jordan popularised the idea in the new world and helped to put it into official negative eugenics laws in place, forced sterilisations, and inspiring academics such as Madison Grant (1865–1937) to teach classes and produce more literature on the topic. Grant went on to write _The Passing of the Great Race_ (1916) which was described by Hitler as his ‘bible’. In fact, when the Nazi’s began to pass and act on their first forced sterilisation laws (1934), American doctor Joseph Dejarnett (1866-1957) said “The Germans are beating us at our own game”.[^12]  
 In addition to the depressing wave of Eugenics sweeping, the world was in economic turmoil and about to be plunged into another world war. The roaring 20s and the great depression provide the economic backdrop to Huxley’s novel. In the twilight years of the second industrial revolution, Huxley recognised the opulence of the time by its “overproduction of strictly saying unnecessary things”¹¹. The invention of the Model-T also came with the invention of the assembly line, igniting the productive capabilities of industry and structuring the zenith of consumerism (for the time being). This decadence came crashing down at the end of the 20s, plunging the world into what would now be called The Great Depression. In response to the calamity, economists such as John Maynard Keynes (also a Malthusian[^13]) proposed not less consumption, but artificially creating more, "if the Treasury were to fill old bottles with banknotes, bury them at suitable depths in disused coal mines which are then filled up to the surface with town rubbish, and leave it to private enterprise on well-tried principles of laissez-faire to dig the notes up again... there need be no more unemployment and, with the help of the repercussions, the real income of the community, and its capital wealth also, would probably become a good deal greater than it actually is."[^14]. In this Keynes shows that any form spending, even unproductive, is good for the economy and thus for humanity. Huxley, along with other philosophers, criticised this position for promoting/accelerating hedonism and alienation.
 
-# Analysis {#analysis}
+# Analysis
 
 The Malthusian struggle is seen through the Reservation, a libertarian wasteland where life is a contest. A world stunted in scientific growth where scarcity, “viviparous” humans live a life of moral depravity and permanent struggle. In this way Huxley presents control, through technology as a necessity as who wrote in his 1958 essay _Brave New World Revisited_, “In the second half of the twentieth century we did nothing systematic about our breeding; but in our random and unregulated way we are not only overpopulating our planet, we are also. It would seem, making sure that these greater numbers shall be of biologically poorer quality”[^15]. It is a society deeply rooted in tradition, individualism, and emotional depth and can also be seen as a satire of the artists/poet's romanticised view of the world. While one can see the ideas of a romantic poet like Lord Byron or John Keats seeping into John, the most influential figure is Shakespeare. John the Savage represents Hamlet's alienation in straddling two worlds, Othello’s inability and Romeo’s love across different worlds and values. However, the most important figure is Miranda from _The Tempest_, with the line “O, brave new world That has such people in’t\!”[^16]. John, much like Miranda, is marvelled and then disillusioned with “civilisation”. The tragic ending of John represents the danger of being so lost in romanticism and what a complete rejection of technology can lead to.  
 In _Brave New World_, chemical warfare is seen as an item of the past, with the state now employing chemistry to manipulate and control its population biology. Huxley took an opposite approach to the population control of Galton, Wells or Hitler in creating _Brave New World both_ in method and motive. Huxley’s eugenics was not breeding the best, as in most virtues in an Aristotelian sense, but best citizens for a functioning society. Taking into account the warnings of Malthus, all natural procreations are banned, or as he calls it ‘viviparous’ the scientific word for natural production to accentuate its animalist and inhumane nature. Population is regulated, in proportion to the resources available. Like Galton, the World Controller understood society to be stratified by their genetics, the Desirable, Middle Class and Undesirable of Galton were expanded into Alphas, Betas, Gammas, Deltas and Epsilons in _Brave New World._ Each class is bread and conditioned for a certain purpose, artificially breeding good or bad stock for a particular end. For the lower classes, the embryo is selected from a mentally deficient population and cloned using ‘Bokanovsky's process’. For the upper classes,“high stock” egg and sperm are artificially merged to create the basis for the best human. Huxley went beyond the restricted view of Jordan and understood humanity as more than its genetics. For this, he appropriated the weaponization of chemicals from WW1 and changed its goal from destruction to control (homogenization). Through “Pavlov’s Conditioning”, Huxley showed how science could be used to change the cognition of humanity. Through adding standardised chemicals and artificially recreating environments, the foetuses were conditioned to serve a specific function. Examples include, limiting oxygen, adding alcohol to decrease the cognitive abilities of the “subject”. In addition, the embryos were “morally conditioned” with negative and positive stimuli, like electrotherapy and “Hypnopaedia”, playing propaganda during sleep, to standardise the values of its society, creating a docile, drug loving overconsuming society of hedonists. This satirised the prevailing Keynes economics of the time, showing how consumption disintegrates humanity. To this end, Huxley also introduced “soma” as a risk-free replacement for drugs to reinforce the docility of its citizens.  
 While this society may seem idealic to some, it is without vitality, and individuality. Huxley’s views on the danger of science eclipsing humanity is heavily inspired by his friend Bertrand Russel’s work _Scientific Outlook (1931)_ and in a sense is an amplification of his previous work _Crome Yellow (1922)_, while also paraphrasing H.G. Wells utopia _Men Like Gods_ _(1923)_. However, the novel stands alone from their works by presenting itself as a satirical dialectic. _Men Like Gods_ is analogous to the society of 632 A.F (after ford’s model T) in _Brave New World_. The crèches (scientific moral indoctrination) and genetic control (Eugenics) in the Well’s novel mirror Huxley’s conditioning centre’s and hatcheries. This utopian view of Huxley’s dystopian society is further represented by the character of Scogan in _Crome Yellow,_ who describe a “Rational State” where “rows upon rows of gravid bottles will supply the world with the population it requires,” and prophecies “the system of family with disappear”.  
 In conclusion, we see through Huxley’s life he attempted to balance “Literature and Science”, _Brave New World_ elucidates how close society is to letting science control us and strip us of all humanity, while also showing the dangers of a humanity without the comforts of science. Brave New World shows how alone, they derive into moral depravity or failure.
 
-# Citations {#citations}
+# Citations
 
 “About Penguin Random House.” About Penguin Random House, April 5, 2023\. https://www.penguin.co.uk/company/about-us.
 
@@ -111,18 +95,33 @@ PARTINGTON, JOHN S. “H.G. Wells’s Eugenic Thinking of the 1930s and 1940s.�
 Shakespear, William. The Tempest (1611).
 
 [^1]: “The 100 Best Novels Written in English: The Full List.” The Guardian, August 17, 2015\. https://www.theguardian.com/books/2015/aug/17/the-100-best-novels-written-in-english-the-full-list.
+
 [^2]: “Our Story: Penguin Random House.” PenguinRandomhouse.com. https://www.penguinrandomhouse.com/about-us/our-story/.
+
 [^3]: “About Penguin Random House.” About Penguin Random House, April 5, 2023\. https://www.penguin.co.uk/company/about-us.
+
 [^4]: Freemantle, Michael. _The chemists’ war, 1914-1918_. Cambridge, UK: The Royal Society of Chemistry, 2014\. P5, P162-170
+
 [^5]: Malthus, Thomas. An Essay on the Principles of Population and Other Writings (1798). London: Penguin, 2015\. For the law see P16, For his early positive eugenics see P75-77, for its effects on society see xxxi-xxxvi
+
 [^6]: George, Henry. Progress and Poverty: An Inquiry into the Cause of Industrial Depressions and of Increase of Want with Increase of Wealth: The Remedy (1879). See chapter 6 and 7
+
 [^7]: Marx, Karl. Das Kapital (Vol 1\) (1867). London, Penguin: 1998\. See chapter 26\.
+
 [^8]: Miller, LuLu. P119
+
 [^9]: Galton, Francis. _Inquiries into human faculty and its development (1883)_. London: Macmillan, 2004\. P17
+
 [^10]: Huxley, Aldous. _Brave New World (1932)_. London: Penguin, 2007\. See Introduction
+
 [^11]: PARTINGTON, JOHN S. “H.G. Wells’s Eugenic Thinking of the 1930s and 1940s.” _Utopian Studies_ 14, no. 1 (2003): 74–81. http://www.jstor.org/stable/20718547.
+
 [^12]: Miller Lulu, 132
+
 [^13]: Malthus. Essay on Population Growth. Introduction
+
 [^14]: Keynes, John Maynard. The General Theory of Employment, Interest and Money. London: Macmillan, 1930\. Chap 10
+
 [^15]: Huxley, Aldous. _Brave New World Revisited (1958)_. London: Penguin, 1994\.
+
 [^16]: Shakespear, William. The Tempest (1611). Act 5 Scene 1 FTLN 2181-2182

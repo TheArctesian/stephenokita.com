@@ -43,6 +43,28 @@ a:hover {
   transition: all ease-in-out 200ms;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--selection);
+  border-radius: 1rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: var(--purple);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
 ::-moz-selection {
   background: var(--purple);
   /* Gecko Browsers */
@@ -89,6 +111,7 @@ b {
   list-style-type: disc;
   padding-left: 1rem;
 }
+
 .prose :is(ol) {
   padding-left: 4rem;
   list-style-type: decimal;

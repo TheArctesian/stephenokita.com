@@ -1,106 +1,538 @@
 <script lang="ts">
   import "../../app.css";
+  import { onMount } from "svelte";
 
-  import { fly } from "svelte/transition";
-  type jsonList = {
-    projectName: string;
+  type ProjectData = {
+    name: string;
     description: string;
     link: string;
+    tags: string[];
+    date: string;
   };
-  import Collapsible from "../../lib/Collapsible.svelte";
-  let isOpen: boolean = false;
-  export let data: jsonList[];
+
+  export let data: ProjectData[];
   export let name: string;
-  function toggle() {
-    isOpen = !isOpen;
+
+  // Sort projects by date (newest first)
+  $: sortedProjects = [...data].sort(
+    (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+
+  function formatDate(dateStr: string): string {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+    });
   }
+
+  function getEmbedUrl(url: string): string {
+    try {
+      const urlObj = new URL(url);
+
+      // GitHub repository handling
+      if (urlObj.hostname === "github.com") {
+        // Option 1: Use htmlpreview.github.io for HTML files
+        if (url.endsWith(".html")) {
+          return `https://htmlpreview.github.io/?${url}`;
+        }
+
+        // Option 2: Use githubbox.com (CodeSandbox integration)
+        return url.replace("github.com", "githubbox.com");
+
+        // Option 3: Alternative - use StackBlitz
+        // const parts = urlObj.pathname.split('/').filter(p => p);
+        // if (parts.length >= 2) {
+        //   const user = parts[0];
+        //   const repo = parts[1];
+        //   return `https://stackblitz.com/github/${user}/${repo}`;
+        // }
+      }
+
+      // Return original URL for non-GitHub links
+      return url;
+    } catch (e) {
+      // If URL parsing fails, return the original URL
+      return url;
+    }
+  }
+
+  // Function to extract domain from URL for favicon service
+  function getFaviconUrl(url: string): string {
+    try {
+      const domain = new URL(url).hostname;
+      // Using DuckDuckGo's favicon service (more reliable than Google's)
+      return `https://external-content.duckduckgo.com/ip3/${domain}.ico`;
+    } catch (e) {
+      // Fallback to a generic icon if URL parsing fails
+      return 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23ddd"/><text x="50" y="50" font-family="Arial" font-size="50" text-anchor="middle" dominant-baseline="middle" fill="%23555">?</text></svg>';
+    }
+  }
+
+  // Modal state
+  let showModal = false;
+  let selectedProject: ProjectData | null = null;
+
+  function openModal(project: ProjectData) {
+    selectedProject = project;
+    showModal = true;
+    document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+  }
+
+  function closeModal() {
+    showModal = false;
+    document.body.style.overflow = "auto"; // Re-enable scrolling
+  }
+
+  // Close modal when Escape key is pressed
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === "Escape" && showModal) {
+      closeModal();
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener("keydown", handleKeydown);
+    return () => {
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  });
 </script>
 
-<div class="text flex">
-  <div class="flex">
-    <div class="w-auto flex flex-col">
-      <div class="flex">
-        <div class="w-auto">
-          <button class="focus:outline-none" on:click={toggle}>
-            <span class={`${isOpen ? "rotate" : ""} inline-block`}> &gt; </span>
-          </button>
+<div class="text">
+  <h1 class="section-title">{name}</h1>
+</div>
+
+<div class="section-container">
+  <div class="projects-grid">
+    {#each sortedProjects as project}
+      <div
+        class="project-card"
+        on:click={() => openModal(project)}
+        on:keydown={(e) => e.key === "Enter" && openModal(project)}
+        tabindex="0"
+        role="button"
+        aria-label="Open details for {project.name}"
+      >
+        <div class="card-header">
+          <img
+            src={getFaviconUrl(project.link)}
+            alt="favicon"
+            class="favicon"
+          />
+          <h2 class="project-title">{project.name}</h2>
         </div>
-        <div>
-          <h1 class="w-auto">&nbsp {name}</h1>
+        <p class="project-description-preview">
+          {project.description.substring(0, 100)}...
+        </p>
+        <div class="card-footer">
+          <div class="tags-preview">
+            {#each project.tags.slice(0, 2) as tag}
+              <span class="tag">{tag}</span>
+            {/each}
+            {#if project.tags.length > 2}
+              <span class="more-tags">+{project.tags.length - 2}</span>
+            {/if}
+          </div>
+          <div class="date">{formatDate(project.date)}</div>
         </div>
       </div>
-      <Collapsible bind:isOpen>
-        <div class="posts">
-          {#each data as i}
-            <div class="post">
-              <a href={i.link} class="flex flex-col" transition:fly|global>
-                <h1>Project Name: {i.projectName}</h1>
-                <p>{i.description}</p>
-              </a>
-            </div>
-          {/each}
-        </div>
-      </Collapsible>
-    </div>
+    {/each}
   </div>
 </div>
 
+<!-- Modal -->
+{#if showModal && selectedProject}
+  <div class="modal-overlay" on:click={closeModal}>
+    <div class="modal-content" on:click|stopPropagation>
+      <button
+        class="close-button"
+        on:click={closeModal}
+        aria-label="Close details">×</button
+      >
+
+      <div class="modal-grid">
+        <div class="modal-iframe custom-scrollbar">
+          <iframe
+            src={getEmbedUrl(selectedProject.link)}
+            title={selectedProject.name}
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+          ></iframe>
+        </div>
+
+        <div class="modal-details custom-scrollbar">
+          <div class="modal-header">
+            <img
+              src={getFaviconUrl(selectedProject.link)}
+              alt="favicon"
+              class="modal-favicon"
+            />
+            <h2 class="modal-title">{selectedProject.name}</h2>
+          </div>
+          <p class="modal-description">{selectedProject.description}</p>
+
+          <div class="modal-metadata">
+            <div class="modal-date">
+              <span class="metadata-label">Date:</span>
+              <span>{formatDate(selectedProject.date)}</span>
+            </div>
+
+            <div class="modal-tags-container">
+              <span class="metadata-label">Technologies:</span>
+              <div class="modal-tags">
+                {#each selectedProject.tags as tag}
+                  <span class="mtag">{tag}</span>
+                {/each}
+              </div>
+            </div>
+          </div>
+
+          <a
+            href={selectedProject.link}
+            class="project-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Project
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
+
 <style>
-  .posts {
-    display: grid;
-    gap: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
-  }
-  .post {
-    margin-bottom: 1rem;
-    background-color: var(--fg);
-    height: 100%;
-    color: var(--bg);
-    text-wrap: wrap;
-    padding: 1rem;
-    border-radius: 0.2rem;
-    transition: all ease-in-out 100ms;
-  }
-  .head {
-    color: var(--black);
-    border-radius: 1rem;
-    padding: 1rem;
-    border: 0.2rem solid var(--fg);
-  }
-  .head:hover {
-    border: 0.2rem solid var(--pink);
+  /* Favicon styling */
+  .favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border-radius: 3px;
+    object-fit: contain;
   }
 
-  h1 {
-    font-weight: bold;
+  .modal-favicon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    border-radius: 4px;
+    object-fit: contain;
   }
-  .rotate {
-    transform: rotate(90deg);
-    transition: transform 0.2s ease-in-out;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
   }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Custom scrollbar styling */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--fg) var(--bg);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--fg);
+    border-radius: 4px;
+    border: 2px solid var(--bg);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--pink);
+  }
+
+  /* Rest of your styling */
   .text {
     background-color: var(--fg);
     padding: 1rem;
     border-radius: 0.2rem;
-    font-size: small;
-    margin: 1rem;
-  }
-  .dis {
-    border-radius: 0.2rem;
-    font-size: small;
-    padding: 1rem;
-    margin: 1rem;
-    background-color: var(--fg);
-  }
-  .code {
-    font-style: italic;
+    font-size: x-large;
+    font-weight: bold;
+    margin: 1rem 1rem 0rem 1rem;
+    color: black;
   }
 
-  @media (max-width: 1000px) {
-    .control {
-      flex-direction: column;
+  .section-container {
+    margin: 1rem 1rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .project-card {
+    background-color: var(--fg);
+    color: var(--bg);
+    border-radius: 0.3rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    height: 200px; /* Fixed height for uniform size */
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card:focus {
+    outline: 2px solid var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .project-description-preview {
+    flex-grow: 1;
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .tags-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    max-width: 70%;
+  }
+
+  .tag {
+    background-color: var(--bg);
+    color: var(--fg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .mtag {
+    background-color: var(--fg);
+    color: var(--bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .more-tags {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin: auto;
+  }
+
+  .date {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.85rem;
+  }
+
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .modal-content {
+    background-color: var(--bg);
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--fg);
+    cursor: pointer;
+    z-index: 10;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .close-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    max-height: 90vh;
+  }
+
+  .modal-iframe {
+    position: relative;
+    height: 80vh;
+    background-color: var(--fg);
+    overflow: auto;
+  }
+
+  .modal-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .modal-details {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--fg);
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--fg);
+    flex-grow: 1;
+  }
+
+  .modal-metadata {
+    margin-bottom: 2rem;
+    color: var(--fg);
+  }
+
+  .metadata-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  .modal-date {
+    margin-bottom: 1rem;
+  }
+
+  .modal-tags-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: auto;
+  }
+
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-link {
+    display: inline-block;
+    background-color: var(--fg);
+    color: var(--bg);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: background-color 0.2s ease;
+  }
+
+  .project-link:hover {
+    background-color: var(--pink);
+    color: var(--bg);
+  }
+
+  @media (max-width: 900px) {
+    .modal-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .modal-iframe {
+      height: 40vh;
+    }
+
+    .modal-details {
+      max-height: 50vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+
+  @media (max-width: 500px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      height: 180px;
     }
   }
 </style>
