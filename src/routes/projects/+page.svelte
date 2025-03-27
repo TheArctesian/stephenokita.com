@@ -2,23 +2,20 @@
   import "../../app.css";
   import Collapsible from "../../lib/Collapsible.svelte";
   import Project from "./project.svelte";
+  import projects from "./projects.json";
+  import work from "./work.json";
   import personal from "./personal.json";
-  import apps from "./apps.json";
   import libs from "./libs.json";
   import school from "./school.json";
-  import workedOn from "./workedOn.json";
   import { slide } from "svelte/transition";
 </script>
 
-<div class="text-center">
-  <h1 class="dis">This is out of date from 2022. I will update this soon.</h1>
-</div>
 <div out:slide>
-  <Project data={apps} name="Apps"></Project>
-  <Project data={personal} name="Personal"></Project>
-  <Project data={workedOn} name="Projects I have worked on"></Project>
-  <Project data={libs} name="Libs"></Project>
-  <Project data={school} name="School"></Project>
+  <Project data={work} name="Professional Work"></Project>
+  <Project data={projects} name="Passion Projects"></Project>
+  <Project data={personal} name="Personal Projects"></Project>
+  <Project data={libs} name="Libraries"></Project>
+  <Project data={school} name="School Projects"></Project>
 </div>
 
 <style>

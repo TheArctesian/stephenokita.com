@@ -1,0 +1,113 @@
+[
+    {
+        "name": "Political Computer Science - Berkeley",
+        "role": "Full Stack Web Developer",
+        "description": "Launched is a marktech company that helps in all parts of B2B customer acquisition. I help work full stack fixing server issues, API integrations, database arch and front end design and implementation.",
+        "link": "https://pcs.studentorg.berkeley.edu/",
+        "dateStart": "2023-08-29",
+        "date": "2023-08-21",
+        "tags": [
+            "typescript",
+            "react",
+            "nextjs",
+            "aws",
+            "asana",
+            "linux"
+        ]
+    },
+    {
+        "name": "Launchedtech",
+        "role": "Full Stack Web Developer",
+        "description": "Launched is a marktech company that helps in all parts of B2B customer acquisition. I help work full stack fixing server issues, API integrations, database arch and front end design and implementation.",
+        "link": "https://launchedtech.io/",
+        "dateStart": "2024-06-01",
+        "date": "2024-06-01",
+        "tags": [
+            "typescript",
+            "react",
+            "nextjs",
+            "aws",
+            "asana",
+            "linux"
+        ]
+    },
+    {
+        "name": "WHub",
+        "role": "Web Dev Intern",
+        "description": "Fist real exposure to industry web dev. Got to work on cool web animations and learnt how to use a CMS. This company also invited me back a couple times to do talks on crypto and introduced me to the HK startup scene.",
+        "link": "https://whub.io/",
+        "dateStart": "2021-07-01",
+        "date": "2021-09-01",
+        "tags": [
+            "html",
+            "css",
+            "javascript",
+            "angular"
+        ]
+    },
+    {
+        "name": "Kalima Dao",
+        "role": "Open Source Web3 Developer",
+        "description": "This was a dApp I was really interested in so joined their DAO to help out. I worked on the front end, helped with the smart contracts and did customer acquisitions. The project being subject to the traditional monterey supply issues of ambitious dApp and is worth very little now. The project aimed to tokenify carbon credits, I loved the idea as it was fighting against companies green washing instead of system change while making a new economy on carbon labour. To think that we could make a currency not on the gold standard or a central bank but on the amount you tax the world was very ambitious and interesting. The management structure was fully democratic and decentralised, shame money got in the way.",
+        "link": "https://www.klimadao.finance/",
+        "dateStart": "2021-09-01",
+        "date": "2022-09-01",
+        "tags": [
+            "react",
+            "solidity",
+            "css",
+            "javascript",
+            "typescript",
+            "crypto"
+        ]
+    },
+    {
+        "name": "Linkhealth",
+        "role": "Contract Web Developer",
+        "description": "This was an app I built with PCS Berkeley. The app allowed users to take a survey and automatically sign them up for all the benefits program's they were eligible for. This was a really fun project to work on. Scraping and formatting government indexes was near impossible, and making the survey itself to skip questions if previous questions would make it obsolete was also difficult. Was my first project with PCS and I was really happy to do it.",
+        "link": "https://link-health.org/",
+        "dateStart": "2023-09-01",
+        "date": "2024-02-01",
+        "tags": [
+            "vercel",
+            "supabase",
+            "svelte",
+            "typescript",
+            "python",
+            "css",
+            "tailwind",
+            "linux"
+        ]
+    },
+    {
+        "name": "Trusted Node/Trueflation",
+        "role": "Intern Web3 Developer",
+        "description": "My first web3 job. Worked as a webdev and got to learn the web3/defi production development environment. Trufeflation is an alternative inflation tracker that was going to be a stable coin but turned into just an inflation oracle with a governance token. Trusted Node is a stacking pool aggregator which provides consumer staking pools for POS currencies. ",
+        "link": "https://truflation.com/",
+        "date": "2021-10-31",
+        "dateStart": "2021-10-01",
+        "tags": [
+            "rust",
+            "javascript",
+            "solidity",
+            "liquid",
+            "html",
+            "css",
+            "javascript"
+        ]
+    },
+    {
+        "name": "Voiijer",
+        "role": "Digital Explorer",
+        "description": "Voiijer is a social media app that allows for multi modal posts. It is intended to be a social media for explorers, so they can create stories about their journeys. Built the apps landing page, advised on the tech stack and blockchain/digital asset strategy. Really nice people.",
+        "link": "https://voiijer.com/",
+        "dateStart": "2021-09-03",
+        "date": "2022-09-03",
+        "tags": [
+            "webdev",
+            "javascript",
+            "crypto",
+            "pm"
+        ]
+    }
+]

@@ -1,0 +1,75 @@
+[
+    {
+        "name": "UC Investments",
+        "description": "A website my friend and I made to visualise the composition of the UC endowment fund. We used the data from the UC endowment fund and made a website that would show the composition of the fund and the returns of the fund. We also made a tool that would allow you to see the returns of the fund.",
+        "link": "https://ucinvestments.info/",
+        "tags": [
+            "svelte",
+            "python",
+            "css",
+            "tailwind",
+            "javascript",
+            "vercel",
+            "gpt"
+        ],
+        "date": "2024-05-03"
+    },
+    {
+        "name": "RJA Tool - Tech & Justice Lab",
+        "description": "An AI tool my friends and I are building to help public defenders automate the litigation of RJA cases. The RJA has specific requirements for the litigation of cases, we built a tool to comb the documents provided by the PDs and compare it to similar cases in order to make PDs jobs easier.",
+        "link": "https://rjatool.org/",
+        "tags": [
+            "python",
+            "nextJS",
+            "qdrant",
+            "AI",
+            "vercel",
+            "gpt"
+        ],
+        "date": "2024-10-01"
+    },
+    {
+        "name": "CPDA - Tech & Justice Lab",
+        "description": "The California Public Defenders Association came to saying their motion bank (collection or resources for PDs to use in court) was unsearchable. It was just a collection of drop box files with 178 different file types. My friend and I used semantic search and made a website so they could quickly search for the resources they needed.",
+        "link": "http://techjusticelab.org/",
+        "tags": [
+            "python",
+            "nextJS",
+            "qdrant",
+            "AI",
+            "vercel",
+            "gpt"
+        ],
+        "date": "2025-03-16"
+    },
+    {
+        "name": "Blockchess",
+        "description": "My first attempt at making a crypto chess dapp. The game was meant to be chess.com but with crypto betting. I have not touched it in years but if you clone it and run it it still works. Need to host this eventually.",
+        "link": "https://github.com/TheArctesian/blockChess-unity",
+        "date": "2021-12-17",
+        "tags": [
+            "c-sharp",
+            "unity"
+        ]
+    },
+    {
+        "name": "Ebi",
+        "description": "After doing a 3D design course at USC the prof told me to just publish shit. This was the first 'game' I made outside of a game jam",
+        "link": "https://github.com/TheArctesian/blockChess-unity",
+        "date": "2021-12-17",
+        "tags": [
+            "c-sharp",
+            "unity"
+        ]
+    },
+    {
+        "name": "Blockchess",
+        "description": "My first attempt at making a crypto chess dapp",
+        "link": "https://github.com/TheArctesian/blockChess-unity",
+        "date": "2021-12-17",
+        "tags": [
+            "c-sharp",
+            "unity"
+        ]
+    }
+]
