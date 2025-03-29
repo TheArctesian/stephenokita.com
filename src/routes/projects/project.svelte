@@ -14,7 +14,7 @@
   export let data: ProjectData[];
   export let name: string;
   export let delay;
-
+  export let wait;
   // Sort projects by date (newest first)
   $: sortedProjects = [...data].sort(
     (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime()
@@ -121,7 +121,7 @@
   });
 </script>
 
-<div class="text" out:slide in:fade={{ delay: delay * 150, duration: 300 }}>
+<div class="text" out:slide in:fade={{ delay: wait * 150, duration: 300 }}>
   <h1 class="section-title">{name}</h1>
 </div>
 

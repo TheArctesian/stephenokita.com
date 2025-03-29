@@ -11,11 +11,27 @@
 </script>
 
 <div out:slide in:fade={{ delay: 0 * 150, duration: 300 }}>
-  <Project data={work} delay="1" name="Professional Work"></Project>
-  <Project delay="2" data={projects} name="Projects"></Project>
-  <Project delay="3" data={personal} name="Personal Projects"></Project>
-  <Project delay="4" data={libs} name="Libraries"></Project>
-  <Project delay="5" data={school} name="School Projects"></Project>
+  <Project data={work} wait="0" delay="0" name="Professional Work"></Project>
+  <Project delay="1" wait={work.length} data={projects} name="Projects"
+  ></Project>
+  <Project
+    delay="2"
+    wait={projects.length + work.length}
+    data={personal}
+    name="Personal Projects"
+  ></Project>
+  <Project
+    delay="3"
+    wait={personal.length + projects.length + work.length}
+    data={libs}
+    name="Libraries"
+  ></Project>
+  <Project
+    delay="4"
+    wait={libs.length + personal.length + projects.length + work.length}
+    data={school}
+    name="School Projects"
+  ></Project>
 </div>
 
 <style>
