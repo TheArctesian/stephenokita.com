@@ -1,0 +1,62 @@
+[
+    {
+        "text": "Svelte",
+        "img": "https://simpleicons.org/icons/svelte.svg"
+    },
+    {
+        "text": "React",
+        "img": "https://simpleicons.org/icons/react.svg"
+    },
+    {
+        "text": "NextJS",
+        "img": "https://simpleicons.org/icons/nextdotjs.svg"
+    },
+    {
+        "text": "Hugo",
+        "img": "https://simpleicons.org/icons/hugo.svg"
+    },
+    {
+        "text": "Streamlit",
+        "img": "https://simpleicons.org/icons/streamlit.svg"
+    },
+    {
+        "text": "Flutter",
+        "img": "https://simpleicons.org/icons/flutter.svg"
+    },
+    {
+        "text": "Android Studio",
+        "img": "https://simpleicons.org/icons/androidstudio.svg"
+    },
+    {
+        "text": "Prisma",
+        "img": "https://simpleicons.org/icons/prisma.svg"
+    },
+    {
+        "text": "Shopify",
+        "img": "https://simpleicons.org/icons/shopify.svg"
+    },
+    {
+        "text": "Figma",
+        "img": "https://simpleicons.org/icons/figma.svg"
+    },
+    {
+        "text": "Yarn",
+        "img": "https://simpleicons.org/icons/yarn.svg"
+    },
+    {
+        "text": "Tailwind",
+        "img": "https://simpleicons.org/icons/tailwindcss.svg"
+    },
+    {
+        "text": "Unity",
+        "img": "https://simpleicons.org/icons/unity.svg"
+    },
+    {
+        "text": "Unreal Engine",
+        "img": "https://simpleicons.org/icons/unrealengine.svg"
+    },
+    {
+        "text": "Bevy",
+        "img": "https://raw.githubusercontent.com/github/explore/9a35078cf8720476dcaada39a7144659849b081e/topics/bevy/bevy.png"
+    }
+]

@@ -390,7 +390,7 @@
       </div>
     </div>
 
-    <div class="wrapper" in:slide={{ delay: 1 * 150, duration: 300 }}>
+    <!-- <div class="wrapper" in:slide={{ delay: 1 * 150, duration: 300 }}>
       <div class="text">
         <div class="content">
           <div class="element" in:fade={{ delay: 3 * 150, duration: 300 }}>
@@ -444,7 +444,7 @@
                 class="text-d-comment m-auto sm:text-2xl mb-2 font-bold text-xl"
                 >Projects</span
               >
-              <a href="https://github.com/TheArctesian">
+              <a href="/projects">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/11450/11450628.png"
                   alt="Projects"
@@ -453,7 +453,7 @@
             </div>
           </div>
 
-          <div class="element" in:fade={{ delay: 7, duration: 300 }}>
+          <div class="element" in:fade={{ delay: 7 * 150, duration: 300 }}>
             <div class="b flex flex-col">
               <span class="text-d-red m-auto sm:text-2xl mb-2 font-bold text-xl"
                 >Blog</span
@@ -468,7 +468,7 @@
           </div>
         </div>
       </div>
-    </div>
+    -->
   {/if}
 </div>
 

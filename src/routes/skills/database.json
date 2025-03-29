@@ -1,0 +1,50 @@
+[
+    {
+        "text": "SQLite",
+        "img": "https://simpleicons.org/icons/sqlite.svg"
+    },
+    {
+        "text": "Postgres",
+        "img": "https://simpleicons.org/icons/postgresql.svg"
+    },
+    {
+        "text": "Mongo",
+        "img": "https://simpleicons.org/icons/mongodb.svg"
+    },
+    {
+        "text": "Firebase",
+        "img": "https://simpleicons.org/icons/firebase.svg"
+    },
+    {
+        "text": "Supabase",
+        "img": "https://simpleicons.org/icons/supabase.svg"
+    },
+    {
+        "text": "Graphql",
+        "img": "https://simpleicons.org/icons/graphql.svg"
+    },
+    {
+        "text": "Neo4j",
+        "img": "https://simpleicons.org/icons/neo4j.svg"
+    },
+    {
+        "text": "Redis",
+        "img": "https://simpleicons.org/icons/redis.svg"
+    },
+    {
+        "text": "ElasticSearch",
+        "img": "https://simpleicons.org/icons/elasticsearch.svg"
+    },
+    {
+        "text": "Pinecone",
+        "img": "https://cdn-icons-png.flaticon.com/512/17891/17891361.png"
+    },
+    {
+        "text": "Weaviate",
+        "img": "https://avatars.githubusercontent.com/u/37794290?s=48&v=4"
+    },
+    {
+        "text": "qdrant",
+        "img": "https://avatars.githubusercontent.com/u/73504361?s=48&v=4"
+    }
+]

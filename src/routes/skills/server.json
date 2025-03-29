@@ -1,0 +1,54 @@
+[
+    {
+        "text": "Vercel",
+        "img": "https://simpleicons.org/icons/vercel.svg"
+    },
+    {
+        "text": "AWS",
+        "img": "https://simpleicons.org/icons/amazonwebservices.svg"
+    },
+    {
+        "text": "GCP",
+        "img": "https://simpleicons.org/icons/googlecloud.svg"
+    },
+    {
+        "text": "Linode",
+        "img": "https://img.icons8.com/ios-filled/344/linode.png"
+    },
+    {
+        "text": "Epik",
+        "img": "https://img.icons8.com/windows/344/domain-name.png"
+    },
+    {
+        "text": "Cloudflare",
+        "img": "https://simpleicons.org/icons/cloudflare.svg"
+    },
+    {
+        "text": "Docker",
+        "img": "https://simpleicons.org/icons/docker.svg"
+    },
+    {
+        "text": "Kubernetes",
+        "img": "https://simpleicons.org/icons/kubernetes.svg"
+    },
+    {
+        "text": "Portainer",
+        "img": "https://simpleicons.org/icons/portainer.svg"
+    },
+    {
+        "text": "Terraform",
+        "img": "https://simpleicons.org/icons/terraform.svg"
+    },
+    {
+        "text": "Nginx Proxy Manager",
+        "img": "https://simpleicons.org/icons/nginxproxymanager.svg"
+    },
+    {
+        "text": "Ollama",
+        "img": "https://simpleicons.org/icons/ollama.svg"
+    },
+    {
+        "text": "Wireguard",
+        "img": "https://simpleicons.org/icons/wireguard.svg"
+    }
+]

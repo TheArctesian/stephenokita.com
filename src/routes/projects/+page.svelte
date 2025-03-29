@@ -10,12 +10,12 @@
   import { slide, fade } from "svelte/transition";
 </script>
 
-<div out:slide in:fade={{ delay: 2 * 150, duration: 300 }}>
-  <Project data={work} name="Professional Work"></Project>
-  <Project data={projects} name="Projects"></Project>
-  <Project data={personal} name="Personal Projects"></Project>
-  <Project data={libs} name="Libraries"></Project>
-  <Project data={school} name="School Projects"></Project>
+<div out:slide in:fade={{ delay: 0 * 150, duration: 300 }}>
+  <Project data={work} delay="1" name="Professional Work"></Project>
+  <Project delay="2" data={projects} name="Projects"></Project>
+  <Project delay="3" data={personal} name="Personal Projects"></Project>
+  <Project delay="4" data={libs} name="Libraries"></Project>
+  <Project delay="5" data={school} name="School Projects"></Project>
 </div>
 
 <style>

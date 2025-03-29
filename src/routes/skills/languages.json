@@ -1,0 +1,78 @@
+[
+    {
+        "text": "Python",
+        "img": "https://simpleicons.org/icons/python.svg"
+    },
+    {
+        "text": "Typescript",
+        "img": "https://simpleicons.org/icons/typescript.svg"
+    },
+    {
+        "text": "Javascript",
+        "img": "https://simpleicons.org/icons/javascript.svg"
+    },
+    {
+        "text": "HTML",
+        "img": "https://simpleicons.org/icons/html5.svg"
+    },
+    {
+        "text": "CSS",
+        "img": "https://simpleicons.org/icons/css3.svg"
+    },
+    {
+        "text": "Go",
+        "img": "https://simpleicons.org/icons/go.svg"
+    },
+    {
+        "text": "Java",
+        "img": "https://simpleicons.org/icons/spring.svg"
+    },
+    {
+        "text": "Bash",
+        "img": "https://simpleicons.org/icons/gnubash.svg"
+    },
+    {
+        "text": "C",
+        "img": "https://simpleicons.org/icons/c.svg"
+    },
+    {
+        "text": "Rust",
+        "img": "https://simpleicons.org/icons/rust.svg"
+    },
+    {
+        "text": "Solidity",
+        "img": "https://simpleicons.org/icons/solidity.svg"
+    },
+    {
+        "text": "Haskell",
+        "img": "https://simpleicons.org/icons/haskell.svg"
+    },
+    {
+        "text": "Lisp",
+        "img": "https://simpleicons.org/icons/gnuemacs.svg"
+    },
+    {
+        "text": "Julia",
+        "img": "https://simpleicons.org/icons/julia.svg"
+    },
+    {
+        "text": "Lua",
+        "img": "https://simpleicons.org/icons/lua.svg"
+    },
+    {
+        "text": "Dart",
+        "img": "https://simpleicons.org/icons/dart.svg"
+    },
+    {
+        "text": "Nim",
+        "img": "https://simpleicons.org/icons/nim.svg"
+    },
+    {
+        "text": "Perl",
+        "img": "https://simpleicons.org/icons/perl.svg"
+    },
+    {
+        "text": "R",
+        "img": "https://simpleicons.org/icons/r.svg"
+    }
+]

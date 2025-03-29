@@ -1,0 +1,26 @@
+[
+    {
+        "text": "Flask",
+        "img": "https://simpleicons.org/icons/flask.svg"
+    },
+    {
+        "text": "Springboot",
+        "img": "https://simpleicons.org/icons/spring.svg"
+    },
+    {
+        "text": "Rocket",
+        "img": "https://simpleicons.org/icons/apacherocketmq.svg"
+    },
+    {
+        "text": "Go Fiber",
+        "img": "https://simpleicons.org/icons/go.svg"
+    },
+    {
+        "text": "Django",
+        "img": "https://simpleicons.org/icons/django.svg"
+    },
+    {
+        "text": "Express",
+        "img": "https://simpleicons.org/icons/express.svg"
+    }
+]

@@ -13,6 +13,7 @@
 
   export let data: ProjectData[];
   export let name: string;
+  export let delay;
 
   // Sort projects by date (newest first)
   $: sortedProjects = [...data].sort(
@@ -120,20 +121,20 @@
   });
 </script>
 
-<div class="text" out:slide>
+<div class="text" out:slide in:fade={{ delay: delay * 150, duration: 300 }}>
   <h1 class="section-title">{name}</h1>
 </div>
 
 <div
   class="section-container"
   out:slide
-  in:fade={{ delay: 4 * 150, duration: 300 }}
+  in:fade={{ delay: delay * 150, duration: 300 }}
 >
   <div class="projects-grid">
     {#each sortedProjects as project, i}
       <div
         class="project-card"
-        in:fade={{ delay: (i + 5) * 150, duration: 300 }}
+        in:fade={{ delay: (delay + i) * 150, duration: 300 }}
         on:click={() => openModal(project)}
         on:keydown={(e) => e.key === "Enter" && openModal(project)}
         tabindex="0"
