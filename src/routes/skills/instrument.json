@@ -1,0 +1,30 @@
+[
+    {
+        "text": "Guitar",
+        "img": "https://cdn-icons-png.flaticon.com/512/5096/5096217.png"
+    },
+    {
+        "text": "Bass",
+        "img": "https://cdn-icons-png.flaticon.com/512/91/91236.png"
+    },
+    {
+        "text": "Double Bass",
+        "img": "https://cdn-icons-png.flaticon.com/512/785/785425.png"
+    },
+    {
+        "text": "Piano",
+        "img": "https://cdn-icons-png.flaticon.com/512/4956/4956471.png"
+    },
+    {
+        "text": "Ukulele",
+        "img": "https://cdn-icons-png.flaticon.com/512/1405/1405802.png"
+    },
+    {
+        "text": "Drums",
+        "img": "https://cdn-icons-png.flaticon.com/512/1789/1789712.png"
+    },
+    {
+        "text": "Harmonica",
+        "img": "https://cdn-icons-png.flaticon.com/512/17604/17604644.png"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "text": "English",
+        "img": "https://cdn-icons-png.flaticon.com/512/197/197374.png"
+    },
+    {
+        "text": "Mandarin (中文)",
+        "img": "https://cdn-icons-png.flaticon.com/512/5372/5372696.png"
+    },
+    {
+        "text": "Cantonese (廣東話)",
+        "img": "https://cdn-icons-png.flaticon.com/512/197/197570.png"
+    },
+    {
+        "text": "French semi conversational",
+        "img": "https://cdn-icons-png.flaticon.com/512/197/197560.png"
+    },
+    {
+        "text": "Spanish semi conversational",
+        "img": "https://cdn-icons-png.flaticon.com/512/10601/10601048.png"
+    },
+    {
+        "text": "Turkish barley conversational",
+        "img": "https://cdn-icons-png.flaticon.com/512/4628/4628673.png"
+    },
+    {
+        "text": "German barley conversational",
+        "img": "https://cdn-icons-png.flaticon.com/512/4855/4855806.png"
+    }
+]

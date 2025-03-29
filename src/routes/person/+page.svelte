@@ -135,8 +135,8 @@
                 <li>English</li>
                 <li>Mandarin (中文)</li>
                 <li>Cantonese (廣東話)</li>
-                <li>French (barley conversational)</li>
-                <li>Spanish (barley conversational)</li>
+                <li>French (semi conversational)</li>
+                <li>Spanish (semi conversational)</li>
               </dd>
             </li>
             <li>

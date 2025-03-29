@@ -10,6 +10,8 @@
   import database from "./database.json";
   import creative from "./creative.json";
   import analytics from "./anayltics.json";
+  import instruments from "./instrument.json";
+  import language from "./language.json";
 </script>
 
 <link
@@ -18,7 +20,10 @@
 />
 
 <div out:slide>
-  <div class="flex md:flex-row flex-col" in:fade={{ delay: 0 * 150, duration: 300 }}>
+  <div
+    class="flex md:flex-row flex-col"
+    in:fade={{ delay: 0 * 150, duration: 300 }}
+  >
     <div
       class="bg-[var(--fg)] mb-4 md:mb-0 p-4 mr-4 ml-4 flex flex-col justify-center items-center"
     >
@@ -83,7 +88,10 @@
     </div>
   </div>
   <div class="flex md:flex-row flex-col">
-    <div class="bg-[var(--fg)] p-4 ml-4 rounded-[0.2rem] mr-4 w-1/2" in:fade={{ delay: 3 * 150, duration: 300 }}>
+    <div
+      class="bg-[var(--fg)] p-4 ml-4 rounded-[0.2rem] mr-4 w-1/2"
+      in:fade={{ delay: 3 * 150, duration: 300 }}
+    >
       <p class="text-xl font-bold">API:</p>
       <div class="m-4 flex justify-between items-center flex-wrap">
         {#each api as w}
@@ -98,7 +106,10 @@
       </div>
     </div>
 
-    <div class="bg-[var(--fg)] p-4 rounded-[0.2rem] mr-4 w-1/2" in:fade={{ delay: 4 * 150, duration: 300 }}>
+    <div
+      class="bg-[var(--fg)] p-4 rounded-[0.2rem] mr-4 w-1/2"
+      in:fade={{ delay: 4 * 150, duration: 300 }}
+    >
       <p class="text-xl font-bold">Analytics Tools:</p>
       <div class="m-4 flex justify-between items-center flex-wrap">
         {#each analytics as w}
@@ -195,6 +206,34 @@
     <p>
       <b>Analytics:</b> Posthog is by far the best.
     </p>
+  </div>
+</div>
+<div class="text" in:fade={{ delay: 9 * 150, duration: 300 }}>
+  <p class="text-xl font-bold">Instruments:</p>
+  <div class="m-4 flex justify-between items-center flex-wrap">
+    {#each instruments as w}
+      <div class="m-2 flex flex-col text-center">
+        <img
+          src={w.img}
+          class="hover:scale-110 hover:invert-[20%] transition-all"
+        />
+        {w.text}
+      </div>
+    {/each}
+  </div>
+</div>
+<div class="text" in:fade={{ delay: 10 * 150, duration: 300 }}>
+  <p class="text-xl font-bold">Languages:</p>
+  <div class="m-4 flex justify-between items-center flex-wrap">
+    {#each language as w}
+      <div class="m-2 flex flex-col text-center">
+        <img
+          src={w.img}
+          class="hover:scale-110 hover:invert-[20%] transition-all"
+        />
+        {w.text}
+      </div>
+    {/each}
   </div>
 </div>
 
