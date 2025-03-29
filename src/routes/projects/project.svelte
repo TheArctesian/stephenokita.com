@@ -121,7 +121,11 @@
   });
 </script>
 
-<div class="text" out:slide in:fade={{ delay: wait * 150, duration: 300 }}>
+<div
+  class="m-4 text-xl text-[var(--fg)] font-bold p-4 border text-center rounded-[0.2rem]"
+  out:slide
+  in:fade={{ delay: wait * 150, duration: 300 }}
+>
   <h1 class="section-title">{name}</h1>
 </div>
 

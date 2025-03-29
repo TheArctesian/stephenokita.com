@@ -59,7 +59,11 @@
   </div>
 
   <div class="text" in:fade={{ delay: 1 * 150, duration: 300 }}>
-    <p class="text-xl font-bold">Programming Languages:</p>
+    <p
+      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    >
+      Programming Languages:
+    </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each languages as language}
         <div class="m-2 flex flex-col text-center">
@@ -74,7 +78,11 @@
   </div>
 
   <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-    <p class="text-xl font-bold">App Development:</p>
+    <p
+      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    >
+      App Development:
+    </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each web as w}
         <div class="m-2 flex flex-col text-center">
@@ -92,7 +100,11 @@
       class="bg-[var(--fg)] p-4 ml-4 rounded-[0.2rem] mr-4 md:w-1/2 md:mb-0 mb-4"
       in:fade={{ delay: 3 * 150, duration: 300 }}
     >
-      <p class="text-xl font-bold">API:</p>
+      <p
+        class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      >
+        API:
+      </p>
       <div class="m-4 flex justify-between items-center flex-wrap">
         {#each api as w}
           <div class="m-2 flex flex-col text-center">
@@ -110,7 +122,12 @@
       class="bg-[var(--fg)] p-4 rounded-[0.2rem] mr-4 md:w-1/2 ml-4 md:ml-0"
       in:fade={{ delay: 4 * 150, duration: 300 }}
     >
-      <p class="text-xl font-bold">Analytics Tools:</p>
+      <p
+        class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      >
+        Analytics Tools:
+      </p>
+
       <div class="m-4 flex justify-between items-center flex-wrap">
         {#each analytics as w}
           <div class="m-2 flex flex-col text-center">
@@ -126,7 +143,11 @@
   </div>
 
   <div class="text" in:fade={{ delay: 5 * 150, duration: 300 }}>
-    <p class="text-xl font-bold">Server & Hosting:</p>
+    <p
+      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    >
+      Server & Hosting:
+    </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each server as w}
         <div class="m-2 flex flex-col text-center">
@@ -141,7 +162,11 @@
   </div>
 
   <div class="text" in:fade={{ delay: 6 * 150, duration: 300 }}>
-    <p class="text-xl font-bold">Databases:</p>
+    <p
+      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    >
+      Databases:
+    </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each database as w}
         <div class="m-2 flex flex-col text-center">
@@ -156,7 +181,11 @@
   </div>
 
   <div class="text" in:fade={{ delay: 7 * 150, duration: 300 }}>
-    <p class="text-xl font-bold">Creative Tools:</p>
+    <p
+      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    >
+      Creative Tools:
+    </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each creative as w}
         <div class="m-2 flex flex-col text-center">
@@ -171,7 +200,11 @@
   </div>
 
   <div class="text" in:fade={{ delay: 8 * 150, duration: 300 }}>
-    <p class="text-xl font-bold">My preferred development stacks</p>
+    <p
+      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    >
+      My preferred development stacks
+    </p>
     <p>
       <b>OS:</b> Linux: Arch or Zorin OS depending on which computer I am using.
       I use Gnome for the most part with qtile and xmonad for intense work.
@@ -209,7 +242,11 @@
   </div>
 </div>
 <div class="text" in:fade={{ delay: 9 * 150, duration: 300 }}>
-  <p class="text-xl font-bold">Instruments:</p>
+  <p
+    class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+  >
+    Instruments:
+  </p>
   <div class="m-4 flex justify-between items-center flex-wrap">
     {#each instruments as w}
       <div class="m-2 flex flex-col text-center">
@@ -223,7 +260,11 @@
   </div>
 </div>
 <div class="text" in:fade={{ delay: 10 * 150, duration: 300 }}>
-  <p class="text-xl font-bold">Creative Tools:</p>
+  <p
+    class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+  >
+    Creative Tools:
+  </p>
   <div class="m-4 flex justify-between items-center flex-wrap">
     {#each language as w}
       <div class="m-2 flex flex-col text-center">
