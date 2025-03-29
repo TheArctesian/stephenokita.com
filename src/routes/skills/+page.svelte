@@ -60,9 +60,9 @@
 
   <div class="text" in:fade={{ delay: 1 * 150, duration: 300 }}>
     <p
-      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
     >
-      Programming Languages:
+      Programming Languages
     </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each languages as language}
@@ -79,9 +79,9 @@
 
   <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
     <p
-      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
     >
-      App Development:
+      App Development
     </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each web as w}
@@ -101,9 +101,9 @@
       in:fade={{ delay: 3 * 150, duration: 300 }}
     >
       <p
-        class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+        class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
       >
-        API:
+        API
       </p>
       <div class="m-4 flex justify-between items-center flex-wrap">
         {#each api as w}
@@ -123,9 +123,9 @@
       in:fade={{ delay: 4 * 150, duration: 300 }}
     >
       <p
-        class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+        class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
       >
-        Analytics Tools:
+        Analytics Tools
       </p>
 
       <div class="m-4 flex justify-between items-center flex-wrap">
@@ -144,9 +144,9 @@
 
   <div class="text" in:fade={{ delay: 5 * 150, duration: 300 }}>
     <p
-      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
     >
-      Server & Hosting:
+      Server & Hosting
     </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each server as w}
@@ -163,9 +163,9 @@
 
   <div class="text" in:fade={{ delay: 6 * 150, duration: 300 }}>
     <p
-      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
     >
-      Databases:
+      Databases
     </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each database as w}
@@ -182,9 +182,9 @@
 
   <div class="text" in:fade={{ delay: 7 * 150, duration: 300 }}>
     <p
-      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
     >
-      Creative Tools:
+      Creative Tools
     </p>
     <div class="m-4 flex justify-between items-center flex-wrap">
       {#each creative as w}
@@ -201,9 +201,9 @@
 
   <div class="text" in:fade={{ delay: 8 * 150, duration: 300 }}>
     <p
-      class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+      class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
     >
-      My preferred development stacks
+      My preferred development stack
     </p>
     <p>
       <b>OS:</b> Linux: Arch or Zorin OS depending on which computer I am using.
@@ -243,9 +243,9 @@
 </div>
 <div class="text" in:fade={{ delay: 9 * 150, duration: 300 }}>
   <p
-    class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
   >
-    Instruments:
+    Instruments
   </p>
   <div class="m-4 flex justify-between items-center flex-wrap">
     {#each instruments as w}
@@ -261,9 +261,9 @@
 </div>
 <div class="text" in:fade={{ delay: 10 * 150, duration: 300 }}>
   <p
-    class="text-l font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+    class="text-l m-auto font-bold text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
   >
-    Creative Tools:
+    Languages
   </p>
   <div class="m-4 flex justify-between items-center flex-wrap">
     {#each language as w}
