@@ -89,7 +89,7 @@
   </div>
   <div class="flex md:flex-row flex-col">
     <div
-      class="bg-[var(--fg)] p-4 ml-4 rounded-[0.2rem] mr-4 w-1/2"
+      class="bg-[var(--fg)] p-4 ml-4 rounded-[0.2rem] mr-4 md:w-1/2 md:mb-0 mb-4"
       in:fade={{ delay: 3 * 150, duration: 300 }}
     >
       <p class="text-xl font-bold">API:</p>
@@ -107,7 +107,7 @@
     </div>
 
     <div
-      class="bg-[var(--fg)] p-4 rounded-[0.2rem] mr-4 w-1/2"
+      class="bg-[var(--fg)] p-4 rounded-[0.2rem] mr-4 md:w-1/2 ml-4 md:ml-0"
       in:fade={{ delay: 4 * 150, duration: 300 }}
     >
       <p class="text-xl font-bold">Analytics Tools:</p>
@@ -223,7 +223,7 @@
   </div>
 </div>
 <div class="text" in:fade={{ delay: 10 * 150, duration: 300 }}>
-  <p class="text-xl font-bold">Languages:</p>
+  <p class="text-xl font-bold">Creative Tools:</p>
   <div class="m-4 flex justify-between items-center flex-wrap">
     {#each language as w}
       <div class="m-2 flex flex-col text-center">
