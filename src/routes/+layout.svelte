@@ -122,7 +122,7 @@
 
   img {
     width: 100%;
-    max-width: 10vw;
+    max-width: 5vw;
     transition: all ease-in-out 200ms;
   }
 
