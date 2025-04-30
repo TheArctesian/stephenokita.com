@@ -73,5 +73,16 @@
             "ollama",
             "python"
         ]
+    },
+    {
+        "name": "Readme - PCS",
+        "description": "The blog for Political Computer Science, meant to be the place where we announce to the world what we are doing.",
+        "date": "2025-04-10",
+        "link": "https://readme.pcsberkeley.com/",
+        "tags": [
+            "svelte",
+            "vercel",
+            "typescript"
+        ]
     }
 ]

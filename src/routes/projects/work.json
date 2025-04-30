@@ -1,5 +1,23 @@
 [
     {
+        "name": "Tech & Justice Lab - Berkeley",
+        "role": "Co-founder & Lead Developer",
+        "description": "Building technology to advance racial equity, decarcerate, and promote transparency in the criminal legal system.",
+        "link": "https://www.techjusticelab.org/",
+        "dateStart": "2025-02-02",
+        "date": "2025-02-02",
+        "tags": [
+            "svelte",
+            "typescript",
+            "langchain",
+            "ollama",
+            "python",
+            "flask",
+            "amazonwebservices",
+            "elastic"
+        ]
+    },
+    {
         "name": "Political Computer Science - Berkeley",
         "role": "Full Stack Web Developer",
         "description": "Launched is a marktech company that helps in all parts of B2B customer acquisition. I help work full stack fixing server issues, API integrations, database arch and front end design and implementation.",

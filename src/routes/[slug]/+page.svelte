@@ -19,7 +19,7 @@
       <div class="flex flex-col">
         <h1 in:fade={{ delay: 3 * 150, duration: 300 }}>{data.meta.title}</h1>
         <p in:fade={{ delay: 4 * 150, duration: 300 }}>
-          Published at {formatDate(data.meta.date)} |
+          Published on {formatDate(data.meta.date)} |
           <a
             href="/blog"
             class="ml-auto"
