@@ -8,4 +8,5 @@ export type Post = {
     location: string
     categories: Categories[]
     published: boolean
+    img?: string
 }
