@@ -460,7 +460,6 @@
     background-color: var(--bg);
     border-radius: 0.5rem;
     width: 90%;
-    max-width: 1200px;
     max-height: 90vh;
     overflow: hidden;
     position: relative;
@@ -499,7 +498,7 @@
 
   .modal-iframe {
     position: relative;
-    height: 80vh;
+    height: 90vh;
     background-color: var(--fg);
     overflow: auto;
   }

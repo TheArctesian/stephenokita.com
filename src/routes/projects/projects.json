@@ -84,5 +84,17 @@
             "vercel",
             "typescript"
         ]
+    },
+    {
+        "name": "Ethical Capitalism",
+        "description": "A trading bot I made because I was poor and wanted to make money but wanted to do it the nice way. Wealth management for the Champagne Socialist one can say. Also was really freaked out after reading a bunch of Nick Land and wanted to do something to make myself still have hope in the world.",
+        "date": "2025-05-05",
+        "link": "https://github.com/TheArctesian/EthicalCapitalism",
+        "tags": [
+            "python",
+            "numpy",
+            "docker",
+            "linux"
+        ]
     }
 ]
