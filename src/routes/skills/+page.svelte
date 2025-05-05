@@ -205,40 +205,50 @@
     >
       My preferred development stack
     </p>
-    <p>
-      <b>OS:</b> Linux: Arch or Zorin OS depending on which computer I am using.
-      I use Gnome for the most part with qtile and xmonad for intense work.
-    </p>
-    <p>
-      <b>IDE:</b> Cursor for easy projects, VSCodium for very large project and Neovim
-      for quick edits or low level code. All of course with the Vim plugin enabled.
-    </p>
-    <p>
-      <b>Backend:</b> I always prefer to selfhost but for websites that need to be
-      up all the time (like this one) I host on Vercel. Otherwise it's a mix of Portainer,
-      Nginx Proxy Manager, Cloudflare on whatever computer I can find.
-    </p>
-    <p>
-      <b>Database:</b> Vector DB: qDrant, Relational: Supabase, Document: Mongo.
-    </p>
-    <p>
-      <b>API:</b> I like using GoFiber but for smaller projects will just write a
-      flask API then transfer to Go in production. For work tho I usually just use
-      whatever API framework is setup for that front end framework, whether it be
-      Axios, Prisma or raw Next.
-    </p>
-    <p>
-      <b>Frontend:</b> Svelte for personal, React for team work. CSS fully managed
-      by Tailwind. Flutter for mobile.
-    </p>
-    <p>
-      <b>AI:</b> Claude for LLM, whatever the top Ollama llm is for AI apps, qdrant
-      for vector database and langchain to link everything. Then the usual python
-      libs for manual AI.
-    </p>
-    <p>
-      <b>Analytics:</b> Posthog is by far the best.
-    </p>
+    <div
+      class="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
+    >
+      <div>
+        <b class="m-auto">OS</b>
+        <p>
+          Arch or Zorin OS depending on which computer I am using. I use Gnome
+          for the most part with qtile and xmonad for intense work.
+        </p>
+      </div>
+      <p>
+        <b>IDE</b> <br />Cursor for easy projects, VSCodium for very large
+        project and Neovim for quick edits or low level code. All of course with
+        the Vim plugin enabled.
+      </p>
+      <p>
+        <b>Backend</b> <br />I always prefer to selfhost but for websites that
+        need to be up all the time (like this one) I host on Vercel. Otherwise
+        it's a mix of Portainer, Nginx Proxy Manager, Cloudflare on whatever
+        computer I can find.
+      </p>
+      <p>
+        <b>Database</b> <br />Vector DB: qDrant, Relational: Supabase, Document:
+        Mongo.
+      </p>
+      <p>
+        <b>API</b> <br />I like using GoFiber but for smaller projects will just
+        write a flask API then transfer to Go in production. For work tho I
+        usually just use whatever API framework is setup for that front end
+        framework, whether it be Axios, Prisma or raw Next.
+      </p>
+      <p>
+        <b>Frontend</b> <br />Svelte for personal, React for team work. CSS
+        fully managed by Tailwind. Flutter for mobile.
+      </p>
+      <p>
+        <b>AI</b> <br />Claude for LLM, whatever the top Ollama llm is for AI
+        apps, qdrant for vector database and langchain to link everything. Then
+        the usual python libs for manual AI.
+      </p>
+      <p>
+        <b>Analytic:</b> <br />Posthog is by far the best.
+      </p>
+    </div>
   </div>
 </div>
 <div class="text" in:fade={{ delay: 9 * 150, duration: 300 }}>

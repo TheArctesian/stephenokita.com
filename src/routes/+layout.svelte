@@ -4,10 +4,11 @@
   import { inject } from "@vercel/analytics";
   inject({ mode: dev ? "development" : "production" });
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+  import { fade } from "svelte/transition";
   injectSpeedInsights();
 </script>
 
-<div class="sub flex alight-center text-center">
+<div in:fade class="sub flex alight-center text-center">
   <a href="/" class="text-d-orange">~/, </a>
   <a href="/skills" class="text-d-pink">&nbsp /skills, </a>
   <a href="/person" class="text-d-purple">&nbsp /person, </a>
@@ -17,7 +18,7 @@
 
 <slot />
 
-<div class="wrapper">
+<div class="wrapper" in:fade={{ delay: 500 }}>
   <div class="text">
     <h1 class="text-center">
       Email me at <span class="underline">me@danielokita.com</span>
