@@ -9,7 +9,7 @@ categories:
   - Religion
   - Epistemology
 published: true
-img:
+img: https://www.instagram.com/p/DJSl57Ky_r3/?img_index=1
 ---
 
 # Note on the Text

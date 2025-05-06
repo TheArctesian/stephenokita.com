@@ -4,6 +4,7 @@
   import { fade, slide } from "svelte/transition";
   import projects from "./unfinishedprojects.json";
   import writings from "./unfinishedwriting.json";
+  import Instaphoto from "$lib/components/blog/instaphoto.svelte";
 </script>
 
 <div out:slide>
@@ -12,38 +13,73 @@
       {#each data.posts as post, i}
         <a href={post.slug} in:fade={{ delay: i * 150, duration: 300 }}>
           <div class="post">
-            <a href={post.slug} class="title">{post.title}</a>
-            <hr />
-            <div class="mt-3">
-              <p class="date flex items-center">
-                <img
-                  src="   https://cdn-icons-png.flaticon.com/512/61/61469.png "
-                  alt="date icon"
-                  class="inline-block mr-4"
-                  width="20"
-                  height="20"
-                />
-                <span> <b>Released:</b> {formatDate(post.date)}</span>
-              </p>
-              <p class="date flex items-center">
-                <img
-                  src="   https://cdn-icons-png.flaticon.com/512/3177/3177361.png "
-                  alt="date icon"
-                  class="inline-block mr-4"
-                  width="20"
-                  height="20"
-                />
-                <span><b>Location: </b>{post.location}</span>
-              </p>
-              <p class="mt-2 mr-4">{post.description}</p>
-            </div>
-            <br />
+            {#if post.img}
+              <div class="flex flex-row post-content">
+                <div class="content-text">
+                  <a href={post.slug} class="title">{post.title}</a>
+                  <hr />
+                  <div class="mt-3">
+                    <p class="date flex items-center">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/61/61469.png"
+                        alt="date icon"
+                        class="inline-block mr-4"
+                        width="20"
+                        height="20"
+                      />
+                      <span> <b>Released:</b> {formatDate(post.date)}</span>
+                    </p>
+                    <p class="date flex items-center">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/3177/3177361.png"
+                        alt="date icon"
+                        class="inline-block mr-4"
+                        width="20"
+                        height="20"
+                      />
+                      <span><b>Location: </b>{post.location}</span>
+                    </p>
+                    <p class="mt-2">{post.description}</p>
+                  </div>
+                </div>
+                <div class="content-image">
+                  <Instaphoto postUrl={post.img} />
+                </div>
+              </div>
+            {:else}
+              <a href={post.slug} class="title">{post.title}</a>
+              <hr />
+              <div class="mt-3">
+                <p class="date flex items-center">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/61/61469.png"
+                    alt="date icon"
+                    class="inline-block mr-4"
+                    width="20"
+                    height="20"
+                  />
+                  <span> <b>Released:</b> {formatDate(post.date)}</span>
+                </p>
+                <p class="date flex items-center">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/3177/3177361.png"
+                    alt="date icon"
+                    class="inline-block mr-4"
+                    width="20"
+                    height="20"
+                  />
+                  <span><b>Location: </b>{post.location}</span>
+                </p>
+                <p class="mt-2 mr-4">{post.description}</p>
+              </div>
+            {/if}
           </div>
         </a>
       {/each}
     </div>
   </section>
 </div>
+
 <div class="mt-4">
   <div class="wrapper">
     <h1 class="font-bold">Unfinished/expired ideas</h1>
@@ -128,11 +164,45 @@
     border-radius: 0.2rem;
     transition: all ease-in-out 100ms;
   }
+
+  .post-content {
+    width: 100%;
+  }
+
+  .content-text {
+    flex: 3;
+    margin-right: 1rem;
+  }
+
+  .content-image {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media (max-width: 1000px) {
     .posts {
       margin-top: 1rem;
       grid-template-columns: repeat(auto-fill, 100%);
     }
+
+    .post-content {
+      flex-direction: column;
+    }
+
+    .content-text {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .content-image {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
     .post {
       margin-bottom: 0;
       margin-top: 0;
