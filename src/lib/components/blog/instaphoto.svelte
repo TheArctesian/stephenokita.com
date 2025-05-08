@@ -170,7 +170,7 @@
       rel="noopener noreferrer"
       class="text-xs text-[var(--purple)] hover:text-[var(--pink)] transition-colors"
     >
-      Original post
+      View on Instagram
     </a>
   </div>
 </div>
