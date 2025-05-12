@@ -13,57 +13,68 @@ published: true
 img: https://www.instagram.com/p/DJZ6TjxB-nz/?img_index=1
 ---
 
-He stared into the unremarkable twilight star that the clever animals called knowledge,
+he stared into the unremarkable twilight star the clever animals called knowledge.
 
-He traversed its planets, he saw their blindness, and he too saw he was blind.
+he traversed its planets, and saw their blindness,
 
-So exalted was his quest, so excellent was his crusade, his conquest of the thousand miles.
+and he knew he too was blind.
+
+So exalted was his quest, so excellent was this crusade, his conquest of the thousand miles, for the heart of the whore we call philosophy.
 
 As he passionately embraced reality, it reciprocated his love, the shutters were slowly lifted.
 
 <br>
 
-He could see?
+he could see?
 
-He continued his march to the end of reality.
+he continued his march to the end of reality.
 
 Yet there was no light at the end of the tunnel, the enlightenment was subsumed by its gross shadow.
 
-He fell into the infinity, consumed by the vacuum of nature, the fate we are told to love, that of the inadvisable zero.
+he fell into the infinity, consumed by the vacuum of nature, the fate we are told to love, that of the inadvisable zero.
 
 The Dark Enlightenment is not an aesthetic modifier, its the consequence of knowledge's prescriptions on reality.
 
-The Noumenal world is fanged, the weapons of Ouroborus biting closer and closer to his own tail.
+The Noumenal world is fanged, the weapons of Ouroborus biting closer to it's sleep.
 
-Begging for the cosmic reset.
+Gnawing for the cosmic reset.
 
 <br>
 <div class="text-center">
-He got beyond good and evil, and saw nothing.
+he got beyond good and evil, and saw nothing.
 
 What is to be done? Nothing? <span class="font-bold">NOTHING?</span>
 
-The sublime was deaf to any music.
-
-He stared into it's vacuous abyss, it's visceral power shook him.
+The sublime was deaf to any music, it's deaf cries gripped him.
 
 </div>
 <br>
 
 “The Thing cannot be described - there is no language for such abysms of shrieking and immemorial lunacy, such eldritch contradictions of all matter, force, and cosmic order. A mountain walked or stumbled." - Call of Cthulhu, Lovecraft
 
-What do you do when Cthulhu stares into you, dance? laugh? fight? strip? bow? pray?
+What do you do when Cthulhu stares into you, laugh? cry? dance? strip? pray? bow?
 
-Without chorus, in a vacuum with no harmony, bathing in the sublime Nick Land saw no other possibility.
+Without chorus, in a vacuum with no harmony, the sublime waters washed over Nick's Land.
 
-Come, see the madness humans created. We made it last night in a dream that was really a nightmare.
+Come, see the madness humans created.
 
-The end is known, the story is told, does it matter how fast that boat sinks? Can we do anything but push more water in?
+We made it last night in a dream that was really a nightmare.
+
+The end is known, the story is told.
+
+Why should we care how fast that boat sinks? Cthulhu certainly doesn't, he already ate our organs.
+
 <br>
 
 <div class="text-center">
 
-yes. i don't know how. it has to be yes.
+we should care how fast it sinks
+
+for only when the imminent is felt does our pulse of consciousness surface
+
+it is in that then we see each other be
+
+oh what joy to be a clever goldfish
 
 </div>
 
