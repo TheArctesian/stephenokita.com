@@ -173,3 +173,71 @@ li {
 hr {
   border-color: var(--bg);
 }
+
+/* Table styling */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prose table th {
+  background: var(--selection);
+  color: var(--fg);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--purple);
+  font-family: 'Fira Code', monospace;
+}
+
+.prose table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--selection);
+  color: var(--fg);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+}
+
+.prose table tr:nth-child(even) {
+  background: rgba(68, 71, 90, 0.3);
+  /* --selection with opacity */
+}
+
+.prose table tr:hover {
+  background: rgba(189, 147, 249, 0.1);
+  /* --purple with low opacity */
+  transition: background-color 200ms ease-in-out;
+}
+
+.prose table th:first-child,
+.prose table td:first-child {
+  border-left: none;
+}
+
+.prose table th:last-child,
+.prose table td:last-child {
+  border-right: none;
+}
+
+/* Make table responsive */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .prose table {
+    font-size: 0.8rem;
+  }
+
+  .prose table th,
+  .prose table td {
+    padding: 0.5rem;
+  }
+}
