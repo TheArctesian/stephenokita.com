@@ -2,7 +2,7 @@
 title: Russo Japanese war
 description: Presentation my history class from school
 date: "2021-02-04"
-location: Berkeley
+location: Hong Kong
 categories:
   - History
 published: true

@@ -133,6 +133,140 @@ code {
   tab-size: 2;
 }
 
+/* Quote block styling */
+.prose blockquote {
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1rem 1rem 1rem 3rem;
+  background: var(--selection);
+  border-left: 4px solid var(--purple);
+  border-radius: 0.2rem;
+  font-family: 'Fira Code', monospace;
+  font-style: italic;
+  color: var(--fg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 300ms ease-in-out;
+}
+
+.prose blockquote::before {
+  content: '"';
+  position: absolute;
+  left: 0.75rem;
+  top: 0.5rem;
+  font-size: 3rem;
+  color: var(--purple);
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.prose blockquote:hover {
+  border-left-color: var(--cyan);
+  transform: scale(0.95);
+}
+
+.prose blockquote:hover::before {
+  color: var(--cyan);
+  opacity: 0.8;
+}
+
+.prose blockquote p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+.prose blockquote p:first-child {
+  margin-top: 0;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Citation styling for blockquotes */
+.prose blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(189, 147, 249, 0.3);
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--comment);
+  text-align: right;
+}
+
+.prose blockquote cite::before {
+  content: '— ';
+  color: var(--purple);
+}
+
+/* Alternative styling for different quote types */
+.prose blockquote.warning {
+  border-left-color: var(--orange);
+  background: linear-gradient(135deg, rgba(255, 184, 108, 0.15), rgba(255, 184, 108, 0.05));
+}
+
+.prose blockquote.warning::before {
+  color: var(--orange);
+}
+
+.prose blockquote.warning:hover {
+  border-left-color: var(--yellow);
+}
+
+.prose blockquote.warning:hover::before {
+  color: var(--yellow);
+}
+
+.prose blockquote.success {
+  border-left-color: var(--green);
+  background: linear-gradient(135deg, rgba(80, 250, 123, 0.15), rgba(80, 250, 123, 0.05));
+}
+
+.prose blockquote.success::before {
+  color: var(--green);
+}
+
+.prose blockquote.success:hover {
+  border-left-color: var(--cyan);
+}
+
+.prose blockquote.error {
+  border-left-color: var(--red);
+  background: linear-gradient(135deg, rgba(255, 85, 85, 0.15), rgba(255, 85, 85, 0.05));
+}
+
+.prose blockquote.error::before {
+  color: var(--red);
+}
+
+.prose blockquote.error:hover {
+  border-left-color: var(--pink);
+}
+
+/* Responsive quote styling */
+@media (max-width: 768px) {
+  .prose blockquote {
+    margin: 1rem 0;
+    padding: 1rem 1rem 1rem 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .prose blockquote::before {
+    font-size: 2.5rem;
+    left: 0.5rem;
+    top: 0.25rem;
+  }
+
+  .prose blockquote cite {
+    font-size: 0.8rem;
+  }
+}
+
 :root {
   color-scheme: dark;
   color: #282a36;
