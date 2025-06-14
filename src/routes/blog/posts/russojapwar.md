@@ -5,7 +5,11 @@ date: "2021-02-04"
 location: Hong Kong
 categories:
   - History
+  - Japan 
+  - Russia
 published: true
+language: 
+  - English
 ---
 
 <script>

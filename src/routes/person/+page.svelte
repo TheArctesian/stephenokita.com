@@ -8,7 +8,7 @@
   import animations from "./animations.json";
   import { onMount } from "svelte";
   import { blur, fade, fly, scale, slide } from "svelte/transition";
-  import me from "./imgs/sillyhat.jpg";
+  import me from "./imgs/me&kim.jpg";
 
   let currentQuoteIndex = 0;
   let currentMusicIndex = 0;
@@ -81,7 +81,7 @@
         <img
           src={me}
           alt="something wrong with the picture"
-          class="m-auto rounded w-1/2"
+          class="m-auto rounded w-4/5"
         />
       </div>
       <div class="flex w-full flex-col text-wrap w">

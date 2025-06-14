@@ -6,9 +6,15 @@ location: Berkeley
 categories: 
     - Admin
     - Svelte
+    - Web Development
+    - Markdown
+    - Blogging
 published: true
+language:
+    - English
+    - Assembly
 ---
- 
+
 Hello World! Welcome to my blog. 
 
 This is not really a welcome as I have had different implementations of blog over time but I think this one will stick. 

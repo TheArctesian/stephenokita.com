@@ -8,7 +8,14 @@ categories:
   - Philosophy
   - History
   - Ethics
+  - Cynicism
+  - Spectacle
+  - Nietzsche
+  - Ancient Philosophy
 published: true
+language: 
+  - English
+  - Latin
 ---
 
 # The Ethic of Spectacular Cynicism
@@ -28,7 +35,7 @@ As a judgement on the validity of their knowledge it means nothing. It would be 
 
 The statement is tautologically true, making it logically redundant. The claim or knowledge can be accurate or not, combining the two in an iff statement shows nothing of the truth of knowledge.
 
-The "smoking doctor" example makes this clear: a cigarette smoking doctor is still correct in his prescription of "cigarettes are bad", his consent in "bad" action does not contradict nature. The fact that Heidegger was a "bonafide Nazi" doesn't falsify phenomenology.
+The "smoking doctor" example makes this clear: a cigarette smoking doctor is still correct in his prescription of "cigarettes are bad", his consent in "bad" action does not contradict nature. The fact that Heidegger was a "bonafide Nazi" is not sufficient reason to falsify sufficient reason, it's just lazy.
 
 However, knowledge is not the subject of the Cynic, it is the polis. The Cynic is a permanent antithesis to the behaviour, and thus aesthetics, of the polis. The Cynic's antithetical substance works to deteriorate the ontological weight, or Cartesian gradations of reality or value in both a market and non-market sense aesthetic, of the spectacle. The spectacle is an ideal that "gains reality" through contingent consent of its images. This aesthetic forms a convention or a model of behaviour which is used to generate morality, or as Debord specifies "the spectacle is not a collection of images, but a social relation among people, mediated by images."¹
 
@@ -62,5 +69,4 @@ The Cynic lives in the moment instantaneously beyond the present, equally creati
  ⁹ Nietzsche, Friedrich. Beyond Good and Evil. 1886\.  
  ¹⁰ Arendt, Hannah. The Human Condition. University of Chicago Press, 1958\.  
  ¹¹ The Dhammapada. Translated by Juan Mascaró, Penguin Classics, 1973\.
-
 ¹²Nietzsche, Friedrich. The Gay Science. 1882, section 125\.

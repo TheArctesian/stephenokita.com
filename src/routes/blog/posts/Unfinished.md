@@ -6,7 +6,15 @@ location: Berkeley
 categories:
   - Admin
   - Philosophy
+  - Identity
+  - Productivity
+  - Digital Culture
+  - Ethics
+  - Labor Theory
 published: true
+language:
+  - English
+  - Latin
 ---
 
 Around a year ago I watched this [No Boilerplate video](https://www.youtube.com/watch?v=bJQj1uKtnus) on _The Cult of Done_. The video beautiful communicates the ideas set forth by Bre Prettiis and Kio Stark in their [article of the same name](https://medium.com/@bre/the-cult-of-done-manifesto-724ca1c2ff13). This is the complete Manifesto:

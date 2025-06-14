@@ -7,7 +7,15 @@ categories:
   - Epistemology
   - History
   - Historiography
+  - Medicine
+  - Natural Sciences
+  - Theory of Knowledge
+  - Philosophy of Science
 published: true
+language:
+  - English
+  - Chinese
+  - Latin
 ---
 
 # To what extent is the **knowledge** we **produce** determined by the **methods** with reference to history and one other AOK?

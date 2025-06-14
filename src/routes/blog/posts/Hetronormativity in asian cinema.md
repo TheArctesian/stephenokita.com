@@ -6,7 +6,15 @@ location: Berkeley
 categories:
   - Philosophy
   - History
+  - Film Analysis
+  - Gender Theory
+  - Asian-American
+  - Queer Theory
+  - Cultural Studies
 published: true
+language:
+  - English
+  - Chinese
 ---
 
 **Societal Frameworks and the Restrictions of Vanguard Sexuality**  

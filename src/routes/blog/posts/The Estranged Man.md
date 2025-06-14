@@ -6,7 +6,15 @@ location: Berkeley
 categories: 
     - Philosophy
     - Critical Theory
+    - Marxism
+    - Political Economy
+    - Labor Theory
+    - Capitalism
+    - Social Theory
 published: true
+language:
+    - English
+    - German
 ---
 
 In Marx’s 1844 Manuscripts, the chapter titled The Estranged Man shows the effects Capitalism has on the worker. He describes capitalism “alienating” man, or stripping man’s life of a form. This essay will begin by describing Marx’s interpretation of capitalism before explaining the four ways in which capitalism alienates and conclude with Marx’s view on how labour under the capitalist mode of production affects the life of the working class. 

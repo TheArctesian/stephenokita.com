@@ -6,7 +6,15 @@ location: Berkeley
 categories:
   - Philosophy
   - Freedom
+  - Ethics
+  - Metaphysics
+  - Spinoza
+  - Determinism
+  - Ontology
 published: true
+language:
+  - English
+  - Latin
 ---
 
 E1p33 asserts that "Things could not have been produced by God in any other way or in any other order than is the case." This proposition marks a radical departure with both philosophical and theological convention. Spinoza is not only making a philosophical claim of determinism; he's showing it logiclay through his claim of ontological monism--reclaiming reality under the domain of vitality.

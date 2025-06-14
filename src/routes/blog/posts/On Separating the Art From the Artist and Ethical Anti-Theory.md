@@ -6,7 +6,15 @@ location: Berkeley
 categories: 
     - Philosophy
     - Critical Theory
+    - Ethics
+    - Aesthetics
+    - Cultural Studies
+    - Moral Philosophy
+    - Popular Culture
 published: true
+language:
+    - English
+    - Latin
 ---
 
 Ceteris paribus a world full of moral saints would be a heaven on earth. It would be a just world following x moral theory leading all to the most harmonious life. We all understand that we ought to be moral, but unfortunately that is very, very difficult to do. Whether it is because of economic reasons, the domination of our spirit by the will of our inner Neanderthal, or some other bias in cognition we all slip in and out of the rules of morality. When we see someone that is perfectly virtuous we feel the inner guilt of not reaching their level of virtue. Whether their intentions are in duty of morality or the greater utility is irrelevant, these saints force us to be introspective and elucidate our inner flaws. Assuming that our antipathy is driven from guilt, Wolf's categorisation of morality as just another realm of virtue can be called into question. If we all yearn to be the Saint, and are drawn away from it because of our inner flaws is morality not the highest virtue of them all, the one which all are in servitude to. Personally I feel as if it can't be universalised that easily, it requires each person to question if they yearn for the life of the saint more than we yearn for a life of opulence, or perfection of a craft or x virtue.

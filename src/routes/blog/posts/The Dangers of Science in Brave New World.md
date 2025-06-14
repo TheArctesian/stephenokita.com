@@ -6,7 +6,15 @@ location: Berkeley
 categories:
   - Philosophy
   - History
+  - Literature
+  - Science Fiction
+  - Ethics
+  - Dystopian
+  - Eugenics
+  - Politics
 published: true
+language:
+  - English
 ---
 
 Aldous Leonard Huxley (1894-1963) released his magnum opus in 1932 when he was 38 years old. The novel presented a dystopian (or utopian, depending on interpretation) vision of a future society known as the World State, where human beings are mass-produced in laboratories and conditioned to be content with their predestined roles in the strictly hierarchised society. Individuality and personal freedom are sacrificed for societal stability, with the government maintaining control through the use of technology and psychological manipulation. The story follows Bernard Marx, who is an outsider in the supposedly utopian world, and John the Savage, a man raised outside the World State who struggles with the shallow hedonism of the new world. The novel comes at a unique period in history where science seeped more and more into the lives and politics of the world. This essay will show how _Brave New World_ demonstrates the dangers of approaches to incorporate science into the world.
@@ -95,33 +103,18 @@ PARTINGTON, JOHN S. “H.G. Wells’s Eugenic Thinking of the 1930s and 1940s.�
 Shakespear, William. The Tempest (1611).
 
 [^1]: “The 100 Best Novels Written in English: The Full List.” The Guardian, August 17, 2015\. https://www.theguardian.com/books/2015/aug/17/the-100-best-novels-written-in-english-the-full-list.
-
 [^2]: “Our Story: Penguin Random House.” PenguinRandomhouse.com. https://www.penguinrandomhouse.com/about-us/our-story/.
-
 [^3]: “About Penguin Random House.” About Penguin Random House, April 5, 2023\. https://www.penguin.co.uk/company/about-us.
-
 [^4]: Freemantle, Michael. _The chemists’ war, 1914-1918_. Cambridge, UK: The Royal Society of Chemistry, 2014\. P5, P162-170
-
 [^5]: Malthus, Thomas. An Essay on the Principles of Population and Other Writings (1798). London: Penguin, 2015\. For the law see P16, For his early positive eugenics see P75-77, for its effects on society see xxxi-xxxvi
-
 [^6]: George, Henry. Progress and Poverty: An Inquiry into the Cause of Industrial Depressions and of Increase of Want with Increase of Wealth: The Remedy (1879). See chapter 6 and 7
-
 [^7]: Marx, Karl. Das Kapital (Vol 1\) (1867). London, Penguin: 1998\. See chapter 26\.
-
 [^8]: Miller, LuLu. P119
-
 [^9]: Galton, Francis. _Inquiries into human faculty and its development (1883)_. London: Macmillan, 2004\. P17
-
 [^10]: Huxley, Aldous. _Brave New World (1932)_. London: Penguin, 2007\. See Introduction
-
 [^11]: PARTINGTON, JOHN S. “H.G. Wells’s Eugenic Thinking of the 1930s and 1940s.” _Utopian Studies_ 14, no. 1 (2003): 74–81. http://www.jstor.org/stable/20718547.
-
 [^12]: Miller Lulu, 132
-
 [^13]: Malthus. Essay on Population Growth. Introduction
-
 [^14]: Keynes, John Maynard. The General Theory of Employment, Interest and Money. London: Macmillan, 1930\. Chap 10
-
 [^15]: Huxley, Aldous. _Brave New World Revisited (1958)_. London: Penguin, 1994\.
-
 [^16]: Shakespear, William. The Tempest (1611). Act 5 Scene 1 FTLN 2181-2182

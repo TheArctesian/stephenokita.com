@@ -1,14 +1,22 @@
 ---
 title: God or Nature is not politically productive
 description: A critique to modern theories of life
-date: '2024-02-26'
+date: "2024-02-26"
 location: Berkeley
-categories: 
-    - Philosophy
-    - Politics
-    - Theology
+categories:
+  - Philosophy
+  - Politics
+  - Theology
+  - Vital Materialism
+  - Spinoza
+  - Environmentalism
 published: true
+language:
+  - English
+  - Chinese
 ---
+
+EDIT (Jun 13 2025): I disagree with almost everything I wrote here. Vital Materialism is sick, Spinoza was a good writer I had not read the Ethics or anything else at this point.
 
 The terrible writer Spinoza has a famous line of "God or Nature", it is understood to mean that god and nature are the same thing. It is used heavily in vital materialism meaning  ["the belief that matter itself has vitality and a life, no matter how lifeless it may appear to be"](https://scalar.usc.edu/works/material_philosophy/vital-materialism). Using Spinoza's theology, this modern vital materialist view makes everything from a plastic lid to an electric current to a human being alive. The intention of this is twofold, first two promote a new philosophy/theology on what life is as well as reforming perspectives for political purposes. The political purpose is a broadly environmentalist view but is intended to anthropomorphise all matter, so we respect it. Essentially animating all matter as an "actant" on the world and not a passive subject to human whims. 
 

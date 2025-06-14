@@ -7,7 +7,12 @@ categories:
   - CS
   - cybersecurity
   - Philosophy
+  - Blockchain
+  - DAO
+  - Identity
 published: true
+language:
+  - English
 ---
 
 Know Your Customer (KYC) is becoming more and more common for all application. It has become integral for all fin-tech apps and even for social media apps, to verify the customers identify. This all came about because anonymity is dangerous. Going back to Plato's Republic there is a dialogue in the first or second book where Plato and Galton are discussing morality. Galton imagines someone having the Ring of Gyges, a lord of the rings like ring that allows you to become completely invisible. If you were completely invisible what would you do? I have asked this question to a lot of people and the most common answers and steal, stalk, break and enter... These are all things that if there were social repercussions you would never do. Plato rejects this, he is an idealist and IMO the shit you need to sift through to get to Socrates. This idea is powerful as it sees morality not as something inherit but culturally induced. On the internet people can hide behind a nametag, you can say and do all types of things without any repercussions because you and your interlocutor are both anonymous, almost inhuman. To enforce a moral code universally you need a stick and a carrot. While this can be up and down votes, social sentiment is incredibly weak when anonymous. Thus KYC.

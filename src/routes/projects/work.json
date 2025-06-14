@@ -13,7 +13,7 @@
             "ollama",
             "python",
             "flask",
-            "amazonwebservices",
+            "aws",
             "elastic"
         ]
     },
@@ -28,7 +28,7 @@
             "typescript",
             "react",
             "nextdotjs",
-            "amazonwebservices",
+            "aws",
             "asana",
             "linux"
         ]
@@ -44,7 +44,7 @@
             "typescript",
             "react",
             "nextdotjs",
-            "amazonwebservices",
+            "aws",
             "asana",
             "linux"
         ]

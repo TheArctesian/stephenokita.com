@@ -9,6 +9,8 @@ categories:
     - Epistemology
     - Philosophy
 published: true
+language:
+  - English
 ---
  
 I have been religiously using [obsidian](obsidian.md) for the past year or two now. While I love almost everything about it the one problem that has never escaped my mind is how do I organise the folders for my notes. 

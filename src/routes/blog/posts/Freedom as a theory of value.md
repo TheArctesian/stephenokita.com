@@ -8,7 +8,12 @@ categories:
   - Ethics
   - Metaphysics
   - Ontology
+  - Kant
+  - Freedom
+  - Value Theory
 published: true
+language:
+  - English
 ---
 
 My goal in this essay is to propose a theory of valuing individuals. Value theory in the philosophical sense is incredibly dense and many have written on it, there is even a whole field of study dedicated to practical value theory which we call economics. I do really love economics, if you care about the authors take I think Debt by David Graeber is the best book on it, I have read, I have a lot to say about the book and is another book I almost deify. The theory of value I want to propose is a value based on freedom. That saying that we can grade the value of an agent (any creature that can enact it's own will, whether that be a plant, animal or human) and attribute a certain value to it. Value theory is a dangerous topic, especially when used to deferentiate quality of beings. You can imagine that this could be used as a vehicle for discrimination, ostracisation or any other way you want to say classifying an out group is bad. As with the last essay my defence is this is transcendental and near impossible to calculate, more of a thought experiment then a radical declaration of economic theory. That is quite a weak argument but let me make it first.

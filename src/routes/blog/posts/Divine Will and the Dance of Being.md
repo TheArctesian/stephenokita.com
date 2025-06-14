@@ -8,8 +8,14 @@ categories:
   - Metaphysics
   - Ontology
   - Theology
+  - Early Modern Philosophy
+  - Leibniz
+  - Conway
 published: true
 img: https://www.instagram.com/p/DJZ6CZEh1Fh/?img_index=1
+language: 
+  - English
+  - Latin
 ---
 
 Conway and Leibniz present sophisticated attempts to reconceptualize the relationship between God and creation in the wake of the Cartesian revolution. In this paper, I will describe Conway's position on God's active will in creation, then explain the extent to which Leibniz would agree with Conway's position.

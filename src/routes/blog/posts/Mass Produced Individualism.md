@@ -6,8 +6,17 @@ location: Berkeley
 categories: 
     - Philosophy
     - Critical Theory
+    - Cultural Studies
+    - Social Theory
+    - Capitalism
+    - Hegemony
+    - Nietzsche
 published: true
+language:
+    - English
+    - Chinese
 ---
+
 This is a topic that I have wanted to tackle for a very long time. I don’t know if I am intellectually equipped to provide an adequate explanation of this idea, but I am going to give it a shot anyway. I am a believer in the cult of done, so if this is terrible, maybe someone else will pick this up. 
 
 Individualism has long been suppressed by societies. On a macro level we can look at how religions, traditions, accents and languages have been killed throughout history. I don’t think I need to give examples of such a trivial assertion, but I will just in case, Armenian Genocide, Bhutan, Pol Pot, Hitler, 秦始皇, The English and French during colonialism, the Normans… These are only a few, but I am sure anyone reading this can think of an example in history in which x peoples have been forced to become more like y peoples. This is a matter of cultivating national identity and forming a cohesive in group. While all the examples listed above are atrocities, one might be able to sympathize with their intent. A society of individuals is antithetical to the notion of society. Societies require collaboration, socialisation, trade... A universal binding agents to epitomises the spirit of a group is useful for getting people to work together. For most, it's a religion or a history, but for some it is an ideology. 

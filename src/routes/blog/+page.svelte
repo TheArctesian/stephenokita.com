@@ -5,12 +5,165 @@
   import projects from "./unfinishedprojects.json";
   import writings from "./unfinishedwriting.json";
   import Instaphoto from "$lib/components/blog/instaphoto.svelte";
+  import Writing from "./being.jpg";
+
+  // Search functionality
+  let searchTerm = "";
+  let selectedCategory = "All";
+  let selectedLanguage = "All";
+  let sortBy = "newest";
+
+  // Get all unique categories from posts
+  $: allCategories = [
+    "All",
+    ...new Set(data.posts.flatMap((post) => post.categories || [])),
+  ];
+
+  $: allLanguages = [
+    "All",
+    ...new Set(data.posts.flatMap((post) => post.language || [])),
+  ];
+
+  // Filter and sort posts
+  $: filteredPosts = data.posts
+    .filter((post) => {
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+      const matchesLanguage =
+        selectedLanguage === "All" ||
+        (post.language && post.language.includes(selectedLanguage));
+
+      const matchesCategory =
+        selectedCategory === "All" ||
+        (post.categories && post.categories.includes(selectedCategory));
+      return matchesSearch && matchesCategory && matchesLanguage;
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+
+      if (sortBy === "newest") {
+        return dateB - dateA;
+      } else if (sortBy === "oldest") {
+        return dateA - dateB;
+      }
+      return 0;
+    });
+
+  // Animation delay for search results
+  let searchAnimationDelay = 0;
 </script>
 
-<div out:slide>
+<div class="flex flex-col" out:slide>
+  <div class="text1 l flex flex-col">
+    <div class="m-auto hero mb-4 flex gap-4 items-center">
+      <div class="w-full">
+        <h1 class="font-bold text-xl mb-4">Welcome to my blog!</h1>
+        <h1 class="mb-4">
+          I try not to remove writings once their up as I want a complete record
+          of both the growth of my ideas and my ability as a communicator.
+          Enjoy, as I put an inordinate amount of time into this.
+        </h1>
+        <i
+          >I am still working on a comment system, for now if you want to
+          comment do it on instagram photo linked or email me at
+          sdokita@berkeley.edu</i
+        >
+      </div>
+      <img src={Writing} alt="writing" class="max-h-48 rounded shadow" />
+    </div>
+  </div>
+  <div class="text1 l">
+    <div class=" mt-3 w-full flex hero m-auto gap-4">
+      <div class="relative w-full">
+        <svg
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+        <input
+          type="text"
+          placeholder="Search posts..."
+          bind:value={searchTerm}
+          class="p-2 pl-10 rounded text-[var(--white)] bg-[var(--selection)] h-fit m-auto w-full"
+        />
+      </div>
+
+      <div class="flex cas gap-4">
+        <select
+          id="category"
+          bind:value={selectedCategory}
+          class="p-2 rounded text-[var(--white)] bg-[var(--selection)] h-fit cat m-auto"
+        >
+          {#each allCategories as category}
+            <option value={category}>{category}</option>
+          {/each}
+        </select>
+
+        <div class="relative">
+          <svg
+            class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+            ></path>
+          </svg>
+          <select
+            id="language"
+            bind:value={selectedLanguage}
+            class="p-2 pl-10 rounded text-[var(--white)] bg-[var(--selection)] h-fit m-auto appearance-none"
+          >
+            {#each allLanguages as language}
+              <option value={language}>{language}</option>
+            {/each}
+          </select>
+        </div>
+
+        <div class="relative">
+          <svg
+            class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
+          </svg>
+          <select
+            bind:value={sortBy}
+            class="p-2 pl-10 rounded text-[var(--white)] bg-[var(--selection)] h-fit m-auto appearance-none"
+          >
+            <option value="newest">New</option>
+            <option value="oldest">Old</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="">
     <div class="posts">
-      {#each data.posts as post, i}
+      {#each filteredPosts as post, i}
         <a href={post.slug} in:fade={{ delay: i * 150, duration: 300 }}>
           <div class="post">
             {#if post.img}
@@ -180,8 +333,23 @@
     justify-content: center;
     align-items: center;
   }
+  .l {
+    margin-bottom: 1rem;
+  }
 
   @media (max-width: 1000px) {
+    input {
+      width: 100%;
+    }
+    .hero {
+      flex-direction: column;
+    }
+    .cat {
+      width: 100%;
+    }
+    .l {
+      margin-bottom: 0rem;
+    }
     .posts {
       margin-top: 1rem;
       grid-template-columns: repeat(auto-fill, 100%);

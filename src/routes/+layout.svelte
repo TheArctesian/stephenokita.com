@@ -148,7 +148,7 @@
 <div class="wrapper w-full px-4 box-border" in:fade={{ delay: 500 }}>
   <div class="text bg-[var(--fg)] p-4 rounded-sm w-full">
     <h1 class="text-center">
-      Email me at <span class="underline">me@danielokita.com</span>
+      Email me at <span class="underline">sdokita@berkeley.edu</span>
     </h1>
     <h1 class="text-center">
       <h1>

@@ -7,8 +7,17 @@ categories:
   - Philosophy
   - Politics
   - Poetry
+  - Critical Theory
+  - Ethics
+  - Nietzsche
+  - Existentialism
+  - Postmodernism
 published: true
 img: https://www.instagram.com/p/DK1RqyZufZ4/?img_index=1
+language:
+  - English
+  - Latin
+  - German
 ---
 
 # Make Evil Conscious Again

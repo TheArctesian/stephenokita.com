@@ -6,7 +6,12 @@ location: Berkeley
 categories:
   - Philosophy
   - Ontology
+  - History
+  - Systems
+  - DataSci?
 published: true
+language:
+  - English
 ---
 
 This was made in conjunction with Sonnet-3.7. You will have to zoom in to read the graph (mouse pinch not ctrl +). I might make a separate site just for graphing and mapping. Would really like to make an engine for it with 3js as I would love to weight these ideas based off of references.

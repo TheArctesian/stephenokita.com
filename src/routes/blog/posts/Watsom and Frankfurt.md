@@ -5,7 +5,16 @@ date: "2025-03-25"
 location: Berkeley
 categories:
   - Philosophy
+  - Ethics
+  - Free Will
+  - Compatibilism
+  - Moral Philosophy
+  - Determinism
 published: true
+language:
+  - English
+  - Latin
+  - Greek
 ---
 
 ## **Compare and contrast the accounts of free agency presented by Frankfurt and Watson.**

@@ -8,8 +8,12 @@ categories:
   - Software
   - Linux
   - Computer Science
+  - Open Source
+  - Operating Systems
 published: true
 img: https://www.instagram.com/p/DKfsl8hBOR5/?img_index=1
+language:
+  - English
 ---
 
 Linux, and my identity as someone in computing, is an aspect of my character that is not featured much on this blog.

@@ -9,8 +9,15 @@ categories:
   - Nihilism
   - Marxism
   - Poetry
+  - Accelerationism
+  - Cosmic Horror
+  - Continental Philosophy
 published: true
 img: https://www.instagram.com/p/DJZ6TjxB-nz/?img_index=1
+language:
+  - English
+  - Chinese
+  - Lovecraftian
 ---
 
 he stared into the unremarkable twilight star the clever animals called knowledge.

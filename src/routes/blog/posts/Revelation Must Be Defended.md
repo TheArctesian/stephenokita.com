@@ -8,8 +8,14 @@ categories:
   - Critical Theory
   - Religion
   - Epistemology
+  - Spirituality
+  - Phenomenology
 published: true
 img: https://www.instagram.com/p/DJSl57Ky_r3/?img_index=1
+language:
+  - English
+  - Latin
+  - Chinese
 ---
 
 # Note on the Text
