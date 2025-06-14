@@ -150,7 +150,7 @@
         <div class="absolute inset-0 overflow-hidden" style="height: 100%;">
           <iframe
             src={getInstagramEmbedUrl(postId)}
-            class="absolute top-0 left-0 w-[100%] h-[500px] transform scale-[1.2] translate-y-[-30%]"
+            class="absolute top-0 left-0 w-[100%] h-[500px] transform scale-[1.1] translate-y-[-11%]"
             frameborder="0"
             scrolling="no"
             title="Instagram post"
