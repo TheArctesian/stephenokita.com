@@ -62,21 +62,32 @@
       <div class="w-full">
         <h1 class="font-bold text-xl mb-4">Welcome to my blog!</h1>
         <h1 class="mb-4">
+          Enjoy, as I put an inordinate amount of my life into this.
+        </h1>
+        <h1 class="mb-4">
           I try not to remove writings once their up as I want a complete record
-          of both the growth of my ideas and my ability as a communicator.
-          Enjoy, as I put an inordinate amount of time into this.
+          of both the growth of my ideas and my abilities as a communicator.
         </h1>
         <i
           >I am still working on a comment system, for now if you want to
-          comment do it on instagram photo linked or email me at
-          sdokita@berkeley.edu</i
-        >
+          comment on an article do it on the instagram photo linked or email me
+          your critiques at sdokita@berkeley.edu. Critique is <b
+            >always always</b
+          >
+          invited especially critiques of me, of my character, knowledge, actions
+          everything.
+        </i>
+        <h1 class="mt-4">
+          I am still and will always be a stupid fool confidently guessing at
+          the nature and order of our world. Thus is the struggle of those
+          "passionately experience the weight and burden of existence" (BT)
+        </h1>
       </div>
       <img src={Writing} alt="writing" class="max-h-48 rounded shadow" />
     </div>
   </div>
-  <div class="text1 l">
-    <div class=" mt-3 w-full flex hero m-auto gap-4">
+  <div class="text1 se l">
+    <div class=" w-full flex hero m-auto gap-4">
       <div class="relative w-full">
         <svg
           class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -346,6 +357,10 @@
     }
     .cat {
       width: 100%;
+    }
+
+    .se {
+      margin-top: 1rem;
     }
     .l {
       margin-bottom: 0rem;
