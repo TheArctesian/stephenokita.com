@@ -79,7 +79,7 @@
         </i>
         <h1 class="mt-4">
           I am still and will always be a stupid fool confidently guessing at
-          the nature and order of our world. Thus is the struggle of those
+          the nature and order of our world. Thus is the struggle of those who venture to
           "passionately experience the weight and burden of existence" (BT)
         </h1>
       </div>
