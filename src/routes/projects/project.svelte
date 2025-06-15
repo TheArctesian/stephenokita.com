@@ -253,8 +253,7 @@
 <style>
   /* Favicon styling */
   .favicon {
-    width: 16px;
-    height: 16px;
+    width: 1.5rem;
     margin-right: 8px;
     border-radius: 3px;
     object-fit: contain;

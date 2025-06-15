@@ -1,33 +1,40 @@
 <script lang="ts">
   import "../../app.css";
-  import Collapsible from "../../lib/Collapsible.svelte";
   import Project from "./project.svelte";
   import projects from "./projects.json";
   import work from "./work.json";
   import personal from "./personal.json";
+  import published from "./published.json";
   import libs from "./libs.json";
   import school from "./school.json";
   import { slide, fade } from "svelte/transition";
+  import Published from "./published.svelte";
 </script>
 
 <div out:slide in:fade={{ delay: 0 * 150, duration: 300 }}>
-  <Project data={work} wait="0" delay="0" name="Professional Work"></Project>
-  <Project delay="1" wait={work.length} data={projects} name="Projects"
+  <Project
+    data={work}
+    wait="0"
+    delay="0"
+    name="Professional Work"
+  ></Project>
+  <Published data={published} wait="1" delay={work.length}></Published>
+  <Project delay="2" wait={work.length} data={projects} name="Projects"
   ></Project>
   <Project
-    delay="2"
+    delay="3"
     wait={projects.length + work.length}
     data={personal}
     name="Personal Projects"
   ></Project>
   <Project
-    delay="3"
+    delay="4"
     wait={personal.length + projects.length + work.length}
     data={libs}
     name="Libraries"
   ></Project>
   <Project
-    delay="4"
+    delay="5"
     wait={libs.length + personal.length + projects.length + work.length}
     data={school}
     name="School Projects"

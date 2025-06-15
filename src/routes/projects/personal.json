@@ -1,5 +1,18 @@
 [
   {
+    "name": "cn.stephenokita.com",
+    "description": "Website for all the chinese radicals and to house my printable pdf of that",
+    "link": "https://cn.stephenokita.com",
+    "date": "2025-06-14",
+    "tags": [
+      "svelte",
+      "html",
+      "tailwindcss",
+      "css",
+      "vercel"
+    ]
+  },
+  {
     "name": "tablequestions.net",
     "description": "An app for generating deep and fun questions to get to know your friends better",
     "link": "https://tablequestions.net/",
