@@ -211,7 +211,7 @@
             </a>
           </div>
         </div>
-        as well as the source code for this website&nbsp<a
+        source code for this website&nbsp<a
           class="s text-lg italic text-[var(--comment)]"
           href="https://github.com/TheArctesian/danielokita.com"
         >
