@@ -151,6 +151,13 @@
       Email me at <span class="underline">sdokita@berkeley.edu</span>
     </h1>
     <h1 class="text-center">
+      Schedule a meeting with me <a
+        href="https://cal.com/stephenokita"
+        class="underline">cal.com/stephenokita</a
+      >
+    </h1>
+
+    <h1 class="text-center">
       <h1>
         <div
           class="content flex justify-between items-center w-full gap-8 py-8"
@@ -186,6 +193,18 @@
             >
               <img
                 src="https://simpleicons.org/icons/instagram.svg"
+                alt="Instagram"
+                class="w-full max-w-[5vw] transition-transform duration-200 hover:scale-110"
+              />
+            </a>
+          </div>
+          <div class="element flex-1 flex justify-center items-center">
+            <a
+              href="https://www.cal.com/stephenokita/"
+              class="w-full flex justify-center"
+            >
+              <img
+                src="https://simpleicons.org/icons/caldotcom.svg"
                 alt="Instagram"
                 class="w-full max-w-[5vw] transition-transform duration-200 hover:scale-110"
               />
