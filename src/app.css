@@ -149,6 +149,26 @@ code {
   transition: all 300ms ease-in-out;
 }
 
+.poem {
+  white-space: pre-wrap;
+  /* keep tabs & line-breaks */
+  word-break: break-word;
+  /* soft-wrap long lines */
+  font-family: inherit;
+  /* or pick any font you like */
+  line-height: 0.6;
+  /* vertical rhythm */
+  backdrop-filter: blur(10px);
+  color: var(--fg);
+  tab-size: 4;
+  /* width of each tab; change to 2 if you prefer */
+
+  border-top: 4px solid var(--purple);
+  background: var(--selection);
+  padding: 1rem 0rem 1rem 4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .prose blockquote::before {
   content: '"';
   position: absolute;
