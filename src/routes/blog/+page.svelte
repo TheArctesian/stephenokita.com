@@ -13,19 +13,22 @@
   let selectedLanguage = "All";
   let sortBy = "newest";
 
+  // Safety check for data
+  $: posts = data?.posts || [];
+
   // Get all unique categories from posts
   $: allCategories = [
     "All",
-    ...new Set(data.posts.flatMap((post) => post.categories || [])),
+    ...new Set(posts.flatMap((post) => post.categories || [])),
   ];
 
   $: allLanguages = [
     "All",
-    ...new Set(data.posts.flatMap((post) => post.language || [])),
+    ...new Set(posts.flatMap((post) => post.language || [])),
   ];
 
   // Filter and sort posts
-  $: filteredPosts = data.posts
+  $: filteredPosts = posts
     .filter((post) => {
       const matchesSearch =
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -56,7 +59,8 @@
   let searchAnimationDelay = 0;
 </script>
 
-<div class="flex flex-col" out:slide>
+<div class="min-h-screen" out:slide>
+  <!-- Blog Header Section -->
   <div class="text1 l flex flex-col">
     <div class="m-auto hero mb-4 flex gap-4 items-center">
       <div class="w-full">
@@ -86,8 +90,10 @@
       <img src={Writing} alt="writing" class="max-h-48 rounded shadow" />
     </div>
   </div>
+  
+  <!-- Search and Filters Section -->
   <div class="text1 se l">
-    <div class=" w-full flex hero m-auto gap-4">
+    <div class="w-full flex hero m-auto gap-4">
       <div class="relative w-full">
         <svg
           class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
@@ -106,15 +112,15 @@
           type="text"
           placeholder="Search posts..."
           bind:value={searchTerm}
-          class="p-2 pl-10 rounded text-[var(--white)] bg-[var(--selection)] h-fit m-auto w-full"
+          class="nord-input pl-10 w-full"
         />
-      </div>
+        </div>
 
-      <div class="flex cas gap-4">
+        <div class="flex cas gap-4">
         <select
           id="category"
           bind:value={selectedCategory}
-          class="p-2 rounded text-[var(--white)] bg-[var(--selection)] h-fit cat m-auto"
+          class="nord-input cat"
         >
           {#each allCategories as category}
             <option value={category}>{category}</option>
@@ -138,7 +144,7 @@
           <select
             id="language"
             bind:value={selectedLanguage}
-            class="p-2 pl-10 rounded text-[var(--white)] bg-[var(--selection)] h-fit m-auto appearance-none"
+            class="nord-input pl-10 appearance-none"
           >
             {#each allLanguages as language}
               <option value={language}>{language}</option>
@@ -162,25 +168,25 @@
           </svg>
           <select
             bind:value={sortBy}
-            class="p-2 pl-10 rounded text-[var(--white)] bg-[var(--selection)] h-fit m-auto appearance-none"
+            class="nord-input pl-10 appearance-none"
           >
             <option value="newest">New</option>
             <option value="oldest">Old</option>
           </select>
         </div>
-      </div>
+        </div>
     </div>
   </div>
 
   <section class="">
     <div class="posts">
       {#each filteredPosts as post, i}
-        <a href={post.slug} in:fade={{ delay: i * 150, duration: 300 }}>
+        <a href="/blog/{post.slug}" in:fade={{ delay: i * 150, duration: 300 }}>
           <div class="post">
             {#if post.img}
               <div class="flex flex-row post-content">
                 <div class="content-text">
-                  <a href={post.slug} class="title">{post.title}</a>
+                  <a href="/blog/{post.slug}" class="title">{post.title}</a>
                   <hr />
                   <div class="mt-3">
                     <p class="date flex items-center">
@@ -211,7 +217,7 @@
                 </div>
               </div>
             {:else}
-              <a href={post.slug} class="title">{post.title}</a>
+              <a href="/blog/{post.slug}" class="title">{post.title}</a>
               <hr />
               <div class="mt-3">
                 <p class="date flex items-center">
@@ -279,15 +285,12 @@
 
 <style>
   .wrapper {
-    background-color: var(--fg);
-    padding: 1rem;
-    border-radius: 0.2rem;
-    background-color: var(--fg);
-    margin: 1rem;
+    @apply bg-bg-secondary p-md rounded m-md;
+    @apply transition-all duration-normal;
+    border: 1px solid var(--border-primary);
   }
   .ideas {
-    background-color: var(--fg);
-    padding: 1rem;
+    @apply bg-bg-secondary p-md rounded;
   }
   right {
     float: right;
@@ -296,16 +299,14 @@
     font-weight: bold;
   }
   .text1 {
-    padding: 1rem;
-    border-radius: 0.2rem;
-    background-color: var(--fg);
-    margin-left: 1rem;
-    margin-right: 1rem;
+    @apply p-md rounded bg-bg-secondary mx-md;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-normal;
   }
   .text {
-    padding: 1rem;
-    border-radius: 0.2rem;
-    margin: 1rem;
+    @apply p-md rounded m-md bg-bg-secondary;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-normal;
   }
   .rotate {
     transform: rotate(90deg);
@@ -319,14 +320,10 @@
     grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
   }
   .post {
-    margin-bottom: 1rem;
-    background-color: var(--fg);
-    height: 100%;
-    color: var(--bg);
+    @apply mb-md bg-bg-secondary h-full text-text-primary p-md rounded;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-fast;
     text-wrap: wrap;
-    padding: 1rem;
-    border-radius: 0.2rem;
-    transition: all ease-in-out 100ms;
   }
 
   .post-content {
@@ -393,17 +390,22 @@
   }
 
   .post:hover {
-    border-left: 0.5rem solid var(--red);
+    @apply border-l-8 border-l-status-error;
   }
 
   .post:not(:last-child) {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: var(--size-7);
+    @apply border-b border-b-bg-tertiary pb-lg;
   }
 
   .title {
-    font-size: larger;
-    font-weight: bold;
-    color: var(--bg);
+    @apply text-lg font-bold text-text-primary;
+  }
+  
+  .date {
+    @apply text-text-primary;
+  }
+  
+  .description {
+    @apply text-text-primary;
   }
 </style>

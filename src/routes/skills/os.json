@@ -1,0 +1,106 @@
+[
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg",
+    "text": "Debian"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devuan/devuan-original.svg",
+    "text": "Devuan"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
+    "text": "macOS"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+    "text": "Windows"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg",
+    "text": "Ubuntu"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rockylinux/rockylinux-original.svg",
+    "text": "Rocky Linux"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opensuse/opensuse-original.svg",
+    "text": "openSUSE"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/freebsd/freebsd-original.svg",
+    "text": "FreeBSD"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gentoo/gentoo-original.svg",
+    "text": "Gentoo"
+  },
+  {
+    "img": "https://raw.githubusercontent.com/QubesOS/qubes-attachment/master/icons/128x128/qubes.png",
+    "text": "Qubes OS"
+  },
+  {
+    "img": "https://gitlab.com/garuda-linux/branding/-/raw/master/logo/garuda/garuda-blue.png",
+    "text": "Garuda"
+  },
+  {
+    "img": "https://gitlab.manjaro.org/artwork/branding/logo/-/raw/master/logo.svg",
+    "text": "Manjaro"
+  },
+  {
+    "img": "https://raw.githubusercontent.com/endeavouros-team/artwork-images-logo/master/endeavouros-icon.png",
+    "text": "EndeavourOS"
+  },
+  {
+    "img": "https://artixlinux.org/img/logo.png",
+    "text": "Artix"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slackware/slackware-original.svg",
+    "text": "Slackware"
+  },
+  {
+    "img": "https://voidlinux.org/assets/img/void_bg.png",
+    "text": "Void"
+  },
+  {
+    "img": "https://arcolinux.info/wp-content/uploads/2019/05/arcolinux-one-liner.svg",
+    "text": "ArcoLinux"
+  },
+  {
+    "img": "https://raw.githubusercontent.com/pop-os/icon-theme/master/Pop/scalable/places/distributor-logo-pop-os.svg",
+    "text": "Pop!_OS"
+  },
+  {
+    "img": "https://assets.zorincdn.com/logos/ZorinBrand/Zorin%20Logomark.svg",
+    "text": "Zorin OS"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fedora/fedora-original.svg",
+    "text": "Fedora"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+    "text": "Linux Mint"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/almalinux/almalinux-original.svg",
+    "text": "AlmaLinux"
+  },
+  {
+    "img": "https://www.kali.org/images/kali-dragon-icon.svg",
+    "text": "Kali Linux"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
+    "text": "Android"
+  },
+  {
+    "img": "https://lineageos.org/images/logo.png",
+    "text": "LineageOS"
+  },
+  {
+    "img": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
+    "text": "iOS"
+  }
+]

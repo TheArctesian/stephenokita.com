@@ -1,397 +1,130 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+/* Import design system components */
+@import './styles/tokens.css';
+@import './styles/base.css';
+@import './styles/prose.css';
+
+/* Tailwind imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #282a36;
-  --fg: #f8f8f2;
-  --white: #ffffff;
-  --black: #000000;
-  --comment: #6272a4;
-  --selection: #44475a;
-  --cyan: #8be9fd;
-  --green: #50fa7b;
-  --orange: #ffb86c;
-  --pink: #ff79c6;
-  --purple: #bd93f9;
-  --red: #ff5555;
-  --yellow: #f1fa8c;
-}
-
-::selection {
-  background: var(--purple);
-  /* WebKit/Blink Browsers */
-}
-
-.t {
-  transition: all ease-in-out 200ms;
-}
-
-a {
-  color: var(--comment);
-  transition: all ease-in-out 200ms;
-}
-
-a:hover {
-  color: var(--purple);
-}
-
-.code {
-  font-style: italic;
-  color: var(--comment);
-  transition: all ease-in-out 200ms;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--selection);
-  border-radius: 1rem;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
-  background: var(--purple);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--cyan);
-}
-
-::-moz-selection {
-  background: var(--purple);
-  /* Gecko Browsers */
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
+/* Custom layer for design system components */
+@layer components {
+  /* Hyprland-inspired animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  100% {
-    opacity: 1;
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
   }
-}
-
-b {
-  font-weight: bold;
-}
-
-/* ... */
-
-.prose :is(a) {
-  text-decoration: none;
-  color: var(--purple);
-  font-style: italic;
-}
-
-.prose :is(h2, h3, h4, h5, h6) {
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size: large;
-}
-
-.prose :is(h1) {
-  font-weight: bold;
-  font-size: x-large;
-  text-align: center;
-}
-
-.prose p:not(:is(h2, h3, h4, h5, h6) + p) {
-  margin-top: 1rem;
-}
-
-.prose :is(ul) {
-  list-style-type: disc;
-  padding-left: 1rem;
-}
-
-.prose :is(ol) {
-  padding-left: 4rem;
-  list-style-type: decimal;
-}
-
-.prose :is(ul, ol) li {
-  margin-block: 0.1rem;
-  padding-inline-start: 0.1rem;
-}
-
-code {
-  width: fit-content;
-}
-
-.prose pre {
-  padding: 1rem;
-  border-radius: 8px;
-  tab-size: 2;
-}
-
-/* Quote block styling */
-.prose blockquote {
-  position: relative;
-  margin: 1.5rem 0;
-  padding: 1rem 1rem 1rem 3rem;
-  background: var(--selection);
-  border-left: 4px solid var(--purple);
-  border-radius: 0.2rem;
-  font-family: 'Fira Code', monospace;
-  font-style: italic;
-  color: var(--fg);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 300ms ease-in-out;
-}
-
-.poem {
-  white-space: pre-wrap;
-  /* keep tabs & line-breaks */
-  word-break: break-word;
-  /* soft-wrap long lines */
-  font-family: inherit;
-  /* or pick any font you like */
-  line-height: 1.1;
-  /* vertical rhythm */
-  backdrop-filter: blur(10px);
-  color: var(--fg);
-  tab-size: 4;
-  /* width of each tab; change to 2 if you prefer */
-
-  border-top: 4px solid var(--purple);
-  background: var(--selection);
-  padding: 1rem 0rem 1rem 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.prose blockquote::before {
-  content: '"';
-  position: absolute;
-  left: 0.75rem;
-  top: 0.5rem;
-  font-size: 3rem;
-  color: var(--purple);
-  font-family: 'Fira Code', monospace;
-  font-weight: 700;
-  line-height: 1;
-  opacity: 0.6;
-}
-
-.prose blockquote:hover {
-  border-left-color: var(--cyan);
-  transform: scale(0.95);
-}
-
-.prose blockquote:hover::before {
-  color: var(--cyan);
-  opacity: 0.8;
-}
-
-.prose blockquote p {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--fg);
-}
-
-.prose blockquote p:first-child {
-  margin-top: 0;
-}
-
-.prose blockquote p:last-child {
-  margin-bottom: 0;
-}
-
-/* Citation styling for blockquotes */
-.prose blockquote cite {
-  display: block;
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(189, 147, 249, 0.3);
-  font-style: normal;
-  font-size: 0.9rem;
-  color: var(--comment);
-  text-align: right;
-}
-
-.prose blockquote cite::before {
-  content: '— ';
-  color: var(--purple);
-}
-
-/* Alternative styling for different quote types */
-.prose blockquote.warning {
-  border-left-color: var(--orange);
-  background: linear-gradient(135deg, rgba(255, 184, 108, 0.15), rgba(255, 184, 108, 0.05));
-}
-
-.prose blockquote.warning::before {
-  color: var(--orange);
-}
-
-.prose blockquote.warning:hover {
-  border-left-color: var(--yellow);
-}
-
-.prose blockquote.warning:hover::before {
-  color: var(--yellow);
-}
-
-.prose blockquote.success {
-  border-left-color: var(--green);
-  background: linear-gradient(135deg, rgba(80, 250, 123, 0.15), rgba(80, 250, 123, 0.05));
-}
-
-.prose blockquote.success::before {
-  color: var(--green);
-}
-
-.prose blockquote.success:hover {
-  border-left-color: var(--cyan);
-}
-
-.prose blockquote.error {
-  border-left-color: var(--red);
-  background: linear-gradient(135deg, rgba(255, 85, 85, 0.15), rgba(255, 85, 85, 0.05));
-}
-
-.prose blockquote.error::before {
-  color: var(--red);
-}
-
-.prose blockquote.error:hover {
-  border-left-color: var(--pink);
-}
-
-/* Responsive quote styling */
-@media (max-width: 768px) {
-  .prose blockquote {
-    margin: 1rem 0;
-    padding: 1rem 1rem 1rem 2.5rem;
-    font-size: 0.95rem;
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(136, 192, 208, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(136, 192, 208, 0.4); }
   }
-
-  .prose blockquote::before {
-    font-size: 2.5rem;
-    left: 0.5rem;
-    top: 0.25rem;
+  
+  /* UNIX Philosophy: Simple, standardized components using CSS variables */
+  /* These work with any theme automatically through CSS variables */
+  
+  .nord-card {
+    @apply bg-bg-secondary text-text-primary rounded shadow-soft;
+    @apply transition-all duration-normal hover:bg-bg-tertiary hover:shadow-medium hover:-translate-y-1;
+    border: 1px solid var(--border-primary);
   }
-
-  .prose blockquote cite {
-    font-size: 0.8rem;
+  
+  .nord-button {
+    @apply bg-accent-primary text-bg-primary px-md py-sm rounded font-medium;
+    @apply transition-all duration-fast hover:bg-accent-cyan hover:shadow-glow;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-bg-primary;
+  }
+  
+  .nord-button-secondary {
+    @apply bg-transparent text-accent-primary px-md py-sm rounded font-medium;
+    @apply transition-all duration-fast hover:bg-accent-primary hover:text-bg-primary;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-bg-primary;
+    border: 1px solid var(--accent-primary);
+  }
+  
+  .nord-input {
+    @apply bg-bg-secondary text-text-primary rounded px-md py-sm;
+    @apply transition-all duration-fast focus:ring-2 focus:ring-accent-primary focus:ring-opacity-20 focus:outline-none;
+    border: 1px solid var(--border-primary);
+  }
+  
+  .nord-input:focus {
+    border-color: var(--accent-primary);
+  }
+  
+  .nord-surface {
+    @apply bg-bg-secondary text-text-primary rounded shadow-soft;
+    @apply transition-all duration-normal;
+    border: 1px solid var(--border-primary);
+  }
+  
+  .nord-surface-elevated {
+    @apply bg-bg-tertiary text-text-primary rounded shadow-medium;
+    border: 1px solid var(--border-secondary);
+  }
+  
+  /* Typography utilities - Following visual hierarchy principles */
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-primary to-accent-tertiary bg-clip-text text-transparent;
+  }
+  
+  .text-hierarchy-primary {
+    @apply text-text-primary font-semibold;
+  }
+  
+  .text-hierarchy-secondary {
+    @apply text-text-secondary font-medium;
+  }
+  
+  .text-hierarchy-tertiary {
+    @apply text-text-tertiary font-normal;
+  }
+  
+  /* Interactive elements - Proper feedback hierarchy */
+  .interactive {
+    @apply transition-all duration-fast hover:scale-105 active:scale-95 cursor-pointer;
+    @apply hover:shadow-soft active:shadow-none;
+  }
+  
+  .interactive-primary {
+    @apply interactive hover:text-accent-primary focus:text-accent-emphasis;
+  }
+  
+  .interactive-secondary {
+    @apply interactive hover:text-accent-secondary focus:text-accent-primary;
+  }
+  
+  /* Status indicators - Consistent semantic meaning */
+  .status-error { 
+    @apply text-status-error;
+    @apply hover:bg-status-error hover:bg-opacity-10;
+  }
+  .status-warning { 
+    @apply text-status-warning;
+    @apply hover:bg-status-warning hover:bg-opacity-10;
+  }
+  .status-success { 
+    @apply text-status-success;
+    @apply hover:bg-status-success hover:bg-opacity-10;
+  }
+  .status-info { 
+    @apply text-status-info;
+    @apply hover:bg-status-info hover:bg-opacity-10;
   }
 }
 
-:root {
-  color-scheme: dark;
-  color: #282a36;
-}
+/* Legacy support - gradually remove these */
+.t { @apply transition-all duration-normal; }
+.code { @apply italic text-text-muted transition-all duration-normal; }
 
-img {
-  border-radius: var(--radius-3);
-}
-
-ul,
-ol {
-  padding: 0;
-}
-
-li {
-  padding-inline-start: 0;
-}
-
-.surface-1 {
-  background-color: var(--bg);
-}
-
-.surface-2 {
-  background-color: var(--surface-2);
-  color: var(--text-2);
-}
-
-.surface-3 {
-  background-color: var(--surface-3);
-  color: var(--text-1);
-}
-
-.surface-4 {
-  background-color: var(--surface-4);
-  color: var(--text-1);
-}
-
-hr {
-  border-color: var(--bg);
-}
-
-/* Table styling */
-.prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  background: var(--bg);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.prose table th {
-  background: var(--selection);
-  color: var(--fg);
-  font-weight: 600;
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 2px solid var(--purple);
-  font-family: 'Fira Code', monospace;
-}
-
-.prose table td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--selection);
-  color: var(--fg);
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-}
-
-.prose table tr:nth-child(even) {
-  background: rgba(68, 71, 90, 0.3);
-  /* --selection with opacity */
-}
-
-.prose table tr:hover {
-  background: rgba(189, 147, 249, 0.1);
-  /* --purple with low opacity */
-  transition: background-color 200ms ease-in-out;
-}
-
-.prose table th:first-child,
-.prose table td:first-child {
-  border-left: none;
-}
-
-.prose table th:last-child,
-.prose table td:last-child {
-  border-right: none;
-}
-
-/* Make table responsive */
-.prose table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .prose table {
-    font-size: 0.8rem;
-  }
-
-  .prose table th,
-  .prose table td {
-    padding: 0.5rem;
-  }
-}
+/* Surface utilities for backwards compatibility */
+.surface-1 { @apply bg-bg-primary text-text-primary; }
+.surface-2 { @apply bg-bg-tertiary text-text-primary; }
+.surface-3 { @apply bg-bg-tertiary text-text-primary; }
+.surface-4 { @apply bg-bg-tertiary text-text-primary; }

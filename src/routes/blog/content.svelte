@@ -50,7 +50,7 @@
     }
 
     .text {
-        background-color: var(--fg);
+        background-color: var(--bg-secondary);
     }
     .rotate {
         transform: rotate(90deg);

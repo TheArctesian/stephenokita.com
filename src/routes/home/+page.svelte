@@ -99,13 +99,13 @@
     display: flex;
     justify-content: center;
     margin: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     margin: auto;
     transition: all ease-in-out 200ms;
   }
 
   .header:hover {
-    border: .3em solid var(--purple); 
+    border: .3em solid var(--status-purple); 
   }
   img {
     border-radius: 1rem;
@@ -117,23 +117,23 @@
     font-size: small;
   }
   #hk {
-    color: var(--red);
+    color: var(--status-error);
   }
   #ir {
-    color: var(--green);
+    color: var(--status-success);
   }
   .been {
     width: 50%;
     margin: auto;
   }
   #ld {
-    color: var(--comment);
+    color: var(--text-muted);
   }
   .text {
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     padding: 1rem;
     text-align: center;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     font-size: small;
     margin: 1rem;
   }
@@ -143,11 +143,11 @@
 
   .daniel {
     font-weight: bold;
-    color: var(--red);
+    color: var(--status-error);
   }
   .img {
     margin: auto;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     animation: fadeIn 5s;
     width: 39%;
   }
@@ -155,9 +155,9 @@
     text-align: center;
   }
   .header {
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     margin: 1rem;
     transition: all ease-in-out 200ms;
   }

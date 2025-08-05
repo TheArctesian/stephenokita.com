@@ -74,7 +74,7 @@
 <div out:slide>
   <div class="flex flex-col sm:flex-row ml-4 mr-4 gap-4 mb-4">
     <div
-      class="flex flex-col sm:flex-row text z w h-fit"
+      class="flex flex-col sm:flex-row text hover-accent content-container h-fit"
       in:fade={{ delay: 1 * 150, duration: 300 }}
     >
       <div class="justify-center align-middle m-auto sm:w-1/3">
@@ -84,7 +84,7 @@
           class="m-auto rounded w-4/5"
         />
       </div>
-      <div class="flex w-full flex-col text-wrap w">
+      <div class="flex w-full flex-col text-wrap content-container">
         <div>
           <p class="mb-2">
             This side of the website is an insight to who I am as a person not a
@@ -192,7 +192,7 @@
   </div>
 
   <div class="flex flex-row ml-4 mr-4 gap-4 mb-4">
-    <div class=" z text w" in:fade={{ delay: 2 * 150, duration: 300 }}>
+    <div class="hover-accent text content-container" in:fade={{ delay: 2 * 150, duration: 300 }}>
       I think of music like Plato as practising the harmony of the soul. I enjoy
       to learning new instruments now knowing 7, those being instruments: <span
         id="ld"
@@ -203,7 +203,7 @@
         >Spotify</a
       >
     </div>
-    <div class=" z text w" in:fade={{ delay: 2 * 150, duration: 300 }}>
+    <div class="hover-accent text content-container" in:fade={{ delay: 2 * 150, duration: 300 }}>
       I enjoy reading books and watching videos, whether it be youtube, films,
       tv shows or reels. I have a <a href="https://letterboxd.com/danielOkita/"
         >Letterboxd</a
@@ -214,7 +214,7 @@
   </div>
 
   <div class="text wrapper" in:fade={{ delay: 3 * 150, duration: 300 }}>
-    <h1 class="z mb-4">Quotes I have come across the resonated with me</h1>
+    <h1 class="hover-accent mb-4">Quotes I have come across the resonated with me</h1>
     <hr />
     <div class="carousel">
       <button class="nav-arrow left" on:click={prevQuote}>{"<"}</button>
@@ -239,9 +239,9 @@
   </div>
 
   <div class="flex" in:fade={{ delay: 4 * 150, duration: 300 }}>
-    <div class="text justify-center flex-col align-center ml-4 mb-4 w w-1/2">
+    <div class="text justify-center flex-col align-center ml-4 mb-4 content-container w-1/2">
       <div class="">
-        <h1 class="z mb-4">Latin phrases that I like</h1>
+        <h1 class="hover-accent mb-4">Latin phrases that I like</h1>
         <hr />
         <div class="carousel">
           <button class="nav-arrow left" on:click={prevLatin}>{"<"}</button>
@@ -273,14 +273,14 @@
     </div>
 
     <div
-      class="justify-center content-center mb-4 ml-4 mr-4 flex text w flex-col sm:flex-row w-1/2"
+      class="justify-center content-center mb-4 ml-4 mr-4 flex text content-container flex-col sm:flex-row w-1/2"
       in:fade={{ delay: 5 * 150, duration: 300 }}
     >
       <div class="flex flex-col sm:flex-row m-auto">
         <div class="m-auto t hover:scale-125 mb-4 sm:mb-0">
           <a href="https://open.spotify.com/user/b3oj8mjbyq5cfs26vp6c41ujr">
             <img
-              class="w-[10rem] h-[4rem]"
+              class="person-social-icon"
               src="https://simpleicons.org/icons/spotify.svg"
             />
           </a>
@@ -288,7 +288,7 @@
         <div class="m-auto t hover:scale-125">
           <a href="https://www.goodreads.com/user/show/155512706-stephen-okita">
             <img
-              class="w-[10rem] h-[4rem]"
+              class="person-social-icon"
               src="https://simpleicons.org/icons/goodreads.svg"
             />
           </a>
@@ -296,7 +296,7 @@
         <div class="m-auto t hover:scale-125">
           <a href="https://letterboxd.com/danielOkita/">
             <img
-              class="w-[10rem] h-[4rem]"
+              class="person-social-icon"
               src="https://simpleicons.org/icons/letterboxd.svg"
             />
           </a>
@@ -304,7 +304,7 @@
         <div class="m-auto t hover:scale-125">
           <a href="https://www.instagram.com/stephen.okita/">
             <img
-              class="w-[10rem] h-[4rem]"
+              class="person-social-icon"
               src="https://simpleicons.org/icons/instagram.svg"
             />
           </a>
@@ -315,7 +315,7 @@
   {#if browser}
     <div class="grid grid-cols-1 md:grid-cols-2 mb-4">
       <div class="text wrapper1" in:fade={{ delay: 6 * 150, duration: 300 }}>
-        <h1 class="z mb-4">This is a collection of my music musings:</h1>
+        <h1 class="hover-accent mb-4">This is a collection of my music musings:</h1>
         <hr />
         <br />
         <div class="carousel">
@@ -336,7 +336,7 @@
       </div>
 
       <div class="text wrapper2" in:fade={{ delay: 7 * 150, duration: 300 }}>
-        <h1 class="z mb-4">This is a collection of my animations:</h1>
+        <h1 class="hover-accent mb-4">This is a collection of my animations:</h1>
         <hr />
         <br />
         <div class="carousel">
@@ -370,12 +370,12 @@
     font-weight: bold;
   }
   .text {
-    background-color: var(--fg);
-    padding: 1rem;
-    border-radius: 0.2rem;
+    @apply bg-bg-secondary text-text-primary p-md rounded;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-normal;
   }
 
-  .w {
+  .content-container {
     justify-content: center;
     gap: 1rem;
     transition: all ease-in-out 200ms;
@@ -417,20 +417,18 @@
     }
   }
 
-  .z {
+  .hover-accent {
     transition: all ease-in-out 200ms;
   }
-  .z:hover {
-    border-left: 0.5rem solid var(--purple);
+  .hover-accent:hover {
+    @apply border-l-8 border-l-status-purple;
   }
   .element {
-    margin: 1rem;
-    border-radius: 0.2rem;
-    padding: 1rem;
-    border: 0.2rem solid var(--fg);
+    @apply m-md rounded p-md border-2 border-text-primary;
+    @apply transition-all duration-normal;
   }
   .element:hover {
-    border: 0.2rem solid var(--purple);
+    @apply border-2 border-status-purple;
   }
 
   .carousel {
@@ -475,7 +473,7 @@
   }
 
   .nav-arrow:hover {
-    color: var(--selection);
+    @apply text-bg-tertiary;
     transform: scale(1.2);
   }
 
@@ -488,7 +486,36 @@
   }
 
   hr {
-    border-top: 5px solid var(--bg);
-    border-radius: 0.3rem;
+    @apply border-t-4 border-t-bg-primary rounded;
+  }
+
+  .person-social-icon {
+    width: 8rem;
+    height: 3rem;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(94%) contrast(90%);
+    opacity: 0.8;
+    transition: filter var(--transition-fast), opacity var(--transition-fast), transform var(--transition-normal);
+  }
+  
+  .person-social-icon:hover {
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(110%) contrast(90%);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  /* Responsive social icon sizing */
+  @media (max-width: 768px) {
+    .person-social-icon {
+      width: 6rem;
+      height: 2.5rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .person-social-icon {
+      width: 5rem;
+      height: 2rem;
+    }
   }
 </style>

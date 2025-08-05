@@ -1,0 +1,299 @@
+/* Prose styles - Content typography and formatting */
+
+.prose {
+  color: var(--color-fg);
+  font-family: var(--font-family-mono);
+  line-height: 1.7;
+  max-width: 65ch;
+}
+
+.prose > * + * {
+  margin-top: var(--space-md);
+}
+
+/* Headings */
+.prose h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-fg);
+  text-align: center;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-fg);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+/* Paragraphs */
+.prose p {
+  margin-top: var(--space-md);
+}
+
+.prose p:not(:is(h2, h3, h4, h5, h6) + p) {
+  margin-top: var(--space-md);
+}
+
+/* Links */
+.prose a {
+  color: var(--color-purple);
+  text-decoration: none;
+  font-style: italic;
+  transition: var(--transition-normal);
+}
+
+.prose a:hover {
+  color: var(--color-cyan);
+}
+
+/* Lists */
+.prose ul {
+  list-style-type: disc;
+  padding-left: var(--space-md);
+}
+
+.prose ol {
+  list-style-type: decimal;
+  padding-left: var(--space-xl);
+}
+
+.prose ul li,
+.prose ol li {
+  margin-block: var(--space-xs);
+  padding-inline-start: var(--space-xs);
+}
+
+/* Code */
+.prose code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  color: var(--color-cyan);
+  background: var(--color-selection);
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+}
+
+.prose pre {
+  background: var(--color-selection);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: var(--color-fg);
+}
+
+/* Blockquotes */
+.prose blockquote {
+  position: relative;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-md) var(--space-md) var(--space-2xl);
+  background: var(--color-selection);
+  border-left: 4px solid var(--color-purple);
+  border-radius: var(--radius-md);
+  font-style: italic;
+  color: var(--color-fg);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-slow);
+}
+
+.prose blockquote::before {
+  content: '"';
+  position: absolute;
+  left: 0.75rem;
+  top: 0.5rem;
+  font-size: 3rem;
+  color: var(--color-purple);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.prose blockquote:hover {
+  border-left-color: var(--color-cyan);
+  transform: scale(0.98);
+}
+
+.prose blockquote:hover::before {
+  color: var(--color-cyan);
+  opacity: 0.8;
+}
+
+.prose blockquote p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.prose blockquote cite {
+  display: block;
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(189, 147, 249, 0.3);
+  font-style: normal;
+  font-size: var(--font-size-sm);
+  color: var(--color-comment);
+  text-align: right;
+}
+
+.prose blockquote cite::before {
+  content: '— ';
+  color: var(--color-purple);
+}
+
+/* Blockquote variants */
+.prose blockquote.warning {
+  border-left-color: var(--color-orange);
+  background: linear-gradient(135deg, rgba(255, 184, 108, 0.15), rgba(255, 184, 108, 0.05));
+}
+
+.prose blockquote.warning::before {
+  color: var(--color-orange);
+}
+
+.prose blockquote.success {
+  border-left-color: var(--color-green);
+  background: linear-gradient(135deg, rgba(80, 250, 123, 0.15), rgba(80, 250, 123, 0.05));
+}
+
+.prose blockquote.success::before {
+  color: var(--color-green);
+}
+
+.prose blockquote.error {
+  border-left-color: var(--color-red);
+  background: linear-gradient(135deg, rgba(255, 85, 85, 0.15), rgba(255, 85, 85, 0.05));
+}
+
+.prose blockquote.error::before {
+  color: var(--color-red);
+}
+
+/* Images */
+.prose img {
+  display: block;
+  margin: var(--space-lg) auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+}
+
+.prose img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Figure captions */
+.prose figure {
+  margin: var(--space-lg) 0;
+  text-align: center;
+}
+
+.prose figure img {
+  margin-bottom: var(--space-sm);
+}
+
+.prose figcaption {
+  font-size: var(--font-size-sm);
+  color: var(--color-comment);
+  font-style: italic;
+  margin-top: var(--space-sm);
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.prose table th {
+  background: var(--color-selection);
+  color: var(--color-fg);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 2px solid var(--color-purple);
+}
+
+.prose table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-selection);
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+}
+
+.prose table tr:nth-child(even) {
+  background: rgba(68, 71, 90, 0.3);
+}
+
+.prose table tr:hover {
+  background: rgba(189, 147, 249, 0.1);
+  transition: var(--transition-normal);
+}
+
+/* Poem styling */
+.poem {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--font-family-mono);
+  line-height: 1.1;
+  backdrop-filter: blur(10px);
+  color: var(--color-fg);
+  tab-size: 4;
+  border-top: 4px solid var(--color-purple);
+  background: var(--color-selection);
+  padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .prose {
+    font-size: var(--font-size-sm);
+  }
+  
+  .prose blockquote {
+    margin: var(--space-md) 0;
+    padding: var(--space-md) var(--space-md) var(--space-md) 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .prose blockquote::before {
+    font-size: 2.5rem;
+    left: 0.5rem;
+    top: 0.25rem;
+  }
+
+  .prose table {
+    font-size: var(--font-size-xs);
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .prose table th,
+  .prose table td {
+    padding: var(--space-sm);
+  }
+}

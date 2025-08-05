@@ -43,13 +43,11 @@
 
 <style>
   .head {
-    color: var(--black);
-    border-radius: 1rem;
-    padding: 1rem;
-    border: 0.2rem solid var(--fg);
+    @apply text-text-primary rounded-xl p-md border-2 border-text-primary;
+    @apply transition-all duration-normal;
   }
   .head:hover {
-    border: 0.2rem solid var(--pink);
+    border: 0.2rem solid var(--status-purple);
   }
   img {
     width: 20rem;
@@ -62,19 +60,19 @@
     transition: 0.2s ease-in-out;
   }
   .text {
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     font-size: small;
     margin: 1rem;
   }
   .dis {
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     font-size: small;
     padding: 1rem;
     margin: 1rem;
-    color: var(--red);
-    background-color: var(--fg);
+    color: var(--status-error);
+    background-color: var(--bg-secondary);
   }
   .code {
     font-style: italic;

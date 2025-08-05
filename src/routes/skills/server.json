@@ -50,5 +50,13 @@
     {
         "text": "Wireguard",
         "img": "https://simpleicons.org/icons/wireguard.svg"
+    },
+    {
+        "text": "Dokploy",
+        "img": "https://raw.githubusercontent.com/Dokploy/dokploy/main/logo.svg"
+    },
+    {
+        "text": "Nixpacks",
+        "img": "https://nixpacks.com/favicon.ico"
     }
 ]

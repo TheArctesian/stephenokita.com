@@ -46,17 +46,5 @@
     {
         "text": "Tailwind",
         "img": "https://simpleicons.org/icons/tailwindcss.svg"
-    },
-    {
-        "text": "Unity",
-        "img": "https://simpleicons.org/icons/unity.svg"
-    },
-    {
-        "text": "Unreal Engine",
-        "img": "https://simpleicons.org/icons/unrealengine.svg"
-    },
-    {
-        "text": "Bevy",
-        "img": "https://raw.githubusercontent.com/github/explore/9a35078cf8720476dcaada39a7144659849b081e/topics/bevy/bevy.png"
     }
 ]

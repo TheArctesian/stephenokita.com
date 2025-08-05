@@ -705,7 +705,7 @@ Chinese room"]
     overflow: auto;
     margin: 1rem 0;
     position: relative;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-primary);
     border-radius: 4px;
     user-select: none;
   }
@@ -727,21 +727,21 @@ Chinese room"]
     height: 36px;
     border-radius: 50%;
     background: white;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-primary);
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-soft);
     transition: all 0.2s ease;
   }
 
   .zoom-controls button:hover {
-    background: #f5f5f5;
+    background: var(--bg-tertiary);
     transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-medium);
   }
 
   .zoom-controls button:active {
     transform: translateY(0);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
   }
 
   :global(.mermaid) {

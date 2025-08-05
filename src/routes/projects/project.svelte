@@ -122,7 +122,7 @@
 </script>
 
 <div
-  class="m-4 text-xl text-[var(--fg)] font-bold p-4 border text-center rounded-[0.2rem]"
+  class="m-4 text-xl text-text-primary font-bold p-4 border text-center rounded-sm"
   out:slide
   in:fade={{ delay: wait * 150, duration: 300 }}
 >
@@ -306,7 +306,7 @@
   /* Custom scrollbar styling */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: var(--fg) var(--bg);
+    scrollbar-color: var(--text-primary) var(--bg-primary);
   }
 
   .custom-scrollbar::-webkit-scrollbar {
@@ -315,29 +315,26 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: var(--bg);
+    background: var(--bg-primary);
     border-radius: 4px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: var(--fg);
+    background-color: var(--text-primary);
     border-radius: 4px;
-    border: 2px solid var(--bg);
+    border: 2px solid var(--bg-primary);
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: var(--pink);
+    background-color: var(--status-purple);
   }
 
   /* Rest of your styling */
   .text {
-    background-color: var(--fg);
-    padding: 1rem;
-    border-radius: 0.2rem;
-    font-size: x-large;
-    font-weight: bold;
+    @apply bg-bg-secondary p-md rounded text-xl font-bold text-text-primary;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-normal;
     margin: 1rem 1rem 0rem 1rem;
-    color: black;
   }
 
   .section-container {
@@ -351,10 +348,9 @@
   }
 
   .project-card {
-    background-color: var(--fg);
-    color: var(--bg);
-    border-radius: 0.3rem;
-    padding: 1.25rem;
+    @apply bg-bg-secondary text-text-primary rounded p-lg;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-normal;
     display: flex;
     flex-direction: column;
     height: 200px; /* Fixed height for uniform size */
@@ -367,13 +363,13 @@
 
   .project-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-xl);
   }
 
   .project-card:focus {
-    outline: 2px solid var(--pink);
+    outline: 2px solid var(--status-purple);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-xl);
   }
 
   .project-title {
@@ -407,8 +403,8 @@
   }
 
   .tag {
-    background-color: var(--bg);
-    color: var(--fg);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     padding: 0.3rem;
     border-radius: 0.3rem;
     display: flex;
@@ -417,8 +413,8 @@
   }
 
   .mtag {
-    background-color: var(--fg);
-    color: var(--bg);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     padding: 0.4rem 0.6rem;
     border-radius: 0.3rem;
     font-size: 0.8rem;
@@ -447,7 +443,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: var(--bg-primary);
+    opacity: 0.95;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -456,13 +453,13 @@
   }
 
   .modal-content {
-    background-color: var(--bg);
+    background-color: var(--bg-primary);
     border-radius: 0.5rem;
     width: 90%;
     max-height: 90vh;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
   }
 
   .close-button {
@@ -472,7 +469,7 @@
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: var(--fg);
+    color: var(--text-primary);
     cursor: pointer;
     z-index: 10;
     width: 2rem;
@@ -481,11 +478,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--bg-tertiary);
+    opacity: 0.8;
   }
 
   .close-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--bg-tertiary);
+    opacity: 0.9;
   }
 
   .modal-grid {
@@ -498,7 +497,7 @@
   .modal-iframe {
     position: relative;
     height: 90vh;
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     overflow: auto;
   }
 
@@ -522,20 +521,20 @@
   .modal-title {
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--fg);
+    color: var(--text-primary);
   }
 
   .modal-description {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    color: var(--fg);
+    color: var(--text-primary);
     flex-grow: 1;
   }
 
   .modal-metadata {
     margin-bottom: 2rem;
-    color: var(--fg);
+    color: var(--text-primary);
   }
 
   .metadata-label {
@@ -562,8 +561,8 @@
 
   .project-link {
     display: inline-block;
-    background-color: var(--fg);
-    color: var(--bg);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     padding: 0.75rem 1.5rem;
     border-radius: 0.3rem;
     text-decoration: none;
@@ -574,8 +573,8 @@
   }
 
   .project-link:hover {
-    background-color: var(--pink);
-    color: var(--bg);
+    background-color: var(--status-purple);
+    color: var(--text-primary);
   }
 
   @media (max-width: 900px) {

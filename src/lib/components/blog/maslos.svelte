@@ -101,7 +101,7 @@
     margin: 0.3rem;
   }
   .eln {
-    border: 0.1rem #bd93f9 solid;
+    border: 0.1rem var(--status-purple) solid;
   }
   .wrap {
     margin: 0.3rem;

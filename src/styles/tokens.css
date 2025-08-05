@@ -1,0 +1,196 @@
+/* Design Tokens - UNIX Philosophy: Single source of truth for design values */
+
+:root {
+  /* === THEME SYSTEM: CSS VARIABLES FOR MODULAR THEMING === */
+  /* Following UI Design Principles: Hierarchy, Contrast, Accessibility */
+  
+  /* Surface colors - Proper elevation hierarchy */
+  --bg-primary: #2e3440;      /* Base canvas - darkest for depth */
+  --bg-secondary: #3b4252;    /* Cards, panels - subtle elevation */
+  --bg-tertiary: #434c5e;     /* Interactive surfaces - higher elevation */
+  --bg-quaternary: #4c566a;   /* Highest priority elements */
+  
+  /* Text colors - Optimized contrast ratios for accessibility */
+  --text-primary: #eceff4;    /* Primary content - highest contrast (WCAG AAA) */
+  --text-secondary: #d8dee9;  /* Supporting text - good contrast (WCAG AA) */
+  --text-tertiary: #88c0d0;   /* De-emphasized text - accent colored for hierarchy */
+  --text-muted: #4c566a;      /* Disabled/placeholder - minimum readable contrast */
+  
+  /* Accent colors - Following 60-30-10 rule */
+  --accent-primary: #88c0d0;   /* Primary brand color - 60% usage */
+  --accent-secondary: #81a1c1; /* Secondary interactions - 30% usage */
+  --accent-tertiary: #8fbcbb;  /* Highlights and accents - 10% usage */
+  --accent-emphasis: #5e81ac;  /* High contrast accent for emphasis */
+  
+  /* Status colors - Semantic meaning with sufficient contrast */
+  --status-error: #bf616a;     /* Error states - high visibility */
+  --status-warning: #d08770;   /* Warning states - attention grabbing */
+  --status-info: #ebcb8b;      /* Information - neutral but noticeable */
+  --status-success: #a3be8c;   /* Success states - positive reinforcement */
+  --status-purple: #b48ead;    /* Special/premium features */
+  
+  /* Border colors - Subtle definition without overwhelming */
+  --border-primary: #434c5e;   /* Primary borders - subtle definition */
+  --border-secondary: #4c566a; /* Secondary borders - stronger definition */
+  --border-accent: #88c0d0;    /* Interactive/focus borders - brand colored */
+  
+  /* Legacy support */
+  --color-bg: var(--bg-primary);
+  --color-fg: var(--text-primary);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-comment: var(--text-muted);
+  --color-selection: var(--bg-tertiary);
+  --color-cyan: var(--accent-cyan);
+  --color-green: var(--status-success);
+  --color-orange: var(--status-warning);
+  --color-pink: var(--status-purple);
+  --color-purple: var(--status-purple);
+  --color-red: var(--status-error);
+  --color-yellow: var(--status-info);
+  --color-blue: var(--accent-primary);
+  --color-blue-dark: var(--accent-blue);
+
+  /* Legacy support - remove after migration */
+  --bg: var(--color-bg);
+  --fg: var(--color-fg);
+  --white: var(--color-white);
+  --black: var(--color-black);
+  --comment: var(--color-comment);
+  --selection: var(--color-selection);
+  --cyan: var(--color-cyan);
+  --green: var(--color-green);
+  --orange: var(--color-orange);
+  --pink: var(--color-pink);
+  --purple: var(--color-purple);
+  --red: var(--color-red);
+  --yellow: var(--color-yellow);
+
+  /* Typography */
+  --font-family-mono: "Fira Code", monospace;
+  --font-size-xs: clamp(0.7rem, 1.5vw, 0.8rem);
+  --font-size-sm: clamp(0.8rem, 2vw, 1rem);
+  --font-size-base: clamp(1rem, 2.5vw, 1.2rem);
+  --font-size-lg: clamp(1.5rem, 4vw, 2rem);
+  --font-size-xl: clamp(2rem, 6vw, 4rem);
+  --font-size-2xl: clamp(3rem, 8vw, 6rem);
+  --font-size-3xl: clamp(4rem, 10vw, 8rem);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+
+  /* Shadows - Consistent elevation system */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --shadow-soft: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.15);
+
+  /* Z-index layers */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal: 40;
+  --z-tooltip: 50;
+
+  /* Breakpoints (for JS usage) */
+  --bp-mobile: 500px;
+  --bp-tablet: 900px;
+  --bp-desktop: 1200px;
+}
+
+/* === RICE CONFIGURATIONS === */
+/* UNIX Philosophy: Each theme is a separate module that can be swapped */
+
+/* Nord Light Theme */
+[data-theme="nord-light"] {
+  /* Surface colors - Optimized for light mode visual hierarchy */
+  --bg-primary: #fefefe;      /* Pure white canvas for maximum contrast */
+  --bg-secondary: #f8f9fb;    /* Very light cards - subtle elevation */
+  --bg-tertiary: #eceff4;     /* Light interactive surfaces */
+  --bg-quaternary: #e5e9f0;   /* Prominent panels */
+  
+  /* Text colors - Optimized contrast for light backgrounds */
+  --text-primary: #2e3440;    /* Dark text - maximum readability */
+  --text-secondary: #3b4252;  /* Supporting text - good contrast */
+  --text-tertiary: #5e81ac;   /* Accent colored text - maintains hierarchy */
+  --text-muted: #8790a0;      /* Muted text - softer than dark theme */
+  
+  /* Border colors - Subtle in light mode */
+  --border-primary: #e5e9f0;  /* Light borders - definition without harshness */
+  --border-secondary: #d8dee9; /* Stronger borders when needed */
+  --border-accent: #88c0d0;    /* Brand colored borders */
+}
+
+/* Nord Dark Theme (default) */
+[data-theme="nord-dark"] {
+  /* Surface colors - Proper elevation hierarchy */
+  --bg-primary: #2e3440;      /* Base canvas - darkest for depth */
+  --bg-secondary: #3b4252;    /* Cards, panels - subtle elevation */
+  --bg-tertiary: #434c5e;     /* Interactive surfaces - higher elevation */
+  --bg-quaternary: #4c566a;   /* Highest priority elements */
+  
+  /* Text colors - Optimized contrast ratios for accessibility */
+  --text-primary: #eceff4;    /* Primary content - highest contrast (WCAG AAA) */
+  --text-secondary: #d8dee9;  /* Supporting text - good contrast (WCAG AA) */
+  --text-tertiary: #88c0d0;   /* De-emphasized text - accent colored for hierarchy */
+  --text-muted: #4c566a;      /* Disabled/placeholder - minimum readable contrast */
+  
+  /* Border colors - Subtle definition without overwhelming */
+  --border-primary: #434c5e;   /* Primary borders - subtle definition */
+  --border-secondary: #4c566a; /* Secondary borders - stronger definition */
+  --border-accent: #88c0d0;    /* Interactive/focus borders - brand colored */
+}
+
+/* System Theme - follows OS preference */
+@media (prefers-color-scheme: light) {
+  [data-theme="system"] {
+    --bg-primary: #eceff4;
+    --bg-secondary: #e5e9f0;
+    --bg-tertiary: #d8dee9;
+    --bg-quaternary: #d0d7e0;
+    
+    --text-primary: #2e3440;
+    --text-secondary: #3b4252;
+    --text-tertiary: #434c5e;
+    --text-muted: #4c566a;
+    
+    --border-primary: #d8dee9;
+    --border-secondary: #c5ccd6;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    --bg-primary: #2e3440;
+    --bg-secondary: #3b4252;
+    --bg-tertiary: #434c5e;
+    --bg-quaternary: #4c566a;
+    
+    --text-primary: #eceff4;
+    --text-secondary: #e5e9f0;
+    --text-tertiary: #d8dee9;
+    --text-muted: #4c566a;
+    
+    --border-primary: #434c5e;
+    --border-secondary: #4c566a;
+  }
+}

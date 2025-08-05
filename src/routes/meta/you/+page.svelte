@@ -517,7 +517,7 @@
     {#if activeTab === "basics"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Basic Browser Information
         </p>
@@ -582,7 +582,7 @@
     {#if activeTab === "screen"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Screen & Window Properties
         </p>
@@ -644,7 +644,7 @@
     {#if activeTab === "hardware"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Hardware & Network Information
         </p>
@@ -722,7 +722,7 @@
     {#if activeTab === "features"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Browser Features & Capabilities
         </p>
@@ -747,7 +747,7 @@
     {#if activeTab === "media"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Media Format Support
         </p>
@@ -798,7 +798,7 @@
     {#if activeTab === "fonts"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Detected Fonts
         </p>
@@ -817,7 +817,7 @@
     {#if activeTab === "plugins"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Browser Plugins & MIME Types
         </p>
@@ -872,7 +872,7 @@
     {#if activeTab === "session"}
       <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
         <p
-          class="text-l font-bold m-auto text-[var(--fg)] bg-[var(--bg)] p-2 w-fit rounded-[0.2rem] mb-4"
+          class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Current Session Details
         </p>
@@ -935,7 +935,7 @@
       in:fade={{ delay: 3 * 150, duration: 300 }}
     >
       <div
-        class="bg-[var(--fg)] rounded-[0.2rem] mb-4 md:mb-0 p-4 mr-4 ml-4 flex flex-col justify-center items-center"
+        class="bg-bg-secondary rounded-sm mb-4 md:mb-0 p-4 mr-4 ml-4 flex flex-col justify-center items-center"
       >
         <span class="sm:text-2xl mb-2 font-bold text-xl"
           >Browser Fingerprint</span
@@ -952,7 +952,7 @@
           {/if}
         </div>
       </div>
-      <div class="bg-[var(--fg)] p-4 mr-4 ml-4 md:ml-0 rounded-[0.2rem]">
+      <div class="bg-bg-secondary p-4 mr-4 ml-4 md:ml-0 rounded-sm">
         <p>
           Below is all the information your browser reveals about you without
           asking for any explicit permission. This data can be used to create a
@@ -979,78 +979,79 @@
   .canvas-fingerprint {
     width: 220px;
     height: 60px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-primary);
   }
 
   .canvas-placeholder {
     width: 220px;
     height: 60px;
-    background-color: #eee;
-    border: 1px solid #ddd;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
   }
 
   .fingerprint-hash {
     font-family: monospace;
-    background-color: var(--bg);
+    background-color: var(--bg-primary);
     padding: 0.25rem 0.5rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     word-break: break-all;
-    color: white;
+    color: var(--text-primary);
   }
 
   .tabs {
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     justify-content: center;
     gap: 0.5rem;
     margin: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
   }
 
   .tabs button {
-    background-color: var(--fg);
-    color: var(--text);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
   .tabs button.active {
-    background-color: var(--orange);
-    color: white;
+    background-color: var(--status-warning);
+    color: var(--text-primary);
   }
 
   .tabs button:hover:not(.active) {
-    background-color: var(--purple);
+    background-color: var(--status-purple);
   }
 
   .text {
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     font-size: medium;
     margin: 1rem;
   }
 
   .info-item {
     padding: 0.75rem;
-    border-radius: 0.2rem;
-    border: 0.2rem solid rgba(0, 0, 0, 0.8);
+    border-radius: 0.25rem;
+    border: 0.2rem solid var(--bg-tertiary);
   }
 
   .info-item strong {
     display: block;
     margin-bottom: 0.25rem;
-    color: var(--orange);
+    color: var(--status-warning);
   }
 
   .info-item p {
     word-break: break-word;
     font-family: monospace;
     font-size: 0.85rem;
+    color: var(--text-primary);
   }
 
   .feature-item {
@@ -1058,23 +1059,24 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0.75rem;
-    border: 0.2rem solid rgba(0, 0, 0, 0.8);
-    border-radius: 0.2rem;
+    border: 0.2rem solid var(--bg-tertiary);
+    border-radius: 0.25rem;
+    color: var(--text-primary);
   }
 
   .supported {
-    color: #4caf50;
+    color: var(--status-success);
     font-weight: bold;
   }
 
   .not-supported {
-    color: #f44336;
+    color: var(--status-error);
   }
 
   .code-block {
-    background-color: var(--bg);
+    background-color: var(--bg-primary);
     padding: 0.75rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     font-family: monospace;
     font-size: 0.85rem;
     white-space: pre-wrap;
@@ -1089,16 +1091,16 @@
 
   .font-item {
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     display: flex;
     flex-direction: column;
-    border: 0.2rem solid rgba(0, 0, 0, 0.8);
+    border: 0.2rem solid var(--bg-tertiary);
   }
 
   .font-name {
     font-size: large;
     text-align: center;
-    color: var(--orange);
+    color: var(--status-warning);
     margin-bottom: 0.5rem;
   }
 
@@ -1111,13 +1113,13 @@
     max-height: 300px;
     overflow-y: auto;
     padding: 0.5rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
   }
 
   .plugin-item,
   .mime-item {
     padding: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border-primary);
   }
 
   .plugin-item:last-child,
@@ -1129,7 +1131,7 @@
   .suffixes {
     font-size: 0.8rem;
     margin-top: 0.25rem;
-    color: var(--comment);
+    color: var(--text-muted);
   }
 
   .implications-list {

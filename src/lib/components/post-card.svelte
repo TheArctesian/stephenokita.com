@@ -1,11 +1,10 @@
 <script>
     export let title;
     export let description;
-
-    export let url
+    export let url;
 </script>
 
-  <article>
-      <h1>{title}</h1>
-      <p>{description}</p>
-  </article>
+<article class="nord-card p-md">
+    <h1 class="text-text-primary font-bold text-lg mb-2">{title}</h1>
+    <p class="text-text-secondary">{description}</p>
+</article>

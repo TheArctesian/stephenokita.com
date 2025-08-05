@@ -60,7 +60,7 @@
 </script>
 
 <div
-  class="m-4 text-xl text-[var(--fg)] font-bold p-4 border text-center rounded-[0.2rem]"
+  class="m-4 text-xl text-text-primary font-bold p-4 border text-center rounded-sm"
   in:fade={{ delay: wait * 150, duration: 300 }}
 >
   <h1 class="section-title">Published Work</h1>
@@ -73,7 +73,7 @@
 >
   {#each sortedProjects as project, i}
     <div
-      class="hov p-4 rounded-[0.2rem] bg-[var(--bg)] text-[var(--fg)] border flex flex-col gap-2"
+      class="hov p-4 rounded-sm bg-bg-primary text-text-primary border flex flex-col gap-2"
     >
       <div class="flex">
         <img src={getFaviconUrl(project.link)} alt="favicon" class="favicon" />
@@ -98,7 +98,7 @@
   /* Favicon styling */
   .hov:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-xl);
     cursor: pointer;
   }
   .favicon {

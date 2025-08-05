@@ -26,16 +26,16 @@
   .head:hover {
   }
   .head {
-    color: var(--black);
+    color: var(--text-primary);
     border-radius: 1rem;
   }
   h1 {
     font-weight: bold;
   }
   .text {
-    background-color: var(--fg);
+    background-color: var(--bg-secondary);
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
     margin: 2rem;
   }
 </style>
