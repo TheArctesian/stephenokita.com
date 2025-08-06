@@ -73,24 +73,21 @@
           of both the growth of my ideas and my abilities as a communicator.
         </h1>
         <i
-          >I am still working on a comment system, for now if you want to
-          comment on an article do it on the instagram photo linked or email me
-          your critiques at sdokita@berkeley.edu. Critique is <b
-            >always always</b
-          >
-          invited especially critiques of me, of my character, knowledge, actions
-          everything.
+          >Comment system is now up! Critique is <b>always always</b>
+          invited especially critiques of me, my character, knowledge, actions everything.
         </i>
         <h1 class="mt-4">
           I am still and will always be a stupid fool confidently guessing at
-          the nature and order of our world. Thus is the struggle of those who venture to
-          "passionately experience the weight and burden of existence" (BT)
+          the nature and order of our world. Thus is the struggle of those who
+          venture to <i
+            >"passionately experience the weight and burden of existence"</i
+          > (BT)
         </h1>
       </div>
       <img src={Writing} alt="writing" class="max-h-48 rounded shadow" />
     </div>
   </div>
-  
+
   <!-- Search and Filters Section -->
   <div class="text1 se l">
     <div class="w-full flex hero m-auto gap-4">
@@ -114,9 +111,9 @@
           bind:value={searchTerm}
           class="nord-input pl-10 w-full"
         />
-        </div>
+      </div>
 
-        <div class="flex cas gap-4">
+      <div class="flex cas gap-4">
         <select
           id="category"
           bind:value={selectedCategory}
@@ -166,15 +163,12 @@
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             ></path>
           </svg>
-          <select
-            bind:value={sortBy}
-            class="nord-input pl-10 appearance-none"
-          >
+          <select bind:value={sortBy} class="nord-input pl-10 appearance-none">
             <option value="newest">New</option>
             <option value="oldest">Old</option>
           </select>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 
@@ -400,11 +394,11 @@
   .title {
     @apply text-lg font-bold text-text-primary;
   }
-  
+
   .date {
     @apply text-text-primary;
   }
-  
+
   .description {
     @apply text-text-primary;
   }
