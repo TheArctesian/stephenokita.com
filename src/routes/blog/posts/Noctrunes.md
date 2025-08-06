@@ -78,7 +78,7 @@ but they respond with a symphony of their own.
 &#9;&#9; waves whisper,  
 &#9;&#9; rivers murmur,  
 &#9;&#9; trees hum,  
-&#9;&#9; mountains sing with anticancer glory,  
+&#9;&#9; mountains sing with glory,  
  and the city streets howl in harmony.  
 
 In the stillness of the nocturne's call we breath a light,  
