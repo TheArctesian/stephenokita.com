@@ -2,8 +2,47 @@
   import { formatDate } from "$lib/utils";
   import { fade, slide } from "svelte/transition";
   import Comments from "$lib/components/ui/Comments.svelte";
+  import { onMount } from "svelte";
+  import { browser } from "$app/environment";
 
   export let data;
+  
+  let viewCount = 0;
+  let hasTrackedView = false;
+  
+  // Track page view with PostHog and our custom analytics
+  onMount(async () => {
+    // Get initial view count from load function
+    viewCount = await data.viewCount;
+    
+    // Track view if in browser and not already tracked
+    if (browser && !hasTrackedView) {
+      hasTrackedView = true;
+      
+      // Track with PostHog (already loaded globally)
+      if (typeof window !== 'undefined' && window.posthog) {
+        window.posthog.capture('blog_post_view', {
+          post_slug: data.meta.slug,
+          post_title: data.meta.title,
+          reading_time: data.meta.readingTime
+        });
+      }
+      
+      // Increment view count in our database
+      fetch('/api/blog-analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug: data.meta.slug })
+      })
+      .then(res => res.json())
+      .then(result => {
+        if (result.viewCount) {
+          viewCount = result.viewCount;
+        }
+      })
+      .catch(console.error);
+    }
+  });
 </script>
 
 <!-- SEO -->
@@ -23,9 +62,21 @@
             {data.meta.title}
           </h1>
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between text-text-tertiary">
-            <time class="text-sm font-medium" in:fade={{ delay: 4 * 150, duration: 300 }}>
-              Published on {formatDate(data.meta.date)}
-            </time>
+            <div class="flex items-center gap-4">
+              <time class="text-sm font-medium" in:fade={{ delay: 4 * 150, duration: 300 }}>
+                Published on {formatDate(data.meta.date)}
+              </time>
+              {#if data.meta.readingTime}
+                <span class="text-sm text-text-tertiary" in:fade={{ delay: 4 * 150, duration: 300 }}>
+                  • {data.meta.readingTime} min read
+                </span>
+              {/if}
+              {#if viewCount > 0}
+                <span class="text-sm text-text-tertiary" in:fade={{ delay: 4 * 150, duration: 300 }}>
+                  • {viewCount.toLocaleString()} view{viewCount === 1 ? '' : 's'}
+                </span>
+              {/if}
+            </div>
             <a
               href="/blog"
               class="text-accent-primary hover:text-accent-cyan transition-all duration-fast text-sm font-medium mt-2 sm:mt-0"

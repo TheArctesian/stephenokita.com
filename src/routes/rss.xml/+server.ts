@@ -1,43 +1,47 @@
-import type { Post } from '$lib/types'
+import type { Post } from "$lib/types";
 
 async function getPosts() {
-	let posts: Post[] = []
+  let posts: Post[] = [];
 
-	const paths = import.meta.glob('/src/routes/blog/posts/*.md', { eager: true })
+  const paths = import.meta.glob("/src/routes/blog/posts/*.md", {
+    eager: true,
+  });
 
-	for (const path in paths) {
-		const file = paths[path]
-		const slug = path.split('/').at(-1)?.replace('.md', '')
+  for (const path in paths) {
+    const file = paths[path];
+    const slug = path.split("/").at(-1)?.replace(".md", "");
 
-		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const metadata = file.metadata as Omit<Post, 'slug'>
-			const post = { ...metadata, slug } satisfies Post
-			post.published && posts.push(post)
-		}
-	}
+    if (file && typeof file === "object" && "metadata" in file && slug) {
+      const metadata = file.metadata as Omit<Post, "slug">;
+      const post = { ...metadata, slug } satisfies Post;
+      post.published && posts.push(post);
+    }
+  }
 
-	posts = posts.sort((first, second) =>
-		new Date(second.date).getTime() - new Date(first.date).getTime()
-	)
+  posts = posts.sort(
+    (first, second) =>
+      new Date(second.date).getTime() - new Date(first.date).getTime(),
+  );
 
-	return posts
+  return posts;
 }
 
-const siteURL = 'https://danielokita.com'
-const siteTitle = 'Stephen Daniel Okita\'s Blog'
-const siteDescription = 'Thoughts on philosophy, technology, and life from Stephen Daniel Okita'
+const siteURL = "https://stephenokita.com";
+const siteTitle = "Stephen Daniel Okita's Blog";
+const siteDescription =
+  "Thoughts on philosophy, technology, and life from Stephen Daniel Okita";
 
 export async function GET() {
-	const posts = await getPosts()
-	
-	const body = render(posts)
-	const options = {
-		headers: {
-			'Cache-Control': 'max-age=0, s-maxage=3600',
-			'Content-Type': 'application/xml',
-		},
-	}
-	return new Response(body, options)
+  const posts = await getPosts();
+
+  const body = render(posts);
+  const options = {
+    headers: {
+      "Cache-Control": "max-age=0, s-maxage=3600",
+      "Content-Type": "application/xml",
+    },
+  };
+  return new Response(body, options);
 }
 
 const render = (posts: Post[]) => `<?xml version="1.0" encoding="UTF-8" ?>
@@ -51,16 +55,16 @@ const render = (posts: Post[]) => `<?xml version="1.0" encoding="UTF-8" ?>
 <language>en-US</language>
 <generator>SvelteKit</generator>
 ${posts
-	.map(
-		(post) => `<item>
+    .map(
+      (post) => `<item>
 <guid isPermaLink="true">${siteURL}/${post.slug}</guid>
 <title>${post.title}</title>
 <link>${siteURL}/${post.slug}</link>
 <description>${post.description}</description>
 <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-${post.categories?.map(category => `<category>${category}</category>`).join('\n') || ''}
-</item>`
-	)
-	.join('')}
+${post.categories?.map((category) => `<category>${category}</category>`).join("\n") || ""}
+</item>`,
+    )
+    .join("")}
 </channel>
-</rss>`
+</rss>`;

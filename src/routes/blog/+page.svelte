@@ -203,6 +203,14 @@
                       />
                       <span><b>Location: </b>{post.location}</span>
                     </p>
+                    <div class="flex items-center gap-4 mt-2">
+                      {#if post.readingTime}
+                        <span class="text-sm text-text-tertiary">{post.readingTime} min read</span>
+                      {/if}
+                      {#if post.viewCount > 0}
+                        <span class="text-sm text-text-tertiary">{post.viewCount.toLocaleString()} view{post.viewCount === 1 ? '' : 's'}</span>
+                      {/if}
+                    </div>
                     <p class="mt-2">{post.description}</p>
                   </div>
                 </div>
@@ -234,6 +242,14 @@
                   />
                   <span><b>Location: </b>{post.location}</span>
                 </p>
+                <div class="flex items-center gap-4 mt-2">
+                  {#if post.readingTime}
+                    <span class="text-sm text-text-tertiary">{post.readingTime} min read</span>
+                  {/if}
+                  {#if post.viewCount > 0}
+                    <span class="text-sm text-text-tertiary">{post.viewCount.toLocaleString()} view{post.viewCount === 1 ? '' : 's'}</span>
+                  {/if}
+                </div>
                 <p class="mt-2 mr-4">{post.description}</p>
               </div>
             {/if}

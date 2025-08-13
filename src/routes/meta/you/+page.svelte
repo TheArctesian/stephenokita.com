@@ -456,12 +456,25 @@
   }
 </script>
 
-<div out:slide>
-  {#if isLoading}
-    <div class="text" in:fade={{ delay: 1 * 150, duration: 300 }}>
-      <p class="text-center">Loading your browser fingerprint data...</p>
+<div out:slide class="min-h-screen px-4 py-8">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header with link to meta page -->
+    <div class="mb-8 text-center">
+      <h1 class="text-4xl font-bold text-accent-primary mb-4">Browser Information Detective</h1>
+      <p class="text-text-secondary mb-4">Discover what your browser reveals about you</p>
+      <a 
+        href="/meta" 
+        class="inline-block text-accent-secondary hover:text-accent-primary transition-colors duration-200"
+      >
+        ← Back to Meta
+      </a>
     </div>
-  {:else if sessionInfo}
+    
+    {#if isLoading}
+      <div class="text" in:fade={{ delay: 1 * 150, duration: 300 }}>
+        <p class="text-center">Loading your browser fingerprint data...</p>
+      </div>
+    {:else if sessionInfo}
     <div class="tabs" in:fade={{ delay: 1 * 150, duration: 300 }}>
       <button
         class={activeTab === "basics" ? "active" : ""}
@@ -968,6 +981,7 @@
       </div>
     </div>
   {/if}
+  </div>
 </div>
 
 <style>

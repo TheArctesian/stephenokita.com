@@ -181,3 +181,14 @@ export const comments = pgTable('comments', {
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow()
 });
+
+// Blog post analytics
+export const blogAnalytics = pgTable('blog_analytics', {
+  id: serial('id').primaryKey(),
+  postSlug: text('post_slug').notNull().unique(),
+  viewCount: integer('view_count').default(0).notNull(),
+  uniqueVisitors: integer('unique_visitors').default(0).notNull(),
+  lastViewed: timestamp('last_viewed').defaultNow(),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow()
+});

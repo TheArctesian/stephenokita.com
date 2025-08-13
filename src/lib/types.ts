@@ -10,5 +10,7 @@ export type Post = {
     published: boolean
     img?: string
     language?: string[]
+    readingTime?: number
+    viewCount?: number
 }
 

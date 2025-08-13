@@ -1,10 +1,15 @@
 import { json } from '@sveltejs/kit'
 import type { Post } from '$lib/types'
+import { calculateReadingTime } from '$lib/utils'
+import { getAllViewCounts } from '$lib/services/blogAnalytics'
 
 async function getPosts() {
 	let posts: Post[] = []
 
 	const paths = import.meta.glob('/src/routes/blog/posts/*.md', { eager: true })
+	
+	// Get all view counts in one query
+	const viewCounts = await getAllViewCounts()
 
 	for (const path in paths) {
 		const file = paths[path]
@@ -12,7 +17,23 @@ async function getPosts() {
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
 			const metadata = file.metadata as Omit<Post, 'slug'>
-			const post = { ...metadata, slug } satisfies Post
+			
+			// Calculate reading time if content is available
+			let readingTime = undefined
+			if ('default' in file && typeof file.default === 'object' && 'render' in file.default) {
+				const rendered = file.default.render()
+				if (rendered && rendered.html) {
+					readingTime = calculateReadingTime(rendered.html)
+				}
+			}
+			
+			const post = { 
+				...metadata, 
+				slug,
+				readingTime,
+				viewCount: viewCounts[slug] || 0
+			} satisfies Post
+			
 			post.published && posts.push(post)
 		}
 	}

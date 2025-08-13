@@ -11,7 +11,7 @@
     { path: "/person", label: "/person", color: "text-accent-primary" },
     { path: "/projects", label: "/projects", color: "text-status-info" },
     { path: "/blog", label: "/blog", color: "text-status-error" },
-    { path: "/meta/you", label: "/meta", color: "text-status-success" }
+    { path: "/meta", label: "/meta", color: "text-status-success" },
   ];
 
   function toggleMobileMenu() {
@@ -23,23 +23,24 @@
   }
 
   function getActiveRoute(pathname: string) {
-    if (pathname.startsWith("/meta")) return routes.find(r => r.path === "/meta/you");
-    return routes.find(r => r.path === pathname) || routes[0];
+    if (pathname.startsWith("/meta"))
+      return routes.find((r) => r.path === "/meta/you");
+    return routes.find((r) => r.path === pathname) || routes[0];
   }
 
   $: activeRoute = getActiveRoute($page.url.pathname);
 </script>
 
-<nav class="nord-surface p-md m-md transition-all duration-normal" transition:fade>
+<nav
+  class="nord-surface p-md m-md transition-all duration-normal"
+  transition:fade
+>
   <!-- Desktop Navigation -->
   <div class="nav-desktop flex items-center justify-between">
     <div class="flex items-center justify-center flex-1">
       {#each routes as route, i}
-        <a 
-          href={route.path} 
-          class="{route.color} hover:tracking-wide"
-        >
-          {route.label}{i < routes.length - 1 ? ', ' : ''}
+        <a href={route.path} class="{route.color} hover:tracking-wide">
+          {route.label}{i < routes.length - 1 ? ", " : ""}
         </a>
       {/each}
     </div>
@@ -54,11 +55,25 @@
         on:click={toggleMobileMenu}
         aria-label="Toggle menu"
       >
-        <div class="hamburger-line w-6 h-0.5 bg-current transition-slow {mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}"></div>
-        <div class="hamburger-line w-6 h-0.5 bg-current transition-slow my-1 {mobileMenuOpen ? 'opacity-0' : ''}"></div>
-        <div class="hamburger-line w-6 h-0.5 bg-current transition-slow {mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}"></div>
+        <div
+          class="hamburger-line w-6 h-0.5 bg-current transition-slow {mobileMenuOpen
+            ? 'rotate-45 translate-y-1.5'
+            : ''}"
+        ></div>
+        <div
+          class="hamburger-line w-6 h-0.5 bg-current transition-slow my-1 {mobileMenuOpen
+            ? 'opacity-0'
+            : ''}"
+        ></div>
+        <div
+          class="hamburger-line w-6 h-0.5 bg-current transition-slow {mobileMenuOpen
+            ? '-rotate-45 -translate-y-1.5'
+            : ''}"
+        ></div>
       </button>
-      <span class="{activeRoute?.color} text-lg font-medium">{activeRoute?.label}</span>
+      <span class="{activeRoute?.color} text-lg font-medium"
+        >{activeRoute?.label}</span
+      >
     </div>
     <ThemeToggle />
   </div>
@@ -134,3 +149,4 @@
     }
   }
 </style>
+
