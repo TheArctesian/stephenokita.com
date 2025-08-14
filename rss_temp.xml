@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Stephen Daniel Okita's Blog</title>
+<description>Thoughts on philosophy, technology, and life from Stephen Daniel Okita</description>
+<link>https://stephenokita.com</link>
+<atom:link href="https://stephenokita.com/rss.xml" rel="self" type="application/rss+xml"/>
+<lastBuildDate>Thu, 14 Aug 2025 13:40:37 GMT</lastBuildDate>
+<language>en-US</language>
+<generator>SvelteKit</generator>
+<item>
+<guid isPermaLink="true">https://stephenokita.com/Noctrunes</guid>
+<title>The harmonises of darkness</title>
+<link>https://stephenokita.com/Noctrunes</link>
+<description>This is about Nocturnes. I really wanted to write about music and write poetry. This guy at a party last night told me about Field and I have spent the morning devouring his work. These are my reflections.</description>
+<pubDate>Sat, 26 Jul 2025 00:00:00 GMT</pubDate>
+<category>Poetry</category>
+<category>Music</category>
+<category>Ireland</category>
+<category>Piano</category>
+<category>Art</category>
+<category>History</category>
+<category>Enlightenment</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Echo in the machine</guid>
+<title>The Echo in the Machine</title>
+<link>https://stephenokita.com/Echo in the machine</link>
+<description>An essay on AGI for CogSci 100.</description>
+<pubDate>Fri, 04 Jul 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Software</category>
+<category>Cognitive Science</category>
+<category>AI</category>
+<category>Programing</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/leiho</guid>
+<title>CRITQUE UNBOUND?</title>
+<link>https://stephenokita.com/leiho</link>
+<description>Scitzos email I have redacted and edited a little in exploring why and maybe how we need to make the language of critque universal. I never sent this email for good reason, I sent it to my friend and decided to never publish it, but here it is!</description>
+<pubDate>Sat, 14 Jun 2025 00:00:00 GMT</pubDate>
+<category>Marxism</category>
+<category>Critical Theory</category>
+<category>Philosophy</category>
+<category>Education</category>
+<category>Digital Capitalism</category>
+<category>AI</category>
+<category>Pedagogy</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Make Evil Conscious Again</guid>
+<title>Make Evil Conscious Again!</title>
+<link>https://stephenokita.com/Make Evil Conscious Again</link>
+<description>I enjoy writing this type of critique, I don't know if anyone will understand but maybe the imagery is fun.</description>
+<pubDate>Thu, 12 Jun 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Politics</category>
+<category>Poetry</category>
+<category>Critical Theory</category>
+<category>Ethics</category>
+<category>Nietzsche</category>
+<category>Existentialism</category>
+<category>Postmodernism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Linux is cool</guid>
+<title>Linux is cool!</title>
+<link>https://stephenokita.com/Linux is cool</link>
+<description>What is linux, brief history and what do know when you switch.</description>
+<pubDate>Wed, 04 Jun 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Software</category>
+<category>Linux</category>
+<category>Computer Science</category>
+<category>Open Source</category>
+<category>Operating Systems</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/What did nick land see</guid>
+<title>What Did Nick Land See?</title>
+<link>https://stephenokita.com/What did nick land see</link>
+<description>My attempt to execute the madness brought about by Fanged Neuomena. I needed to make this artistic, to try and plug a little more holes.</description>
+<pubDate>Thu, 08 May 2025 00:00:00 GMT</pubDate>
+<category>Metaphysics</category>
+<category>Ontology</category>
+<category>Nihilism</category>
+<category>Marxism</category>
+<category>Poetry</category>
+<category>Accelerationism</category>
+<category>Cosmic Horror</category>
+<category>Continental Philosophy</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Divine Will and the Dance of Being</guid>
+<title>Divine Will and the Dance of Being</title>
+<link>https://stephenokita.com/Divine Will and the Dance of Being</link>
+<description>Conway and Leibniz on God's Agency in Creation. Another philosophy essay for class, this ones not to bad pretty boring IMO.</description>
+<pubDate>Wed, 07 May 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Metaphysics</category>
+<category>Ontology</category>
+<category>Theology</category>
+<category>Early Modern Philosophy</category>
+<category>Leibniz</category>
+<category>Conway</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Revelation Must Be Defended</guid>
+<title>REVELATION MUST BE DEFENDED</title>
+<link>https://stephenokita.com/Revelation Must Be Defended</link>
+<description>I know what ethics is now(ish), this is an attempt to describe it and give some didactic knowledge.</description>
+<pubDate>Mon, 05 May 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Critical Theory</category>
+<category>Religion</category>
+<category>Epistemology</category>
+<category>Spirituality</category>
+<category>Phenomenology</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Map of Phil</guid>
+<title>Historical Map of Philosophies</title>
+<link>https://stephenokita.com/Map of Phil</link>
+<description>An experiment with Mermaid as well as a pretty interesting retrospection on the history of knowledge.</description>
+<pubDate>Thu, 03 Apr 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ontology</category>
+<category>History</category>
+<category>Systems</category>
+<category>DataSci?</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Natrual Determinism</guid>
+<title>The Ethic of Univocity</title>
+<link>https://stephenokita.com/Natrual Determinism</link>
+<description>For Berkeley's 25B, analysing Spinoza's determinism and the aura of ethics under monism.</description>
+<pubDate>Mon, 31 Mar 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Freedom</category>
+<category>Ethics</category>
+<category>Metaphysics</category>
+<category>Spinoza</category>
+<category>Determinism</category>
+<category>Ontology</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Crypto Based KYC</guid>
+<title>Decentralised KYC & DIDs</title>
+<link>https://stephenokita.com/Crypto Based KYC</link>
+<description>Finally a tech article. Exploring user verification in a anonymous and decentralised social. Pretty much anti-corruption of DAOs.</description>
+<pubDate>Thu, 27 Mar 2025 00:00:00 GMT</pubDate>
+<category>CS</category>
+<category>cybersecurity</category>
+<category>Philosophy</category>
+<category>Blockchain</category>
+<category>DAO</category>
+<category>Identity</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Watsom and Frankfurt</guid>
+<title>Free Agency for Frankfurt and Watson</title>
+<link>https://stephenokita.com/Watsom and Frankfurt</link>
+<description>Very technical piece on free agency and the conceptions of the will for Frankfurt and Watson. Done for Phil 109 under R Jay Wallace</description>
+<pubDate>Tue, 25 Mar 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ethics</category>
+<category>Free Will</category>
+<category>Compatibilism</category>
+<category>Moral Philosophy</category>
+<category>Determinism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Ethic of Spectacular Cynicism</guid>
+<title>The Ethic of Spectacular Cynicism</title>
+<link>https://stephenokita.com/Ethic of Spectacular Cynicism</link>
+<description>A follow up on the philosophers death article but way more technical.</description>
+<pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
+<category>Epistemology</category>
+<category>Philosophy</category>
+<category>History</category>
+<category>Ethics</category>
+<category>Cynicism</category>
+<category>Spectacle</category>
+<category>Nietzsche</category>
+<category>Ancient Philosophy</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/spinoza</guid>
+<title>Spinoza vs Descartes</title>
+<link>https://stephenokita.com/spinoza</link>
+<description>A presentation I did for Philosophy Class that I am including the link for here.</description>
+<pubDate>Mon, 03 Mar 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>History</category>
+<category>Epistemology</category>
+<category>Spinoza</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/How did thinkers die</guid>
+<title>The Importance of a Philosophers Death</title>
+<link>https://stephenokita.com/How did thinkers die</link>
+<description>Inspired by something James Porter said in class. Try to argue that it's not important. If you don't care about that just skip to the end and read the list it's very fun.</description>
+<pubDate>Fri, 28 Feb 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>History</category>
+<category>Death</category>
+<category>Philosophers</category>
+<category>Classical Philosophy</category>
+<category>Ethics</category>
+<category>Biography</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Freedom as a theory of value</guid>
+<title>Individual Value, as Determined by the Gradations of Freedom</title>
+<link>https://stephenokita.com/Freedom as a theory of value</link>
+<description>I want to apologise again for the jargon and maybe the unfamiliar mathematical/logical notation. I think this an interesting way of valuing people, as thanks to Kant we value freedom so much.</description>
+<pubDate>Thu, 27 Feb 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ethics</category>
+<category>Metaphysics</category>
+<category>Ontology</category>
+<category>Kant</category>
+<category>Freedom</category>
+<category>Value Theory</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Kant was right</guid>
+<title>Kant was right</title>
+<link>https://stephenokita.com/Kant was right</link>
+<description>After righting about compatiblism for a while I reread the groundwork and thought I should write this up just in case anyone was lost on the answer for ethics. Sorry in advance for the jargon, it is Kant in fairness :)</description>
+<pubDate>Thu, 27 Feb 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ethics</category>
+<category>Metaphysics</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/感情商品化</guid>
+<title>感情商品化是什麼?</title>
+<link>https://stephenokita.com/感情商品化</link>
+<description>了解“感情商品化“的意思而這句話的結果</description>
+<pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Chinese</category>
+<category>Psychology</category>
+<category>Humanism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/感情商品化是什麼(en)</guid>
+<title>The Marketplace of Emotions? 感情商品化 english version</title>
+<link>https://stephenokita.com/感情商品化是什麼(en)</link>
+<description>This is claude-3.7 Sonnets translation of my 感情商品化 article, so that international audiences can understand</description>
+<pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Chinese</category>
+<category>Psychology</category>
+<category>Humanism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/感情商品化简化版</guid>
+<title>感情商品化是什么？(简化版)</title>
+<link>https://stephenokita.com/感情商品化简化版</link>
+<description>了解"感情商品化"的意思和这句话的结果</description>
+<pubDate>Wed, 12 Feb 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Chinese</category>
+<category>Psychology</category>
+<category>Humanism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Unfinished</guid>
+<title>Unfinished or Expired Ideas and Authenticity</title>
+<link>https://stephenokita.com/Unfinished</link>
+<description>Introducing cult of done, rant about self fulfilling nature of productivism, long exposition on the self action and identity spectra. Conclusion of introducing the idea grave yard at the bottom of the page.</description>
+<pubDate>Thu, 06 Feb 2025 00:00:00 GMT</pubDate>
+<category>Admin</category>
+<category>Philosophy</category>
+<category>Identity</category>
+<category>Productivity</category>
+<category>Digital Culture</category>
+<category>Ethics</category>
+<category>Labor Theory</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Why are we moral relativists</guid>
+<title>Why are we moral relativists?</title>
+<link>https://stephenokita.com/Why are we moral relativists</link>
+<description>Cultural relativism makes no sense, but then why is it so common? I think the answer is subjective realism, which I don't know if is a new term I made up but is probably my favourite piece of writing in a long time.</description>
+<pubDate>Sun, 05 Jan 2025 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ethics</category>
+<category>Moral Philosophy</category>
+<category>Cultural Relativism</category>
+<category>Anthropology</category>
+<category>Moral Psychology</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/The Impossibility of Eudaemonia</guid>
+<title>The Impossibility of Eudaemonia</title>
+<link>https://stephenokita.com/The Impossibility of Eudaemonia</link>
+<description>Another philosophy class paper on Aristotle</description>
+<pubDate>Sun, 01 Dec 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ethics</category>
+<category>Aristotle</category>
+<category>Ancient Philosophy</category>
+<category>Virtue Ethics</category>
+<category>Human Nature</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Is a defenition of pitey needed to judge it</guid>
+<title>Is a Definition of Piety Needed to Judge it?</title>
+<link>https://stephenokita.com/Is a defenition of pitey needed to judge it</link>
+<description>A critique of the Euthyphro, first text in the Last Day's of Socrates</description>
+<pubDate>Fri, 04 Oct 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Politics</category>
+<category>Theology</category>
+<category>Ancient Philosophy</category>
+<category>Ethics</category>
+<category>Socratic Dialogues</category>
+<category>Metaphysics</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/The Ethic of Productivism</guid>
+<title>The Ethic of Productivism</title>
+<link>https://stephenokita.com/The Ethic of Productivism</link>
+<description>A critique to modern theories of life</description>
+<pubDate>Sun, 05 May 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Politics</category>
+<category>Critical Theory</category>
+<category>Labor Studies</category>
+<category>Capitalism</category>
+<category>Digital Culture</category>
+<category>Art Criticism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Life in Our Current Historical Moment</guid>
+<title>Life in Our Current Historical Moment</title>
+<link>https://stephenokita.com/Life in Our Current Historical Moment</link>
+<description>How modern methods of knowing answer what is life and how that expands to biopower</description>
+<pubDate>Sun, 24 Mar 2024 00:00:00 GMT</pubDate>
+<category>Post-Modernism</category>
+<category>Philosophy</category>
+<category>Politics</category>
+<category>Critical Theory</category>
+<category>Biopolitics</category>
+<category>Environmental Ethics</category>
+<category>Foucault</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Hypersonic Effect on Cognition</guid>
+<title>The Hypersonic Effect and it's Effect on Cognition</title>
+<link>https://stephenokita.com/Hypersonic Effect on Cognition</link>
+<description>Presentation for Cog-Sci 1B</description>
+<pubDate>Mon, 11 Mar 2024 00:00:00 GMT</pubDate>
+<category>CogSci</category>
+<category>Psychology</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Variations on Maslow's Hierarchy of Needs</guid>
+<title>Variations on Maslow's Hierarchy of Needs</title>
+<link>https://stephenokita.com/Variations on Maslow's Hierarchy of Needs</link>
+<description>Looking for a model of human motivation</description>
+<pubDate>Mon, 11 Mar 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Psychology</category>
+<category>Human Motivation</category>
+<category>Self-Actualization</category>
+<category>ERG Theory</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Why do we watch sports</guid>
+<title>Why do we watch sports?</title>
+<link>https://stephenokita.com/Why do we watch sports</link>
+<description>This is an answer but does it really capture the whole picture?</description>
+<pubDate>Sun, 03 Mar 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Psychology</category>
+<category>Sports</category>
+<category>Personal Reflection</category>
+<category>Cultural Studies</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/God or Nature is not politcaly Productive</guid>
+<title>God or Nature is not politically productive</title>
+<link>https://stephenokita.com/God or Nature is not politcaly Productive</link>
+<description>A critique to modern theories of life</description>
+<pubDate>Mon, 26 Feb 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Politics</category>
+<category>Theology</category>
+<category>Vital Materialism</category>
+<category>Spinoza</category>
+<category>Environmentalism</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/The Estranged Man</guid>
+<title>Life of the Alienated Man</title>
+<link>https://stephenokita.com/The Estranged Man</link>
+<description>A little plain english summary of alienation</description>
+<pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Critical Theory</category>
+<category>Marxism</category>
+<category>Political Economy</category>
+<category>Labor Theory</category>
+<category>Capitalism</category>
+<category>Social Theory</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/20 Linen = 1 Coat</guid>
+<title>20 Linen = 1 Coat?</title>
+<link>https://stephenokita.com/20 Linen = 1 Coat</link>
+<description>Finding out the real economics of the main metaphor for the first chapter of a certain german philosopher critique of political economy</description>
+<pubDate>Sun, 11 Feb 2024 00:00:00 GMT</pubDate>
+<category>Marxism</category>
+<category>DataSci</category>
+<category>Economics</category>
+<category>Political Economy</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Ethical Investing</guid>
+<title>Ethical Investing</title>
+<link>https://stephenokita.com/Ethical Investing</link>
+<description>My attempt at doing what famine affluence and morality did for charity for investing</description>
+<pubDate>Mon, 05 Feb 2024 00:00:00 GMT</pubDate>
+<category>Economics</category>
+<category>Ethics</category>
+<category>Investing</category>
+<category>Philosophy</category>
+<category>Capitalism</category>
+<category>ESG</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/The Issues with Empirical Analysis on Politicians</guid>
+<title>The Issues with Empirical Analysis on Politicians</title>
+<link>https://stephenokita.com/The Issues with Empirical Analysis on Politicians</link>
+<description>A rushed together piece on the goal of politics and a random rant on epistemology</description>
+<pubDate>Sun, 04 Feb 2024 00:00:00 GMT</pubDate>
+<category>Epistemology</category>
+<category>Politics</category>
+<category>Philosophy of Science</category>
+<category>Political Theory</category>
+<category>Ethics</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Mass Produced Individualism</guid>
+<title>Mass Produced Individualism</title>
+<link>https://stephenokita.com/Mass Produced Individualism</link>
+<description>A poor attempt at critical theory</description>
+<pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Critical Theory</category>
+<category>Cultural Studies</category>
+<category>Social Theory</category>
+<category>Capitalism</category>
+<category>Hegemony</category>
+<category>Nietzsche</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Do Robots Deserve Rights</guid>
+<title>Do Robots Deserve Rights</title>
+<link>https://stephenokita.com/Do Robots Deserve Rights</link>
+<description>Playing with utilitarianism, maybe be nice to machines</description>
+<pubDate>Sat, 20 Jan 2024 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Computer Science</category>
+<category>Ethics</category>
+<category>AI</category>
+<category>Utilitarianism</category>
+<category>Consciousness</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/On Bullshit</guid>
+<title>A Critical Commentary of Frankfurt's On Bullshit</title>
+<link>https://stephenokita.com/On Bullshit</link>
+<description>My Phil-2 end of year paper</description>
+<pubDate>Fri, 15 Dec 2023 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Ethics</category>
+<category>Epistemology</category>
+<category>Language</category>
+<category>Truth</category>
+<category>Academic</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Hetronormativity in asian cinema</guid>
+<title>Societal Frameworks and the Restrictions of Vanguard Sexuality</title>
+<link>https://stephenokita.com/Hetronormativity in asian cinema</link>
+<description>Film Analysis of 1993's The Wedding Banquet by Ang Lee for my R1B Final</description>
+<pubDate>Fri, 27 Oct 2023 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>History</category>
+<category>Film Analysis</category>
+<category>Gender Theory</category>
+<category>Asian-American</category>
+<category>Queer Theory</category>
+<category>Cultural Studies</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/The Dangers of Science in Brave New World</guid>
+<title>The Dangers of Science in Brave New World</title>
+<link>https://stephenokita.com/The Dangers of Science in Brave New World</link>
+<description>Eugenics and Utopian Novels for my History 20 Final</description>
+<pubDate>Fri, 27 Oct 2023 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>History</category>
+<category>Literature</category>
+<category>Science Fiction</category>
+<category>Ethics</category>
+<category>Dystopian</category>
+<category>Eugenics</category>
+<category>Politics</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Wikipedia for the taxonomy of knowledge</guid>
+<title>Using Wikipedia For the Taxonomy of Knowledge</title>
+<link>https://stephenokita.com/Wikipedia for the taxonomy of knowledge</link>
+<description>Trying to scrape wikipedia for the root of knowledge</description>
+<pubDate>Tue, 17 Oct 2023 00:00:00 GMT</pubDate>
+<category>Data Science</category>
+<category>Taxonomy</category>
+<category>Epistemology</category>
+<category>Philosophy</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/On Separating the Art From the Artist and Ethical Anti-Theory</guid>
+<title>On Separating the Art From the Artist and Ethical Anti-Theory</title>
+<link>https://stephenokita.com/On Separating the Art From the Artist and Ethical Anti-Theory</link>
+<description>My personal views on if ethical anti-theory is right and if it lets us be immoral</description>
+<pubDate>Tue, 10 Oct 2023 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Critical Theory</category>
+<category>Ethics</category>
+<category>Aesthetics</category>
+<category>Cultural Studies</category>
+<category>Moral Philosophy</category>
+<category>Popular Culture</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/Cultural Terroist</guid>
+<title>Cultural Terrorism</title>
+<link>https://stephenokita.com/Cultural Terroist</link>
+<description>What the term means to me</description>
+<pubDate>Sat, 07 Oct 2023 00:00:00 GMT</pubDate>
+<category>Philosophy</category>
+<category>Epistemology</category>
+<category>Culture</category>
+<category>Society</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/This Blog's First Post</guid>
+<title>This Blog's First Post</title>
+<link>https://stephenokita.com/This Blog's First Post</link>
+<description>Hello World! Welcome to my blog.</description>
+<pubDate>Sun, 17 Sep 2023 00:00:00 GMT</pubDate>
+<category>Admin</category>
+<category>Svelte</category>
+<category>Web Development</category>
+<category>Markdown</category>
+<category>Blogging</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/tok</guid>
+<title>To what extent is the knowledge we produce determined by the methods with reference to history and medicine?</title>
+<link>https://stephenokita.com/tok</link>
+<description>My IB TOK essay it's not very good.</description>
+<pubDate>Sat, 11 Mar 2023 00:00:00 GMT</pubDate>
+<category>Epistemology</category>
+<category>History</category>
+<category>Historiography</category>
+<category>Medicine</category>
+<category>Natural Sciences</category>
+<category>Theory of Knowledge</category>
+<category>Philosophy of Science</category>
+</item><item>
+<guid isPermaLink="true">https://stephenokita.com/russojapwar</guid>
+<title>Russo Japanese war</title>
+<link>https://stephenokita.com/russojapwar</link>
+<description>Presentation my history class from school</description>
+<pubDate>Thu, 04 Feb 2021 00:00:00 GMT</pubDate>
+<category>History</category>
+<category>Japan</category>
+<category>Russia</category>
+</item>
+</channel>
+</rss>
