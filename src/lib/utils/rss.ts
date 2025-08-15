@@ -69,7 +69,8 @@ export function generateRSSFeed(posts: Post[], config: Partial<RSSConfig> = {}):
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 		.slice(0, 20) // Include latest 20 posts
 		.map(post => {
-			const postUrl = `${finalConfig.link}/blog/${post.slug}`
+			const encodedSlug = encodeURIComponent(post.slug)
+			const postUrl = `${finalConfig.link}/blog/${encodedSlug}`
 			const pubDate = new Date(post.date).toUTCString()
 			
 			return `<item>
