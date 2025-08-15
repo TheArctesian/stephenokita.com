@@ -12,7 +12,7 @@ categories:
   - AI
   - Pedagogy
 published: true
-img: https://www.instagram.com/p/DK5VhZpBANg/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/528/864/496/378/small/ae5e367ff0d74c16.jpg
 language:
   - English
   - Chinese

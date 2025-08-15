@@ -11,7 +11,7 @@ categories:
   - Spirituality
   - Phenomenology
 published: true
-img: https://www.instagram.com/p/DJSl57Ky_r3/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/514/751/558/306/small/ae4d1f33a0abb000.jpg
 language:
   - English
   - Latin

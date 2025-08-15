@@ -7,9 +7,11 @@ export const GET: RequestHandler = async ({ url }) => {
   
   try {
     if (slug) {
+      // Decode the slug in case it's URL encoded
+      const decodedSlug = decodeURIComponent(slug);
       // Get view count for a specific post
-      const viewCount = await getViewCount(slug);
-      return json({ slug, viewCount });
+      const viewCount = await getViewCount(decodedSlug);
+      return json({ slug: decodedSlug, viewCount });
     } else {
       // Get all view counts
       const viewCounts = await getAllViewCounts();
@@ -17,7 +19,12 @@ export const GET: RequestHandler = async ({ url }) => {
     }
   } catch (error) {
     console.error('Error fetching view counts:', error);
-    return json({ error: 'Failed to fetch view counts' }, { status: 500 });
+    // Return 0 view count instead of error to prevent blocking blog loading
+    if (slug) {
+      const decodedSlug = decodeURIComponent(slug);
+      return json({ slug: decodedSlug, viewCount: 0 });
+    }
+    return json({});
   }
 };
 
@@ -29,11 +36,14 @@ export const POST: RequestHandler = async ({ request }) => {
       return json({ error: 'Slug is required' }, { status: 400 });
     }
     
-    const viewCount = await incrementViewCount(slug);
+    // Decode the slug in case it's URL encoded
+    const decodedSlug = decodeURIComponent(slug);
+    const viewCount = await incrementViewCount(decodedSlug);
     
-    return json({ slug, viewCount });
+    return json({ slug: decodedSlug, viewCount });
   } catch (error) {
     console.error('Error incrementing view count:', error);
+    // Return graceful fallback instead of error
     return json({ error: 'Failed to increment view count' }, { status: 500 });
   }
 };

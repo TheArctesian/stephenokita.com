@@ -13,7 +13,7 @@ categories:
   - Cosmic Horror
   - Continental Philosophy
 published: true
-img: https://www.instagram.com/p/DJZ6TjxB-nz/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/522/033/277/792/small/2ca8950bcc413889.jpg
 language:
   - English
   - Chinese

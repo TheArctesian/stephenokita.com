@@ -13,7 +13,7 @@ categories:
   - Existentialism
   - Postmodernism
 published: true
-img: https://www.instagram.com/p/DK1RqyZufZ4/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/523/958/318/472/small/de0f3be5e0e4dcb7.jpg
 language:
   - English
   - Latin

@@ -11,7 +11,7 @@ categories:
   - Open Source
   - Operating Systems
 published: true
-img: https://www.instagram.com/p/DKfsl8hBOR5/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/520/698/240/649/original/f4eed007d3987a99.jpg
 language:
   - English
 ---

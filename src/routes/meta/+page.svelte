@@ -133,12 +133,12 @@
 
         <div class="nord-surface p-6 rounded-lg border-2 border-accent-primary">
           <h3 class="text-lg font-semibold text-text-primary mb-3">Feed URL</h3>
-          <div class="flex items-center gap-4">
-            <code class="flex-1 p-3 bg-bg-tertiary rounded font-mono text-accent-tertiary">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <code class="flex-1 p-3 bg-bg-tertiary rounded font-mono text-accent-tertiary text-sm sm:text-base overflow-x-auto">
               https://stephenokita.com/rss.xml
             </code>
             <button 
-              class="nord-button"
+              class="nord-button whitespace-nowrap flex-shrink-0"
               on:click={() => {
                 navigator.clipboard.writeText('https://stephenokita.com/rss.xml');
               }}

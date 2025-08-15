@@ -12,7 +12,7 @@ categories:
   - Leibniz
   - Conway
 published: true
-img: https://www.instagram.com/p/DJZ6CZEh1Fh/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/029/852/238/318/453/small/4ab960f445cefa6c.jpg
 language: 
   - English
   - Latin

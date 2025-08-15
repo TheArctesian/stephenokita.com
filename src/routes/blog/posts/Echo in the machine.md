@@ -10,7 +10,7 @@ categories:
   - AI
   - Programing
 published: true
-img: https://www.instagram.com/p/DLs8ayJBXHy/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/534/883/269/825/small/6e27049645b3f6fd.jpg
 language: 
   - English
 ---

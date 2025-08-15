@@ -12,7 +12,7 @@ categories:
   - History
   - Enlightenment
 published: true
-img: https://www.instagram.com/p/DMlS8Mpy3-i/?img_index=1
+img: https://static-assets-1.truthsocial.com/tmtg:prime-ts-assets/media_attachments/files/115/027/537/835/705/137/original/4f655af505bdd513.jpg
 language:
   - English
 ---

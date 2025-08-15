@@ -1,10 +1,10 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils.js";
   export let data;
-  import { fade, slide } from "svelte/transition";
+  import { fade, slide, scale } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
   import projects from "./unfinishedprojects.json";
   import writings from "./unfinishedwriting.json";
-  import Instaphoto from "$lib/components/blog/instaphoto.svelte";
   import Writing from "./being.jpg";
 
   // Search functionality
@@ -12,6 +12,7 @@
   let selectedCategory = "All";
   let selectedLanguage = "All";
   let sortBy = "newest";
+  let showFilters = false;
 
   // Safety check for data
   $: posts = data?.posts || [];
@@ -55,8 +56,10 @@
       return 0;
     });
 
-  // Animation delay for search results
-  let searchAnimationDelay = 0;
+  // Animation helpers
+  function staggeredFade(node: HTMLElement, { delay = 0, duration = 400 }) {
+    return fade(node, { delay, duration });
+  }
 </script>
 
 <div class="min-h-screen" out:slide>
@@ -172,91 +175,86 @@
     </div>
   </div>
 
-  <section class="">
-    <div class="posts">
-      {#each filteredPosts as post, i}
-        <a href="/blog/{post.slug}" in:fade={{ delay: i * 150, duration: 300 }}>
-          <div class="post">
+  <section class="blog-grid-container">
+    {#if filteredPosts.length === 0}
+      <!-- Empty State -->
+      <div class="empty-state" in:scale={{ duration: 300, easing: quintOut }}>
+        <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <h3 class="empty-title">No posts found</h3>
+        <p class="empty-description">Try adjusting your search or filters</p>
+      </div>
+    {:else}
+      <div class="blog-grid">
+        {#each filteredPosts as post, i (post.slug)}
+          <article 
+            class="blog-card" 
+            in:fade={{ delay: Math.min(i * 50, 200), duration: 400 }}
+            out:scale={{ duration: 200 }}
+          >
+          <a href="/blog/{encodeURIComponent(post.slug)}" class="card-link">
             {#if post.img}
-              <div class="flex flex-row post-content">
-                <div class="content-text">
-                  <a href="/blog/{post.slug}" class="title">{post.title}</a>
-                  <hr />
-                  <div class="mt-3">
-                    <p class="date flex items-center">
-                      <img
-                        src="https://cdn-icons-png.flaticon.com/512/61/61469.png"
-                        alt="date icon"
-                        class="inline-block mr-4"
-                        width="20"
-                        height="20"
-                      />
-                      <span> <b>Released:</b> {formatDate(post.date)}</span>
-                    </p>
-                    <p class="date flex items-center">
-                      <img
-                        src="https://cdn-icons-png.flaticon.com/512/3177/3177361.png"
-                        alt="date icon"
-                        class="inline-block mr-4"
-                        width="20"
-                        height="20"
-                      />
-                      <span><b>Location: </b>{post.location}</span>
-                    </p>
-                    <div class="flex items-center gap-4 mt-2">
-                      {#if post.readingTime}
-                        <span class="text-sm text-text-tertiary">{post.readingTime} min read</span>
-                      {/if}
-                      {#if post.viewCount > 0}
-                        <span class="text-sm text-text-tertiary">{post.viewCount.toLocaleString()} view{post.viewCount === 1 ? '' : 's'}</span>
-                      {/if}
-                    </div>
-                    <p class="mt-2">{post.description}</p>
-                  </div>
+              <div class="card-image-container">
+                <img 
+                  src={post.img} 
+                  alt={post.title} 
+                  class="card-image"
+                  loading="lazy"
+                />
+                <div class="image-overlay">
+                  <span class="read-more">Read Article →</span>
                 </div>
-                <div class="content-image">
-                  <Instaphoto postUrl={post.img} />
-                </div>
-              </div>
-            {:else}
-              <a href="/blog/{post.slug}" class="title">{post.title}</a>
-              <hr />
-              <div class="mt-3">
-                <p class="date flex items-center">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/61/61469.png"
-                    alt="date icon"
-                    class="inline-block mr-4"
-                    width="20"
-                    height="20"
-                  />
-                  <span> <b>Released:</b> {formatDate(post.date)}</span>
-                </p>
-                <p class="date flex items-center">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3177/3177361.png"
-                    alt="date icon"
-                    class="inline-block mr-4"
-                    width="20"
-                    height="20"
-                  />
-                  <span><b>Location: </b>{post.location}</span>
-                </p>
-                <div class="flex items-center gap-4 mt-2">
-                  {#if post.readingTime}
-                    <span class="text-sm text-text-tertiary">{post.readingTime} min read</span>
-                  {/if}
-                  {#if post.viewCount > 0}
-                    <span class="text-sm text-text-tertiary">{post.viewCount.toLocaleString()} view{post.viewCount === 1 ? '' : 's'}</span>
-                  {/if}
-                </div>
-                <p class="mt-2 mr-4">{post.description}</p>
               </div>
             {/if}
-          </div>
-        </a>
-      {/each}
-    </div>
+            
+            <div class="card-content" class:no-image={!post.img}>
+              <header class="card-header">
+                <h2 class="card-title">{post.title}</h2>
+              </header>
+              
+              <div class="card-meta">
+                <div class="meta-item">
+                  <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{formatDate(post.date)}</span>
+                </div>
+                
+                {#if post.location}
+                  <div class="meta-item">
+                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>{post.location}</span>
+                  </div>
+                {/if}
+                
+                <div class="meta-item">
+                  {#if post.readingTime}
+                    <svg class="meta-icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>{post.readingTime} min</span>
+                  {/if}
+                </div>
+              </div>
+              
+              <p class="card-description">{post.description}</p>
+              
+              {#if post.categories && post.categories.length > 0}
+                <div class="card-tags">
+                  {#each post.categories.slice(0, 3) as category}
+                    <span class="tag">{category}</span>
+                  {/each}
+                </div>
+              {/if}
+            </div>
+          </a>
+          </article>
+        {/each}
+      </div>
+    {/if}
   </section>
 </div>
 
@@ -294,67 +292,269 @@
 </div>
 
 <style>
+  /* Base Styles */
   .wrapper {
     @apply bg-bg-secondary p-md rounded m-md;
     @apply transition-all duration-normal;
     border: 1px solid var(--border-primary);
   }
+  
   .ideas {
     @apply bg-bg-secondary p-md rounded;
   }
+  
   right {
     float: right;
   }
+  
   b {
     font-weight: bold;
   }
+  
   .text1 {
     @apply p-md rounded bg-bg-secondary mx-md;
     border: 1px solid var(--border-primary);
     @apply transition-all duration-normal;
   }
+  
   .text {
     @apply p-md rounded m-md bg-bg-secondary;
     border: 1px solid var(--border-primary);
     @apply transition-all duration-normal;
   }
+  
   .rotate {
     transform: rotate(90deg);
     transition: 0.2s ease-in-out;
   }
-  .posts {
-    display: grid;
-    gap: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
-  }
-  .post {
-    @apply mb-md bg-bg-secondary h-full text-text-primary p-md rounded;
-    border: 1px solid var(--border-primary);
-    @apply transition-all duration-fast;
-    text-wrap: wrap;
-  }
-
-  .post-content {
-    width: 100%;
-  }
-
-  .content-text {
-    flex: 3;
-    margin-right: 1rem;
-  }
-
-  .content-image {
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  
   .l {
     margin-bottom: 1rem;
   }
 
+  /* Modern Blog Grid Layout */
+  .blog-grid-container {
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+  
+  .blog-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+  
+  /* Blog Card Design */
+  .blog-card {
+    @apply bg-bg-secondary rounded-lg overflow-hidden;
+    border: 1px solid var(--border-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.15),
+      0 0 0 2px var(--status-error);
+  }
+  
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Image Container with Aspect Ratio */
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    background: var(--bg-tertiary);
+  }
+  
+  .card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .blog-card:hover .card-image {
+    transform: scale(1.05);
+  }
+  
+  /* Image Overlay */
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .blog-card:hover .image-overlay {
+    opacity: 1;
+  }
+  
+  .read-more {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transform: translateX(-10px);
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-card:hover .read-more {
+    transform: translateX(0);
+  }
+  
+  /* Card Content */
+  .card-content {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-content.no-image {
+    padding-top: 1.5rem;
+  }
+  
+  .card-header {
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .blog-card:hover .card-title {
+    color: var(--status-error);
+  }
+  
+  /* Meta Information */
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-secondary);
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+  
+  .meta-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+  
+  /* Description */
+  .card-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Tags */
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  
+  .tag {
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-tertiary);
+    color: var(--accent-primary);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+  
+  .blog-card:hover .tag {
+    border-color: var(--accent-primary);
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .blog-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .blog-grid-container {
+      padding: 0 0.5rem;
+    }
+    
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .card-image-container {
+      padding-top: 50%; /* Slightly shorter on mobile */
+    }
+    
+    .card-title {
+      font-size: 1.125rem;
+    }
+    
+    .card-meta {
+      gap: 0.75rem;
+    }
+    
+    .meta-item {
+      font-size: 0.8rem;
+    }
+  }
+  
   @media (max-width: 1000px) {
     input {
       width: 100%;
@@ -365,57 +565,73 @@
     .cat {
       width: 100%;
     }
-
     .se {
       margin-top: 1rem;
     }
     .l {
       margin-bottom: 0rem;
     }
+  }
+  
+  
+  /* Empty State */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .empty-icon {
+    width: 64px;
+    height: 64px;
+    color: var(--text-tertiary);
+    margin-bottom: 1rem;
+  }
+  
+  .empty-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .empty-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+  
+  /* Legacy styles for unfinished ideas section */
+  .posts {
+    display: grid;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+  }
+  
+  .post {
+    @apply mb-md bg-bg-secondary h-full text-text-primary p-md rounded;
+    border: 1px solid var(--border-primary);
+    @apply transition-all duration-fast;
+    text-wrap: wrap;
+  }
+  
+  .post:hover {
+    @apply border-l-8 border-l-status-error;
+  }
+  
+  @media (max-width: 1000px) {
     .posts {
       margin-top: 1rem;
       grid-template-columns: repeat(auto-fill, 100%);
     }
-
-    .post-content {
-      flex-direction: column;
-    }
-
-    .content-text {
-      margin-right: 0;
-      margin-bottom: 1rem;
-      width: 100%;
-    }
-
-    .content-image {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
+    
     .post {
       margin-bottom: 0;
       margin-top: 0;
     }
-  }
-
-  .post:hover {
-    @apply border-l-8 border-l-status-error;
-  }
-
-  .post:not(:last-child) {
-    @apply border-b border-b-bg-tertiary pb-lg;
-  }
-
-  .title {
-    @apply text-lg font-bold text-text-primary;
-  }
-
-  .date {
-    @apply text-text-primary;
-  }
-
-  .description {
-    @apply text-text-primary;
   }
 </style>
