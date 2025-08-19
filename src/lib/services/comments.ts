@@ -120,4 +120,26 @@ export class CommentsService {
 
     return result.length;
   }
+
+  static async getAllCommentCounts(): Promise<Record<string, number>> {
+    const result = await db
+      .select({
+        postSlug: comments.postSlug,
+        count: comments.id
+      })
+      .from(comments)
+      .where(
+        and(
+          eq(comments.isApproved, true),
+          eq(comments.isDeleted, false)
+        )
+      );
+
+    const counts: Record<string, number> = {};
+    result.forEach(row => {
+      counts[row.postSlug] = (counts[row.postSlug] || 0) + 1;
+    });
+
+    return counts;
+  }
 }

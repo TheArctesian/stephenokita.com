@@ -2,9 +2,16 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Unix Philosophy Principles
+This codebase follows Unix philosophy:
+1. **Single Responsibility**: Each module does one thing well
+2. **Composability**: Small, focused functions that work together
+3. **Modularity**: Clear separation of concerns
+4. **Simplicity**: Prefer simple, maintainable solutions
+
 ## Technology Stack
 - **Framework**: SvelteKit with TypeScript
-- **Database**: Neon PostgreSQL with Drizzle ORM
+- **Database**: Neon PostgreSQL with Drizzle ORM  
 - **Styling**: Modular CSS design system with TailwindCSS
 - **Content**: MDSvex for markdown processing + Database for dynamic content
 - **Deployment**: Vercel (configured with @sveltejs/adapter-vercel)

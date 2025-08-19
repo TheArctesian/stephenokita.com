@@ -8,6 +8,8 @@
     description: string;
     link: string;
     date: string;
+    role?: string;
+    tags?: string[];
   };
 
   export let data: PublishedData[];

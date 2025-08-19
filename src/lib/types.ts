@@ -12,5 +12,6 @@ export type Post = {
     language?: string[]
     readingTime?: number
     viewCount?: number
+    commentCount?: number
 }
 

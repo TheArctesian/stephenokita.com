@@ -1,44 +1,116 @@
 <script lang="ts">
   import "../../app.css";
   import Project from "./project.svelte";
-  import projects from "./projects.json";
-  import work from "./work.json";
-  import personal from "./personal.json";
-  import published from "./published.json";
-  import libs from "./libs.json";
-  import school from "./school.json";
-  import { slide, fade } from "svelte/transition";
   import Published from "./published.svelte";
+  import { slide, fade } from "svelte/transition";
+  import type { PageData } from './$types';
+
+  export let data: PageData;
+
+  // Convert database projects to component format
+  function convertProjectsToComponentFormat(projects: any[]) {
+    return projects.map(project => ({
+      name: project.title,
+      role: project.longDescription !== project.description ? project.longDescription : undefined,
+      description: project.description || '',
+      link: project.liveUrl || project.githubUrl || '',
+      githubUrl: project.githubUrl,
+      liveUrl: project.liveUrl,
+      imageUrl: project.imageUrl,
+      dateStart: project.startDate ? project.startDate.toString().split('T')[0] : undefined,
+      date: project.endDate ? project.endDate.toString().split('T')[0] : project.createdAt.toString().split('T')[0],
+      tags: project.technologies || [],
+      featured: project.featured,
+      status: project.status
+    }));
+  }
+
+  // Group projects by category for display
+  $: professionalWork = data.projectsByCategory
+    .find(cat => cat.slug === 'professional-work')?.projects || [];
+  
+  $: featuredProjects = data.projectsByCategory
+    .find(cat => cat.slug === 'featured-projects')?.projects || [];
+    
+  $: personalProjects = data.projectsByCategory
+    .find(cat => cat.slug === 'personal' || cat.slug === 'personal-projects')?.projects || [];
+    
+  $: publishedWork = data.projectsByCategory
+    .find(cat => cat.slug === 'published' || cat.slug === 'published-work')?.projects || [];
+    
+  $: libraries = data.projectsByCategory
+    .find(cat => cat.slug === 'libs' || cat.slug === 'libraries-tools')?.projects || [];
+    
+  $: schoolProjects = data.projectsByCategory
+    .find(cat => cat.slug === 'school' || cat.slug === 'school-projects')?.projects || [];
+
+  // Convert to component format
+  $: workData = convertProjectsToComponentFormat(professionalWork);
+  $: projectsData = convertProjectsToComponentFormat(featuredProjects);
+  $: personalData = convertProjectsToComponentFormat(personalProjects);
+  $: publishedData = convertProjectsToComponentFormat(publishedWork);
+  $: libsData = convertProjectsToComponentFormat(libraries);
+  $: schoolData = convertProjectsToComponentFormat(schoolProjects);
 </script>
 
+<svelte:head>
+  <title>Projects - Stephen Okita</title>
+  <meta name="description" content="A collection of my professional work, personal projects, and open source contributions." />
+</svelte:head>
+
 <div out:slide in:fade={{ delay: 0 * 150, duration: 300 }}>
-  <Project
-    data={work}
-    wait="0"
-    delay="0"
-    name="Professional Work"
-  ></Project>
-  <Published data={published} wait="1" delay={work.length}></Published>
-  <Project delay="2" wait={work.length} data={projects} name="Projects"
-  ></Project>
-  <Project
-    delay="3"
-    wait={projects.length + work.length}
-    data={personal}
-    name="Personal Projects"
-  ></Project>
-  <Project
-    delay="4"
-    wait={personal.length + projects.length + work.length}
-    data={libs}
-    name="Libraries"
-  ></Project>
-  <Project
-    delay="5"
-    wait={libs.length + personal.length + projects.length + work.length}
-    data={school}
-    name="School Projects"
-  ></Project>
+  {#if workData.length > 0}
+    <Project
+      data={workData}
+      wait="0"
+      delay="0"
+      name="Professional Work"
+    />
+  {/if}
+  
+  {#if publishedData.length > 0}
+    <Published 
+      data={publishedData} 
+      wait="1" 
+      delay={workData.length}
+    />
+  {/if}
+  
+  {#if projectsData.length > 0}
+    <Project 
+      delay="2" 
+      wait={workData.length + publishedData.length} 
+      data={projectsData} 
+      name="Featured Projects"
+    />
+  {/if}
+  
+  {#if personalData.length > 0}
+    <Project
+      delay="3"
+      wait={projectsData.length + workData.length + publishedData.length}
+      data={personalData}
+      name="Personal Projects"
+    />
+  {/if}
+  
+  {#if libsData.length > 0}
+    <Project
+      delay="4"
+      wait={personalData.length + projectsData.length + workData.length + publishedData.length}
+      data={libsData}
+      name="Libraries & Tools"
+    />
+  {/if}
+  
+  {#if schoolData.length > 0}
+    <Project
+      delay="5"
+      wait={libsData.length + personalData.length + projectsData.length + workData.length + publishedData.length}
+      data={schoolData}
+      name="School Projects"
+    />
+  {/if}
 </div>
 
 <style>
