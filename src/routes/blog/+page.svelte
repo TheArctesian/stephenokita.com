@@ -87,6 +87,16 @@
           > (BT)
         </h1>
         <h1 class="font-bold mt-4">View Counts are taken from Aug 15th 2025</h1>
+        
+        <!-- RSS Feed Link -->
+        <a href="/rss.xml" class="rss-link" aria-label="Subscribe to RSS feed">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11a9 9 0 0 1 9 9"></path>
+            <path d="M4 4a16 16 0 0 1 16 16"></path>
+            <circle cx="5" cy="19" r="1"></circle>
+          </svg>
+          <span>RSS Feed</span>
+        </a>
       </div>
       <img src={Writing} alt="writing" class="max-h-48 rounded shadow" />
     </div>
@@ -431,6 +441,32 @@
 
   .l {
     margin-bottom: 1rem;
+  }
+
+  /* RSS Feed Link */
+  .rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-primary);
+  }
+
+  .rss-link:hover {
+    background-color: var(--btn-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(189, 147, 249, 0.3);
+  }
+
+  .rss-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   /* Modern Mobile-First Search Section */

@@ -37,7 +37,7 @@ function generateCategories(categories?: string[]): string {
 	return categories.map(cat => `<category>${escapeXml(cat)}</category>`).join('\n')
 }
 
-function generateStyledDescription(post: Post): string {
+function generateStyledDescription(post: Post, finalConfig: RSSConfig): string {
 	// Create styled HTML content that matches the website theme
 	const html = `
 		<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: ${COLORS.BACKGROUND}; color: ${COLORS.FOREGROUND}; padding: 20px; border-radius: 8px; border: 1px solid ${COLORS.SELECTION};">
@@ -52,7 +52,7 @@ function generateStyledDescription(post: Post): string {
 				</div>
 			` : ''}
 			<div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid ${COLORS.SELECTION};">
-				<a href="${SITE_CONFIG.url}/blog/${post.slug}" style="color: ${COLORS.PRIMARY}; text-decoration: none; font-weight: 600;">Read full article →</a>
+				<a href="${finalConfig.link}/blog/${post.slug}" style="color: ${COLORS.PRIMARY}; text-decoration: none; font-weight: 600;">Read full article →</a>
 			</div>
 		</div>
 	`.replace(/\n\s*/g, '').trim()
@@ -77,7 +77,7 @@ export function generateRSSFeed(posts: Post[], config: Partial<RSSConfig> = {}):
 <guid isPermaLink="true">${postUrl}</guid>
 <title>${escapeXml(post.title)}</title>
 <link>${postUrl}</link>
-<description>${generateStyledDescription(post)}</description>
+<description>${generateStyledDescription(post, finalConfig)}</description>
 <pubDate>${pubDate}</pubDate>
 ${post.img ? `<enclosure url="${escapeXml(post.img)}" type="image/jpeg" />
 <media:content url="${escapeXml(post.img)}" medium="image" />` : ''}
@@ -87,6 +87,7 @@ ${generateCategories(post.categories)}
 		.join('')
 
 	return `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
 <title>${escapeXml(finalConfig.title)}</title>
