@@ -238,7 +238,8 @@ gantt
     FreeBSD               :2021-11-01, 2022-02-03
 	
     section Nix
-    NixOS                 :2022-11-01, 2022-12-03
+    NixOS                 :nixtest, 2022-11-01, 2022-12-03
+    NixOS+BSPWM                 :nixos1, 2025-06-05, 2025-09-10
     
     section Security Focused
     Qubes OS              :2022-01-01, 2025-06-04
