@@ -29,7 +29,7 @@
   <div class="nord-surface p-md w-full">
     <div class="text-center space-y-md">
       <h2 class="text-base">
-        Email me at <span class="text-accent-primary hover:text-accent-cyan transition-all duration-fast cursor-pointer">sdokita@berkeley.edu</span>
+        Email me at <span class="text-accent-primary hover:text-accent-cyan transition-all duration-fast cursor-pointer">me@stephenokita.com</span>
       </h2>
       
       <h2 class="text-base">

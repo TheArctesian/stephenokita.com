@@ -1,16 +1,14 @@
 <script lang="ts">
-  import { fly, scale, blur, fade } from "svelte/transition";
-  import { elasticOut, elasticIn, bounceOut, backOut } from "svelte/easing";
+  import { fly, scale, fade } from "svelte/transition";
   import { onMount } from "svelte";
+  import { modernAnimations, getAnimation, ANIMATION_TIMINGS, EASINGS } from "$lib/utils/animations";
 
+  // Modern, accessible animation system
   export let text: string;
-  export let variant: 'fade' | 'fly' | 'scale' | 'blur' = 'fade';
-  export let direction: 'x' | 'y' | 'both' = 'both';
+  export let animation: 'fade' | 'slideUp' | 'slideLeft' | 'slideRight' | 'scaleIn' | 'hero' = 'fade';
   export let delay: number = 0;
-  export let duration: number = 300;
-  export let easing: any = elasticOut;
   export let className: string = '';
-  export let hoverColor: string = '';
+  export let element: 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' = 'span';
 
   let isVisible = false;
 
@@ -19,46 +17,73 @@
   });
 
   function getTransition() {
-    const baseDelay = delay + Math.random() * 300;
-    const baseDuration = duration + Math.random() * 400;
+    let config;
 
-    switch (variant) {
-      case 'fly':
+    switch (animation) {
+      case 'slideUp':
+        config = modernAnimations.slideUp(delay);
         return {
           transition: fly,
-          props: {
-            delay: baseDelay,
-            duration: baseDuration,
-            x: direction === 'x' || direction === 'both' ? (Math.random() - 0.5) * 200 : 0,
-            y: direction === 'y' || direction === 'both' ? (Math.random() - 0.5) * 200 : 0,
-            easing,
-          }
+          props: getAnimation({
+            delay: config.delay,
+            duration: config.duration,
+            y: config.y,
+            easing: config.easing
+          })
         };
-      case 'scale':
+      case 'slideLeft':
+        config = modernAnimations.slideLeft(delay);
+        return {
+          transition: fly,
+          props: getAnimation({
+            delay: config.delay,
+            duration: config.duration,
+            x: config.x,
+            easing: config.easing
+          })
+        };
+      case 'slideRight':
+        config = modernAnimations.slideRight(delay);
+        return {
+          transition: fly,
+          props: getAnimation({
+            delay: config.delay,
+            duration: config.duration,
+            x: config.x,
+            easing: config.easing
+          })
+        };
+      case 'scaleIn':
+        config = modernAnimations.scaleIn(delay);
         return {
           transition: scale,
-          props: {
-            delay: baseDelay,
-            duration: baseDuration,
-            start: Math.random() * 2,
-            easing,
-          }
+          props: getAnimation({
+            delay: config.delay,
+            duration: config.duration,
+            start: config.start,
+            easing: config.easing
+          })
         };
-      case 'blur':
+      case 'hero':
+        config = modernAnimations.heroEntrance(delay);
         return {
-          transition: blur,
-          props: {
-            delay: baseDelay,
-            duration: baseDuration,
-          }
+          transition: fly,
+          props: getAnimation({
+            delay: config.delay,
+            duration: config.duration,
+            y: config.y,
+            easing: config.easing
+          })
         };
       default:
+        config = modernAnimations.contentFade(delay);
         return {
           transition: fade,
-          props: {
-            delay: baseDelay,
-            duration: baseDuration,
-          }
+          props: getAnimation({
+            delay: config.delay,
+            duration: config.duration,
+            easing: config.easing
+          })
         };
     }
   }
@@ -67,12 +92,13 @@
 </script>
 
 {#if isVisible}
-  <span 
-    class="animated-text {className} {hoverColor ? `hover:${hoverColor}` : ''}"
+  <svelte:element
+    this={element}
+    class="animated-text {className}"
     in:transitionConfig.transition={transitionConfig.props}
   >
     {text}
-  </span>
+  </svelte:element>
 {/if}
 
 <style>

@@ -1,8 +1,12 @@
 <script lang="ts">
   import AnimatedText from '$lib/components/ui/AnimatedText.svelte';
-  import { fade, slide } from "svelte/transition";
-  
+  import { fade, slide, fly } from "svelte/transition";
+  import { modernAnimations, STAGGER, getAnimation, animationHelpers } from "$lib/utils/animations";
+
   let showRssInstructions = false;
+
+  // Create staggered animations for the 6 tech stack cards
+  const cardAnimations = animationHelpers.staggerCards(6, STAGGER.wide);
 </script>
 
 <svelte:head>
@@ -13,7 +17,7 @@
 <main class="min-h-screen px-4 py-8" out:slide>
   <div class="max-w-6xl mx-auto">
     <div class="flex items-center justify-between mb-8">
-      <AnimatedText element="h1" text="Meta" className="text-4xl font-bold text-accent-primary" />
+      <AnimatedText element="h1" text="Meta" animation="hero" className="text-4xl font-bold text-accent-primary" />
       <a 
         href="/meta/you" 
         class="nord-button text-sm px-4 py-2"
@@ -22,13 +26,13 @@
       </a>
     </div>
     
-    <section class="mb-12" in:fade={{ delay: 150, duration: 300 }}>
+    <section class="mb-12" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
       <h2 class="text-2xl font-semibold text-text-primary mb-6 pb-2 border-b border-border-primary">
         Technology Stack
       </h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="nord-card p-6" in:fade={{ delay: 200, duration: 300 }}>
+        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[0])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Frontend Framework</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -43,7 +47,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fade={{ delay: 250, duration: 300 }}>
+        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[1])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Database & ORM</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -58,7 +62,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fade={{ delay: 300, duration: 300 }}>
+        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[2])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Styling & Design</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -73,7 +77,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fade={{ delay: 350, duration: 300 }}>
+        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[3])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Deployment</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -88,7 +92,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fade={{ delay: 400, duration: 300 }}>
+        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[4])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Development Tools</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -103,7 +107,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fade={{ delay: 450, duration: 300 }}>
+        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[5])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Architecture</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -120,7 +124,7 @@
       </div>
     </section>
 
-    <section class="mb-12" in:fade={{ delay: 500, duration: 300 }}>
+    <section class="mb-12" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
       <h2 class="text-2xl font-semibold text-text-primary mb-6 pb-2 border-b border-border-primary">
         RSS Feed
       </h2>

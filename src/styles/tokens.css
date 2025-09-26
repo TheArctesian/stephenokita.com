@@ -105,11 +105,11 @@
   --shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.15);
 
   /* Z-index layers */
-  --z-dropdown: 10;
-  --z-sticky: 20;
-  --z-fixed: 30;
-  --z-modal: 40;
-  --z-tooltip: 50;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal: 400;
+  --z-tooltip: 500;
 
   /* Breakpoints (for JS usage) */
   --bp-mobile: 500px;
@@ -160,6 +160,54 @@
   --border-accent: #88c0d0;    /* Interactive/focus borders - brand colored */
 }
 
+/* Sketched Theme - Hand-drawn book aesthetic */
+[data-theme="sketched"] {
+  /* Warm paper-like backgrounds */
+  --bg-primary: #faf7f0;        /* Cream paper background */
+  --bg-secondary: #f5f2ea;      /* Slightly darker parchment */
+  --bg-tertiary: #ede8da;       /* Aged paper sections */
+  --bg-quaternary: #e3dcc8;     /* Worn paper areas */
+
+  /* Hand-drawn ink colors */
+  --text-primary: #2d2419;      /* Dark brown ink */
+  --text-secondary: #4a3f2a;    /* Lighter brown ink */
+  --text-tertiary: #8b6f47;     /* Faded ink color */
+  --text-muted: #a68b5b;        /* Very faded text */
+
+  /* Accent colors inspired by old manuscripts */
+  --accent-primary: #8b4513;     /* Saddle brown for emphasis */
+  --accent-secondary: #cd853f;   /* Peru brown for secondary actions */
+  --accent-tertiary: #d2691e;    /* Chocolate for highlights */
+  --accent-emphasis: #654321;    /* Dark brown for strong emphasis */
+
+  /* Status colors with sketch-like warmth */
+  --status-error: #a0522d;       /* Sienna red for errors */
+  --status-warning: #ff8c00;     /* Dark orange for warnings */
+  --status-info: #daa520;        /* Goldenrod for information */
+  --status-success: #8fbc8f;     /* Dark sea green for success */
+  --status-purple: #9370db;      /* Medium purple for special states */
+
+  /* Sketch-style borders */
+  --border-primary: #d2b48c;     /* Tan borders */
+  --border-secondary: #c0a080;   /* Darker tan for emphasis */
+  --border-accent: #8b4513;      /* Brown accent borders */
+
+  /* Custom sketched properties */
+  --sketch-stroke: #2d2419;      /* Pencil stroke color */
+  --sketch-paper: #faf7f0;       /* Paper base color */
+  --sketch-shadow: rgba(45, 36, 25, 0.1); /* Soft brown shadows */
+
+  /* Override shadows for sketched look */
+  --shadow-sm: 0 2px 4px var(--sketch-shadow);
+  --shadow-md: 0 4px 8px var(--sketch-shadow);
+  --shadow-lg: 0 6px 12px var(--sketch-shadow);
+  --shadow-soft: 0 1px 3px var(--sketch-shadow);
+  --shadow-medium: 0 2px 6px var(--sketch-shadow);
+
+  /* Sketched font styling */
+  --font-family-sketch: "Kalam", "Caveat", "Comic Sans MS", cursive;
+}
+
 /* System Theme - follows OS preference */
 @media (prefers-color-scheme: light) {
   [data-theme="system"] {
@@ -167,12 +215,12 @@
     --bg-secondary: #e5e9f0;
     --bg-tertiary: #d8dee9;
     --bg-quaternary: #d0d7e0;
-    
+
     --text-primary: #2e3440;
     --text-secondary: #3b4252;
     --text-tertiary: #434c5e;
     --text-muted: #4c566a;
-    
+
     --border-primary: #d8dee9;
     --border-secondary: #c5ccd6;
   }

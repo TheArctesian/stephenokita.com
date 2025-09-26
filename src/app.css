@@ -31,21 +31,47 @@
   
   .nord-card {
     @apply bg-bg-secondary text-text-primary rounded shadow-soft;
-    @apply transition-all duration-normal hover:bg-bg-tertiary hover:shadow-medium hover:-translate-y-1;
+    @apply hover:bg-bg-tertiary hover:shadow-medium;
     border: 1px solid var(--border-primary);
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nord-card:hover {
+    transform: translateY(-4px);
   }
   
   .nord-button {
-    @apply bg-accent-primary text-bg-primary px-md py-sm rounded font-medium;
-    @apply transition-all duration-fast hover:bg-accent-cyan hover:shadow-glow;
+    @apply bg-accent-primary px-md py-sm rounded font-medium;
     @apply focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-bg-primary;
+    color: var(--bg-primary);
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nord-button:hover {
+    background-color: var(--accent-tertiary);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+
+  .nord-button:active {
+    transform: translateY(0) scale(0.98);
   }
   
   .nord-button-secondary {
     @apply bg-transparent text-accent-primary px-md py-sm rounded font-medium;
-    @apply transition-all duration-fast hover:bg-accent-primary hover:text-bg-primary;
     @apply focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-bg-primary;
     border: 1px solid var(--accent-primary);
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nord-button-secondary:hover {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+    transform: translateY(-1px);
+  }
+
+  .nord-button-secondary:active {
+    transform: translateY(0) scale(0.98);
   }
   
   .nord-input {

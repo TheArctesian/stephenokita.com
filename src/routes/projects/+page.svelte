@@ -1,8 +1,8 @@
 <script lang="ts">
   import "../../app.css";
   import Project from "./project.svelte";
-  import Published from "./published.svelte";
-  import { slide, fade } from "svelte/transition";
+  import { slide, fade, fly } from "svelte/transition";
+  import { modernAnimations, getAnimation } from "$lib/utils/animations";
   import type { PageData } from './$types';
 
   export let data: PageData;
@@ -28,15 +28,10 @@
   // Group projects by category for display
   $: professionalWork = data.projectsByCategory
     .find(cat => cat.slug === 'professional-work')?.projects || [];
-  
-  $: featuredProjects = data.projectsByCategory
-    .find(cat => cat.slug === 'featured-projects')?.projects || [];
-    
+
   $: personalProjects = data.projectsByCategory
     .find(cat => cat.slug === 'personal' || cat.slug === 'personal-projects')?.projects || [];
     
-  $: publishedWork = data.projectsByCategory
-    .find(cat => cat.slug === 'published' || cat.slug === 'published-work')?.projects || [];
     
   $: libraries = data.projectsByCategory
     .find(cat => cat.slug === 'libs' || cat.slug === 'libraries-tools')?.projects || [];
@@ -46,9 +41,7 @@
 
   // Convert to component format
   $: workData = convertProjectsToComponentFormat(professionalWork);
-  $: projectsData = convertProjectsToComponentFormat(featuredProjects);
   $: personalData = convertProjectsToComponentFormat(personalProjects);
-  $: publishedData = convertProjectsToComponentFormat(publishedWork);
   $: libsData = convertProjectsToComponentFormat(libraries);
   $: schoolData = convertProjectsToComponentFormat(schoolProjects);
 </script>
@@ -58,7 +51,7 @@
   <meta name="description" content="A collection of my professional work, personal projects, and open source contributions." />
 </svelte:head>
 
-<div out:slide in:fade={{ delay: 0 * 150, duration: 300 }}>
+<div out:slide in:fly={getAnimation(modernAnimations.pageIn)}>
   {#if workData.length > 0}
     <Project
       data={workData}
@@ -67,46 +60,29 @@
       name="Professional Work"
     />
   {/if}
-  
-  {#if publishedData.length > 0}
-    <Published 
-      data={publishedData} 
-      wait="1" 
-      delay={workData.length}
-    />
-  {/if}
-  
-  {#if projectsData.length > 0}
-    <Project 
-      delay="2" 
-      wait={workData.length + publishedData.length} 
-      data={projectsData} 
-      name="Featured Projects"
-    />
-  {/if}
-  
+
   {#if personalData.length > 0}
     <Project
-      delay="3"
-      wait={projectsData.length + workData.length + publishedData.length}
+      delay="1"
+      wait={workData.length}
       data={personalData}
       name="Personal Projects"
     />
   {/if}
-  
+
   {#if libsData.length > 0}
     <Project
-      delay="4"
-      wait={personalData.length + projectsData.length + workData.length + publishedData.length}
+      delay="2"
+      wait={personalData.length + workData.length}
       data={libsData}
       name="Libraries & Tools"
     />
   {/if}
-  
+
   {#if schoolData.length > 0}
     <Project
-      delay="5"
-      wait={libsData.length + personalData.length + projectsData.length + workData.length + publishedData.length}
+      delay="3"
+      wait={libsData.length + personalData.length + workData.length}
       data={schoolData}
       name="School Projects"
     />

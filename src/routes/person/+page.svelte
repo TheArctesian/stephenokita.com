@@ -1,521 +1,476 @@
-<script>
+<script lang="ts">
   import "../../app.css";
-  import { browser } from "$app/environment";
-  import Youtube from "svelte-youtube-embed";
-  import music from "./music.json";
-  import latin from "./latin.json";
-  import quotes from "./quotes.json";
-  import animations from "./animations.json";
-  import { onMount } from "svelte";
-  import { blur, fade, fly, scale, slide } from "svelte/transition";
+  import { fade, scale, slide, fly } from "svelte/transition";
+  import { modernAnimations, STAGGER, getAnimation } from "$lib/utils/animations";
   import me from "./imgs/me&kim.jpg";
 
-  let currentQuoteIndex = 0;
-  let currentMusicIndex = 0;
-  let currentAnimationIndex = 0;
-  let currentLatinIndex = 0;
-  let quoteKey = 0;
-  let musicKey = 0;
-  let animationKey = 0;
-  let latinKey = 0;
+  let showEasterEgg = false;
 
-  function nextQuote() {
-    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-    quoteKey++;
-  }
-
-  function prevQuote() {
-    currentQuoteIndex =
-      currentQuoteIndex === 0 ? quotes.length - 1 : currentQuoteIndex - 1;
-    quoteKey++;
-  }
-
-  function nextMusic() {
-    currentMusicIndex = (currentMusicIndex + 1) % music.length;
-    musicKey++;
-  }
-
-  function prevMusic() {
-    currentMusicIndex =
-      currentMusicIndex === 0 ? music.length - 1 : currentMusicIndex - 1;
-    musicKey++;
-  }
-
-  function nextAnimation() {
-    currentAnimationIndex = (currentAnimationIndex + 1) % animations.length;
-    animationKey++;
-  }
-
-  function prevAnimation() {
-    currentAnimationIndex =
-      currentAnimationIndex === 0
-        ? animations.length - 1
-        : currentAnimationIndex - 1;
-    animationKey++;
-  }
-
-  function nextLatin() {
-    currentLatinIndex = (currentLatinIndex + 1) % latin.length;
-    latinKey++;
-  }
-
-  function prevLatin() {
-    currentLatinIndex =
-      currentLatinIndex === 0 ? latin.length - 1 : currentLatinIndex - 1;
-    latinKey++;
-  }
-
-  onMount(() => {
-    const quoteInterval = setInterval(nextQuote, 10000);
-    return () => clearInterval(quoteInterval);
-  });
+  // Social links with YouTube channels
+  const socialLinks = [
+    {
+      name: "YouTube (General)",
+      icon: "https://simpleicons.org/icons/youtube.svg",
+      url: "https://www.youtube.com/@stephenokita",
+      color: "hover:border-red-600"
+    },
+    {
+      name: "YouTube (Music)",
+      icon: "https://simpleicons.org/icons/youtube.svg",
+      url: "https://www.youtube.com/@StephenOkitasMusicalMusings",
+      color: "hover:border-red-600"
+    },
+    {
+      name: "YouTube (Videos)",
+      icon: "https://simpleicons.org/icons/youtube.svg",
+      url: "https://www.youtube.com/@StephenOkitasVideos",
+      color: "hover:border-red-600"
+    },
+    {
+      name: "Spotify",
+      icon: "https://simpleicons.org/icons/spotify.svg",
+      url: "https://open.spotify.com/user/b3oj8mjbyq5cfs26vp6c41ujr",
+      color: "hover:border-green-500"
+    },
+    {
+      name: "Goodreads",
+      icon: "https://simpleicons.org/icons/goodreads.svg",
+      url: "https://www.goodreads.com/user/show/155512706-stephen-okita",
+      color: "hover:border-yellow-700"
+    },
+    {
+      name: "Letterboxd",
+      icon: "https://simpleicons.org/icons/letterboxd.svg",
+      url: "https://letterboxd.com/danielOkita/",
+      color: "hover:border-orange-500"
+    },
+  ];
 </script>
 
+<svelte:head>
+  <title>Person - Stephen Okita</title>
+  <meta name="description" content="The personal side of Stephen Okita - musician, philosopher, developer, and professional overthinker." />
+</svelte:head>
+
 <div out:slide>
-  <div class="flex flex-col sm:flex-row ml-4 mr-4 gap-4 mb-4">
-    <div
-      class="flex flex-col sm:flex-row text hover-accent content-container h-fit"
-      in:fade={{ delay: 1 * 150, duration: 300 }}
-    >
-      <div class="justify-center align-middle m-auto sm:w-1/3">
-        <img
-          src={me}
-          alt="something wrong with the picture"
-          class="m-auto rounded w-4/5"
-        />
-      </div>
-      <div class="flex w-full flex-col text-wrap content-container">
-        <div>
-          <p class="mb-2">
-            This side of the website is an insight to who I am as a person not a
-            labourer.
-          </p>
-          <hr />
+  <!-- Simple intro -->
+  <div class="intro-section" in:fly={getAnimation(modernAnimations.slideUp(0))}>
+    <h1 class="intro-title">About Me</h1>
+    <p class="intro-text">
+      This is the more personal side of the website - the human behind the code.
+    </p>
+  </div>
+
+  <!-- Main Bio Section -->
+  <div class="bio-container" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
+    <div class="bio-image-wrapper">
+      <img
+        src={me}
+        alt="Stephen with Kim"
+        class="bio-image"
+        on:click={() => showEasterEgg = !showEasterEgg}
+      />
+      {#if showEasterEgg}
+        <p class="easter-egg" in:scale={getAnimation(modernAnimations.celebration(0))}>
+          You found the easter egg! 🥚
+        </p>
+      {/if}
+    </div>
+
+    <div class="bio-intro">
+      <p class="intro-description">
+        This side of the website is an insight to who I am as a person, not a laborer.
+        I'm interested in lots of things and try to learn as much as I can.
+      </p>
+    </div>
+
+    <!-- Simplified single-column layout for better balance -->
+    <div class="bio-info">
+      <!-- Basic Info -->
+      <div class="info-section">
+        <h3 class="section-header">Background</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Born:</span> London, UK
+          </div>
+          <div class="info-item">
+            <span class="label">Raised:</span> Hong Kong
+          </div>
+          <div class="info-item">
+            <span class="label">Currently:</span> Berkeley, CA
+          </div>
         </div>
-        <div
-          class="flex flex-col grow md:flex-row align-middle justify-center ml-4"
-        >
-          <div class="grow">
-            <li><b>Born: </b>London, UK</li>
-            <li><b>Raised: </b>Hong Kong</li>
-            <li>
-              <b>Eduction:</b>
-              <dd class="ml-4">
-                <li>Chinese International School (IB)</li>
-                <li>UC Berkeley (CS and Philosophy Major)</li>
-              </dd>
-            </li>
-            <li>
-              <b>Profession: </b>
-              <dd class="ml-4">
-                <li>
-                  Full Stack SWE (<a href="https://launchedtech.io/">Launched</a
-                  >)
-                </li>
-                <li>Student Researcher (UC Berkeley)</li>
-                <li>
-                  Project Vice President (<a
-                    href="https://pcs.studentorg.berkeley.edu/">PCS Berkeley</a
-                  >)
-                </li>
-                <li>
-                  Writer (<a href="/blog">Here </a> and I am trying to write a book)
-                </li>
-              </dd>
-            </li>
-            <li>
-              <b>Places:</b>
-              <a href="https://world.danielokita.com">Map Blog</a>
-            </li>
-          </div>
-          <div class="grow">
-            <li>
-              <b>Languages:</b>
-              <dd class="ml-4">
-                <li>English</li>
-                <li>Mandarin (中文)</li>
-                <li>Cantonese (廣東話)</li>
-                <li>French (semi conversational)</li>
-                <li>Spanish (semi conversational)</li>
-              </dd>
-            </li>
-            <li>
-              <b>Ethnicity (23&me):</b>
-              <dd class="ml-4">
-                <li>Irish (70%)</li>
-                <li>Japanese (25%)</li>
-                <li>Northwestern European (5%)</li>
-              </dd>
-            </li>
-          </div>
-          <div class="grow">
-            <li>
-              <b>Personality Traits:</b>
-              <dd class="ml-4">
-                <li>Curious</li>
-                <li>Passionate</li>
-                <li>Organised</li>
-                <li>Engaging</li>
-                <li>Resourceful</li>
-              </dd>
-            </li>
-            <li>
-              <b>Interests (Sports):</b>
-              <dd class="ml-4">
-                <li>Football (Soccer), Arsenal</li>
-                <li>Rugby (Ireland & Munster)</li>
-                <li>Whatever sport Berkeley is contenting in</li>
-                <li>Hiking</li>
-              </dd>
-            </li>
-          </div>
-          <div class="grow">
-            <li>
-              <b>Hobbies/Interests</b>
-              <dd class="ml-4">
-                <li>Socialising</li>
-                <li>Reading</li>
-                <li>Movies</li>
-                <li>Music</li>
-                <li>Philosophy</li>
-                <li>Politics</li>
-                <li>Economics</li>
-                <li>History</li>
-                <li>Open Source</li>
-                <li>Really anything</li>
-              </dd>
-            </li>
-          </div>
+      </div>
+
+      <!-- Education -->
+      <div class="info-section">
+        <h3 class="section-header">Education</h3>
+        <div class="info-grid">
+          <div class="info-item">Chinese International School (IB)</div>
+          <div class="info-item">UC Berkeley - CS & Philosophy</div>
+        </div>
+      </div>
+
+      <!-- Current Work -->
+      <div class="info-section">
+        <h3 class="section-header">What I Do</h3>
+        <div class="work-list">
+          <div class="work-item">Co-founder @ <a href="https://www.auracarehealth.com/" class="link">Aura Care Health</a></div>
+          <div class="work-item">Co-founder @ <a href="https://www.techjusticelab.org/" class="link">Tech & Justice Lab</a></div>
+          <div class="work-item">Student Researcher @ UC Berkeley</div>
+          <div class="work-item">Writer @ <a href="/blog" class="link">This Blog</a></div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="info-section">
+        <h3 class="section-header">Languages</h3>
+        <div class="info-grid">
+          <div class="info-item">English (Native)</div>
+          <div class="info-item">中文 Mandarin (Fluent)</div>
+          <div class="info-item">廣東話 Cantonese (Fluent)</div>
+          <div class="info-item">Français (Semi-conversational)</div>
+          <div class="info-item">Español (Semi-conversational)</div>
+        </div>
+      </div>
+
+      <!-- Personality Traits -->
+      <div class="info-section">
+        <h3 class="section-header">Personality Traits</h3>
+        <div class="info-grid">
+          <div class="info-item">Curious</div>
+          <div class="info-item">Passionate</div>
+          <div class="info-item">Organised</div>
+          <div class="info-item">Engaging</div>
+          <div class="info-item">Resourceful</div>
+        </div>
+      </div>
+
+      <!-- Sports & Outdoors -->
+      <div class="info-section">
+        <h3 class="section-header">Interests (Sports)</h3>
+        <div class="info-grid">
+          <div class="info-item">Football (Soccer), Arsenal</div>
+          <div class="info-item">Rugby (Ireland & Munster)</div>
+          <div class="info-item">Whatever sport Berkeley is contending in</div>
+          <div class="info-item">Hiking</div>
+        </div>
+      </div>
+
+      <!-- Hobbies/Interests -->
+      <div class="info-section">
+        <h3 class="section-header">Hobbies/Interests</h3>
+        <div class="interest-tags">
+          <span class="tag">Socialising</span>
+          <span class="tag">Reading</span>
+          <span class="tag">Movies</span>
+          <span class="tag">Music</span>
+          <span class="tag">Philosophy</span>
+          <span class="tag">Politics</span>
+          <span class="tag">Economics</span>
+          <span class="tag">History</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">Really anything</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="flex flex-row ml-4 mr-4 gap-4 mb-4">
-    <div class="hover-accent text content-container" in:fade={{ delay: 2 * 150, duration: 300 }}>
-      I think of music like Plato as practising the harmony of the soul. I enjoy
-      to learning new instruments now knowing 7, those being instruments: <span
-        id="ld"
-        >Electric Bass, Contrabass, Guitar, Ukulele, Piano, Harmonica and Drums</span
-      >. I also like to create music, both spontaneously with friends in jam
-      sessions or by myself. You can find my music tastes on my
-      <a href="https://open.spotify.com/user/b3oj8mjbyq5cfs26vp6c41ujr"
-        >Spotify</a
-      >
-    </div>
-    <div class="hover-accent text content-container" in:fade={{ delay: 2 * 150, duration: 300 }}>
-      I enjoy reading books and watching videos, whether it be youtube, films,
-      tv shows or reels. I have a <a href="https://letterboxd.com/danielOkita/"
-        >Letterboxd</a
-      > account where I keep track of the movies I have watched and the ones I want
-      to watch. I also have a Goodreads account where I keep track of the books I
-      have read and the ones I want to read.
+  <!-- Simple interests section -->
+  <div class="simple-section" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.wide))}>
+    <div class="simple-content">
+      <p>
+        I think of music like Plato as practicing the harmony of the soul. I play
+        7 instruments: Electric Bass, Contrabass, Guitar, Ukulele, Piano, Harmonica and Drums.
+        I also like to create music, both spontaneously with friends in jam sessions or by myself.
+      </p>
+      <p>
+        I enjoy reading books and watching videos. I have a
+        <a href="https://letterboxd.com/danielOkita/" class="link">Letterboxd</a> account where I keep track
+        of movies and a Goodreads account for books.
+      </p>
     </div>
   </div>
 
-  <div class="text wrapper" in:fade={{ delay: 3 * 150, duration: 300 }}>
-    <h1 class="hover-accent mb-4">Quotes I have come across the resonated with me</h1>
-    <hr />
-    <div class="carousel">
-      <button class="nav-arrow left" on:click={prevQuote}>{"<"}</button>
-      <div class="quote-container">
-        {#key quoteKey}
-          <div class="text-left p-5 m-auto">
-            <h1 in:scale={{ delay: 200, duration: 200 }}>
-              "{quotes[currentQuoteIndex].text}"
-            </h1>
-            <br />
-            <h1
-              in:scale={{ delay: 500, duration: 200 }}
-              class="text-right font-bold"
-            >
-              {quotes[currentQuoteIndex].name}
-            </h1>
-          </div>
-        {/key}
-      </div>
-      <button class="nav-arrow right" on:click={nextQuote}>{">"}</button>
+  <!-- Social Links Section with YouTube -->
+  <div class="social-section" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
+    <h2 class="section-title">Social Links</h2>
+    <div class="social-grid">
+      {#each socialLinks as link}
+        <a href={link.url} target="_blank" rel="noopener noreferrer"
+           class="social-card">
+          <img src={link.icon} alt={link.name} class="social-icon" />
+          <span class="social-name">{link.name}</span>
+        </a>
+      {/each}
     </div>
   </div>
 
-  <div class="flex" in:fade={{ delay: 4 * 150, duration: 300 }}>
-    <div class="text justify-center flex-col align-center ml-4 mb-4 content-container w-1/2">
-      <div class="">
-        <h1 class="hover-accent mb-4">Latin phrases that I like</h1>
-        <hr />
-        <div class="carousel">
-          <button class="nav-arrow left" on:click={prevLatin}>{"<"}</button>
-          <div class="quote-container">
-            {#key latinKey}
-              <div class="text-left p-5 m-auto">
-                <h1 in:scale={{ delay: 200, duration: 200 }}>
-                  {latin[currentLatinIndex].translation}
-                </h1>
-                <p
-                  in:scale={{ delay: 350, duration: 200 }}
-                  class="text-lg italic mt-2"
-                >
-                  "{latin[currentLatinIndex].text}"
-                </p>
-                <br />
-                <h1
-                  in:scale={{ delay: 500, duration: 200 }}
-                  class="text-right font-bold"
-                >
-                  {latin[currentLatinIndex].author}
-                </h1>
-              </div>
-            {/key}
-          </div>
-          <button class="nav-arrow right" on:click={nextLatin}>{">"}</button>
-        </div>
-      </div>
-    </div>
 
-    <div
-      class="justify-center content-center mb-4 ml-4 mr-4 flex text content-container flex-col sm:flex-row w-1/2"
-      in:fade={{ delay: 5 * 150, duration: 300 }}
-    >
-      <div class="flex flex-col sm:flex-row m-auto">
-        <div class="m-auto t hover:scale-125 mb-4 sm:mb-0">
-          <a href="https://open.spotify.com/user/b3oj8mjbyq5cfs26vp6c41ujr">
-            <img
-              class="person-social-icon"
-              src="https://simpleicons.org/icons/spotify.svg"
-            />
-          </a>
-        </div>
-        <div class="m-auto t hover:scale-125">
-          <a href="https://www.goodreads.com/user/show/155512706-stephen-okita">
-            <img
-              class="person-social-icon"
-              src="https://simpleicons.org/icons/goodreads.svg"
-            />
-          </a>
-        </div>
-        <div class="m-auto t hover:scale-125">
-          <a href="https://letterboxd.com/danielOkita/">
-            <img
-              class="person-social-icon"
-              src="https://simpleicons.org/icons/letterboxd.svg"
-            />
-          </a>
-        </div>
-        <div class="m-auto t hover:scale-125">
-          <a href="https://www.instagram.com/stephen.okita/">
-            <img
-              class="person-social-icon"
-              src="https://simpleicons.org/icons/instagram.svg"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  {#if browser}
-    <div class="grid grid-cols-1 md:grid-cols-2 mb-4">
-      <div class="text wrapper1" in:fade={{ delay: 6 * 150, duration: 300 }}>
-        <h1 class="hover-accent mb-4">This is a collection of my music musings:</h1>
-        <hr />
-        <br />
-        <div class="carousel">
-          <button class="nav-arrow left" on:click={prevMusic}>{"<"}</button>
-          <div class="youtube-container">
-            {#key musicKey}
-              <div>
-                <h1 class="text-center text-xl font-bold">
-                  {music[currentMusicIndex].title}
-                </h1>
-                <br />
-                <Youtube id={music[currentMusicIndex].id} />
-              </div>
-            {/key}
-          </div>
-          <button class="nav-arrow right" on:click={nextMusic}>{">"}</button>
-        </div>
-      </div>
 
-      <div class="text wrapper2" in:fade={{ delay: 7 * 150, duration: 300 }}>
-        <h1 class="hover-accent mb-4">This is a collection of my animations:</h1>
-        <hr />
-        <br />
-        <div class="carousel">
-          <button class="nav-arrow left" on:click={prevAnimation}>{"<"}</button>
-          <div class="youtube-container">
-            {#key animationKey}
-              <div>
-                <h1 class="text-center text-xl font-bold">
-                  {animations[currentAnimationIndex].title}
-                </h1>
-                <br />
-                <Youtube id={animations[currentAnimationIndex].id} />
-              </div>
-            {/key}
-          </div>
-          <button class="nav-arrow right" on:click={nextAnimation}>{">"}</button
-          >
-        </div>
-      </div>
-    </div>
-  {/if}
+
 </div>
 
 <style>
-  .img {
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-  }
-  .text {
-    @apply bg-bg-secondary text-text-primary p-md rounded;
-    border: 1px solid var(--border-primary);
-    @apply transition-all duration-normal;
+  /* Simple intro section */
+  .intro-section {
+    @apply text-center py-8 px-4;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-primary);
   }
 
-  .content-container {
-    justify-content: center;
-    gap: 1rem;
-    transition: all ease-in-out 200ms;
-  }
-  .wrapper {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem;
-    transition: all ease-in-out 200ms;
-  }
-  .wrapper1 {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 1rem;
-    margin-right: 0.5rem;
-  }
-  .wrapper2 {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 1rem;
-    margin-left: 0.5rem;
+  .intro-title {
+    @apply text-3xl font-bold mb-4;
+    color: var(--text-primary);
   }
 
-  @media (max-width: 750px) {
-    .text {
-      font-size: 0.75rem;
-    }
-    .wrapper1 {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-    .wrapper2 {
-      margin-top: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
+  .intro-text {
+    @apply text-lg;
+    color: var(--text-secondary);
   }
 
-  .hover-accent {
-    transition: all ease-in-out 200ms;
-  }
-  .hover-accent:hover {
-    @apply border-l-8 border-l-status-purple;
-  }
-  .element {
-    @apply m-md rounded p-md border-2 border-text-primary;
-    @apply transition-all duration-normal;
-  }
-  .element:hover {
-    @apply border-2 border-status-purple;
+  /* Bio Section */
+  .bio-container {
+    @apply max-w-4xl mx-auto p-6 space-y-8;
   }
 
-  .carousel {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  .bio-image-wrapper {
+    @apply flex justify-center mb-8;
   }
 
-  .quote-container {
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0 3rem;
+  .bio-image {
+    @apply w-64 h-64 object-cover rounded-lg shadow-lg cursor-pointer;
+    border: 2px solid var(--border-primary);
   }
 
-  .youtube-container {
-    display: flex;
-    padding: 0 3rem;
-    min-height: 400px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .youtube-container :global(iframe) {
-    max-width: 100%;
-  }
-
-  .nav-arrow {
-    background: none;
-    border: none;
-    font-size: 2rem;
+  .bio-image:hover {
+    border-color: var(--accent-primary);
+    transform: scale(1.02);
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
-    padding: 0 1rem;
-    color: inherit;
-    transition: transform 0.2s;
-    z-index: 1;
-    position: absolute;
   }
 
-  .nav-arrow:hover {
-    @apply text-bg-tertiary;
-    transform: scale(1.2);
+  .easter-egg {
+    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2;
+    @apply bg-bg-tertiary text-text-primary px-4 py-2 rounded-full text-sm;
+    border: 1px solid var(--accent-primary);
   }
 
-  .nav-arrow.left {
-    left: 0;
+  .bio-intro {
+    @apply mb-8 text-center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    @apply p-6 rounded-lg;
   }
 
-  .nav-arrow.right {
-    right: 0;
+  .intro-description {
+    @apply text-base leading-relaxed;
+    color: var(--text-secondary);
   }
 
-  hr {
-    @apply border-t-4 border-t-bg-primary rounded;
+  /* Simple section */
+  .simple-section {
+    @apply py-8 px-6 max-w-4xl mx-auto;
   }
 
-  .person-social-icon {
-    width: 8rem;
-    height: 3rem;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(94%) contrast(90%);
-    opacity: 0.8;
-    transition: filter var(--transition-fast), opacity var(--transition-fast), transform var(--transition-normal);
-  }
-  
-  .person-social-icon:hover {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(110%) contrast(90%);
-    opacity: 1;
-    transform: scale(1.05);
+  .simple-content {
+    @apply space-y-4;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    @apply p-6 rounded-lg;
   }
 
-  /* Responsive social icon sizing */
+  .simple-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* New balanced bio layout */
+  .bio-info {
+    @apply space-y-8;
+  }
+
+  .info-section {
+    @apply p-6 rounded-lg;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .section-header {
+    @apply text-lg font-semibold mb-4 pb-3;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-secondary);
+  }
+
+  .info-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3;
+  }
+
+  .info-item {
+    @apply py-2;
+    color: var(--text-secondary);
+  }
+
+  .work-list {
+    @apply space-y-3;
+  }
+
+  .work-item {
+    @apply py-2;
+    color: var(--text-secondary);
+  }
+
+  .label {
+    @apply font-semibold;
+    color: var(--text-primary);
+  }
+
+  .link {
+    color: var(--accent-primary);
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+
+  .link:hover {
+    color: var(--accent-cyan);
+  }
+
+  .interest-tags {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .tag {
+    @apply px-3 py-1 rounded-full text-sm;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+    transition: all 0.2s;
+  }
+
+  .tag:hover {
+    border-color: var(--accent-primary);
+    transform: scale(1.05) rotate(-1deg);
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    transition: all 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Instruments Section */
+  .instruments-section {
+    @apply py-12 px-4 max-w-6xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-center mb-8;
+    color: var(--text-primary);
+  }
+
+  .instruments-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4;
+  }
+
+  .instrument-card {
+    @apply p-4 text-center rounded-lg;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .instrument-card:hover {
+    transform: rotate(-2deg) scale(1.05);
+    border-color: var(--accent-primary);
+    background: var(--bg-tertiary);
+  }
+
+  /* Social Section */
+  .social-section {
+    @apply py-8 px-6 max-w-4xl mx-auto;
+  }
+
+  .social-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+  }
+
+  .social-card {
+    @apply flex flex-col items-center justify-center p-6 rounded-lg;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    transition: all 0.3s;
+  }
+
+  .social-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .social-icon {
+    @apply w-12 h-12 mb-3;
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
+            hue-rotate(343deg) brightness(94%) contrast(90%);
+    transition: all 0.3s;
+  }
+
+  .social-card:hover .social-icon {
+    transform: scale(1.2) rotate(5deg);
+    transition: all 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .social-name {
+    @apply text-sm font-medium text-center;
+    color: var(--text-secondary);
+  }
+
+
+
+  /* Responsive adjustments */
   @media (max-width: 768px) {
-    .person-social-icon {
-      width: 6rem;
-      height: 2.5rem;
+    .bio-container {
+      @apply p-4;
+    }
+
+    .bio-image {
+      @apply w-48 h-48;
+    }
+
+    .info-grid {
+      @apply grid-cols-1;
+    }
+
+    .section-header {
+      @apply text-base;
+    }
+
+    .info-section {
+      @apply p-4;
+    }
+
+    .intro-section {
+      @apply py-6 px-4;
+    }
+
+    .intro-title {
+      @apply text-2xl;
+    }
+
+
+    .social-grid {
+      @apply grid-cols-2;
     }
   }
 
-  @media (max-width: 500px) {
-    .person-social-icon {
-      width: 5rem;
-      height: 2rem;
+  @media (max-width: 480px) {
+    .bio-image {
+      @apply w-40 h-40;
+    }
+
+    .intro-section {
+      @apply py-4 px-3;
+    }
+
+    .bio-container {
+      @apply p-3;
     }
   }
 </style>

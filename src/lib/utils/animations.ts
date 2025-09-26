@@ -1,6 +1,6 @@
-import { elasticOut, elasticIn, bounceOut, backOut } from 'svelte/easing';
+import { elasticOut, elasticIn, bounceOut, backOut, quintOut, quartOut, expoOut } from 'svelte/easing';
 
-// Animation presets following Unix philosophy: simple, composable functions
+// Modern Animation System - Coherent, performance-focused, accessible
 export interface AnimationConfig {
   delay?: number;
   duration?: number;
@@ -10,151 +10,207 @@ export interface AnimationConfig {
   start?: number;
 }
 
-// Random utility functions
-export const getRandomDelay = (min = 0, max = 1500): number => 
-  min + Math.random() * (max - min);
+// Modern Animation Timing System
+export const ANIMATION_TIMINGS = {
+  instant: 0,
+  snappy: 150,      // Quick interactions
+  smooth: 250,      // Standard transitions
+  gentle: 400,      // Content entrance
+  dramatic: 600,    // Hero/special animations
+  slow: 800,        // Complex sequences
+} as const;
 
-export const getRandomDuration = (min = 300, max = 1000): number => 
-  min + Math.random() * (max - min);
+// Modern Easing Functions
+export const EASINGS = {
+  // Sharp - For quick interactions and feedback
+  sharp: quartOut,
+  // Smooth - For content and navigation
+  smooth: quintOut,
+  // Bouncy - For special moments and celebrations
+  bouncy: elasticOut,
+  // Dramatic - For hero animations and page transitions
+  dramatic: expoOut,
+  // Gentle - For content reveals
+  gentle: quintOut,
+} as const;
 
-export const getRandomDirection = (): { x: number; y: number } => ({
-  x: (Math.random() - 0.5) * 200,
-  y: (Math.random() - 0.5) * 200
-});
+// Stagger Timing System
+export const STAGGER = {
+  tight: 50,    // List items
+  normal: 100,  // Cards, sections
+  wide: 200,    // Major sections
+  dramatic: 300, // Hero sequences
+} as const;
 
-// Predefined animation configurations
-export const animationPresets = {
-  // Entrance animations
-  fadeIn: (): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration()
+// Modern Animation Presets
+export const modernAnimations = {
+  // === CONTENT ENTRANCE ANIMATIONS ===
+
+  // Gentle fade for text and content
+  contentFade: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.gentle,
+    easing: EASINGS.gentle
   }),
 
-  slideInLeft: (): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration(),
-    x: -100,
-    easing: elasticOut
+  // Smooth slide up for cards and sections
+  slideUp: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.smooth,
+    y: 24,
+    easing: EASINGS.smooth
   }),
 
-  slideInRight: (): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration(),
-    x: 100,
-    easing: elasticOut
+  // Slide from left for navigation items
+  slideLeft: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.smooth,
+    x: -32,
+    easing: EASINGS.smooth
   }),
 
-  slideInUp: (): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration(),
-    y: 100,
-    easing: elasticOut
+  // Slide from right for secondary content
+  slideRight: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.smooth,
+    x: 32,
+    easing: EASINGS.smooth
   }),
 
-  slideInDown: (): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration(),
-    y: -100,
-    easing: elasticOut
+  // Gentle scale for interactive elements
+  scaleIn: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.smooth,
+    start: 0.95,
+    easing: EASINGS.smooth
   }),
 
-  scaleIn: (startScale = 0): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration(),
-    start: startScale,
-    easing: bounceOut
-  }),
+  // === INTERACTION ANIMATIONS ===
 
-  scaleInRandom: (): AnimationConfig => ({
-    delay: getRandomDelay(),
-    duration: getRandomDuration(),
-    start: Math.random() * 2,
-    easing: elasticOut
-  }),
-
-  flyInRandom: (): AnimationConfig => {
-    const direction = getRandomDirection();
-    return {
-      delay: getRandomDelay(),
-      duration: getRandomDuration(),
-      x: direction.x,
-      y: direction.y,
-      easing: elasticOut
-    };
+  // Quick feedback for buttons
+  buttonPress: {
+    duration: ANIMATION_TIMINGS.snappy,
+    start: 0.98,
+    easing: EASINGS.sharp
   },
 
-  // Specialized animations for text
-  textFlyIn: (): AnimationConfig => ({
-    delay: getRandomDelay(0, 300),
-    duration: getRandomDuration(200, 600),
-    x: (Math.random() - 0.5) * 100,
-    y: (Math.random() - 0.5) * 100,
-    easing: elasticOut
-  }),
-
-  textScale: (): AnimationConfig => ({
-    delay: getRandomDelay(0, 500),
-    duration: getRandomDuration(300, 800),
-    start: 0.5 + Math.random() * 1.5,
-    easing: bounceOut
-  }),
-
-  // Interactive hover states
-  hoverLift: {
-    duration: 200,
-    y: -2,
-    easing: elasticOut
+  // Hover lift for cards
+  cardHover: {
+    duration: ANIMATION_TIMINGS.snappy,
+    y: -4,
+    easing: EASINGS.sharp
   },
 
+  // Gentle scale for hover states
   hoverScale: {
-    duration: 200,
-    start: 1.05,
-    easing: elasticOut
+    duration: ANIMATION_TIMINGS.snappy,
+    start: 1.02,
+    easing: EASINGS.sharp
+  },
+
+  // === HERO AND SPECIAL ANIMATIONS ===
+
+  // Dramatic hero entrance
+  heroEntrance: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.dramatic,
+    y: 48,
+    easing: EASINGS.dramatic
+  }),
+
+  // Bouncy celebration animation
+  celebration: (delay = 0): AnimationConfig => ({
+    delay,
+    duration: ANIMATION_TIMINGS.gentle,
+    start: 0.8,
+    easing: EASINGS.bouncy
+  }),
+
+  // === PAGE TRANSITIONS ===
+
+  // Smooth page in
+  pageIn: {
+    duration: ANIMATION_TIMINGS.gentle,
+    y: 16,
+    easing: EASINGS.gentle
+  },
+
+  // Quick page out
+  pageOut: {
+    duration: ANIMATION_TIMINGS.smooth,
+    y: -16,
+    easing: EASINGS.sharp
   }
 };
 
-// Animation timing functions
-export const timingFunctions = {
-  fast: 150,
-  normal: 300,
-  slow: 500,
-  elastic: elasticOut,
-  bounce: bounceOut,
-  back: backOut,
-  easeIn: elasticIn
+// === ANIMATION UTILITIES ===
+
+// Create staggered animations for sequences
+export const createStagger = (
+  animationFn: (delay: number) => AnimationConfig,
+  count: number,
+  staggerDelay: number = STAGGER.normal,
+  baseDelay: number = 0
+): AnimationConfig[] => {
+  return Array.from({ length: count }, (_, index) =>
+    animationFn(baseDelay + (index * staggerDelay))
+  );
 };
 
-// Stagger animation helper
-export const createStaggeredAnimation = (
-  baseConfig: AnimationConfig,
-  index: number,
-  staggerDelay = 100
-): AnimationConfig => ({
-  ...baseConfig,
-  delay: (baseConfig.delay || 0) + (index * staggerDelay)
-});
+// Create entrance sequence for sections
+export const createEntranceSequence = (elements: string[]) => {
+  return elements.map((element, index) => ({
+    element,
+    animation: modernAnimations.slideUp(index * STAGGER.normal)
+  }));
+};
 
-// Animation sequences for complex layouts
-export const createNameCollageAnimation = (totalElements: number) => {
-  const animations = [];
-  
-  for (let i = 0; i < totalElements; i++) {
-    const animationType = Math.floor(Math.random() * 4);
-    
-    switch (animationType) {
-      case 0:
-        animations.push(animationPresets.textFlyIn());
-        break;
-      case 1:
-        animations.push(animationPresets.textScale());
-        break;
-      case 2:
-        animations.push(animationPresets.slideInLeft());
-        break;
-      default:
-        animations.push(animationPresets.fadeIn());
-    }
+// Animation helpers for common patterns
+export const animationHelpers = {
+  // Stagger cards in a grid
+  staggerCards: (count: number, baseDelay = 0) =>
+    createStagger(modernAnimations.slideUp, count, STAGGER.normal, baseDelay),
+
+  // Animate list items
+  staggerList: (count: number, baseDelay = 0) =>
+    createStagger(modernAnimations.slideLeft, count, STAGGER.tight, baseDelay),
+
+  // Hero sequence animation
+  heroSequence: () => [
+    modernAnimations.heroEntrance(0),
+    modernAnimations.contentFade(STAGGER.normal),
+    modernAnimations.slideUp(STAGGER.wide)
+  ],
+
+  // Page transition sequence
+  pageTransition: {
+    out: modernAnimations.pageOut,
+    in: modernAnimations.pageIn
   }
-  
-  return animations;
+};
+
+// Accessibility: Respect reduced motion
+export const getAnimation = (config: AnimationConfig): AnimationConfig => {
+  if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return {
+      ...config,
+      duration: ANIMATION_TIMINGS.instant,
+      delay: 0,
+      x: 0,
+      y: 0,
+      start: 1
+    };
+  }
+  return config;
+};
+
+// Legacy support (deprecated, use modernAnimations instead)
+export const animationPresets = {
+  fadeIn: () => modernAnimations.contentFade(),
+  slideInUp: () => modernAnimations.slideUp(),
+  slideInLeft: () => modernAnimations.slideLeft(),
+  slideInRight: () => modernAnimations.slideRight(),
+  scaleIn: () => modernAnimations.scaleIn(),
+  hoverLift: modernAnimations.cardHover,
+  hoverScale: modernAnimations.hoverScale
 };

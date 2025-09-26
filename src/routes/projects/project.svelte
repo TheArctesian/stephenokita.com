@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { slide, fade, scale } from "svelte/transition";
+  import { slide, fade, scale, fly } from "svelte/transition";
+  import { modernAnimations, STAGGER, getAnimation } from "$lib/utils/animations";
   import "../../app.css";
   import { onMount } from "svelte";
 
@@ -124,7 +125,7 @@
 <div
   class="m-4 text-xl text-text-primary font-bold p-4 border text-center rounded-sm"
   out:slide
-  in:fade={{ delay: wait * 150, duration: 300 }}
+  in:fly={getAnimation(modernAnimations.slideUp(parseInt(wait) * STAGGER.normal))}
 >
   <h1 class="section-title">{name}</h1>
 </div>
@@ -132,13 +133,13 @@
 <div
   class="section-container"
   out:slide
-  in:fade={{ delay: delay * 150, duration: 300 }}
+  in:fly={getAnimation(modernAnimations.slideUp(parseInt(delay) * STAGGER.normal))}
 >
   <div class="projects-grid">
     {#each sortedProjects as project, i}
       <div
         class="project-card"
-        in:fade={{ delay: (delay + i) * 150, duration: 300 }}
+        in:fly={getAnimation(modernAnimations.slideUp((parseInt(delay) + i) * STAGGER.tight))}
         on:click={() => openModal(project)}
         on:keydown={(e) => e.key === "Enter" && openModal(project)}
         tabindex="0"
@@ -287,10 +288,22 @@
     display: block;
   }
 
+  /* Fix icon visibility in sketched theme */
+  :global([data-theme="sketched"]) .icon-img {
+    filter: none;
+    opacity: 0.8;
+  }
+
   .icon-img-modal {
     width: 18px;
     height: 18px;
     margin-right: 6px;
+  }
+
+  /* Fix modal icon visibility in sketched theme */
+  :global([data-theme="sketched"]) .icon-img-modal {
+    filter: none;
+    opacity: 0.8;
   }
 
   .tag-name {

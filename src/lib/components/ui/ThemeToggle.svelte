@@ -21,6 +21,8 @@
         return 'sun';
       case 'nord-dark':
         return 'moon';
+      case 'sketched':
+        return 'pencil';
       default:
         return 'computer';
     }
@@ -48,8 +50,14 @@
     {:else if getThemeIcon($theme) === 'moon'}
       <!-- Moon icon for dark mode -->
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    {:else if getThemeIcon($theme) === 'pencil'}
+      <!-- Pencil icon for sketched mode -->
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
       </svg>
     {:else}
       <!-- Computer/System icon for system mode -->

@@ -107,6 +107,15 @@ module.exports = {
         'strong': '0 8px 32px rgba(46, 52, 64, 0.2)',
         'glow': '0 0 20px rgba(136, 192, 208, 0.3)',
       },
+
+      // Z-index layers for proper stacking
+      zIndex: {
+        'dropdown': 'var(--z-dropdown)',
+        'sticky': 'var(--z-sticky)',
+        'fixed': 'var(--z-fixed)',
+        'modal': 'var(--z-modal)',
+        'tooltip': 'var(--z-tooltip)',
+      },
     },
   },
   plugins: [],

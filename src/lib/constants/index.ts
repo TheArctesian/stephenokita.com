@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   title: 'Stephen Daniel Okita',
   description: 'Personal website and blog of Stephen Daniel Okita',
   url: 'https://stephenokita.com',
-  email: 'sdokita@berkeley.edu',
+  email: 'me@stephenokita.com',
   github: 'https://github.com/TheArctesian',
   linkedin: 'https://www.linkedin.com/in/stephen-okita/',
   instagram: 'https://www.instagram.com/stephen.okita/',

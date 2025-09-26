@@ -56,17 +56,17 @@
         aria-label="Toggle menu"
       >
         <div
-          class="hamburger-line w-6 h-0.5 bg-current transition-slow {mobileMenuOpen
+          class="hamburger-line w-full h-0.5 bg-current transition-slow {mobileMenuOpen
             ? 'rotate-45 translate-y-1.5'
             : ''}"
         ></div>
         <div
-          class="hamburger-line w-6 h-0.5 bg-current transition-slow my-1 {mobileMenuOpen
+          class="hamburger-line w-full h-0.5 bg-current transition-slow my-1 {mobileMenuOpen
             ? 'opacity-0'
             : ''}"
         ></div>
         <div
-          class="hamburger-line w-6 h-0.5 bg-current transition-slow {mobileMenuOpen
+          class="hamburger-line w-full h-0.5 bg-current transition-slow {mobileMenuOpen
             ? '-rotate-45 -translate-y-1.5'
             : ''}"
         ></div>

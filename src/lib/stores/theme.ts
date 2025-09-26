@@ -3,12 +3,13 @@ import { browser } from '$app/environment';
 
 // UNIX Philosophy: Simple, modular theme system
 // Each theme is just a data-theme attribute value
-type ThemeName = 'nord-light' | 'nord-dark' | 'system';
+type ThemeName = 'nord-light' | 'nord-dark' | 'sketched' | 'system';
 
 // Available themes - easily extensible for new rice configurations
 export const AVAILABLE_THEMES = {
   'nord-light': 'Light',
-  'nord-dark': 'Dark', 
+  'nord-dark': 'Dark',
+  'sketched': 'Sketched',
   'system': 'System'
 } as const;
 
