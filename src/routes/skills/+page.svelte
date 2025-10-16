@@ -131,7 +131,7 @@
               </div>
               <div class="info-line">
                 <span class="info-label">OS</span>
-                <span class="info-value">Nix OS (BSPWM)</span>
+                <span class="info-value">Nix OS (Hyprland)</span>
               </div>
               <div class="info-line">
                 <span class="info-label">Editor</span>
@@ -228,7 +228,7 @@
                 <div class="config-item">
                   <span class="config-key">os</span>
                   <span class="config-value"
-                    >Nix OS + BSPWM + Rofi + Polybar</span
+                    >Nix OS + Hyprland + Rofi + Waybar</span
                   >
                 </div>
                 <div class="config-item">
