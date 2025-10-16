@@ -124,33 +124,34 @@
           <div class="file-list">
             <a href="/skills" class="file-item directory">
               <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.skills || '1.5K'}</span>
+              <span class="file-size">{data.fileSizes?.skills || "1.5K"}</span>
               <span class="file-name">skills/</span>
               <span class="file-description">technical expertise</span>
             </a>
             <a href="/person" class="file-item directory">
               <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.person || '3.2K'}</span>
+              <span class="file-size">{data.fileSizes?.person || "3.2K"}</span>
               <span class="file-name">person/</span>
               <span class="file-description">personal information</span>
             </a>
 
             <a href="/projects" class="file-item directory">
               <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.projects || '2.1K'}</span>
+              <span class="file-size">{data.fileSizes?.projects || "2.1K"}</span
+              >
               <span class="file-name">projects/</span>
               <span class="file-description">software and research</span>
             </a>
             <a href="/blog" class="file-item directory">
               <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.blog || '4.0K'}</span>
+              <span class="file-size">{data.fileSizes?.blog || "4.0K"}</span>
               <span class="file-name">blog/</span>
               <span class="file-description">thoughts and writings</span>
             </a>
 
             <a href="/meta" class="file-item directory">
               <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.meta || '3.2K'}</span>
+              <span class="file-size">{data.fileSizes?.meta || "3.2K"}</span>
               <span class="file-name">meta/</span>
               <span class="file-description">telemetry and stack</span>
             </a>
@@ -205,7 +206,7 @@
                 </div>
                 <div class="log-content">
                   {#if data.latestProject}
-                    <h3 class="log-title">{data.latestProject.name}</h3>
+                    <h3 class="log-title">{data.latestProject.title}</h3>
                     <p class="log-description">
                       {data.latestProject.description}
                     </p>
@@ -252,8 +253,8 @@
             <div class="contact-info">
               <div class="contact-line">
                 <span class="contact-label">email:</span>
-                <a href="mailto:contact@danielokita.com" class="contact-value"
-                  >contact@danielokita.com</a
+                <a href="mailto:me@stephenokita.com" class="contact-value"
+                  >me@stephenokita.com</a
                 >
               </div>
               <div class="contact-line">
@@ -662,4 +663,3 @@
     }
   }
 </style>
-

@@ -3,41 +3,54 @@
   import Project from "./project.svelte";
   import { slide, fade, fly } from "svelte/transition";
   import { modernAnimations, getAnimation } from "$lib/utils/animations";
-  import type { PageData } from './$types';
+  import type { PageData } from "./$types";
 
   export let data: PageData;
 
   // Convert database projects to component format
   function convertProjectsToComponentFormat(projects: any[]) {
-    return projects.map(project => ({
+    return projects.map((project) => ({
       name: project.title,
-      role: project.longDescription !== project.description ? project.longDescription : undefined,
-      description: project.description || '',
-      link: project.liveUrl || project.githubUrl || '',
+      role:
+        project.longDescription !== project.description
+          ? project.longDescription
+          : undefined,
+      description: project.description || "",
+      link: project.liveUrl || project.githubUrl || "",
       githubUrl: project.githubUrl,
       liveUrl: project.liveUrl,
       imageUrl: project.imageUrl,
-      dateStart: project.startDate ? project.startDate.toString().split('T')[0] : undefined,
-      date: project.endDate ? project.endDate.toString().split('T')[0] : project.createdAt.toString().split('T')[0],
+      dateStart: project.startDate
+        ? project.startDate.toString().split("T")[0]
+        : undefined,
+      date: project.endDate
+        ? project.endDate.toString().split("T")[0]
+        : project.createdAt.toString().split("T")[0],
       tags: project.technologies || [],
       featured: project.featured,
-      status: project.status
+      status: project.status,
     }));
   }
 
   // Group projects by category for display
-  $: professionalWork = data.projectsByCategory
-    .find(cat => cat.slug === 'professional-work')?.projects || [];
+  $: professionalWork =
+    data.projectsByCategory.find((cat) => cat.slug === "professional-work")
+      ?.projects || [];
 
-  $: personalProjects = data.projectsByCategory
-    .find(cat => cat.slug === 'personal' || cat.slug === 'personal-projects')?.projects || [];
-    
-    
-  $: libraries = data.projectsByCategory
-    .find(cat => cat.slug === 'libs' || cat.slug === 'libraries-tools')?.projects || [];
-    
-  $: schoolProjects = data.projectsByCategory
-    .find(cat => cat.slug === 'school' || cat.slug === 'school-projects')?.projects || [];
+  $: personalProjects =
+    data.projectsByCategory.find(
+      (cat) => cat.slug === "personal" || cat.slug === "personal-projects",
+    )?.projects || [];
+
+  $: libraries =
+    data.projectsByCategory.find(
+      (cat) => cat.slug === "libs" || cat.slug === "libraries-tools",
+    )?.projects || [];
+
+  $: schoolProjects =
+    data.projectsByCategory.find(
+      (cat) => cat.slug === "school" || cat.slug === "school-projects",
+    )?.projects || [];
 
   // Convert to component format
   $: workData = convertProjectsToComponentFormat(professionalWork);
@@ -48,17 +61,15 @@
 
 <svelte:head>
   <title>Projects - Stephen Okita</title>
-  <meta name="description" content="A collection of my professional work, personal projects, and open source contributions." />
+  <meta
+    name="description"
+    content="A collection of my professional work, personal projects, and open source contributions."
+  />
 </svelte:head>
 
 <div out:slide in:fly={getAnimation(modernAnimations.pageIn)}>
   {#if workData.length > 0}
-    <Project
-      data={workData}
-      wait="0"
-      delay="0"
-      name="Professional Work"
-    />
+    <Project data={workData} wait="0" delay="0" name="Professional Work" />
   {/if}
 
   {#if personalData.length > 0}

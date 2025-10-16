@@ -123,7 +123,7 @@
               </div>
               <div class="info-line">
                 <span class="info-label">Experience</span>
-                <span class="info-value">6+ Yrs</span>
+                <span class="info-value">7+ Yrs</span>
               </div>
               <div class="info-line">
                 <span class="info-label">Focus</span>
@@ -151,12 +151,10 @@
           <div class="output-content">
             <h2 class="section-title">## Technical Overview</h2>
             <p class="readme-text">
-              Full stack developer with expertise spanning web, mobile, and
-              desktop applications. Proficient in modern JavaScript frameworks,
-              cloud architecture, and AI/ML integration. Strong background in
-              distributed systems, blockchain technology, and creative tools.
-              Passionate about clean code, system design, and emerging
-              technologies.
+              Mainly a full stack developer. Also a DevOps person with an
+              emphasis in self hosting, a game developer, an AI/DS person and a
+              sys admin. I have done projects across most of the computing
+              sector and am a fast learner for anything I haven't done bofore.
             </p>
           </div>
         </div>
@@ -600,13 +598,15 @@
     width: 48px;
     height: 48px;
     margin: 0 auto;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(94%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
+      hue-rotate(343deg) brightness(94%) contrast(90%);
     opacity: 0.8;
     transition: all var(--transition-fast);
   }
 
   .skill-item:hover .skill-icon img {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(110%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
+      hue-rotate(343deg) brightness(110%) contrast(90%);
     opacity: 1;
     transform: scale(1.1);
   }
@@ -725,14 +725,16 @@
   .extra-item img {
     width: 32px;
     height: 32px;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(94%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
+      hue-rotate(343deg) brightness(94%) contrast(90%);
     opacity: 0.8;
     transition: all var(--transition-fast);
   }
-  
+
   .extra-item:hover img {
     opacity: 1;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(110%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
+      hue-rotate(343deg) brightness(110%) contrast(90%);
   }
 
   .extra-item span {
@@ -800,4 +802,3 @@
     }
   }
 </style>
-
