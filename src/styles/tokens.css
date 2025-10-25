@@ -208,6 +208,107 @@
   --font-family-sketch: "Kalam", "Caveat", "Comic Sans MS", cursive;
 }
 
+/* Whiteboard Theme - Messy marker aesthetic */
+[data-theme="whiteboard"] {
+  /* Surface colors - Bright white like a well-used whiteboard */
+  --bg-primary: #fefefe;      /* Slightly off-white - used whiteboard feel */
+  --bg-secondary: #f8f8ff;    /* Very subtle blue tint for cards */
+  --bg-tertiary: #f0f4ff;     /* Light blue wash for interactive surfaces */
+  --bg-quaternary: #e8efff;   /* Noticeable blue tint for emphasis */
+
+  /* Text colors - Bold marker strokes */
+  --text-primary: #1a1a2e;    /* Deep blue-black marker for primary text */
+  --text-secondary: #2d3561;  /* Navy blue marker for secondary text */
+  --text-tertiary: #5865f2;   /* Bright blue marker for de-emphasized text */
+  --text-muted: #8b92b8;      /* Faded purple-gray marker */
+
+  /* Accent colors - Vibrant, varied markers all over */
+  --accent-primary: #ff6b35;   /* Bold orange marker (main brand) */
+  --accent-secondary: #f72585; /* Hot pink marker */
+  --accent-tertiary: #7209b7;  /* Purple marker */
+  --accent-emphasis: #3a0ca3;  /* Deep purple for emphasis */
+  --accent-cyan: #06ffa5;      /* Neon cyan/green marker */
+  --accent-blue: #4cc9f0;      /* Sky blue marker */
+
+  /* Status colors - Wild, vibrant markers */
+  --status-error: #ff006e;     /* Hot pink/magenta marker for errors */
+  --status-warning: #ffbe0b;   /* Bright yellow marker for warnings */
+  --status-info: #3a86ff;      /* Electric blue marker for information */
+  --status-success: #06ffa5;   /* Neon green marker for success */
+  --status-purple: #8338ec;    /* Vivid purple marker for special states */
+
+  /* Border colors - Colorful marker strokes */
+  --border-primary: #d0d7ff;   /* Soft purple-blue border - like faded marker */
+  --border-secondary: #a0abff; /* Brighter purple-blue for emphasis */
+  --border-accent: #ff6b35;    /* Bold orange accent borders */
+
+  /* Shadows - Soft and slightly colored (marker bleed effect) */
+  --shadow-sm: 0 2px 4px rgba(88, 101, 242, 0.08);
+  --shadow-md: 0 4px 8px rgba(88, 101, 242, 0.12);
+  --shadow-lg: 0 8px 16px rgba(88, 101, 242, 0.15);
+  --shadow-xl: 0 12px 24px rgba(88, 101, 242, 0.18);
+  --shadow-soft: 0 2px 6px rgba(255, 107, 53, 0.1);
+  --shadow-medium: 0 4px 12px rgba(88, 101, 242, 0.15);
+
+  /* Custom whiteboard properties for messy marker effects */
+  --marker-primary: #ff6b35;   /* Orange marker */
+  --marker-secondary: #f72585; /* Pink marker */
+  --marker-tertiary: #7209b7;  /* Purple marker */
+  --marker-quaternary: #06ffa5; /* Green marker */
+  --marker-quinary: #3a86ff;   /* Blue marker */
+}
+
+/* Cthulhu Theme - Eldritch cosmic horror from the deep */
+[data-theme="cthulhu"] {
+  /* Surface colors - Abyssal depths and ancient darkness */
+  --bg-primary: #0a0e0d;      /* Primordial darkness - the void between stars */
+  --bg-secondary: #0d1117;    /* Deep ocean trench - where light dies */
+  --bg-tertiary: #161b22;     /* Sunken ruins - ancient and forgotten */
+  --bg-quaternary: #1f2937;   /* Cyclopean stones - weathered by eons */
+
+  /* Text colors - Bioluminescent and otherworldly */
+  --text-primary: #a8dadc;    /* Eerie cyan glow - like deep sea creatures */
+  --text-secondary: #8ecae6;  /* Pale aqua - ghostly illumination */
+  --text-tertiary: #52b788;   /* Sickly green - toxic and unnatural */
+  --text-muted: #457b9d;      /* Faded teal - lost in the depths */
+
+  /* Accent colors - Tentacles, madness, and cosmic horror */
+  --accent-primary: #9d4edd;   /* Tentacle purple - writhing and alive */
+  --accent-secondary: #7209b7; /* Deep cosmic purple - void of space */
+  --accent-tertiary: #40916c;  /* Eldritch green - unnatural life */
+  --accent-emphasis: #c9184a;  /* Blood crimson - ancient sacrifice */
+  --accent-cyan: #06ffa5;      /* Bioluminescent cyan - eerie glow */
+  --accent-blue: #4a5c6a;      /* Deep water blue - crushing pressure */
+
+  /* Status colors - Madness, corruption, and the unknowable */
+  --status-error: #ef233c;     /* Crimson blood - sacrificial red */
+  --status-warning: #f4a261;   /* Rust and decay - ancient corruption */
+  --status-info: #6a4c93;      /* Deep purple - forbidden knowledge */
+  --status-success: #52b788;   /* Toxic green - unnatural growth */
+  --status-purple: #9d4edd;    /* Madness purple - sanity slipping away */
+
+  /* Border colors - Cyclopean architecture */
+  --border-primary: #1b4332;   /* Dark ocean green - algae-covered stone */
+  --border-secondary: #2d6a4f; /* Deeper green - ancient patina */
+  --border-accent: #7209b7;    /* Purple void - reality tears */
+
+  /* Shadows - Ominous, deep, with otherworldly tints */
+  --shadow-sm: 0 2px 8px rgba(157, 78, 221, 0.3);
+  --shadow-md: 0 4px 16px rgba(114, 9, 183, 0.4);
+  --shadow-lg: 0 8px 32px rgba(114, 9, 183, 0.5);
+  --shadow-xl: 0 16px 48px rgba(10, 14, 13, 0.8);
+  --shadow-soft: 0 2px 12px rgba(82, 183, 136, 0.2);
+  --shadow-medium: 0 6px 24px rgba(157, 78, 221, 0.35);
+
+  /* Custom Cthulhu properties - Cosmic horror aesthetics */
+  --eldritch-purple: #9d4edd;  /* Non-Euclidean geometry */
+  --abyss-green: #40916c;      /* Deep sea horror */
+  --void-black: #0a0e0d;       /* The darkness beyond */
+  --blood-red: #ef233c;        /* Ancient sacrifice */
+  --cosmic-blue: #4a5c6a;      /* Alien stars */
+  --madness-glow: rgba(157, 78, 221, 0.15); /* Sanity-draining aura */
+}
+
 /* System Theme - follows OS preference */
 @media (prefers-color-scheme: light) {
   [data-theme="system"] {

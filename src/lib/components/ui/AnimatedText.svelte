@@ -16,89 +16,117 @@
     isVisible = true;
   });
 
-  function getTransition() {
-    let config;
+  // Pre-compute animation configs as reactive statements
+  $: fadeConfig = (() => {
+    const config = modernAnimations.contentFade(delay);
+    return getAnimation({
+      delay: config.delay,
+      duration: config.duration,
+      easing: config.easing
+    });
+  })();
 
-    switch (animation) {
-      case 'slideUp':
-        config = modernAnimations.slideUp(delay);
-        return {
-          transition: fly,
-          props: getAnimation({
-            delay: config.delay,
-            duration: config.duration,
-            y: config.y,
-            easing: config.easing
-          })
-        };
-      case 'slideLeft':
-        config = modernAnimations.slideLeft(delay);
-        return {
-          transition: fly,
-          props: getAnimation({
-            delay: config.delay,
-            duration: config.duration,
-            x: config.x,
-            easing: config.easing
-          })
-        };
-      case 'slideRight':
-        config = modernAnimations.slideRight(delay);
-        return {
-          transition: fly,
-          props: getAnimation({
-            delay: config.delay,
-            duration: config.duration,
-            x: config.x,
-            easing: config.easing
-          })
-        };
-      case 'scaleIn':
-        config = modernAnimations.scaleIn(delay);
-        return {
-          transition: scale,
-          props: getAnimation({
-            delay: config.delay,
-            duration: config.duration,
-            start: config.start,
-            easing: config.easing
-          })
-        };
-      case 'hero':
-        config = modernAnimations.heroEntrance(delay);
-        return {
-          transition: fly,
-          props: getAnimation({
-            delay: config.delay,
-            duration: config.duration,
-            y: config.y,
-            easing: config.easing
-          })
-        };
-      default:
-        config = modernAnimations.contentFade(delay);
-        return {
-          transition: fade,
-          props: getAnimation({
-            delay: config.delay,
-            duration: config.duration,
-            easing: config.easing
-          })
-        };
-    }
-  }
+  $: slideUpConfig = (() => {
+    const config = modernAnimations.slideUp(delay);
+    return getAnimation({
+      delay: config.delay,
+      duration: config.duration,
+      y: config.y,
+      easing: config.easing
+    });
+  })();
 
-  $: transitionConfig = getTransition();
+  $: slideLeftConfig = (() => {
+    const config = modernAnimations.slideLeft(delay);
+    return getAnimation({
+      delay: config.delay,
+      duration: config.duration,
+      x: config.x,
+      easing: config.easing
+    });
+  })();
+
+  $: slideRightConfig = (() => {
+    const config = modernAnimations.slideRight(delay);
+    return getAnimation({
+      delay: config.delay,
+      duration: config.duration,
+      x: config.x,
+      easing: config.easing
+    });
+  })();
+
+  $: scaleConfig = (() => {
+    const config = modernAnimations.scaleIn(delay);
+    return getAnimation({
+      delay: config.delay,
+      duration: config.duration,
+      start: config.start,
+      easing: config.easing
+    });
+  })();
+
+  $: heroConfig = (() => {
+    const config = modernAnimations.heroEntrance(delay);
+    return getAnimation({
+      delay: config.delay,
+      duration: config.duration,
+      y: config.y,
+      easing: config.easing
+    });
+  })();
 </script>
 
 {#if isVisible}
-  <svelte:element
-    this={element}
-    class="animated-text {className}"
-    in:transitionConfig.transition={transitionConfig.props}
-  >
-    {text}
-  </svelte:element>
+  {#if animation === 'slideUp'}
+    <svelte:element
+      this={element}
+      class="animated-text {className}"
+      in:fly={slideUpConfig}
+    >
+      {text}
+    </svelte:element>
+  {:else if animation === 'slideLeft'}
+    <svelte:element
+      this={element}
+      class="animated-text {className}"
+      in:fly={slideLeftConfig}
+    >
+      {text}
+    </svelte:element>
+  {:else if animation === 'slideRight'}
+    <svelte:element
+      this={element}
+      class="animated-text {className}"
+      in:fly={slideRightConfig}
+    >
+      {text}
+    </svelte:element>
+  {:else if animation === 'scaleIn'}
+    <svelte:element
+      this={element}
+      class="animated-text {className}"
+      in:scale={scaleConfig}
+    >
+      {text}
+    </svelte:element>
+  {:else if animation === 'hero'}
+    <svelte:element
+      this={element}
+      class="animated-text {className}"
+      in:fly={heroConfig}
+    >
+      {text}
+    </svelte:element>
+  {:else}
+    <svelte:element
+      this={element}
+      class="animated-text {className}"
+      in:fade={fadeConfig}
+    >
+      {text}
+    </svelte:element>
+  {/if}
 {/if}
 
 <style>

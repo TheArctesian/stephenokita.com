@@ -1,6 +1,8 @@
 <script lang="ts">
   import { slide, fade, scale, fly } from "svelte/transition";
   import { modernAnimations, STAGGER, getAnimation } from "$lib/utils/animations";
+  import { getTechIcon } from "$lib/utils/icons";
+  import Icon from "@iconify/svelte";
   import "../../app.css";
   import { onMount } from "svelte";
 
@@ -72,25 +74,6 @@
     }
   }
 
-  // Function to handle SimpleIcons properly
-  function getIconUrl(tag: string): string {
-    // Convert tag to lowercase and handle special cases
-    const normalizedTag = tag
-      .toLowerCase()
-      .replace(/\s+/g, "") // Remove spaces
-      .replace(/\./g, "dot") // Replace dots with 'dot'
-      .replace(/\+/g, "plus"); // Replace + with 'plus'
-
-    return `https://simpleicons.org/icons/${normalizedTag}.svg`;
-  }
-
-  // Function to check if an icon exists
-  function handleIconError(event: Event) {
-    const target = event.target as HTMLImageElement;
-    // Replace with text fallback if icon fails to load
-    const tag = target.getAttribute("data-tag") || "";
-    target.outerHTML = `<span class="tag-text">${tag}</span>`;
-  }
 
   // Modal state
   let showModal = false;
@@ -161,13 +144,7 @@
           <div class="tags-preview">
             {#each project.tags.slice(0, 4) as tag}
               <span class="tag">
-                <img
-                  src={getIconUrl(tag)}
-                  class="icon-img"
-                  alt={tag}
-                  data-tag={tag}
-                  on:error={handleIconError}
-                />
+                <Icon icon={getTechIcon(tag)} class="icon-img" />
               </span>
             {/each}
             {#if project.tags.length > 4}
@@ -223,13 +200,7 @@
               <div class="modal-tags">
                 {#each selectedProject.tags as tag}
                   <span class="mtag">
-                    <img
-                      src={getIconUrl(tag)}
-                      class="icon-img-modal"
-                      alt={tag}
-                      data-tag={tag}
-                      on:error={handleIconError}
-                    />
+                    <Icon icon={getTechIcon(tag)} class="icon-img-modal" />
                     <span class="tag-name">{tag}</span>
                   </span>
                 {/each}
@@ -286,6 +257,7 @@
     height: 16px;
     filter: invert(1);
     display: block;
+    flex-shrink: 0;
   }
 
   /* Fix icon visibility in sketched theme */
@@ -297,7 +269,8 @@
   .icon-img-modal {
     width: 18px;
     height: 18px;
-    margin-right: 6px;
+    margin-right: 8px;
+    flex-shrink: 0;
   }
 
   /* Fix modal icon visibility in sketched theme */
@@ -307,7 +280,7 @@
   }
 
   .tag-name {
-    margin-left: 4px;
+    margin-left: 0;
   }
 
   .tag-text {

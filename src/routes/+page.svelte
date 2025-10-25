@@ -3,6 +3,7 @@
   import { fade, fly } from "svelte/transition";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
+  import Icon from "@iconify/svelte";
   // Import type for data prop
   export let data;
 
@@ -114,8 +115,69 @@
           </div>
         </div>
 
+        <!-- Professional Roles -->
+        <div class="terminal-section" in:fade={getAnimation("fade", 1100)}>
+          <div class="prompt-line">
+            <span class="prompt">➜</span>
+            <span class="path">~</span>
+            <span class="command">cat ~/.roles</span>
+          </div>
+          <div class="roles-output">
+            <div class="role-badges">
+              <a
+                href="https://www.auracarehealth.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="role-badge"
+              >
+                <Icon icon="mdi:office-building" class="role-icon" />
+                <div class="role-content">
+                  <span class="role-position">CTO & Co-founder</span>
+                  <span class="role-org">Auracare Health</span>
+                </div>
+              </a>
+
+              <a
+                href="https://www.techjusticelab.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="role-badge"
+              >
+                <Icon icon="mdi:gavel" class="role-icon" />
+                <div class="role-content">
+                  <span class="role-position"
+                    >Head of Technology & Co-founder</span
+                  >
+                  <span class="role-org">Berkeley Tech & Justice Lab</span>
+                </div>
+              </a>
+
+              <a
+                href="https://www.ucinvestments.info/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="role-badge"
+              >
+                <Icon icon="mdi:chart-line" class="role-icon" />
+                <div class="role-content">
+                  <span class="role-position">Student Researcher</span>
+                  <span class="role-org">UC Investments</span>
+                </div>
+              </a>
+
+              <div class="role-badge">
+                <Icon icon="mdi:school" class="role-icon" />
+                <div class="role-content">
+                  <span class="role-position">3rd Year Philosophy Student</span>
+                  <span class="role-org">UC Berkeley</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Navigation Cards -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 1200)}>
+        <div class="terminal-section" in:fade={getAnimation("fade", 1300)}>
           <div class="prompt-line">
             <span class="prompt">➜</span>
             <span class="path">~</span>
@@ -159,7 +221,7 @@
         </div>
 
         <!-- Recent Activity -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 1600)}>
+        <div class="terminal-section" in:fade={getAnimation("fade", 1700)}>
           <div class="prompt-line">
             <span class="prompt">➜</span>
             <span class="path">~</span>
@@ -243,7 +305,7 @@
         </div>
 
         <!-- Contact -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 2000)}>
+        <div class="terminal-section" in:fade={getAnimation("fade", 2100)}>
           <div class="prompt-line">
             <span class="prompt">➜</span>
             <span class="path">~</span>
@@ -270,7 +332,7 @@
         <!-- Cursor prompt -->
         <div
           class="terminal-section current-prompt"
-          in:fade={getAnimation("fade", 2400)}
+          in:fade={getAnimation("fade", 2500)}
         >
           <div class="prompt-line">
             <span class="prompt">➜</span>
@@ -598,6 +660,84 @@
     color: var(--accent-cyan);
   }
 
+  /* Professional Roles */
+  .roles-output {
+    margin-left: var(--space-lg);
+  }
+
+  .role-badges {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .role-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .role-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(136, 192, 208, 0.1),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .role-badge:hover::before {
+    left: 100%;
+  }
+
+  .role-badge:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .role-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    color: var(--accent-primary);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+
+  .role-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .role-position {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    line-height: 1.2;
+  }
+
+  .role-org {
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+  }
+
   /* Current Prompt */
   .current-prompt .cursor-blink {
     animation: blink 1s infinite;
@@ -647,6 +787,28 @@
 
     .name-display {
       font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+
+    .role-badges {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .role-badge {
+      padding: var(--space-sm);
+    }
+
+    .role-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .role-position {
+      font-size: var(--font-size-xs);
+    }
+
+    .role-org {
+      font-size: 10px;
     }
   }
 

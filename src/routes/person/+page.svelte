@@ -2,6 +2,8 @@
   import "../../app.css";
   import { fade, scale, slide, fly } from "svelte/transition";
   import { modernAnimations, STAGGER, getAnimation } from "$lib/utils/animations";
+  import { getSocialIcon } from "$lib/utils/icons";
+  import Icon from "@iconify/svelte";
   import me from "./imgs/me&kim.jpg";
 
   let showEasterEgg = false;
@@ -10,37 +12,37 @@
   const socialLinks = [
     {
       name: "YouTube (General)",
-      icon: "https://simpleicons.org/icons/youtube.svg",
+      service: "youtube",
       url: "https://www.youtube.com/@stephenokita",
       color: "hover:border-red-600"
     },
     {
       name: "YouTube (Music)",
-      icon: "https://simpleicons.org/icons/youtube.svg",
+      service: "youtube",
       url: "https://www.youtube.com/@StephenOkitasMusicalMusings",
       color: "hover:border-red-600"
     },
     {
       name: "YouTube (Videos)",
-      icon: "https://simpleicons.org/icons/youtube.svg",
+      service: "youtube",
       url: "https://www.youtube.com/@StephenOkitasVideos",
       color: "hover:border-red-600"
     },
     {
       name: "Spotify",
-      icon: "https://simpleicons.org/icons/spotify.svg",
+      service: "spotify",
       url: "https://open.spotify.com/user/b3oj8mjbyq5cfs26vp6c41ujr",
       color: "hover:border-green-500"
     },
     {
       name: "Goodreads",
-      icon: "https://simpleicons.org/icons/goodreads.svg",
+      service: "goodreads",
       url: "https://www.goodreads.com/user/show/155512706-stephen-okita",
       color: "hover:border-yellow-700"
     },
     {
       name: "Letterboxd",
-      icon: "https://simpleicons.org/icons/letterboxd.svg",
+      service: "letterboxd",
       url: "https://letterboxd.com/danielOkita/",
       color: "hover:border-orange-500"
     },
@@ -199,7 +201,7 @@
       {#each socialLinks as link}
         <a href={link.url} target="_blank" rel="noopener noreferrer"
            class="social-card">
-          <img src={link.icon} alt={link.name} class="social-icon" />
+          <Icon icon={getSocialIcon(link.service)} class="social-icon" />
           <span class="social-name">{link.name}</span>
         </a>
       {/each}
@@ -453,7 +455,6 @@
     .intro-title {
       @apply text-2xl;
     }
-
 
     .social-grid {
       @apply grid-cols-2;

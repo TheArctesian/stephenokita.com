@@ -1,26 +1,28 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import { getSocialIcon } from "$lib/utils/icons";
+  import Icon from "@iconify/svelte";
 
   const socialLinks = [
     {
       href: "https://www.linkedin.com/in/stephen-okita/",
-      icon: "https://cdn-icons-png.flaticon.com/512/3536/3536569.png",
+      service: "linkedin",
       alt: "LinkedIn",
     },
     {
       href: "https://github.com/TheArctesian",
-      icon: "https://simpleicons.org/icons/github.svg",
+      service: "github",
       alt: "GitHub",
     },
     {
-      href: "https://www.instagram.com/stephen.okita/",
-      icon: "https://simpleicons.org/icons/instagram.svg",
-      alt: "Instagram",
+      href: "https://pixelfed.social/thearctesian",
+      service: "pixelfed",
+      alt: "Pixelfed",
     },
     {
-      href: "https://www.cal.com/stephenokita/",
-      icon: "https://simpleicons.org/icons/caldotcom.svg",
-      alt: "Cal.com",
+      href: "https://x.com/StephenOkita",
+      service: "x",
+      alt: "X (Twitter)",
     },
   ];
 </script>
@@ -41,11 +43,7 @@
         {#each socialLinks as link}
           <div class="social-link flex-1 flex justify-center">
             <a href={link.href} class="w-full flex justify-center">
-              <img
-                src={link.icon}
-                alt={link.alt}
-                class="social-icon w-full hover:scale-110"
-              />
+              <Icon icon={getSocialIcon(link.service)} class="social-icon w-full hover:scale-110" />
             </a>
           </div>
         {/each}

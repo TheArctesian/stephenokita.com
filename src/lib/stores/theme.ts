@@ -3,13 +3,15 @@ import { browser } from '$app/environment';
 
 // UNIX Philosophy: Simple, modular theme system
 // Each theme is just a data-theme attribute value
-type ThemeName = 'nord-light' | 'nord-dark' | 'sketched' | 'system';
+type ThemeName = 'nord-light' | 'nord-dark' | 'sketched' | 'whiteboard' | 'cthulhu' | 'system';
 
 // Available themes - easily extensible for new rice configurations
 export const AVAILABLE_THEMES = {
   'nord-light': 'Light',
   'nord-dark': 'Dark',
   'sketched': 'Sketched',
+  'whiteboard': 'Whiteboard',
+  'cthulhu': 'Cthulhu',
   'system': 'System'
 } as const;
 
