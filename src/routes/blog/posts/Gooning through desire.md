@@ -28,24 +28,24 @@ There is another option: to forget the polis and forget the self and to be a tre
 
 The way of the Bodhisattva is probably the only way to stop stroking. I use Bodhisattva here but there are parallels in many different systems of thought; however, I think it is best elucidated by the Buddhist texts and commentaries on the process. It's really hard to do that though and you have to sacrifice so much. Maybe one day I will do that but for now LET'S KEEP GOONING!
 
-# Citations
+# Works Used
 
-Arendt, Hannah. _The Human Condition_. 2nd ed. Chicago: University of Chicago Press, 1998.
+Arendt, Hannah. The Human Condition. 2nd ed. Chicago: University of Chicago Press, 1998.
 
-Aristotle. _The Politics_. Translated by Carnes Lord. 2nd ed. Chicago: University of Chicago Press, 2013.
+Aristotle. The Politics. Translated by Carnes Lord. 2nd ed. Chicago: University of Chicago Press, 2013.
 
-Aristotle. _Prior Analytics_. Translated by Robin Smith. Indianapolis: Hackett Publishing Company, 1989.
+Aristotle. Prior Analytics. Translated by Robin Smith. Indianapolis: Hackett Publishing Company, 1989.
 
-Berkeley, George. _A Treatise Concerning the Principles of Human Knowledge_. Edited by Jonathan Dancy. Oxford: Oxford University Press, 1998.
+Berkeley, George. A Treatise Concerning the Principles of Human Knowledge. Edited by Jonathan Dancy. Oxford: Oxford University Press, 1998.
 
-Diogenes the Cynic. _Diogenes the Cynic: Sayings and Anecdotes, With Other Popular Moralists_. Translated by Robin Hard. Oxford: Oxford University Press, 2012.
+Diogenes the Cynic. Diogenes the Cynic: Sayings and Anecdotes, With Other Popular Moralists. Translated by Robin Hard. Oxford: Oxford University Press, 2012.
 
-Hegel, G. W. F. _Phenomenology of Spirit_. Translated by A. V. Miller. Oxford: Oxford University Press, 1977.
+Hegel, G. W. F. Elements of the Philosophy of Right. Edited by Allen W. Wood. Translated by H. B. Nisbet. Cambridge: Cambridge University Press, 1991.
 
-Hegel, G. W. F. _Elements of the Philosophy of Right_. Edited by Allen W. Wood. Translated by H. B. Nisbet. Cambridge: Cambridge University Press, 1991.
+Hegel, G. W. F. Phenomenology of Spirit. Translated by A. V. Miller. Oxford: Oxford University Press, 1977.
 
-Hegel, G. W. F. _Phenomenology of Spirit_. Translated by A. V. Miller. Oxford: Oxford University Press, 1977.
+Nietzsche, Friedrich. Man Alone with Himself. Translated by Helen Zimmern. In Human, All Too Human: A Book for Free Spirits, Part II. Cambridge: Cambridge University Press, 2013.
 
-Nietzsche, Friedrich. _Man Alone with Himself_. Translated by Helen Zimmern. In _Human, All Too Human: A Book for Free Spirits_, Part II. Cambridge: Cambridge University Press, 2013.
+Śāntideva. The Way of the Bodhisattva. Translated by Padmakara Translation Group. Rev. ed. Boston: Shambhala Publications, 2006.
 
-Śāntideva. _The Way of the Bodhisattva_. Translated by Padmakara Translation Group. Rev. ed. Boston: Shambhala Publications, 2006.
+Wittgenstein, Ludwig. Tractatus Logico-Philosophicus. Translated by D. F. Pears and B. F. McGuinness. London: Routledge, 2001.
