@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { fade, slide } from 'svelte/transition';
-  import AuthForm from './AuthForm.svelte';
-  import CommentItem from './CommentItem.svelte';
-  import type { Comment } from '$lib/services/comments';
+  import { onMount } from "svelte";
+  import { fade, slide } from "svelte/transition";
+  import AuthForm from "./AuthForm.svelte";
+  import CommentItem from "./CommentItem.svelte";
+  import type { Comment } from "$lib/services/comments";
 
   export let postSlug: string;
 
@@ -11,8 +11,8 @@
   let user: any = null;
   let loading = true;
   let showAuthForm = false;
-  let newCommentContent = '';
-  let anonymousName = '';
+  let newCommentContent = "";
+  let anonymousName = "";
   let submittingComment = false;
 
   onMount(async () => {
@@ -23,20 +23,22 @@
 
   async function loadComments() {
     try {
-      const response = await fetch(`/api/comments?postSlug=${encodeURIComponent(postSlug)}`);
+      const response = await fetch(
+        `/api/comments?postSlug=${encodeURIComponent(postSlug)}`,
+      );
       if (response.ok) {
         const data = await response.json();
         comments = data.comments;
       }
     } catch (error) {
-      console.error('Failed to load comments:', error);
+      console.error("Failed to load comments:", error);
     }
   }
 
   async function checkAuth() {
     try {
       // Check if user is logged in by trying to fetch user info
-      const response = await fetch('/api/auth/me');
+      const response = await fetch("/api/auth/me");
       if (response.ok) {
         const data = await response.json();
         user = data.user;
@@ -53,10 +55,10 @@
 
   async function handleLogout() {
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
+      await fetch("/api/auth/logout", { method: "POST" });
       user = null;
     } catch (error) {
-      console.error('Logout failed:', error);
+      console.error("Logout failed:", error);
     }
   }
 
@@ -65,7 +67,7 @@
 
     // For anonymous users, require a name
     if (!user && !anonymousName.trim()) {
-      alert('Please enter your name to comment');
+      alert("Please enter your name to comment");
       return;
     }
 
@@ -73,7 +75,7 @@
     try {
       const body: any = {
         postSlug,
-        content: newCommentContent.trim()
+        content: newCommentContent.trim(),
       };
 
       // Add author name for anonymous users
@@ -81,24 +83,24 @@
         body.authorName = anonymousName.trim();
       }
 
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
 
       if (response.ok) {
-        newCommentContent = '';
-        anonymousName = '';
+        newCommentContent = "";
+        anonymousName = "";
         await loadComments(); // Reload comments
       } else {
         const error = await response.json();
-        console.error('Comment submission failed:', error);
-        alert(`Failed to submit comment: ${error.error || 'Unknown error'}`);
+        console.error("Comment submission failed:", error);
+        alert(`Failed to submit comment: ${error.error || "Unknown error"}`);
       }
     } catch (error) {
-      console.error('Failed to submit comment:', error);
-      alert('Failed to submit comment. Please try again.');
+      console.error("Failed to submit comment:", error);
+      alert("Failed to submit comment. Please try again.");
     } finally {
       submittingComment = false;
     }
@@ -123,19 +125,27 @@
       {#if showAuthForm}
         <div in:slide>
           <AuthForm on:success={handleLogin} />
-          <button class="cancel-auth" on:click={() => showAuthForm = false}>
+          <button class="cancel-auth" on:click={() => (showAuthForm = false)}>
             Cancel
           </button>
         </div>
       {:else}
         {#if user}
           <div class="user-info">
-            <span class="user-name">Commenting as <strong>{user.name}</strong></span>
-            <button class="logout-button" on:click={handleLogout}>Logout</button>
+            <span class="user-name"
+              >Commenting as <strong>{user.name}</strong></span
+            >
+            <button class="logout-button" on:click={handleLogout}>Logout</button
+            >
           </div>
         {:else}
           <div class="anonymous-header">
-            <p class="anonymous-text">Comment anonymously or <button class="inline-link" on:click={() => showAuthForm = true}>sign in</button></p>
+            <p class="anonymous-text">
+              Comment anonymously or <button
+                class="inline-link"
+                on:click={() => (showAuthForm = true)}>sign in</button
+              >
+            </p>
           </div>
         {/if}
 
@@ -144,7 +154,7 @@
             <input
               type="text"
               bind:value={anonymousName}
-              placeholder="Your name"
+              placeholder="Your name or ¬"
               class="name-input"
               disabled={submittingComment}
               maxlength="50"
@@ -161,7 +171,9 @@
             <button
               class="submit-comment"
               on:click={submitComment}
-              disabled={!newCommentContent.trim() || (!user && !anonymousName.trim()) || submittingComment}
+              disabled={!newCommentContent.trim() ||
+                (!user && !anonymousName.trim()) ||
+                submittingComment}
             >
               {#if submittingComment}
                 <span class="spinner small"></span>
@@ -237,7 +249,9 @@
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .comment-form {
@@ -421,3 +435,4 @@
     font-style: italic;
   }
 </style>
+

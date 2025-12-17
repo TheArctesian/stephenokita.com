@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-  import { fade, slide } from 'svelte/transition';
-  import Icon from '@iconify/svelte';
-  import type { Comment } from '$lib/services/comments';
+  import { createEventDispatcher } from "svelte";
+  import { fade, slide } from "svelte/transition";
+  import Icon from "@iconify/svelte";
+  import type { Comment } from "$lib/services/comments";
 
   export let comment: Comment;
   export let user: any = null;
@@ -13,20 +13,20 @@
   const maxDepth = 3; // Limit nesting depth
 
   let showReplyForm = false;
-  let replyContent = '';
-  let replyName = '';
+  let replyContent = "";
+  let replyName = "";
   let submittingReply = false;
 
   function formatDate(date: Date): string {
-    const dateStr = new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    const dateStr = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     }).format(new Date(date));
 
-    const timeStr = new Intl.DateTimeFormat('en-US', {
-      hour: '2-digit',
-      minute: '2-digit'
+    const timeStr = new Intl.DateTimeFormat("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
     }).format(new Date(date));
 
     return `${dateStr} at ${timeStr}`;
@@ -41,7 +41,7 @@
 
     // For anonymous users, require a name
     if (!user && !replyName.trim()) {
-      alert('Please enter your name to reply');
+      alert("Please enter your name to reply");
       return;
     }
 
@@ -50,7 +50,7 @@
       const body: any = {
         postSlug,
         content: replyContent.trim(),
-        parentId: comment.id
+        parentId: comment.id,
       };
 
       // Add author name for anonymous users
@@ -58,25 +58,25 @@
         body.authorName = replyName.trim();
       }
 
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
 
       if (response.ok) {
-        replyContent = '';
-        replyName = '';
+        replyContent = "";
+        replyName = "";
         showReplyForm = false;
-        dispatch('replySubmitted'); // Notify parent to reload comments
+        dispatch("replySubmitted"); // Notify parent to reload comments
       } else {
         const error = await response.json();
-        console.error('Reply submission failed:', error);
-        alert(`Failed to submit reply: ${error.error || 'Unknown error'}`);
+        console.error("Reply submission failed:", error);
+        alert(`Failed to submit reply: ${error.error || "Unknown error"}`);
       }
     } catch (error) {
-      console.error('Failed to submit reply:', error);
-      alert('Failed to submit reply. Please try again.');
+      console.error("Failed to submit reply:", error);
+      alert("Failed to submit reply. Please try again.");
     } finally {
       submittingReply = false;
     }
@@ -84,8 +84,8 @@
 
   function cancelReply() {
     showReplyForm = false;
-    replyContent = '';
-    replyName = '';
+    replyContent = "";
+    replyName = "";
   }
 </script>
 
@@ -94,8 +94,12 @@
     <div class="comment-meta">
       <span class="comment-author">{comment.author.name}</span>
       <div class="comment-date">
-        <span class="date">{formatDate(comment.createdAt).split(' at ')[0]}</span>
-        <span class="time">{formatDate(comment.createdAt).split(' at ')[1] || ''}</span>
+        <span class="date"
+          >{formatDate(comment.createdAt).split(" at ")[0]}</span
+        >
+        <span class="time"
+          >{formatDate(comment.createdAt).split(" at ")[1] || ""}</span
+        >
       </div>
     </div>
   </div>
@@ -106,7 +110,11 @@
     </div>
 
     {#if depth < maxDepth}
-      <button class="reply-icon-button" on:click={handleReply} aria-label="Reply to comment">
+      <button
+        class="reply-icon-button"
+        on:click={handleReply}
+        aria-label="Reply to comment"
+      >
         <Icon icon="heroicons:arrow-uturn-left" width="18" height="18" />
       </button>
     {/if}
@@ -122,7 +130,7 @@
         <input
           type="text"
           bind:value={replyName}
-          placeholder="Your name"
+          placeholder="Your name or ¬"
           class="reply-name-input"
           disabled={submittingReply}
           maxlength="50"
@@ -138,13 +146,19 @@
       ></textarea>
 
       <div class="reply-form-actions">
-        <button class="cancel-button" on:click={cancelReply} disabled={submittingReply}>
+        <button
+          class="cancel-button"
+          on:click={cancelReply}
+          disabled={submittingReply}
+        >
           Cancel
         </button>
         <button
           class="submit-button"
           on:click={submitReply}
-          disabled={!replyContent.trim() || (!user && !replyName.trim()) || submittingReply}
+          disabled={!replyContent.trim() ||
+            (!user && !replyName.trim()) ||
+            submittingReply}
         >
           {#if submittingReply}
             Posting...
@@ -216,7 +230,7 @@
     font-size: var(--font-size-xs);
     line-height: 1.4;
   }
-  
+
   .comment-date .date {
     margin-bottom: 2px;
   }
@@ -371,3 +385,4 @@
     }
   }
 </style>
+
