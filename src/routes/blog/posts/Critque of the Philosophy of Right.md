@@ -1,7 +1,7 @@
 ---
 title: Critque of Hegel's Elements of the Philosophy of Right
 description: Pretty much what the title says.
-date: "2025-10-28"
+date: "2025-12-16"
 location: Berkeley
 categories:
   - Philosophy
