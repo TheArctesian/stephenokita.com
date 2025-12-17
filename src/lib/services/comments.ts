@@ -7,7 +7,7 @@ export interface Comment {
   content: string;
   author: {
     name: string;
-    email: string;
+    email?: string; // Optional for anonymous users
   };
   createdAt: Date;
   parentId: number | null;
@@ -75,20 +75,22 @@ export class CommentsService {
 
   static async createComment(
     postSlug: string,
-    userId: number,
     authorName: string,
-    authorEmail: string,
     content: string,
-    parentId?: number
+    options?: {
+      userId?: number;
+      authorEmail?: string;
+      parentId?: number;
+    }
   ): Promise<Comment> {
     const result = await db.insert(comments).values({
       postSlug,
-      userId,
+      userId: options?.userId || null,
       authorName,
-      authorEmail,
+      authorEmail: options?.authorEmail || null,
       content,
-      parentId: parentId || null,
-      isApproved: true
+      parentId: options?.parentId || null,
+      isApproved: true // Auto-approve for now
     }).returning({
       id: comments.id,
       content: comments.content,
@@ -100,7 +102,7 @@ export class CommentsService {
       ...result[0],
       author: {
         name: authorName,
-        email: authorEmail
+        ...(options?.authorEmail && { email: options.authorEmail })
       },
       replies: []
     };

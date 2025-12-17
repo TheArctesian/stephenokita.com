@@ -4,11 +4,11 @@ description: A class essay on the lord and bodsman, a moral formal version of Go
 date: "2025-11-25"
 location: London
 categories:
-  - Philosophy
+  - Hegel
   - Epistemology
   - Phenomenology
+  - Philosophy
   - Dialectics
-  - Hegel
 published: true
 img: https://pxscdn.com/public/m/_v2/509323432926307502/3dc769ff5-aadbb1/059Mqx7WGWIB/DJgOdNhb2bv7BJqCmroDeuaZAPqS8lcj7pxn2HGP.png
 language:

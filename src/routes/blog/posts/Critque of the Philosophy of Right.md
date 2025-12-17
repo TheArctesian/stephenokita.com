@@ -4,14 +4,15 @@ description: Pretty much what the title says.
 date: "2025-12-16"
 location: Berkeley
 categories:
-  - Philosophy
+  - Hegel
+  - Book Review
+  - Kant
   - Epistemology
+  - Philosophy
   - Phenomenology
   - Transcendental Idealism
-  - Kant
   - Spinoza
   - Dialectics
-  - Hegel
 published: true
 img: https://pxscdn.com/public/m/_v2/509323432926307502/c19ce1b25-2f8843/weFTGwbjo0aF/fodcxqrVCAjw9aDe1OBIHTOcCpnYzOSIzZnUTMfA.png
 language:

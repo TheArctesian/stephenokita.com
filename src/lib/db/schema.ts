@@ -171,9 +171,9 @@ export const sessions = pgTable('sessions', {
 export const comments = pgTable('comments', {
   id: serial('id').primaryKey(),
   postSlug: text('post_slug').notNull(), // References blog post slug
-  userId: integer('user_id').references(() => users.id),
-  authorName: text('author_name').notNull(), // For display
-  authorEmail: text('author_email').notNull(), // For gravatar/replies
+  userId: integer('user_id').references(() => users.id), // Optional - null for anonymous users
+  authorName: text('author_name').notNull(), // For display - required for all comments
+  authorEmail: text('author_email'), // Optional - for gravatar/replies (authenticated users only)
   content: text('content').notNull(),
   parentId: integer('parent_id').references(() => comments.id), // For nested replies
   isApproved: boolean('is_approved').default(false), // Moderation

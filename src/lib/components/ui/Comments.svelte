@@ -12,8 +12,8 @@
   let loading = true;
   let showAuthForm = false;
   let newCommentContent = '';
+  let anonymousName = '';
   let submittingComment = false;
-  let replyingTo: number | null = null;
 
   onMount(async () => {
     await loadComments();
@@ -61,23 +61,35 @@
   }
 
   async function submitComment() {
-    if (!newCommentContent.trim() || !user) return;
+    if (!newCommentContent.trim()) return;
+
+    // For anonymous users, require a name
+    if (!user && !anonymousName.trim()) {
+      alert('Please enter your name to comment');
+      return;
+    }
 
     submittingComment = true;
     try {
+      const body: any = {
+        postSlug,
+        content: newCommentContent.trim()
+      };
+
+      // Add author name for anonymous users
+      if (!user) {
+        body.authorName = anonymousName.trim();
+      }
+
       const response = await fetch('/api/comments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          postSlug,
-          content: newCommentContent.trim(),
-          parentId: replyingTo
-        })
+        body: JSON.stringify(body)
       });
 
       if (response.ok) {
         newCommentContent = '';
-        replyingTo = null;
+        anonymousName = '';
         await loadComments(); // Reload comments
       } else {
         const error = await response.json();
@@ -86,18 +98,10 @@
       }
     } catch (error) {
       console.error('Failed to submit comment:', error);
+      alert('Failed to submit comment. Please try again.');
     } finally {
       submittingComment = false;
     }
-  }
-
-  function handleReply(commentId: number) {
-    replyingTo = commentId;
-    // Focus the comment input (you could scroll to it too)
-  }
-
-  function cancelReply() {
-    replyingTo = null;
   }
 </script>
 
@@ -116,20 +120,37 @@
   {:else}
     <!-- Comment Form -->
     <div class="comment-form">
-      {#if user}
-        <div class="user-info">
-          <span class="user-name">Commenting as <strong>{user.name}</strong></span>
-          <button class="logout-button" on:click={handleLogout}>Logout</button>
+      {#if showAuthForm}
+        <div in:slide>
+          <AuthForm on:success={handleLogin} />
+          <button class="cancel-auth" on:click={() => showAuthForm = false}>
+            Cancel
+          </button>
         </div>
-        
-        {#if replyingTo}
-          <div class="reply-indicator" in:slide>
-            <span>Replying to comment</span>
-            <button class="cancel-reply" on:click={cancelReply}>Cancel</button>
+      {:else}
+        {#if user}
+          <div class="user-info">
+            <span class="user-name">Commenting as <strong>{user.name}</strong></span>
+            <button class="logout-button" on:click={handleLogout}>Logout</button>
+          </div>
+        {:else}
+          <div class="anonymous-header">
+            <p class="anonymous-text">Comment anonymously or <button class="inline-link" on:click={() => showAuthForm = true}>sign in</button></p>
           </div>
         {/if}
 
         <div class="comment-input">
+          {#if !user}
+            <input
+              type="text"
+              bind:value={anonymousName}
+              placeholder="Your name"
+              class="name-input"
+              disabled={submittingComment}
+              maxlength="50"
+            />
+          {/if}
+
           <textarea
             bind:value={newCommentContent}
             placeholder="Share your thoughts..."
@@ -137,10 +158,10 @@
             disabled={submittingComment}
           ></textarea>
           <div class="comment-actions">
-            <button 
+            <button
               class="submit-comment"
               on:click={submitComment}
-              disabled={!newCommentContent.trim() || submittingComment}
+              disabled={!newCommentContent.trim() || (!user && !anonymousName.trim()) || submittingComment}
             >
               {#if submittingComment}
                 <span class="spinner small"></span>
@@ -151,24 +172,6 @@
             </button>
           </div>
         </div>
-      {:else}
-        <div class="auth-prompt">
-          {#if showAuthForm}
-            <div in:slide>
-              <AuthForm on:success={handleLogin} />
-              <button class="cancel-auth" on:click={() => showAuthForm = false}>
-                Cancel
-              </button>
-            </div>
-          {:else}
-            <div class="login-prompt" in:fade>
-              <p>Join the conversation!</p>
-              <button class="show-auth" on:click={() => showAuthForm = true}>
-                Sign in to comment
-              </button>
-            </div>
-          {/if}
-        </div>
       {/if}
     </div>
 
@@ -176,10 +179,11 @@
     <div class="comments-list">
       {#if comments.length > 0}
         {#each comments as comment (comment.id)}
-          <CommentItem 
-            {comment} 
+          <CommentItem
+            {comment}
             {user}
-            on:reply={(e) => handleReply(e.detail)}
+            {postSlug}
+            on:replySubmitted={loadComments}
           />
         {/each}
       {:else}
@@ -256,6 +260,32 @@
     color: var(--text-secondary);
   }
 
+  .anonymous-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .anonymous-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    text-align: center;
+  }
+
+  .inline-link {
+    background: none;
+    border: none;
+    color: var(--accent-primary);
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+  }
+
+  .inline-link:hover {
+    color: var(--accent-cyan);
+  }
+
   .logout-button {
     background: var(--accent-primary);
     color: var(--bg-primary);
@@ -273,34 +303,25 @@
     transform: translateY(-1px);
   }
 
-  .reply-indicator {
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-md);
-    padding: var(--space-sm) var(--space-md);
-    margin-bottom: var(--space-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-  }
-
-  .cancel-reply {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
+  .name-input {
+    width: 100%;
+    background: var(--bg-primary);
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-md);
-    padding: var(--space-xs) var(--space-md);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition-fast);
+    padding: var(--space-sm) var(--space-md);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-sm);
   }
-  
-  .cancel-reply:hover {
-    background: var(--bg-secondary);
-    border-color: var(--accent-primary);
-    transform: translateY(-1px);
+
+  .name-input:focus {
+    outline: none;
+    border-color: var(--border-primary);
+  }
+
+  .name-input::placeholder {
+    color: var(--text-tertiary);
   }
 
   .comment-input textarea {
@@ -318,7 +339,7 @@
 
   .comment-input textarea:focus {
     outline: none;
-    border-color: var(--accent-primary);
+    border-color: var(--border-primary);
   }
 
   .comment-actions {

@@ -75,10 +75,10 @@ export const GET: RequestHandler = async ({ url }) => {
   }
 };
 
-// Create a new comment
+// Create a new comment (supports both authenticated and anonymous users)
 export const POST: RequestHandler = async ({ request, cookies }) => {
   try {
-    const { postSlug, content, parentId } = await request.json();
+    const { postSlug, content, parentId, authorName } = await request.json();
 
     // Basic validation
     if (!postSlug || !content) {
@@ -89,15 +89,45 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
       return json({ error: 'Comment must be at least 3 characters long' }, { status: 400 });
     }
 
-    // Check authentication
+    // Check for authentication (optional)
     const token = cookies.get('session');
-    if (!token) {
-      return json({ error: 'Authentication required' }, { status: 401 });
+    let user = null;
+
+    if (token) {
+      const authResult = await validateSessionToken(token);
+      if (authResult.session && authResult.user) {
+        user = authResult.user;
+      }
     }
 
-    const { session, user } = await validateSessionToken(token);
-    if (!session || !user) {
-      return json({ error: 'Invalid session' }, { status: 401 });
+    // Determine author information
+    let commentAuthorName: string;
+    let commentAuthorEmail: string | undefined;
+    let userId: number | undefined;
+
+    if (user) {
+      // Authenticated user - use their information
+      commentAuthorName = user.name;
+      commentAuthorEmail = user.email;
+      userId = user.id;
+    } else {
+      // Anonymous user - require name in request
+      if (!authorName || authorName.trim().length < 2) {
+        return json({
+          error: 'Author name is required for anonymous comments (minimum 2 characters)'
+        }, { status: 400 });
+      }
+
+      if (authorName.trim().length > 50) {
+        return json({
+          error: 'Author name must be less than 50 characters'
+        }, { status: 400 });
+      }
+
+      commentAuthorName = authorName.trim();
+      // Email is optional for anonymous users
+      commentAuthorEmail = undefined;
+      userId = undefined;
     }
 
     // Validate parent comment if provided
@@ -112,18 +142,18 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
             eq(comments.isDeleted, false)
           )
         );
-      
+
       if (parentComment.length === 0) {
         return json({ error: 'Parent comment not found' }, { status: 400 });
       }
     }
 
-    // Create comment
+    // Create comment using the updated service
     const newComment = await db.insert(comments).values({
       postSlug,
-      userId: user.id,
-      authorName: user.name,
-      authorEmail: user.email,
+      userId: userId || null,
+      authorName: commentAuthorName,
+      authorEmail: commentAuthorEmail || null,
       content: content.trim(),
       parentId: parentId || null,
       isApproved: true // Auto-approve for now, could add moderation later
@@ -138,8 +168,8 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
       comment: {
         ...newComment[0],
         author: {
-          name: user.name,
-          email: user.email
+          name: commentAuthorName,
+          ...(commentAuthorEmail && { email: commentAuthorEmail })
         },
         replies: []
       }
