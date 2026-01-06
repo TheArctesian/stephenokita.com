@@ -29,7 +29,7 @@ This animal pushes the boundaries of what was previously understood to constitut
 
 **Living things**
 
-While the Tardigrades scientifically demonstrates how life exists outside the definitions of previous philosophies. In Jane Bennett’s work Vibrant Matter, a Political Ecology of Things, the definition of life modernized into a function ethical framework.
+While the Tardigrades scientifically demonstrates how life exists outside the definitions of previous philosophies. In Jane Bennett’s work Vibrant Matter, a Political Ecology of Things, the definition of life is modernised into a functional ethical framework.
 Vibrant Matter, posits that all matter possesses a vitality in and of itself. Bennet paints uses a poem to illustrate this fact:
 
 <div style="text-align: center">
@@ -42,7 +42,7 @@ Vibrant Matter, posits that all matter possesses a vitality in and of itself. Be
 </div>
 While this collection object is considered devoid of all in which we consider lives, Bennet paints a romantic image of the collection of objects, highlighting the “excruciating complexity and intractability” of these non-human bodies. While lacking metabolism or activity the objects (or things) are indeed biological lifeless, however, they have in themselves a certain power. The term Thing-power describes how seemingly inert objects have their own capacity as “actants” to affect the world. This power as an actant is not predicated on any form of agency, but rather the innate ability for all matter (living and non-living) to affect each other. She borrows the term assemblages from Deluze and Guattari to describe this ability for vibrant matter to form together and produce effects on the universe. Thus while the object presents are passive and inanimate, they have an impact on the surrounding environment, have had an impact on the environment and will it’s constitute matter will continue to act upon the environment.
 
-This picture of vibrant matter expands Roosth erosion of the biological view of life from the domain’s of esoteric science to the philosophical. Bennett creates a secularized framework to support Spinoza’s idea of “god or nature”, creating an ethical foundation to ascribe all matter as being alive (from all nature being god). This ethical theory has serious implications for how we interact with the world. If everything is alive and thus “an end in itself” society has a categorical imperative to treat all matter as such. Thus we must respect nature and the environment not as a thing for humanity to appropriate but as a living thing that has its own will and ergon. Bennet’s hope was that this ethic could bleed the political and pose as ideological force to save our planet from the crisis of climate change.
+This picture of vibrant matter expands Roosth erosion of the biological view of life from the domain’s of esoteric science to the philosophical. Bennett creates a secularised framework to support Spinoza’s idea of “god or nature”, creating an ethical foundation to ascribe all matter as being alive (from all nature being god). This ethical theory has serious implications for how we interact with the world. If everything is alive and thus “an end in itself” society has a categorical imperative to treat all matter as such. Thus we must respect nature and the environment not as a thing for humanity to appropriate but as a living thing that has its own will and ergon. Bennet’s hope was that this ethic could bleed the political and pose as ideological force to save our planet from the crisis of climate change.
 
 **Biopower**
 

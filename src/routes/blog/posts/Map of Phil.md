@@ -53,7 +53,7 @@ This was made in conjunction with Sonnet-3.7. You will have to zoom in to read t
 
 </ul>
 
-<p><em>Note: Philosophers categorized by their primary period of influence, though many worked across traditional boundaries.</em></p>
+<p><em>Note: Philosophers categorised by their primary period of influence, though many worked across traditional boundaries.</em></p>
 
 </div
 >

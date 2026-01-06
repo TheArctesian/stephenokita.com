@@ -25,11 +25,11 @@ DAOs have no central authority structure and work by voting with governance toke
 
 ## Person Verification
 
-Traditional KYC typically relies on government-issued documents like driver's licenses or passports. For decentralized systems, this creates a fundamental tension: how do we verify identity while maintaining privacy and independence from centralized authorities?
+Traditional KYC typically relies on government-issued documents like driver's licenses or passports. For decentralised systems, this creates a fundamental tension: how do we verify identity while maintaining privacy and independence from centralised authorities?
 
-Self-sovereign identity (SSI) is the concept that individuals should own and control their digital identities without relying on centralized authorities. This is a beautiful idea where identity is moved from siloed, company/government controlled to user-owned. This is reclaiming identity from the violent monopolies that currently control our selfhood.
+Self-sovereign identity (SSI) is the concept that individuals should own and control their digital identities without relying on centralised authorities. This is a beautiful idea where identity is moved from siloed, company/government controlled to user-owned. This is reclaiming identity from the violent monopolies that currently control our selfhood.
 
-Projects like Sovrin, uPort, and Civic have pioneered this approach, creating frameworks where identity credentials are stored in decentralized networks or users' personal wallets rather than corporate databases. The W3C Decentralized Identifiers (DIDs) specification provides standardization for these efforts but there is still a lot of work to be done.
+Projects like Sovrin, uPort, and Civic have pioneered this approach, creating frameworks where identity credentials are stored in decentralised networks or users' personal wallets rather than corporate databases. The W3C Decentralized Identifiers (DIDs) specification provides standardisation for these efforts but there is still a lot of work to be done.
 
 Until we have wider adoption of DiDs we won't be able to reclaim of sovereignty so a government id mechanism would need to work. It could follow a PGP like formula where a NFT is minted based on the encrypted value of the `BASE64` image of your government ids, this could be then externally validated or validated based off similarity to facial scans. The public blockchain would only see random numbers only unlocked with the owners wallet validation (private key decryption). These are known as zero knowledge proofs, which are incredibly powerful.
 
@@ -52,16 +52,16 @@ A critical challenge in decentralized systems is preventing Sybil attacks - wher
 
 ## Enforcement Mechanisms
 
-Without centralized authority, enforcement becomes challenging. Enforcement is a problem that you don't want to have. Ideally this system is robust enough to prevent duplicate or fake accounts, however I can think of a couple ways to attack the system. As usual in cyber security, mitigation is import but attack detection is even more important. When detected there needs to be punishment such as baning or burning of the token, but this detection system needs to be perfect. If the detection is not perfect that we are stripping people of their social identity unjustly. Mitigation could include punishment such as stacking, requiring users to lock away money in escrow that can be taken when a user act's badly. Reputation systems have also been proposed but it is really difficult and also classist (poor people don't have money to stake) a thing we don't want in a perfect democracy.
+Without centralised authority, enforcement becomes challenging. Enforcement is a problem that you don't want to have. Ideally this system is robust enough to prevent duplicate or fake accounts, however I can think of a couple ways to attack the system. As usual in cyber security, mitigation is import but attack detection is even more important. When detected there needs to be punishment such as banning or burning of the token, but this detection system needs to be perfect. If the detection is not perfect that we are stripping people of their social identity unjustly. Mitigation could include punishment such as stacking, requiring users to lock away money in escrow that can be taken when a user act's badly. Reputation systems have also been proposed but it is really difficult and also classist (poor people don't have money to stake) a thing we don't want in a perfect democracy.
 
 ## Real-World Implementations
 
 Several projects are already exploring these concepts:
 
-- Civic: A decentralized identity verification platform using blockchain to give users control over their personal data.
+- Civic: A decentralised identity verification platform using blockchain to give users control over their personal data.
 - Sovrin: A global public utility for self-sovereign identity with governance that prevents any single entity from controlling the network.
 - BrightID: A social identity network that uses the concept of "social graphs" to verify unique personhood.
 - Proof of Humanity: A system requiring video verification and social vouching to create sybil-resistant identities.
 - Chainlink DECO: Enables the use of confidential off-chain data in blockchain transactions while preserving privacy.
 
-The future of decentralized KYC isn't just about technological solutions but about reimagining the relationship between identity, privacy, and trust in digital spaces. I might build this system some day but more so just want people to start thinking about worlds without centralised systems of power.
+The future of decentralised KYC isn't just about technological solutions but about reimagining the relationship between identity, privacy, and trust in digital spaces. I might build this system some day but more so just want people to start thinking about worlds without centralised systems of power.

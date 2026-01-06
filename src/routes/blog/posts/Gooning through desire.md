@@ -1,6 +1,6 @@
 ---
 title: Gooning Through Desire
-description: A silly reflection on the self, through Hegel, Ardent and the Buhdda. All told through the metaphore of masturbation
+description: A silly reflection on the self, through Hegel, Ardent and the Buddha. All told through the metaphor of masturbation
 date: "2025-10-28"
 location: Berkeley
 categories:

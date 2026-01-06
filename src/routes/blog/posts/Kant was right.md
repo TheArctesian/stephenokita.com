@@ -14,7 +14,7 @@ EDIT (June 2025): No he wasn't I was stupid I didn't know how to think
 
 Kant is a figure every philosopher must struggle with at some point in life. I have myself amassed quite a large "library" of sorts of all the books I have read or take from. This library is sacrosanct to me for the notations I have within each book. A book I will never loan to people is my copy the Groundwork of the Metaphysics of morality. For the answer of what is right and wrong or good and bad or most pleasure and pain there is no one who is more right then him.
 
-Kant's a prori or inductive method for answering the questions of ethics, that being what ought to be the laws which command or limit human behaviour/action is categorically irrefutable.
+Kant's a priori or inductive method for answering the questions of ethics, that being what ought to be the laws which command or limit human behaviour/action is categorically irrefutable.
 
 There are valid critiques of Kant, the most common being he is a shit writer. The groundwork is a very difficult book to read, especially if you are not used to dissecting philosophical/meta-intellectual arguments, however that is not an argument of validity but a manifestation of intellectual insecurity.
 

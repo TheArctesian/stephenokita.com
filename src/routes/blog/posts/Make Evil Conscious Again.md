@@ -127,6 +127,6 @@ Let evil not be banal, only you can Make Evil Conscious Again.
 3. Whitman, Walt. "Song of Myself." In _Leaves of Grass_, 51. Philadelphia: David McKay, 1891-92.
 4. Pope Pius IX. _The Syllabus of Errors_, Allocution "Maxima quidem," June 9, 1862. Vatican City.
 5. The reference to "_il duce_" alludes to Benito Mussolini, the Italian Fascist leader (1883-1945).
-6. Adolf Eichmann was a Nazi lieutenant colonel and one of the major organizers of the Holocaust, whom Arendt described as embodying the "banality of evil" through his bureaucratic approach to genocide.
+6. Adolf Eichmann was a Nazi lieutenant colonel and one of the major organisers of the Holocaust, whom Arendt described as embodying the "banality of evil" through his bureaucratic approach to genocide.
 7. The allusion to "the spirit of terrorism" references Jean Baudrillard's analysis in _The Spirit of Terrorism_ (London: Verso, 2002).
-8. The clothes metaphor is aluding to The Greek Fates: Clotho, Lachesis, and Atropos—hold dominion over the fate of every mortal and god, weaving the threads of life and controlling the destinies of all.
+8. The clothes metaphor is alluding to The Greek Fates: Clotho, Lachesis, and Atropos—hold dominion over the fate of every mortal and god, weaving the threads of life and controlling the destinies of all.

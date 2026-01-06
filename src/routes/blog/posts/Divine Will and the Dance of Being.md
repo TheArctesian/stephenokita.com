@@ -18,7 +18,7 @@ language:
   - Latin
 ---
 
-Conway and Leibniz present sophisticated attempts to reconceptualize the relationship between God and creation in the wake of the Cartesian revolution. In this paper, I will describe Conway's position on God's active will in creation, then explain the extent to which Leibniz would agree with Conway's position.
+Conway and Leibniz present sophisticated attempts to reconceptualise the relationship between God and creation in the wake of the Cartesian revolution. In this paper, I will describe Conway's position on God's active will in creation, then explain the extent to which Leibniz would agree with Conway's position.
 
 ## Conway's Position: God as Perpetual Actor
 
@@ -46,7 +46,7 @@ The difference becomes starker when we consider their views on substance. Conway
 
 This fundamental disagreement extends to divine causation. For Conway, God actively intervenes to transform substances according to the divine plan. Leibniz would replace this with his elegant pre-established harmony, where God establishes perfect coordination at creation, allowing substances to develop according to their internal principles while maintaining perfect synchronisation with all others. As he writes, 'There will be a perfect agreement among all substances, producing the same effect that would be noticed if they communicated through the transmission of species or qualities, as the common philosophers imagine they do' (Leibniz, New System).
 
-Leibniz’s objection stems from a profound conviction of divine perfection. On the acting God, Libenz critiques the idea as making God's relationship to creation equivalent to 'a series of perpetual miracles.' He argues that 'In solving problems it is not sufficient to make use of the general cause and to invoke what is called a Deus ex machina. For when one does that without giving any other explanation derived from the order of secondary causes, it is, properly speaking, having recourse to a miracle' (Leibniz, New System).
+Leibniz’s objection stems from a profound conviction of divine perfection. On the acting God, Leibniz critiques the idea as making God's relationship to creation equivalent to 'a series of perpetual miracles.' He argues that 'In solving problems it is not sufficient to make use of the general cause and to invoke what is called a Deus ex machina. For when one does that without giving any other explanation derived from the order of secondary causes, it is, properly speaking, having recourse to a miracle' (Leibniz, New System).
 
 This philosophical elegance extends to Leibniz's account of divine choice. While Conway presents a relatively straightforward voluntarism, Leibniz offers a sophisticated account governed by the principle of sufficient reason: 'all contingent propositions have reasons to be one way rather than another... based on what is or appears to be best from among several equally possible things' (Leibniz, Discourse on Metaphysics, 13). By distinguishing between absolute and hypothetical necessity, Leibniz argues that God's choice is 'morally necessary' but not absolutely necessary.
 

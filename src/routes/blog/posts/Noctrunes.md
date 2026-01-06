@@ -38,7 +38,7 @@ There is no evidence that Field and Frédéric Chopin (1810-1849) ever met in pe
 
 Chopin exploded the Nocturne with modulation, chromaticism, and dynamics. Chopin’s work feels as if it juices all the emotions of the night, expressing it's every form. He shows us its danger, its brutality, its restlessness, its temperature, its unease, and also its stunning beauty. The mood of Chopin’s nocturnes details not just the reverie or contemplation of the night (as with Field), but its drama and passion.
 
-I write all this as I have not written about music on this blog before, and it is such a big part of my life. Nocturnes, as a form of music, transport my mind to the night; it is deeply therapeutic. The sound feels sympathetic; in listening and playing, you share the modulations of life that are usaly only felt in the loudness of solitude. The music mutes the mind, tells you your not alone. It cries and laugh simultaneously, showing us the absurdity of affection. 
+I write all this as I have not written about music on this blog before, and it is such a big part of my life. Nocturnes, as a form of music, transport my mind to the night; it is deeply therapeutic. The sound feels sympathetic; in listening and playing, you share the modulations of life that are usually only felt in the loudness of solitude. The music mutes the mind, tells you your not alone. It cries and laugh simultaneously, showing us the absurdity of affection. 
 
 <center><a href="https://www.youtube.com/watch?v=TCm9788Tb5g">Anyways watch this drive</a></center>
 

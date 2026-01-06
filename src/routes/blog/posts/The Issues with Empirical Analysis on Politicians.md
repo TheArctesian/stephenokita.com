@@ -14,7 +14,7 @@ language:
   - English
 ---
 
-This idea stemmed from a chapter in my NASM Certified Nutritionist Coach course. This chapter (chapter 3) taught us how to analyze nutrition data to apply it to our practice. NASM stated that there was a hierarchy of evidence. For those who are interested it is:
+This idea stemmed from a chapter in my NASM Certified Nutritionist Coach course. This chapter (chapter 3) taught us how to analyse nutrition data to apply it to our practice. NASM stated that there was a hierarchy of evidence. For those who are interested it is:
 
 1. System Reviews & Meta-Analyses of Randomised Controlled Trails (RCT)
 2. RCT
