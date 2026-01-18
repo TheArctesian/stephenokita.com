@@ -127,7 +127,9 @@
       </div>
 
       {#if !user}
+        <label for="reply-name-{comment.id}" class="sr-only">Your name</label>
         <input
+          id="reply-name-{comment.id}"
           type="text"
           bind:value={replyName}
           placeholder="Your name or ¬"
@@ -137,7 +139,9 @@
         />
       {/if}
 
+      <label for="reply-content-{comment.id}" class="sr-only">Your reply</label>
       <textarea
+        id="reply-content-{comment.id}"
         bind:value={replyContent}
         placeholder="Write your reply..."
         rows="3"
@@ -383,6 +387,18 @@
     .comment-item.nested {
       margin-left: var(--space-md);
     }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
 

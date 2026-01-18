@@ -151,7 +151,9 @@
 
         <div class="comment-input">
           {#if !user}
+            <label for="anonymous-name" class="sr-only">Your name</label>
             <input
+              id="anonymous-name"
               type="text"
               bind:value={anonymousName}
               placeholder="Your name or ¬"
@@ -161,7 +163,9 @@
             />
           {/if}
 
+          <label for="comment-content" class="sr-only">Your comment</label>
           <textarea
+            id="comment-content"
             bind:value={newCommentContent}
             placeholder="Share your thoughts..."
             rows="4"
@@ -433,6 +437,18 @@
     padding: var(--space-xl);
     color: var(--text-secondary);
     font-style: italic;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
 

@@ -31,7 +31,7 @@
   <div class="nord-surface p-md w-full">
     <div class="text-center space-y-md">
       <h2 class="text-base">
-        Email me at <span class="text-accent-primary hover:text-accent-cyan transition-all duration-fast cursor-pointer">me@stephenokita.com</span>
+        Email me at <a href="mailto:me@stephenokita.com" class="text-accent-primary hover:text-accent-cyan transition-all duration-fast">me@stephenokita.com</a>
       </h2>
       
       <h2 class="text-base">
@@ -42,7 +42,7 @@
       <div class="social-links flex justify-between items-center gap-xl p-xl">
         {#each socialLinks as link}
           <div class="social-link flex-1 flex justify-center">
-            <a href={link.href} class="w-full flex justify-center">
+            <a href={link.href} aria-label={link.alt} class="w-full flex justify-center">
               <Icon icon={getSocialIcon(link.service)} class="social-icon w-full hover:scale-110" />
             </a>
           </div>
