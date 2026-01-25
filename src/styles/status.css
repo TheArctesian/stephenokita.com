@@ -1,0 +1,93 @@
+/* Status Indicators - UNIX Philosophy: Single responsibility for status styling */
+
+/* Status text colors with hover states */
+.status-error {
+  color: var(--status-error);
+  transition: background-color var(--transition-fast);
+}
+
+.status-error:hover {
+  background-color: rgba(191, 97, 106, 0.1); /* --status-error with opacity */
+}
+
+.status-warning {
+  color: var(--status-warning);
+  transition: background-color var(--transition-fast);
+}
+
+.status-warning:hover {
+  background-color: rgba(208, 135, 112, 0.1); /* --status-warning with opacity */
+}
+
+.status-success {
+  color: var(--status-success);
+  transition: background-color var(--transition-fast);
+}
+
+.status-success:hover {
+  background-color: rgba(163, 190, 140, 0.1); /* --status-success with opacity */
+}
+
+.status-info {
+  color: var(--status-info);
+  transition: background-color var(--transition-fast);
+}
+
+.status-info:hover {
+  background-color: rgba(235, 203, 139, 0.1); /* --status-info with opacity */
+}
+
+/* Status backgrounds */
+.status-bg-error {
+  background-color: var(--status-error);
+  color: var(--bg-primary);
+}
+
+.status-bg-warning {
+  background-color: var(--status-warning);
+  color: var(--bg-primary);
+}
+
+.status-bg-success {
+  background-color: var(--status-success);
+  color: var(--bg-primary);
+}
+
+.status-bg-info {
+  background-color: var(--status-info);
+  color: var(--bg-primary);
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.status-badge-error {
+  background-color: rgba(191, 97, 106, 0.15);
+  color: var(--status-error);
+  border: 1px solid rgba(191, 97, 106, 0.3);
+}
+
+.status-badge-warning {
+  background-color: rgba(208, 135, 112, 0.15);
+  color: var(--status-warning);
+  border: 1px solid rgba(208, 135, 112, 0.3);
+}
+
+.status-badge-success {
+  background-color: rgba(163, 190, 140, 0.15);
+  color: var(--status-success);
+  border: 1px solid rgba(163, 190, 140, 0.3);
+}
+
+.status-badge-info {
+  background-color: rgba(235, 203, 139, 0.15);
+  color: var(--status-info);
+  border: 1px solid rgba(235, 203, 139, 0.3);
+}

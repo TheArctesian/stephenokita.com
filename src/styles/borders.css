@@ -1,0 +1,35 @@
+/* Border Utilities - UNIX Philosophy: Single responsibility for borders */
+/* These utilities use CSS variables from tokens.css for consistency */
+
+/* Border radius */
+.rounded-token-sm { border-radius: var(--radius-sm); }
+.rounded-token-md { border-radius: var(--radius-md); }
+.rounded-token-lg { border-radius: var(--radius-lg); }
+.rounded-token-xl { border-radius: var(--radius-xl); }
+
+/* Border styles */
+.border-primary { border: 1px solid var(--border-primary); }
+.border-secondary { border: 1px solid var(--border-secondary); }
+.border-accent { border: 1px solid var(--border-accent); }
+
+/* Border width utilities */
+.border-w-0 { border-width: 0; }
+.border-w-1 { border-width: 1px; }
+.border-w-2 { border-width: 2px; }
+.border-w-4 { border-width: 4px; }
+
+/* Border sides */
+.border-t-primary { border-top: 1px solid var(--border-primary); }
+.border-b-primary { border-bottom: 1px solid var(--border-primary); }
+.border-l-primary { border-left: 1px solid var(--border-primary); }
+.border-r-primary { border-right: 1px solid var(--border-primary); }
+
+.border-t-secondary { border-top: 1px solid var(--border-secondary); }
+.border-b-secondary { border-bottom: 1px solid var(--border-secondary); }
+.border-l-secondary { border-left: 1px solid var(--border-secondary); }
+.border-r-secondary { border-right: 1px solid var(--border-secondary); }
+
+.border-t-accent { border-top: 1px solid var(--border-accent); }
+.border-b-accent { border-bottom: 1px solid var(--border-accent); }
+.border-l-accent { border-left: 1px solid var(--border-accent); }
+.border-r-accent { border-right: 1px solid var(--border-accent); }

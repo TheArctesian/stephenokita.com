@@ -475,50 +475,82 @@
         <p class="text-center">Loading your browser fingerprint data...</p>
       </div>
     {:else if sessionInfo}
-    <div class="tabs" in:fade={{ delay: 1 * 150, duration: 300 }}>
+    <div class="tabs" role="tablist" aria-label="Browser information categories" in:fade={{ delay: 1 * 150, duration: 300 }}>
       <button
+        role="tab"
+        id="tab-basics"
+        aria-selected={activeTab === "basics"}
+        aria-controls="panel-basics"
         class={activeTab === "basics" ? "active" : ""}
         on:click={() => setActiveTab("basics")}
       >
         Basic Info
       </button>
       <button
+        role="tab"
+        id="tab-screen"
+        aria-selected={activeTab === "screen"}
+        aria-controls="panel-screen"
         class={activeTab === "screen" ? "active" : ""}
         on:click={() => setActiveTab("screen")}
       >
         Screen & Window
       </button>
       <button
+        role="tab"
+        id="tab-hardware"
+        aria-selected={activeTab === "hardware"}
+        aria-controls="panel-hardware"
         class={activeTab === "hardware" ? "active" : ""}
         on:click={() => setActiveTab("hardware")}
       >
         Hardware & Network
       </button>
       <button
+        role="tab"
+        id="tab-features"
+        aria-selected={activeTab === "features"}
+        aria-controls="panel-features"
         class={activeTab === "features" ? "active" : ""}
         on:click={() => setActiveTab("features")}
       >
         Features
       </button>
       <button
+        role="tab"
+        id="tab-media"
+        aria-selected={activeTab === "media"}
+        aria-controls="panel-media"
         class={activeTab === "media" ? "active" : ""}
         on:click={() => setActiveTab("media")}
       >
         Media Support
       </button>
       <button
+        role="tab"
+        id="tab-fonts"
+        aria-selected={activeTab === "fonts"}
+        aria-controls="panel-fonts"
         class={activeTab === "fonts" ? "active" : ""}
         on:click={() => setActiveTab("fonts")}
       >
         Fonts
       </button>
       <button
+        role="tab"
+        id="tab-plugins"
+        aria-selected={activeTab === "plugins"}
+        aria-controls="panel-plugins"
         class={activeTab === "plugins" ? "active" : ""}
         on:click={() => setActiveTab("plugins")}
       >
         Plugins
       </button>
       <button
+        role="tab"
+        id="tab-session"
+        aria-selected={activeTab === "session"}
+        aria-controls="panel-session"
         class={activeTab === "session" ? "active" : ""}
         on:click={() => setActiveTab("session")}
       >
@@ -528,12 +560,12 @@
 
     <!-- Basic Information -->
     {#if activeTab === "basics"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-basics" role="tabpanel" aria-labelledby="tab-basics" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Basic Browser Information
-        </p>
+        </h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           <div class="info-item">
             <strong>User Agent</strong>
@@ -593,12 +625,12 @@
 
     <!-- Screen & Window Information -->
     {#if activeTab === "screen"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-screen" role="tabpanel" aria-labelledby="tab-screen" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Screen & Window Properties
-        </p>
+        </h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           <div class="info-item">
             <strong>Screen Resolution</strong>
@@ -655,12 +687,12 @@
 
     <!-- Hardware & Network -->
     {#if activeTab === "hardware"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-hardware" role="tabpanel" aria-labelledby="tab-hardware" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Hardware & Network Information
-        </p>
+        </h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2">
           <div class="info-item">
             <strong>CPU Cores</strong>
@@ -733,12 +765,12 @@
 
     <!-- Features -->
     {#if activeTab === "features"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-features" role="tabpanel" aria-labelledby="tab-features" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Browser Features & Capabilities
-        </p>
+        </h2>
         <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {#each Object.entries(sessionInfo.features) as [feature, supported]}
             <div class="feature-item">
@@ -747,9 +779,10 @@
                   .replace(/([A-Z])/g, " $1")
                   .replace(/^./, (str) => str.toUpperCase())}</strong
               >
-              <span class={supported ? "supported" : "not-supported"}>
+              <span class={supported ? "supported" : "not-supported"} aria-hidden="true">
                 {supported ? "✓" : "✗"}
               </span>
+              <span class="sr-only">{supported ? "Supported" : "Not supported"}</span>
             </div>
           {/each}
         </div>
@@ -758,12 +791,12 @@
 
     <!-- Media Support -->
     {#if activeTab === "media"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-media" role="tabpanel" aria-labelledby="tab-media" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Media Format Support
-        </p>
+        </h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <h3 class="text-m font-bold mb-2">Video Formats</h3>
@@ -771,9 +804,10 @@
               {#each Object.entries(sessionInfo.videoFormats) as [format, supported]}
                 <div class="feature-item">
                   <strong>{format.toUpperCase()}</strong>
-                  <span class={supported ? "supported" : "not-supported"}>
+                  <span class={supported ? "supported" : "not-supported"} aria-hidden="true">
                     {supported ? "✓" : "✗"}
                   </span>
+                  <span class="sr-only">{supported ? "Supported" : "Not supported"}</span>
                 </div>
               {/each}
             </div>
@@ -785,9 +819,10 @@
               {#each Object.entries(sessionInfo.audioFormats) as [format, supported]}
                 <div class="feature-item">
                   <strong>{format.toUpperCase()}</strong>
-                  <span class={supported ? "supported" : "not-supported"}>
+                  <span class={supported ? "supported" : "not-supported"} aria-hidden="true">
                     {supported ? "✓" : "✗"}
                   </span>
+                  <span class="sr-only">{supported ? "Supported" : "Not supported"}</span>
                 </div>
               {/each}
             </div>
@@ -809,12 +844,12 @@
 
     <!-- Fonts -->
     {#if activeTab === "fonts"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-fonts" role="tabpanel" aria-labelledby="tab-fonts" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Detected Fonts
-        </p>
+        </h2>
         <div class="font-grid">
           {#each sessionInfo.fontFamilies as font}
             <div class="font-item" style="font-family: {font}">
@@ -828,12 +863,12 @@
 
     <!-- Plugins -->
     {#if activeTab === "plugins"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-plugins" role="tabpanel" aria-labelledby="tab-plugins" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Browser Plugins & MIME Types
-        </p>
+        </h2>
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
             <h3 class="text-m font-bold mb-2">
@@ -883,12 +918,12 @@
 
     <!-- Session -->
     {#if activeTab === "session"}
-      <div class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
-        <p
+      <div id="panel-session" role="tabpanel" aria-labelledby="tab-session" class="text" in:fade={{ delay: 2 * 150, duration: 300 }}>
+        <h2
           class="text-l font-bold m-auto text-text-primary bg-bg-primary p-2 w-fit rounded-sm mb-4"
         >
           Current Session Details
-        </p>
+        </h2>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div class="info-item">
             <strong>Current URL</strong>
@@ -985,6 +1020,19 @@
 </div>
 
 <style>
+  /* Screen reader only - visually hidden but accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   img {
     width: 3rem;
     margin: auto;
@@ -1032,12 +1080,18 @@
     transition: all 0.2s ease;
   }
 
-  .tabs button.active {
-    background-color: var(--status-warning);
-    color: var(--text-primary);
+  .tabs button:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
   }
 
-  .tabs button:hover:not(.active) {
+  .tabs button.active,
+  .tabs button[aria-selected="true"] {
+    background-color: var(--accent-primary);
+    color: var(--bg-primary);
+  }
+
+  .tabs button:hover:not(.active):not([aria-selected="true"]) {
     background-color: var(--status-purple);
   }
 

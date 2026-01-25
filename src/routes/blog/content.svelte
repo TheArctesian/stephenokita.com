@@ -19,17 +19,21 @@
 <div class="w-auto">
     <div class="flex w-auto">
         <div class="w-fit h-fit text-justify">
-            <button class="focus:outline-none" on:click={toggle}>
-                <span class={`${isOpen ? "rotate" : ""} inline-block`}>
+            <button
+                class="toggle-btn"
+                on:click={toggle}
+                aria-expanded={isOpen}
+                aria-label={isOpen ? `Collapse ${data.title}` : `Expand ${data.title}`}
+            >
+                <span class={`${isOpen ? "rotate" : ""} inline-block`} aria-hidden="true">
                     &gt;
                 </span>
             </button>
         </div>
         <div>
             <div class="flex text-size">
-                <h1 class="">&nbsp{data.date}: &ensp;</h1>
-                <h1 class="font-bold">{data.title}</h1>
-                <br />
+                <span class="date-text">{data.date}:&ensp;</span>
+                <span class="font-bold title-text">{data.title}</span>
             </div>
         </div>
     </div>
@@ -52,9 +56,37 @@
     .text {
         background-color: var(--bg-secondary);
     }
+
+    .toggle-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+        color: var(--text-primary);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .toggle-btn:hover {
+        background-color: var(--bg-tertiary);
+    }
+
+    .toggle-btn:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+    }
+
     .rotate {
         transform: rotate(90deg);
         transition: transform 0.2s ease-in-out;
+    }
+
+    .date-text {
+        color: var(--text-secondary);
+    }
+
+    .title-text {
+        color: var(--text-primary);
     }
 
     @media (max-width: 750px) {

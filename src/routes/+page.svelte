@@ -79,13 +79,13 @@
     <main class="terminal-main">
       <!-- Terminal Header -->
       <div class="terminal-header">
-        <div class="terminal-controls">
+        <div class="terminal-controls" aria-hidden="true">
           <div class="control-button close"></div>
           <div class="control-button minimize"></div>
           <div class="control-button maximize"></div>
         </div>
         <div class="terminal-title">stephen@okita:~</div>
-        <div class="terminal-menu">
+        <div class="terminal-menu" aria-hidden="true">
           <span class="menu-item">File</span>
           <span class="menu-item">Edit</span>
           <span class="menu-item">View</span>
@@ -413,12 +413,6 @@
   .menu-item {
     color: var(--text-secondary);
     font-size: var(--font-size-xs);
-    cursor: pointer;
-    transition: color var(--transition-fast);
-  }
-
-  .menu-item:hover {
-    color: var(--text-primary);
   }
 
   /* Terminal Body */
@@ -429,7 +423,7 @@
   }
 
   .terminal-section {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-md);
   }
 
   .prompt-line {
@@ -535,7 +529,7 @@
   .log-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   .log-entry {
@@ -756,9 +750,15 @@
   }
 
   /* Responsive Design */
+  @media (max-width: 1024px) {
+    .terminal-main {
+      margin-top: var(--space-md);
+    }
+  }
+
   @media (max-width: 768px) {
     .terminal-container {
-      padding: var(--space-sm);
+      padding: var(--space-md);
     }
 
     .terminal-header {
@@ -791,7 +791,7 @@
 
     .role-badges {
       grid-template-columns: 1fr;
-      gap: var(--space-sm);
+      gap: var(--space-md);
     }
 
     .role-badge {

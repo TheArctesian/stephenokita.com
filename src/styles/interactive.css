@@ -1,0 +1,73 @@
+/* Interactive Utilities - UNIX Philosophy: Single responsibility for interactive states */
+
+/* Base interactive state - Proper feedback hierarchy */
+.interactive {
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-soft);
+}
+
+.interactive:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* Primary interactive - For main actions */
+.interactive-primary {
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.interactive-primary:hover {
+  transform: scale(1.05);
+  color: var(--accent-primary);
+  box-shadow: var(--shadow-soft);
+}
+
+.interactive-primary:focus {
+  color: var(--accent-emphasis);
+}
+
+.interactive-primary:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* Secondary interactive - For supporting actions */
+.interactive-secondary {
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.interactive-secondary:hover {
+  transform: scale(1.05);
+  color: var(--accent-secondary);
+  box-shadow: var(--shadow-soft);
+}
+
+.interactive-secondary:focus {
+  color: var(--accent-primary);
+}
+
+.interactive-secondary:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* Subtle interactive - For links and inline actions */
+.interactive-subtle {
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.interactive-subtle:hover {
+  color: var(--accent-primary);
+}
+
+.interactive-subtle:active {
+  opacity: 0.8;
+}

@@ -78,16 +78,41 @@
   // Modal state
   let showModal = false;
   let selectedProject: ProjectData | null = null;
+  let modalElement: HTMLElement | null = null;
+  let previouslyFocusedElement: HTMLElement | null = null;
 
   function openModal(project: ProjectData) {
+    previouslyFocusedElement = document.activeElement as HTMLElement;
     selectedProject = project;
     showModal = true;
-    document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+    document.body.style.overflow = "hidden";
+    // Focus the modal after it renders
+    setTimeout(() => {
+      modalElement?.focus();
+    }, 0);
   }
 
   function closeModal() {
     showModal = false;
-    document.body.style.overflow = "auto"; // Re-enable scrolling
+    document.body.style.overflow = "auto";
+    // Return focus to the element that opened the modal
+    previouslyFocusedElement?.focus();
+  }
+
+  // Handle keyboard events for project cards
+  function handleCardKeydown(event: KeyboardEvent, project: ProjectData) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openModal(project);
+    }
+  }
+
+  // Handle keyboard events for modal overlay
+  function handleOverlayKeydown(event: KeyboardEvent) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      closeModal();
+    }
   }
 
   // Close modal when Escape key is pressed
@@ -118,41 +143,49 @@
   out:slide
   in:fly={getAnimation(modernAnimations.slideUp(parseInt(delay) * STAGGER.normal))}
 >
-  <div class="projects-grid">
+  <div class="projects-grid" role="list" aria-label="{name} projects">
     {#each sortedProjects as project, i}
       <div
         class="project-card"
+        role="listitem"
         in:fly={getAnimation(modernAnimations.slideUp((parseInt(delay) + i) * STAGGER.tight))}
-        on:click={() => openModal(project)}
-        on:keydown={(e) => e.key === "Enter" && openModal(project)}
-        tabindex="0"
-        role="button"
-        aria-label="Open details for {project.name}"
       >
-        <div class="card-header">
-          <img
-            src={getFaviconUrl(project.link)}
-            alt="favicon"
-            class="favicon"
-          />
-          <h2 class="project-title">{project.name}</h2>
-        </div>
-        <p class="project-description-preview">
-          {project.description.substring(0, 100)}...
-        </p>
-        <div class="card-footer">
-          <div class="tags-preview">
-            {#each project.tags.slice(0, 4) as tag}
-              <span class="tag">
-                <Icon icon={getTechIcon(tag)} class="icon-img" />
-              </span>
-            {/each}
-            {#if project.tags.length > 4}
-              <span class="more-tags">+{project.tags.length - 4}</span>
-            {/if}
+        <button
+          class="card-button"
+          on:click={() => openModal(project)}
+          on:keydown={(e) => handleCardKeydown(e, project)}
+          aria-label="View details for {project.name}"
+        >
+          <div class="card-header">
+            <img
+              src={getFaviconUrl(project.link)}
+              alt=""
+              class="favicon"
+              aria-hidden="true"
+            />
+            <h2 class="project-title">{project.name}</h2>
           </div>
-          <div class="date">{formatDate(project.date)}</div>
-        </div>
+          <p class="project-description-preview">
+            {project.description.substring(0, 100)}...
+          </p>
+          <div class="card-footer">
+            <div class="tags-preview" aria-label="Technologies used">
+              {#each project.tags.slice(0, 4) as tag}
+                <span class="tag" title={tag}>
+                  <Icon icon={getTechIcon(tag)} class="icon-img" aria-hidden="true" />
+                  <span class="sr-only">{tag}</span>
+                </span>
+              {/each}
+              {#if project.tags.length > 4}
+                <span class="more-tags" aria-label="{project.tags.length - 4} more technologies">+{project.tags.length - 4}</span>
+              {/if}
+            </div>
+            <div class="date">
+              <span class="sr-only">Date: </span>
+              {formatDate(project.date)}
+            </div>
+          </div>
+        </button>
       </div>
     {/each}
   </div>
@@ -160,19 +193,37 @@
 
 <!-- Modal -->
 {#if showModal && selectedProject}
-  <div class="modal-overlay" on:click={closeModal}>
-    <div class="modal-content" on:click|stopPropagation in:scale out:scale>
+  <div
+    class="modal-overlay"
+    on:click={closeModal}
+    on:keydown={handleOverlayKeydown}
+    role="presentation"
+  >
+    <div
+      class="modal-content"
+      on:click|stopPropagation
+      on:keydown|stopPropagation
+      in:scale
+      out:scale
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      bind:this={modalElement}
+      tabindex="-1"
+    >
       <button
         class="close-button"
         on:click={closeModal}
-        aria-label="Close details">×</button
+        aria-label="Close project details"
       >
+        <span aria-hidden="true">×</span>
+      </button>
 
       <div class="modal-grid">
         <div class="modal-iframe custom-scrollbar">
           <iframe
             src={getEmbedUrl(selectedProject.link)}
-            title={selectedProject.name}
+            title="Preview of {selectedProject.name}"
             loading="lazy"
             sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
           ></iframe>
@@ -182,10 +233,11 @@
           <div class="modal-header">
             <img
               src={getFaviconUrl(selectedProject.link)}
-              alt="favicon"
+              alt=""
               class="modal-favicon"
+              aria-hidden="true"
             />
-            <h2 class="modal-title">{selectedProject.name}</h2>
+            <h2 id="modal-title" class="modal-title">{selectedProject.name}</h2>
           </div>
           <p class="modal-description">{selectedProject.description}</p>
 
@@ -196,11 +248,11 @@
             </div>
 
             <div class="modal-tags-container">
-              <span class="metadata-label">Technologies:</span>
-              <div class="modal-tags">
+              <span class="metadata-label" id="tech-label">Technologies:</span>
+              <div class="modal-tags" role="list" aria-labelledby="tech-label">
                 {#each selectedProject.tags as tag}
-                  <span class="mtag">
-                    <Icon icon={getTechIcon(tag)} class="icon-img-modal" />
+                  <span class="mtag" role="listitem">
+                    <Icon icon={getTechIcon(tag)} class="icon-img-modal" aria-hidden="true" />
                     <span class="tag-name">{tag}</span>
                   </span>
                 {/each}
@@ -213,8 +265,10 @@
             class="project-link"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View {selectedProject.name} project (opens in new tab)"
           >
             View Project
+            <span class="sr-only">(opens in new tab)</span>
           </a>
         </div>
       </div>
@@ -223,6 +277,38 @@
 {/if}
 
 <style>
+  /* Screen reader only - visually hidden but accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Card button - wraps card content for accessibility */
+  .card-button {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+  }
+
+  .card-button:focus {
+    outline: none;
+  }
+
   /* Favicon styling */
   .favicon {
     width: 1.5rem;
@@ -343,7 +429,6 @@
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
-    cursor: pointer;
     overflow: hidden;
   }
 
@@ -352,10 +437,17 @@
     box-shadow: var(--shadow-xl);
   }
 
-  .project-card:focus {
+  .project-card:has(.card-button:focus) {
     outline: 2px solid var(--status-purple);
+    outline-offset: 2px;
     transform: translateY(-3px);
     box-shadow: var(--shadow-xl);
+  }
+
+  /* Fallback for browsers that don't support :has() */
+  .card-button:focus-visible {
+    outline: 2px solid var(--status-purple);
+    outline-offset: 2px;
   }
 
   .project-title {
@@ -473,6 +565,12 @@
     opacity: 0.9;
   }
 
+  .close-button:focus {
+    outline: 2px solid var(--status-purple);
+    outline-offset: 2px;
+    opacity: 1;
+  }
+
   .modal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -561,6 +659,12 @@
   .project-link:hover {
     background-color: var(--status-purple);
     color: var(--text-primary);
+  }
+
+  .project-link:focus {
+    outline: 2px solid var(--status-purple);
+    outline-offset: 2px;
+    background-color: var(--status-purple);
   }
 
   @media (max-width: 900px) {

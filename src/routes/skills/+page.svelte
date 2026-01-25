@@ -80,13 +80,13 @@
     <main class="terminal-main">
       <!-- Terminal Header -->
       <div class="terminal-header">
-        <div class="terminal-controls">
+        <div class="terminal-controls" aria-hidden="true">
           <div class="control-button close"></div>
           <div class="control-button minimize"></div>
           <div class="control-button maximize"></div>
         </div>
         <div class="terminal-title">stephen@okita:~/skills</div>
-        <div class="terminal-menu">
+        <div class="terminal-menu" aria-hidden="true">
           <span class="menu-item">File</span>
           <span class="menu-item">Edit</span>
           <span class="menu-item">View</span>
@@ -166,15 +166,18 @@
             <span class="path">~/skills</span>
             <span class="command">ls -la categories/</span>
           </div>
-          <div class="file-list">
+          <div class="file-list" role="listbox" aria-label="Skill categories">
             {#each Object.entries(categories) as [key, category]}
               <button
                 class="file-item directory"
                 class:active={currentCategory === key}
                 on:click={() => selectCategory(key)}
+                role="option"
+                aria-selected={currentCategory === key}
+                aria-label="View {category.name} skills ({category.data.length} items)"
               >
-                <span class="file-permissions">drwxr-xr-x</span>
-                <span class="file-size">{category.data.length}</span>
+                <span class="file-permissions" aria-hidden="true">drwxr-xr-x</span>
+                <span class="file-size" aria-hidden="true">{category.data.length}</span>
                 <span
                   class="file-name"
                   style="color: var(--accent-{category.color})">{key}/</span
@@ -192,15 +195,22 @@
             <span class="path">~/skills/categories</span>
             <span class="command">tree {currentCategory}/</span>
           </div>
-          <div class="skills-grid">
+          <div class="skills-grid" role="list" aria-label="{categories[currentCategory].name} skills">
             {#each categories[currentCategory].data as skill}
-              <div class="skill-item" in:fade={getAnimation()}>
+              <div class="skill-item" role="listitem" in:fade={getAnimation()}>
                 <div class="skill-icon">
-                  <img src={skill.img} alt={skill.text} />
+                  <img src={skill.img} alt="{skill.text} logo" />
                 </div>
                 <div class="skill-name">{skill.text}</div>
                 {#if skill.level}
-                  <div class="skill-level">
+                  <div
+                    class="skill-level"
+                    role="progressbar"
+                    aria-valuenow={skill.level}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="{skill.text} proficiency: {skill.level}%"
+                  >
                     <div class="level-bar">
                       <div
                         class="level-fill"
@@ -316,10 +326,12 @@
             <a
               href="/other/Stephen Okita Resume 2024.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               class="file-item file"
+              aria-label="Download resume PDF (opens in new tab)"
             >
-              <span class="file-permissions">-rw-r--r--</span>
-              <span class="file-size">245K</span>
+              <span class="file-permissions" aria-hidden="true">-rw-r--r--</span>
+              <span class="file-size" aria-hidden="true">245K</span>
               <span class="file-name">resume-2024.pdf</span>
               <span class="file-description"
                 >Full resume with detailed experience</span
@@ -412,12 +424,6 @@
   .menu-item {
     color: var(--text-secondary);
     font-size: var(--font-size-xs);
-    cursor: pointer;
-    transition: color var(--transition-fast);
-  }
-
-  .menu-item:hover {
-    color: var(--text-primary);
   }
 
   /* Terminal Body */
@@ -541,6 +547,12 @@
   .file-item:hover {
     background: var(--bg-tertiary);
     transform: translateX(var(--space-sm));
+  }
+
+  .file-item:focus {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+    background: var(--bg-tertiary);
   }
 
   .file-item.active {

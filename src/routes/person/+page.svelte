@@ -8,6 +8,17 @@
 
   let showEasterEgg = false;
 
+  function toggleEasterEgg() {
+    showEasterEgg = !showEasterEgg;
+  }
+
+  function handleImageKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleEasterEgg();
+    }
+  }
+
   // Social links with YouTube channels
   const socialLinks = [
     {
@@ -66,14 +77,22 @@
   <!-- Main Bio Section -->
   <div class="bio-container" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
     <div class="bio-image-wrapper">
-      <img
-        src={me}
-        alt="Stephen with Kim"
-        class="bio-image"
-        on:click={() => showEasterEgg = !showEasterEgg}
-      />
+      <button
+        class="bio-image-button"
+        on:click={toggleEasterEgg}
+        on:keydown={handleImageKeydown}
+        aria-label="Photo of Stephen with Kim. Click to reveal a surprise!"
+        aria-pressed={showEasterEgg}
+      >
+        <img
+          src={me}
+          alt=""
+          class="bio-image"
+          aria-hidden="true"
+        />
+      </button>
       {#if showEasterEgg}
-        <p class="easter-egg" in:scale={getAnimation(modernAnimations.celebration(0))}>
+        <p class="easter-egg" role="status" aria-live="polite" in:scale={getAnimation(modernAnimations.celebration(0))}>
           You found the easter egg! 🥚
         </p>
       {/if}
@@ -195,18 +214,23 @@
   </div>
 
   <!-- Social Links Section with YouTube -->
-  <div class="social-section" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
-    <h2 class="section-title">Social Links</h2>
+  <section class="social-section" aria-labelledby="social-links-heading" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
+    <h2 id="social-links-heading" class="section-title">Social Links</h2>
     <div class="social-grid">
       {#each socialLinks as link}
-        <a href={link.url} target="_blank" rel="noopener noreferrer"
-           class="social-card">
-          <Icon icon={getSocialIcon(link.service)} class="social-icon" />
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-card"
+          aria-label="{link.name} (opens in new tab)"
+        >
+          <Icon icon={getSocialIcon(link.service)} class="social-icon" aria-hidden="true" />
           <span class="social-name">{link.name}</span>
         </a>
       {/each}
     </div>
-  </div>
+  </section>
 
 
 
@@ -238,18 +262,38 @@
 
   .bio-image-wrapper {
     @apply flex justify-center mb-8;
+    position: relative;
+  }
+
+  .bio-image-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .bio-image-button:hover .bio-image {
+    border-color: var(--accent-primary);
+    transform: scale(1.02);
+  }
+
+  .bio-image-button:focus {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 4px;
+    border-radius: 0.5rem;
+  }
+
+  .bio-image-button:focus .bio-image {
+    border-color: var(--accent-primary);
   }
 
   .bio-image {
-    @apply w-64 h-64 object-cover rounded-lg shadow-lg cursor-pointer;
+    @apply w-64 h-64 object-cover rounded-lg shadow-lg;
     border: 2px solid var(--border-primary);
-  }
-
-  .bio-image:hover {
-    border-color: var(--accent-primary);
-    transform: scale(1.02);
     transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
+    display: block;
   }
 
   .easter-egg {
@@ -262,7 +306,7 @@
     @apply mb-8 text-center;
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
-    @apply p-6 rounded-lg;
+    @apply p-md rounded-lg;
   }
 
   .intro-description {
@@ -279,7 +323,7 @@
     @apply space-y-4;
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
-    @apply p-6 rounded-lg;
+    @apply p-md rounded-lg;
   }
 
   .simple-content p {
@@ -293,7 +337,7 @@
   }
 
   .info-section {
-    @apply p-6 rounded-lg;
+    @apply p-md rounded-lg;
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
   }
@@ -395,16 +439,23 @@
   }
 
   .social-card {
-    @apply flex flex-col items-center justify-center p-6 rounded-lg;
+    @apply flex flex-col items-center justify-center p-md rounded-lg;
     background: var(--bg-secondary);
     border: 2px solid var(--border-primary);
     transition: all 0.3s;
+    text-decoration: none;
   }
 
   .social-card:hover {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .social-card:focus {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 2px;
+    transform: translateY(-4px) scale(1.02);
   }
 
   .social-icon {
@@ -436,6 +487,10 @@
       @apply w-48 h-48;
     }
 
+    .bio-image-button {
+      border-radius: 0.5rem;
+    }
+
     .info-grid {
       @apply grid-cols-1;
     }
@@ -445,7 +500,7 @@
     }
 
     .info-section {
-      @apply p-4;
+      @apply p-md;
     }
 
     .intro-section {
@@ -464,6 +519,10 @@
   @media (max-width: 480px) {
     .bio-image {
       @apply w-40 h-40;
+    }
+
+    .bio-image-button {
+      border-radius: 0.5rem;
     }
 
     .intro-section {

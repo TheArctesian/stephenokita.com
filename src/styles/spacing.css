@@ -1,0 +1,74 @@
+/* Spacing Utilities - UNIX Philosophy: Single responsibility for spacing */
+/* These utilities use CSS variables from tokens.css for consistency */
+
+/* Padding utilities */
+.p-space-xs { padding: var(--space-xs); }
+.p-space-sm { padding: var(--space-sm); }
+.p-space-md { padding: var(--space-md); }
+.p-space-lg { padding: var(--space-lg); }
+.p-space-xl { padding: var(--space-xl); }
+.p-space-2xl { padding: var(--space-2xl); }
+
+/* Padding X (horizontal) */
+.px-space-xs { padding-left: var(--space-xs); padding-right: var(--space-xs); }
+.px-space-sm { padding-left: var(--space-sm); padding-right: var(--space-sm); }
+.px-space-md { padding-left: var(--space-md); padding-right: var(--space-md); }
+.px-space-lg { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+.px-space-xl { padding-left: var(--space-xl); padding-right: var(--space-xl); }
+.px-space-2xl { padding-left: var(--space-2xl); padding-right: var(--space-2xl); }
+
+/* Padding Y (vertical) */
+.py-space-xs { padding-top: var(--space-xs); padding-bottom: var(--space-xs); }
+.py-space-sm { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.py-space-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.py-space-lg { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.py-space-xl { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+.py-space-2xl { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+
+/* Margin utilities */
+.m-space-xs { margin: var(--space-xs); }
+.m-space-sm { margin: var(--space-sm); }
+.m-space-md { margin: var(--space-md); }
+.m-space-lg { margin: var(--space-lg); }
+.m-space-xl { margin: var(--space-xl); }
+.m-space-2xl { margin: var(--space-2xl); }
+
+/* Margin X (horizontal) */
+.mx-space-xs { margin-left: var(--space-xs); margin-right: var(--space-xs); }
+.mx-space-sm { margin-left: var(--space-sm); margin-right: var(--space-sm); }
+.mx-space-md { margin-left: var(--space-md); margin-right: var(--space-md); }
+.mx-space-lg { margin-left: var(--space-lg); margin-right: var(--space-lg); }
+.mx-space-xl { margin-left: var(--space-xl); margin-right: var(--space-xl); }
+.mx-space-2xl { margin-left: var(--space-2xl); margin-right: var(--space-2xl); }
+
+/* Margin Y (vertical) */
+.my-space-xs { margin-top: var(--space-xs); margin-bottom: var(--space-xs); }
+.my-space-sm { margin-top: var(--space-sm); margin-bottom: var(--space-sm); }
+.my-space-md { margin-top: var(--space-md); margin-bottom: var(--space-md); }
+.my-space-lg { margin-top: var(--space-lg); margin-bottom: var(--space-lg); }
+.my-space-xl { margin-top: var(--space-xl); margin-bottom: var(--space-xl); }
+.my-space-2xl { margin-top: var(--space-2xl); margin-bottom: var(--space-2xl); }
+
+/* Margin bottom */
+.mb-space-xs { margin-bottom: var(--space-xs); }
+.mb-space-sm { margin-bottom: var(--space-sm); }
+.mb-space-md { margin-bottom: var(--space-md); }
+.mb-space-lg { margin-bottom: var(--space-lg); }
+.mb-space-xl { margin-bottom: var(--space-xl); }
+.mb-space-2xl { margin-bottom: var(--space-2xl); }
+
+/* Margin top */
+.mt-space-xs { margin-top: var(--space-xs); }
+.mt-space-sm { margin-top: var(--space-sm); }
+.mt-space-md { margin-top: var(--space-md); }
+.mt-space-lg { margin-top: var(--space-lg); }
+.mt-space-xl { margin-top: var(--space-xl); }
+.mt-space-2xl { margin-top: var(--space-2xl); }
+
+/* Gap utilities */
+.gap-space-xs { gap: var(--space-xs); }
+.gap-space-sm { gap: var(--space-sm); }
+.gap-space-md { gap: var(--space-md); }
+.gap-space-lg { gap: var(--space-lg); }
+.gap-space-xl { gap: var(--space-xl); }
+.gap-space-2xl { gap: var(--space-2xl); }

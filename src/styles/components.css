@@ -1,0 +1,144 @@
+/* Component Styles - UNIX Philosophy: Composed components using utility modules */
+/* These are higher-level components that combine tokens and utilities */
+
+/* Nord Card - Standard card component */
+.nord-card {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-fast);
+}
+
+.nord-card:hover {
+  background-color: var(--bg-tertiary);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-4px);
+}
+
+/* Nord Button - Primary action button */
+.nord-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nord-button:hover {
+  background-color: var(--accent-tertiary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.nord-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.nord-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--accent-primary);
+}
+
+/* Nord Button Secondary - Secondary action button */
+.nord-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-md);
+  background-color: transparent;
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nord-button-secondary:hover {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+  transform: translateY(-1px);
+}
+
+.nord-button-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.nord-button-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--accent-primary);
+}
+
+/* Nord Input - Form input component */
+.nord-input {
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.nord-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(136, 192, 208, 0.2);
+}
+
+.nord-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Nord Surface - Container surfaces with elevation */
+.nord-surface {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-normal);
+}
+
+/* Nord Surface Elevated - Higher elevation surface */
+.nord-surface-elevated {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Section spacing - Consistent vertical rhythm */
+.section-spacing {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.section-spacing-lg {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+/* Content container - Max width with padding */
+.content-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* Card grid - Responsive grid layout */
+.card-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}

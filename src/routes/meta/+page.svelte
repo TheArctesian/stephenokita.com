@@ -4,6 +4,23 @@
   import { modernAnimations, STAGGER, getAnimation, animationHelpers } from "$lib/utils/animations";
 
   let showRssInstructions = false;
+  let copyStatus = '';
+  let copyTimeout: ReturnType<typeof setTimeout>;
+
+  async function copyToClipboard() {
+    try {
+      await navigator.clipboard.writeText('https://stephenokita.com/rss.xml');
+      copyStatus = 'Copied!';
+      // Clear any existing timeout
+      if (copyTimeout) clearTimeout(copyTimeout);
+      // Reset status after 2 seconds
+      copyTimeout = setTimeout(() => {
+        copyStatus = '';
+      }, 2000);
+    } catch (err) {
+      copyStatus = 'Failed to copy';
+    }
+  }
 
   // Create staggered animations for the 6 tech stack cards
   const cardAnimations = animationHelpers.staggerCards(6, STAGGER.wide);
@@ -26,13 +43,13 @@
       </a>
     </div>
     
-    <section class="mb-12" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
+    <section class="mb-xl" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
       <h2 class="text-2xl font-semibold text-text-primary mb-6 pb-2 border-b border-border-primary">
         Technology Stack
       </h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[0])}>
+        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[0])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Frontend Framework</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -47,7 +64,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[1])}>
+        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[1])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Database & ORM</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -62,7 +79,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[2])}>
+        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[2])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Styling & Design</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -77,7 +94,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[3])}>
+        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[3])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Deployment</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -92,7 +109,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[4])}>
+        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[4])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Development Tools</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -107,7 +124,7 @@
           </ul>
         </div>
 
-        <div class="nord-card p-6" in:fly={getAnimation(cardAnimations[5])}>
+        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[5])}>
           <h3 class="text-lg font-semibold text-accent-primary mb-3">Architecture</h3>
           <ul class="space-y-2">
             <li class="text-text-secondary">
@@ -124,7 +141,7 @@
       </div>
     </section>
 
-    <section class="mb-12" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
+    <section class="mb-xl" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
       <h2 class="text-2xl font-semibold text-text-primary mb-6 pb-2 border-b border-border-primary">
         RSS Feed
       </h2>
@@ -138,35 +155,39 @@
         <div class="nord-surface p-6 rounded-lg border-2 border-accent-primary">
           <h3 class="text-lg font-semibold text-text-primary mb-3">Feed URL</h3>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <code class="flex-1 p-3 bg-bg-tertiary rounded font-mono text-accent-tertiary text-sm sm:text-base overflow-x-auto">
+            <code class="flex-1 p-3 bg-bg-tertiary rounded font-mono text-accent-tertiary text-sm sm:text-base overflow-x-auto" id="rss-url">
               https://stephenokita.com/rss.xml
             </code>
-            <button 
+            <button
               class="nord-button whitespace-nowrap flex-shrink-0"
-              on:click={() => {
-                navigator.clipboard.writeText('https://stephenokita.com/rss.xml');
-              }}
+              on:click={copyToClipboard}
+              aria-label="Copy RSS feed URL to clipboard"
             >
-              Copy
+              {copyStatus || 'Copy'}
             </button>
+            <span class="sr-only" role="status" aria-live="polite">
+              {copyStatus}
+            </span>
           </div>
         </div>
 
         <div class="space-y-6">
-          <button 
-            class="w-full text-left flex items-center justify-between p-4 bg-bg-secondary rounded-lg hover:bg-bg-tertiary transition-colors duration-200"
+          <button
+            class="w-full text-left flex items-center justify-between p-4 bg-bg-secondary rounded-lg hover:bg-bg-tertiary transition-colors duration-200 focus:outline-2 focus:outline-accent-primary focus:outline-offset-2"
             on:click={() => showRssInstructions = !showRssInstructions}
+            aria-expanded={showRssInstructions}
+            aria-controls="rss-instructions"
           >
-            <h3 class="text-xl font-semibold text-text-primary">How to Subscribe</h3>
-            <span class="text-2xl text-accent-primary transform transition-transform duration-200 {showRssInstructions ? 'rotate-180' : ''}">
+            <span class="text-xl font-semibold text-text-primary">How to Subscribe</span>
+            <span class="text-2xl text-accent-primary transform transition-transform duration-200 {showRssInstructions ? 'rotate-180' : ''}" aria-hidden="true">
               ↓
             </span>
           </button>
           
           {#if showRssInstructions}
-          <div class="space-y-6" in:slide={{ duration: 300 }} out:slide={{ duration: 200 }}>
+          <div id="rss-instructions" class="space-y-6" in:slide={{ duration: 300 }} out:slide={{ duration: 200 }}>
           
-          <div class="nord-surface p-6 rounded-lg">
+          <div class="nord-surface p-md rounded-lg">
             <h4 class="text-lg font-medium text-accent-secondary mb-3">iOS (iPhone/iPad)</h4>
             <ol class="list-decimal list-inside space-y-2 text-text-secondary">
               <li>Download <strong class="text-text-primary">Feeder</strong> from the App Store (free and privacy-focused)</li>
@@ -179,7 +200,7 @@
             </p>
           </div>
 
-          <div class="nord-surface p-6 rounded-lg">
+          <div class="nord-surface p-md rounded-lg">
             <h4 class="text-lg font-medium text-accent-secondary mb-3">Android</h4>
             <ol class="list-decimal list-inside space-y-2 text-text-secondary">
               <li>Download <strong class="text-text-primary">Feedly</strong> or <strong class="text-text-primary">Inoreader</strong> from Google Play</li>
@@ -193,7 +214,7 @@
             </p>
           </div>
 
-          <div class="nord-surface p-6 rounded-lg">
+          <div class="nord-surface p-md rounded-lg">
             <h4 class="text-lg font-medium text-accent-secondary mb-3">Desktop (Windows/Mac/Linux)</h4>
             <ol class="list-decimal list-inside space-y-2 text-text-secondary">
               <li>Use a web-based reader like <strong class="text-text-primary">Feedly</strong> (feedly.com) or <strong class="text-text-primary">The Old Reader</strong></li>
@@ -206,7 +227,7 @@
             </p>
           </div>
 
-          <div class="nord-surface p-6 rounded-lg">
+          <div class="nord-surface p-md rounded-lg">
             <h4 class="text-lg font-medium text-accent-secondary mb-3">Browser Extensions</h4>
             <ul class="list-disc list-inside space-y-2 text-text-secondary">
               <li><strong class="text-text-primary">Firefox:</strong> Built-in Live Bookmarks or Feedbro extension</li>
@@ -218,7 +239,7 @@
         {/if}
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="nord-surface p-6 rounded-lg">
+          <div class="nord-surface p-md rounded-lg">
             <h3 class="text-lg font-semibold text-accent-primary mb-3">What's in the Feed?</h3>
             <ul class="list-disc list-inside space-y-1 text-text-secondary">
               <li>Full blog post titles and descriptions</li>
@@ -229,7 +250,7 @@
             </ul>
           </div>
 
-          <div class="nord-surface p-6 rounded-lg">
+          <div class="nord-surface p-md rounded-lg">
             <h3 class="text-lg font-semibold text-accent-primary mb-3">Why Use RSS?</h3>
             <ul class="list-disc list-inside space-y-1 text-text-secondary">
               <li><strong class="text-text-primary">Privacy:</strong> No tracking, no algorithms</li>
@@ -248,5 +269,18 @@
 <style>
   code {
     font-family: var(--font-family-mono);
+  }
+
+  /* Screen reader only - visually hidden but accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>

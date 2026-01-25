@@ -1,0 +1,49 @@
+/* Typography Utilities - UNIX Philosophy: Single responsibility for text styling */
+
+/* Gradient text effect */
+.text-gradient {
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-tertiary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Text hierarchy - Following visual hierarchy principles */
+.text-hierarchy-primary {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.text-hierarchy-secondary {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.text-hierarchy-tertiary {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+/* Font size utilities using design tokens */
+.text-size-xs { font-size: var(--font-size-xs); }
+.text-size-sm { font-size: var(--font-size-sm); }
+.text-size-base { font-size: var(--font-size-base); }
+.text-size-lg { font-size: var(--font-size-lg); }
+.text-size-xl { font-size: var(--font-size-xl); }
+.text-size-2xl { font-size: var(--font-size-2xl); }
+.text-size-3xl { font-size: var(--font-size-3xl); }
+
+/* Font weight utilities */
+.font-light { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Text color utilities */
+.text-color-primary { color: var(--text-primary); }
+.text-color-secondary { color: var(--text-secondary); }
+.text-color-tertiary { color: var(--text-tertiary); }
+.text-color-muted { color: var(--text-muted); }
+.text-color-accent { color: var(--accent-primary); }

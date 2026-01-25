@@ -68,29 +68,29 @@
     <div class="m-auto hero mb-4 flex gap-4 items-center">
       <div class="w-full">
         <h1 class="font-bold text-xl mb-4">Welcome to my blog!</h1>
-        <h1 class="mb-4">
+        <p class="mb-4">
           Enjoy, as I put an inordinate amount of my life into this.
-        </h1>
-        <h1 class="mb-4">
+        </p>
+        <p class="mb-4">
           I try not to remove writings once their up as I want a complete record
           of both the growth of my ideas and my abilities as a communicator.
-        </h1>
-        <i
-          >Comment system is now up! Critique is <b>always always</b>
-          invited especially critiques of me, my character, knowledge, actions everything.
-        </i>
-        <h1 class="mt-4">
+        </p>
+        <p>
+          <i>Comment system is now up! Critique is <b>always always</b>
+          invited especially critiques of me, my character, knowledge, actions everything.</i>
+        </p>
+        <p class="mt-4">
           I am still and will always be a stupid fool confidently guessing at
           the nature and order of our world. Thus is the struggle of those who
           venture to <i
             >"passionately experience the weight and burden of existence"</i
           > (BT)
-        </h1>
-        <h1 class="font-bold mt-4">View Counts are taken from Aug 15th 2025</h1>
+        </p>
+        <p class="font-bold mt-4">View Counts are taken from Aug 15th 2025</p>
         
         <!-- RSS Feed Link -->
         <a href="/rss.xml" class="rss-link" aria-label="Subscribe to RSS feed">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M4 11a9 9 0 0 1 9 9"></path>
             <path d="M4 4a16 16 0 0 1 16 16"></path>
             <circle cx="5" cy="19" r="1"></circle>
@@ -107,8 +107,10 @@
     <div class="search-wrapper">
       <!-- Mobile-first search bar -->
       <div class="search-input-container">
+        <label for="blog-search" class="sr-only">Search blog posts</label>
         <svg
           class="search-icon"
+          aria-hidden="true"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -121,6 +123,7 @@
           ></path>
         </svg>
         <input
+          id="blog-search"
           type="text"
           placeholder="Search posts..."
           bind:value={searchTerm}
@@ -169,6 +172,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -195,6 +199,7 @@
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -217,7 +222,7 @@
     </div>
   </div>
 
-  <section class="blog-grid-container">
+  <section class="blog-grid-container" aria-label="Blog posts">
     {#if filteredPosts.length === 0}
       <!-- Empty State -->
       <div class="empty-state" in:scale={{ duration: 300, easing: quintOut }}>
@@ -226,6 +231,7 @@
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
+          aria-hidden="true"
         >
           <path
             stroke-linecap="round"
@@ -234,7 +240,7 @@
             d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <h3 class="empty-title">No posts found</h3>
+        <h2 class="empty-title">No posts found</h2>
         <p class="empty-description">Try adjusting your search or filters</p>
       </div>
     {:else}
@@ -271,6 +277,7 @@
                       class="meta-icon"
                       viewBox="0 0 20 20"
                       fill="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         fill-rule="evenodd"
@@ -369,53 +376,57 @@
   </section>
 </div>
 
-<div class="mt-4">
+<section class="mt-4" aria-labelledby="unfinished-ideas-heading">
   <div class="wrapper">
-    <h1 class="font-bold">Unfinished/expired ideas</h1>
+    <h2 id="unfinished-ideas-heading" class="font-bold">Unfinished/expired ideas</h2>
     <p>
       Ideas for projects and essays that are no longer mine to write and that I
       wrote down to do. Look at the article of the same name for more info.
     </p>
   </div>
   <div class="text-center font-bold wrapper">
-    <h1>Essays that should be written</h1>
+    <h3>Essays that should be written</h3>
   </div>
   <div class="posts flex-wrap overflow-hidden">
     {#each writings as w}
-      <div class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
-        <h1>{w.idea}</h1>
-        <h1 class="mt-auto ml-auto mb-4 font-bold">{w.date}</h1>
-      </div>
+      <article class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
+        <p class="idea-text">{w.idea}</p>
+        <p class="mt-auto ml-auto mb-4 font-bold">{w.date}</p>
+      </article>
     {/each}
-    <div></div>
   </div>
   <div class="text-center font-bold wrapper">
-    <h1 class="">Project that should be done</h1>
+    <h3>Projects that should be done</h3>
   </div>
   <div class="posts mb-4 flex-wrap overflow-hidden">
     {#each projects as w}
-      <div class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
-        <h1>{w.idea}</h1>
-        <h1 class="mt-auto ml-auto mb-4 font-bold">{w.date}</h1>
-      </div>
+      <article class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
+        <p class="idea-text">{w.idea}</p>
+        <p class="mt-auto ml-auto mb-4 font-bold">{w.date}</p>
+      </article>
     {/each}
   </div>
-</div>
+</section>
 
 <style>
+  /* Screen reader only - visually hidden but accessible */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* Base Styles */
   .wrapper {
     @apply bg-bg-secondary p-md rounded m-md;
     @apply transition-all duration-normal;
     border: 1px solid var(--border-primary);
-  }
-
-  .ideas {
-    @apply bg-bg-secondary p-md rounded;
-  }
-
-  right {
-    float: right;
   }
 
   b {
@@ -426,17 +437,6 @@
     @apply p-md rounded bg-bg-secondary mx-md;
     border: 1px solid var(--border-primary);
     @apply transition-all duration-normal;
-  }
-
-  .text {
-    @apply p-md rounded m-md bg-bg-secondary;
-    border: 1px solid var(--border-primary);
-    @apply transition-all duration-normal;
-  }
-
-  .rotate {
-    transform: rotate(90deg);
-    transition: 0.2s ease-in-out;
   }
 
   .l {
@@ -661,7 +661,7 @@
   /* Modern Blog Grid Layout */
   .blog-grid-container {
     padding: 0 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .blog-grid {
@@ -856,7 +856,7 @@
 
   @media (max-width: 768px) {
     .blog-grid-container {
-      padding: 0 0.5rem;
+      padding: 0 1rem;
     }
 
     .blog-grid {
@@ -888,14 +888,8 @@
     .hero {
       flex-direction: column;
     }
-    .cat {
-      width: 100%;
-    }
-    .se {
-      margin-top: 1rem;
-    }
     .l {
-      margin-bottom: 0rem;
+      margin-bottom: 1rem;
     }
   }
 
