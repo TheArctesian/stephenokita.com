@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { slide, fade, scale, fly } from "svelte/transition";
-  import { modernAnimations, STAGGER, getAnimation } from "$lib/utils/animations";
+  import { fade, scale } from "svelte/transition";
   import { getTechIcon } from "$lib/utils/icons";
   import Icon from "@iconify/svelte";
   import "../../app.css";
@@ -16,11 +15,9 @@
 
   export let data: ProjectData[];
   export let name: string;
-  export let delay;
-  export let wait;
-  // Sort projects by date (newest first)
+
   $: sortedProjects = [...data].sort(
-    (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    (b, a) => new Date(a.date).getTime() - new Date(b.date).getTime(),
   );
 
   function formatDate(dateStr: string): string {
@@ -34,48 +31,27 @@
   function getEmbedUrl(url: string): string {
     try {
       const urlObj = new URL(url);
-
-      // GitHub repository handling
       if (urlObj.hostname === "github.com") {
-        // Option 1: Use htmlpreview.github.io for HTML files
         if (url.endsWith(".html")) {
           return `https://htmlpreview.github.io/?${url}`;
         }
-
-        // Option 2: Use githubbox.com (CodeSandbox integration)
         return url.replace("github.com", "githubbox.com");
-
-        // Option 3: Alternative - use StackBlitz
-        // const parts = urlObj.pathname.split('/').filter(p => p);
-        // if (parts.length >= 2) {
-        //   const user = parts[0];
-        //   const repo = parts[1];
-        //   return `https://stackblitz.com/github/${user}/${repo}`;
-        // }
       }
-
-      // Return original URL for non-GitHub links
       return url;
-    } catch (e) {
-      // If URL parsing fails, return the original URL
+    } catch {
       return url;
     }
   }
 
-  // Function to extract domain from URL for favicon service
   function getFaviconUrl(url: string): string {
     try {
       const domain = new URL(url).hostname;
-      // Using DuckDuckGo's favicon service (more reliable than Google's)
       return `https://external-content.duckduckgo.com/ip3/${domain}.ico`;
-    } catch (e) {
-      // Fallback to a generic icon if URL parsing fails
-      return 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%23ddd"/><text x="50" y="50" font-family="Arial" font-size="50" text-anchor="middle" dominant-baseline="middle" fill="%23555">?</text></svg>';
+    } catch {
+      return "";
     }
   }
 
-
-  // Modal state
   let showModal = false;
   let selectedProject: ProjectData | null = null;
   let modalElement: HTMLElement | null = null;
@@ -86,125 +62,87 @@
     selectedProject = project;
     showModal = true;
     document.body.style.overflow = "hidden";
-    // Focus the modal after it renders
-    setTimeout(() => {
-      modalElement?.focus();
-    }, 0);
+    setTimeout(() => modalElement?.focus(), 0);
   }
 
   function closeModal() {
     showModal = false;
     document.body.style.overflow = "auto";
-    // Return focus to the element that opened the modal
     previouslyFocusedElement?.focus();
   }
 
-  // Handle keyboard events for project cards
-  function handleCardKeydown(event: KeyboardEvent, project: ProjectData) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openModal(project);
-    }
-  }
-
-  // Handle keyboard events for modal overlay
-  function handleOverlayKeydown(event: KeyboardEvent) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      closeModal();
-    }
-  }
-
-  // Close modal when Escape key is pressed
   function handleKeydown(event: KeyboardEvent) {
-    if (event.key === "Escape" && showModal) {
-      closeModal();
-    }
+    if (event.key === "Escape" && showModal) closeModal();
   }
 
   onMount(() => {
     document.addEventListener("keydown", handleKeydown);
-    return () => {
-      document.removeEventListener("keydown", handleKeydown);
-    };
+    return () => document.removeEventListener("keydown", handleKeydown);
   });
 </script>
 
-<div
-  class="m-4 text-xl text-text-primary font-bold p-4 border text-center rounded-sm"
-  out:slide
-  in:fly={getAnimation(modernAnimations.slideUp(parseInt(wait) * STAGGER.normal))}
->
-  <h1 class="section-title">{name}</h1>
-</div>
-
-<div
-  class="section-container"
-  out:slide
-  in:fly={getAnimation(modernAnimations.slideUp(parseInt(delay) * STAGGER.normal))}
->
-  <div class="projects-grid" role="list" aria-label="{name} projects">
-    {#each sortedProjects as project, i}
-      <div
-        class="project-card"
+<section class="category">
+  <h2 class="category-label">{name}</h2>
+  <div class="grid" role="list" aria-label="{name} projects">
+    {#each sortedProjects as project}
+      <button
+        class="card"
+        on:click={() => openModal(project)}
+        on:keydown={(e) =>
+          (e.key === "Enter" || e.key === " ") &&
+          (e.preventDefault(), openModal(project))}
         role="listitem"
-        in:fly={getAnimation(modernAnimations.slideUp((parseInt(delay) + i) * STAGGER.tight))}
+        aria-label="View details for {project.name}"
       >
-        <button
-          class="card-button"
-          on:click={() => openModal(project)}
-          on:keydown={(e) => handleCardKeydown(e, project)}
-          aria-label="View details for {project.name}"
-        >
-          <div class="card-header">
+        <div class="card-top">
+          {#if getFaviconUrl(project.link)}
             <img
               src={getFaviconUrl(project.link)}
               alt=""
               class="favicon"
               aria-hidden="true"
             />
-            <h2 class="project-title">{project.name}</h2>
+          {/if}
+          <h3>{project.name}</h3>
+        </div>
+        <p class="card-desc">
+          {project.description.length > 120
+            ? project.description.substring(0, 120) + "..."
+            : project.description}
+        </p>
+        <div class="card-bottom">
+          <div class="card-tags">
+            {#each project.tags.slice(0, 3) as tag}
+              <span class="tag">{tag}</span>
+            {/each}
+            {#if project.tags.length > 3}
+              <span class="tag tag-more">+{project.tags.length - 3}</span>
+            {/if}
           </div>
-          <p class="project-description-preview">
-            {project.description.substring(0, 100)}...
-          </p>
-          <div class="card-footer">
-            <div class="tags-preview" aria-label="Technologies used">
-              {#each project.tags.slice(0, 4) as tag}
-                <span class="tag" title={tag}>
-                  <Icon icon={getTechIcon(tag)} class="icon-img" aria-hidden="true" />
-                  <span class="sr-only">{tag}</span>
-                </span>
-              {/each}
-              {#if project.tags.length > 4}
-                <span class="more-tags" aria-label="{project.tags.length - 4} more technologies">+{project.tags.length - 4}</span>
-              {/if}
-            </div>
-            <div class="date">
-              <span class="sr-only">Date: </span>
-              {formatDate(project.date)}
-            </div>
-          </div>
-        </button>
-      </div>
+          <span class="card-date">{formatDate(project.date)}</span>
+        </div>
+      </button>
     {/each}
   </div>
-</div>
+</section>
 
 <!-- Modal -->
 {#if showModal && selectedProject}
   <div
     class="modal-overlay"
     on:click={closeModal}
-    on:keydown={handleOverlayKeydown}
+    on:keydown={(e) =>
+      (e.key === "Enter" || e.key === " ") &&
+      (e.preventDefault(), closeModal())}
     role="presentation"
+    transition:fade={{ duration: 150 }}
   >
     <div
-      class="modal-content"
+      class="modal"
       on:click|stopPropagation
       on:keydown|stopPropagation
-      in:scale
-      out:scale
+      in:scale={{ duration: 200, start: 0.95 }}
+      out:scale={{ duration: 150, start: 0.95 }}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -212,7 +150,7 @@
       tabindex="-1"
     >
       <button
-        class="close-button"
+        class="modal-close"
         on:click={closeModal}
         aria-label="Close project details"
       >
@@ -220,7 +158,7 @@
       </button>
 
       <div class="modal-grid">
-        <div class="modal-iframe custom-scrollbar">
+        <div class="modal-iframe">
           <iframe
             src={getEmbedUrl(selectedProject.link)}
             title="Preview of {selectedProject.name}"
@@ -229,46 +167,45 @@
           ></iframe>
         </div>
 
-        <div class="modal-details custom-scrollbar">
+        <div class="modal-details">
           <div class="modal-header">
-            <img
-              src={getFaviconUrl(selectedProject.link)}
-              alt=""
-              class="modal-favicon"
-              aria-hidden="true"
-            />
-            <h2 id="modal-title" class="modal-title">{selectedProject.name}</h2>
+            {#if getFaviconUrl(selectedProject.link)}
+              <img
+                src={getFaviconUrl(selectedProject.link)}
+                alt=""
+                class="modal-favicon"
+                aria-hidden="true"
+              />
+            {/if}
+            <h2 id="modal-title">{selectedProject.name}</h2>
           </div>
-          <p class="modal-description">{selectedProject.description}</p>
 
-          <div class="modal-metadata">
-            <div class="modal-date">
-              <span class="metadata-label">Date:</span>
-              <span>{formatDate(selectedProject.date)}</span>
-            </div>
+          <p class="modal-desc">{selectedProject.description}</p>
 
-            <div class="modal-tags-container">
-              <span class="metadata-label" id="tech-label">Technologies:</span>
-              <div class="modal-tags" role="list" aria-labelledby="tech-label">
-                {#each selectedProject.tags as tag}
-                  <span class="mtag" role="listitem">
-                    <Icon icon={getTechIcon(tag)} class="icon-img-modal" aria-hidden="true" />
-                    <span class="tag-name">{tag}</span>
-                  </span>
-                {/each}
-              </div>
-            </div>
+          <div class="modal-meta">
+            <span class="modal-date">{formatDate(selectedProject.date)}</span>
+          </div>
+
+          <div class="modal-tags">
+            {#each selectedProject.tags as tag}
+              <span class="modal-tag">
+                <Icon
+                  icon={getTechIcon(tag)}
+                  class="modal-tag-icon"
+                  aria-hidden="true"
+                />
+                {tag}
+              </span>
+            {/each}
           </div>
 
           <a
             href={selectedProject.link}
-            class="project-link"
+            class="modal-link"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View {selectedProject.name} project (opens in new tab)"
           >
-            View Project
-            <span class="sr-only">(opens in new tab)</span>
+            View Project →
           </a>
         </div>
       </div>
@@ -277,396 +214,279 @@
 {/if}
 
 <style>
-  /* Screen reader only - visually hidden but accessible */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  /* Category section */
+  .category {
+    margin-bottom: var(--space-2xl);
   }
 
-  /* Card button - wraps card content for accessibility */
-  .card-button {
+  .category-label {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  /* Card */
+  .card {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background: none;
-    border: none;
-    padding: 0;
     text-align: left;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
     cursor: pointer;
-    color: inherit;
     font: inherit;
+    color: inherit;
+    transition: border-color var(--transition-fast);
+    min-height: 160px;
   }
 
-  .card-button:focus {
-    outline: none;
+  .card:hover {
+    border-color: var(--accent-primary);
   }
 
-  /* Favicon styling */
+  .card:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
   .favicon {
-    width: 1.5rem;
-    margin-right: 8px;
-    border-radius: 3px;
-    object-fit: contain;
-  }
-
-  .modal-favicon {
-    width: 24px;
-    height: 24px;
-    margin-right: 12px;
-    border-radius: 4px;
-    object-fit: contain;
-  }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-
-  .modal-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Icon styling */
-  .icon-img {
-    width: 16px;
-    height: 16px;
-    filter: invert(1);
-    display: block;
-    flex-shrink: 0;
-  }
-
-  /* Fix icon visibility in sketched theme */
-  :global([data-theme="sketched"]) .icon-img {
-    filter: none;
-    opacity: 0.8;
-  }
-
-  .icon-img-modal {
     width: 18px;
     height: 18px;
-    margin-right: 8px;
+    border-radius: 2px;
+    object-fit: contain;
     flex-shrink: 0;
   }
 
-  /* Fix modal icon visibility in sketched theme */
-  :global([data-theme="sketched"]) .icon-img-modal {
-    filter: none;
-    opacity: 0.8;
+  .card-top h3 {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
   }
 
-  .tag-name {
-    margin-left: 0;
-  }
-
-  .tag-text {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  /* Custom scrollbar styling */
-  .custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: var(--text-primary) var(--bg-primary);
-  }
-
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: var(--bg-primary);
-    border-radius: 4px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: var(--text-primary);
-    border-radius: 4px;
-    border: 2px solid var(--bg-primary);
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: var(--status-purple);
-  }
-
-  /* Rest of your styling */
-  .text {
-    @apply bg-bg-secondary p-md rounded text-xl font-bold text-text-primary;
-    border: 1px solid var(--border-primary);
-    @apply transition-all duration-normal;
-    margin: 1rem 1rem 0rem 1rem;
-  }
-
-  .section-container {
-    margin: 1rem 1rem;
-  }
-
-  .projects-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-
-  .project-card {
-    @apply bg-bg-secondary text-text-primary rounded p-lg;
-    border: 1px solid var(--border-primary);
-    @apply transition-all duration-normal;
-    display: flex;
-    flex-direction: column;
-    height: 200px; /* Fixed height for uniform size */
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-    overflow: hidden;
-  }
-
-  .project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .project-card:has(.card-button:focus) {
-    outline: 2px solid var(--status-purple);
-    outline-offset: 2px;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl);
-  }
-
-  /* Fallback for browsers that don't support :has() */
-  .card-button:focus-visible {
-    outline: 2px solid var(--status-purple);
-    outline-offset: 2px;
-  }
-
-  .project-title {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-
-  .project-description-preview {
-    flex-grow: 1;
-    font-size: small;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  .card-desc {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
     line-height: 1.5;
+    margin: 0 0 auto;
+    flex: 1;
   }
 
-  .card-footer {
+  .card-bottom {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
+    align-items: flex-end;
+    margin-top: var(--space-sm);
+    gap: var(--space-sm);
   }
 
-  .tags-preview {
+  .card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    max-width: 70%;
+    gap: var(--space-xs);
   }
 
   .tag {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    padding: 0.3rem;
-    border-radius: 0.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 0.65rem;
+    font-family: var(--font-family-mono);
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    padding: 1px var(--space-xs);
+    border-radius: var(--radius-sm);
   }
 
-  .mtag {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    padding: 0.4rem 0.6rem;
-    border-radius: 0.3rem;
-    font-size: 0.8rem;
-    font-weight: 500;
+  .tag-more {
+    color: var(--text-secondary);
+  }
+
+  .card-date {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    font-family: var(--font-family-mono);
     white-space: nowrap;
-    display: flex;
-    align-items: center;
+    flex-shrink: 0;
   }
 
-  .more-tags {
-    font-size: 0.7rem;
-    opacity: 0.7;
-    margin: auto;
-  }
-
-  .date {
-    font-style: italic;
-    opacity: 0.8;
-    font-size: 0.85rem;
-  }
-
-  /* Modal styles */
+  /* Modal overlay */
   .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--bg-primary);
-    opacity: 0.95;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 1rem;
+    padding: var(--space-lg);
   }
 
-  .modal-content {
-    background-color: var(--bg-primary);
-    border-radius: 0.5rem;
+  .modal {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
     width: 90%;
-    max-height: 90vh;
+    max-width: 1100px;
+    max-height: 85vh;
     overflow: hidden;
     position: relative;
     box-shadow: var(--shadow-lg);
   }
 
-  .close-button {
+  .modal-close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
-    background: none;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    font-size: 1.25rem;
+    background: var(--bg-tertiary);
     border: none;
     color: var(--text-primary);
     cursor: pointer;
     z-index: 10;
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: var(--bg-tertiary);
-    opacity: 0.8;
+    transition: background var(--transition-fast);
   }
 
-  .close-button:hover {
-    background-color: var(--bg-tertiary);
-    opacity: 0.9;
-  }
-
-  .close-button:focus {
-    outline: 2px solid var(--status-purple);
-    outline-offset: 2px;
-    opacity: 1;
+  .modal-close:hover {
+    background: var(--bg-quaternary);
   }
 
   .modal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
-    max-height: 90vh;
+    height: 85vh;
   }
 
   .modal-iframe {
     position: relative;
-    height: 90vh;
-    background-color: var(--bg-secondary);
-    overflow: auto;
+    height: 100%;
+    background: var(--bg-secondary);
+    overflow: hidden;
   }
 
   .modal-iframe iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     border: none;
   }
 
   .modal-details {
-    padding: 2rem;
+    padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    max-height: 80vh;
   }
 
-  .modal-title {
-    font-size: 1.8rem;
-    font-weight: bold;
+  .modal-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .modal-favicon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: contain;
+  }
+
+  .modal-header h2 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
     color: var(--text-primary);
+    margin: 0;
   }
 
-  .modal-description {
-    font-size: 1rem;
+  .modal-desc {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
     line-height: 1.6;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-    flex-grow: 1;
+    margin: 0 0 var(--space-lg);
+    flex: 1;
   }
 
-  .modal-metadata {
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-  }
-
-  .metadata-label {
-    font-weight: bold;
-    margin-right: 0.5rem;
+  .modal-meta {
+    margin-bottom: var(--space-md);
   }
 
   .modal-date {
-    margin-bottom: 1rem;
-  }
-
-  .modal-tags-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: auto;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-secondary);
   }
 
   .modal-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
   }
 
-  .project-link {
+  .modal-tag {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+  }
+
+  :global(.modal-tag-icon) {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .modal-link {
     display: inline-block;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.3rem;
-    text-decoration: none;
-    text-align: center;
+    color: var(--accent-primary);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-mono);
     font-weight: 500;
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
     align-self: flex-start;
-    transition: background-color 0.2s ease;
   }
 
-  .project-link:hover {
-    background-color: var(--status-purple);
-    color: var(--text-primary);
+  .modal-link:hover {
+    border-color: var(--accent-primary);
+    background: var(--bg-secondary);
   }
 
-  .project-link:focus {
-    outline: 2px solid var(--status-purple);
-    outline-offset: 2px;
-    background-color: var(--status-purple);
-  }
-
+  /* Responsive */
   @media (max-width: 900px) {
     .modal-grid {
       grid-template-columns: 1fr;
@@ -675,25 +495,25 @@
     .modal-iframe {
       height: 40vh;
     }
-
-    .modal-details {
-      max-height: 50vh;
-    }
   }
 
   @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 500px) {
-    .projects-grid {
+    .grid {
       grid-template-columns: 1fr;
     }
+  }
 
-    .project-card {
-      height: 180px;
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>

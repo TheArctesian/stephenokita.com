@@ -2,9 +2,7 @@
   import "../../app.css";
   import { fade } from "svelte/transition";
   import { browser } from "$app/environment";
-  import { onMount } from "svelte";
 
-  // Import skill data
   import web from "./web.json";
   import gamedev from "./gamedev.json";
   import api from "./api.json";
@@ -15,58 +13,23 @@
   import analytics from "./anayltics.json";
   import os from "./os.json";
   import instruments from "./instrument.json";
-  import language from "./language.json";
+  import spokenLanguages from "./language.json";
 
-  let isLoaded = false;
   let currentCategory = "languages";
-  let terminalHistory = [];
 
-  onMount(() => {
-    isLoaded = true;
-    // Add initial terminal output
-    terminalHistory = [
-      { type: "command", text: "skills --list" },
-      { type: "output", text: "Available skill categories:" },
-      { type: "output", text: "  languages     Programming languages" },
-      { type: "output", text: "  web           Web development frameworks" },
-      { type: "output", text: "  gamedev       Game development engines" },
-      { type: "output", text: "  api           API technologies" },
-      { type: "output", text: "  server        Server & hosting" },
-      { type: "output", text: "  database      Database systems" },
-      { type: "output", text: "  creative      Creative tools" },
-      { type: "output", text: "  analytics     Analytics platforms" },
-      { type: "output", text: "  os            Operating systems" },
-    ];
-  });
-
-  const categories = {
-    languages: {
-      name: "Programming Languages",
-      data: languages,
-      color: "cyan",
-    },
-    web: { name: "Web Development", data: web, color: "green" },
-    gamedev: { name: "Game Development", data: gamedev, color: "pink" },
-    api: { name: "API Technologies", data: api, color: "yellow" },
-    server: { name: "Server & Hosting", data: server, color: "magenta" },
-    database: { name: "Database Systems", data: database, color: "blue" },
-    creative: { name: "Creative Tools", data: creative, color: "purple" },
-    analytics: { name: "Analytics Tools", data: analytics, color: "orange" },
-    os: { name: "Operating Systems", data: os, color: "red" },
-  };
-
-  function selectCategory(cat) {
-    currentCategory = cat;
-    terminalHistory = [
-      ...terminalHistory,
-      { type: "command", text: `skills --show ${cat}` },
-      { type: "output", text: `Displaying ${categories[cat].name}...` },
-    ];
-  }
-
-  // Get simple animation
-  const getAnimation = (delay = 0) => {
-    return { delay, duration: 600 };
+  const categories: Record<
+    string,
+    { name: string; data: { text: string; img: string; level?: number }[] }
+  > = {
+    languages: { name: "Programming Languages", data: languages },
+    web: { name: "Web Development", data: web },
+    gamedev: { name: "Game Development", data: gamedev },
+    api: { name: "API Technologies", data: api },
+    server: { name: "Server & Hosting", data: server },
+    database: { name: "Database Systems", data: database },
+    creative: { name: "Creative Tools", data: creative },
+    analytics: { name: "Analytics Tools", data: analytics },
+    os: { name: "Operating Systems", data: os },
   };
 </script>
 
@@ -75,742 +38,375 @@
   <meta name="description" content="Technical skills and expertise" />
 </svelte:head>
 
-<div class="terminal-container">
-  {#if browser && isLoaded}
-    <main class="terminal-main">
-      <!-- Terminal Header -->
-      <div class="terminal-header">
-        <div class="terminal-controls" aria-hidden="true">
-          <div class="control-button close"></div>
-          <div class="control-button minimize"></div>
-          <div class="control-button maximize"></div>
-        </div>
-        <div class="terminal-title">stephen@okita:~/skills</div>
-        <div class="terminal-menu" aria-hidden="true">
-          <span class="menu-item">File</span>
-          <span class="menu-item">Edit</span>
-          <span class="menu-item">View</span>
-        </div>
+<div class="page">
+  <!-- Header -->
+  <header class="hero">
+    <h1>Skills</h1>
+    <p class="summary">
+      Full stack developer with 7+ years of experience. DevOps, self-hosting,
+      game development, AI/ML, and systems administration. Fast learner across
+      the computing spectrum.
+    </p>
+  </header>
+
+  <!-- Environment -->
+  <section class="section">
+    <h2 class="section-label">Environment</h2>
+    <div class="env-grid">
+      <div class="env-item">
+        <span class="env-key">os</span>
+        <span class="env-val">NixOS + Hyprland</span>
       </div>
+      <div class="env-item">
+        <span class="env-key">editor</span>
+        <span class="env-val">Neovim + Claude Code</span>
+      </div>
+      <div class="env-item">
+        <span class="env-key">terminal</span>
+        <span class="env-val">Ghostty + Zellij + Fish</span>
+      </div>
+      <div class="env-item">
+        <span class="env-key">frontend</span>
+        <span class="env-val">SvelteKit + TailwindCSS</span>
+      </div>
+      <div class="env-item">
+        <span class="env-key">backend</span>
+        <span class="env-val">Go Fiber / SvelteKit SSR / Python</span>
+      </div>
+      <div class="env-item">
+        <span class="env-key">database</span>
+        <span class="env-val">Neon / Qdrant</span>
+      </div>
+      <div class="env-item">
+        <span class="env-key">deploy</span>
+        <span class="env-val">Dokploy / Vercel</span>
+      </div>
+      <div class="env-item">
+        <span class="env-key">ai</span>
+        <span class="env-val">Ollama + LangChain / n8n</span>
+      </div>
+    </div>
+  </section>
 
-      <!-- Terminal Body -->
-      <div class="terminal-body">
-        <!-- System Info -->
-        <div class="terminal-section" in:fade={getAnimation(200)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="command">neofetch</span>
-          </div>
-          <div class="neofetch-output">
-            <div class="ascii-art">
-              <pre>{`   _____ __   _ ____
-  / ___// /__(_) / /____
-  \\__ \\/ //_/ / / / ___/
- ___/ / ,< / / / (__  )
-/____/_/|_/_/_/_/____/`}</pre>
-            </div>
-            <div class="system-info">
-              <div class="info-line">
-                <span class="info-label">Name</span>
-                <span class="info-value">Stephen Daniel Okita</span>
-              </div>
-              <div class="info-line">
-                <span class="info-label">Niche</span>
-                <span class="info-value"
-                  >Full Stack + AI/ML + Blockchain/Distrubuted Systems</span
-                >
-              </div>
-              <div class="info-line">
-                <span class="info-label">Experience</span>
-                <span class="info-value">7+ Yrs</span>
-              </div>
-              <div class="info-line">
-                <span class="info-label">Focus</span>
-                <span class="info-value">Web, Linux, Data, AI, Crypto...</span>
-              </div>
-              <div class="info-line">
-                <span class="info-label">OS</span>
-                <span class="info-value">Nix OS (Hyprland)</span>
-              </div>
-              <div class="info-line">
-                <span class="info-label">Editor</span>
-                <span class="info-value">Neovim + Zellij</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- Technical Skills -->
+  <section class="section">
+    <h2 class="section-label">Technical Skills</h2>
 
-        <!-- About Section -->
-        <div class="terminal-section" in:fade={getAnimation(400)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="command">cat README.md</span>
-          </div>
-          <div class="output-content">
-            <h2 class="section-title">## Technical Overview</h2>
-            <p class="readme-text">
-              Mainly a full stack developer. Also a DevOps person with an
-              emphasis in self hosting, a game developer, an AI/DS person and a
-              sys admin. I have done projects across most of the computing
-              sector and am a fast learner for anything I haven't done bofore.
-            </p>
-          </div>
-        </div>
-
-        <!-- Skills Navigation -->
-        <div class="terminal-section" in:fade={getAnimation(600)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="command">ls -la categories/</span>
-          </div>
-          <div class="file-list" role="listbox" aria-label="Skill categories">
-            {#each Object.entries(categories) as [key, category]}
-              <button
-                class="file-item directory"
-                class:active={currentCategory === key}
-                on:click={() => selectCategory(key)}
-                role="option"
-                aria-selected={currentCategory === key}
-                aria-label="View {category.name} skills ({category.data.length} items)"
-              >
-                <span class="file-permissions" aria-hidden="true">drwxr-xr-x</span>
-                <span class="file-size" aria-hidden="true">{category.data.length}</span>
-                <span
-                  class="file-name"
-                  style="color: var(--accent-{category.color})">{key}/</span
-                >
-                <span class="file-description">{category.name}</span>
-              </button>
-            {/each}
-          </div>
-        </div>
-
-        <!-- Current Category Display -->
-        <div class="terminal-section" in:fade={getAnimation(800)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills/categories</span>
-            <span class="command">tree {currentCategory}/</span>
-          </div>
-          <div class="skills-grid" role="list" aria-label="{categories[currentCategory].name} skills">
-            {#each categories[currentCategory].data as skill}
-              <div class="skill-item" role="listitem" in:fade={getAnimation()}>
-                <div class="skill-icon">
-                  <img src={skill.img} alt="{skill.text} logo" />
-                </div>
-                <div class="skill-name">{skill.text}</div>
-                {#if skill.level}
-                  <div
-                    class="skill-level"
-                    role="progressbar"
-                    aria-valuenow={skill.level}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-label="{skill.text} proficiency: {skill.level}%"
-                  >
-                    <div class="level-bar">
-                      <div
-                        class="level-fill"
-                        style="width: {skill.level}%"
-                      ></div>
-                    </div>
-                  </div>
-                {/if}
-              </div>
-            {/each}
-          </div>
-        </div>
-
-        <!-- Development Stack -->
-        <div class="terminal-section" in:fade={getAnimation(1000)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="command">cat stack.conf</span>
-          </div>
-          <div class="config-content">
-            <div class="config-section">
-              <h3 class="config-header">[Development Environment]</h3>
-              <div class="config-grid">
-                <div class="config-item">
-                  <span class="config-key">os</span>
-                  <span class="config-value"
-                    >Nix OS + Hyprland + Rofi + Waybar</span
-                  >
-                </div>
-                <div class="config-item">
-                  <span class="config-key">editor</span>
-                  <span class="config-value">Neovim + Claude-Code + Yazi</span>
-                </div>
-                <div class="config-item">
-                  <span class="config-key">terminal</span>
-                  <span class="config-value">Ghostty + Zellij + Fish</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="config-section">
-              <h3 class="config-header">[Preferred Stack]</h3>
-              <div class="config-grid">
-                <div class="config-item">
-                  <span class="config-key">frontend</span>
-                  <span class="config-value">SvelteKit + TailwindCSS</span>
-                </div>
-                <div class="config-item">
-                  <span class="config-key">backend</span>
-                  <span class="config-value"
-                    >Go Fiber / SvelteKit SSR / Python</span
-                  >
-                </div>
-                <div class="config-item">
-                  <span class="config-key">database</span>
-                  <span class="config-value">Neon or Qdrant</span>
-                </div>
-                <div class="config-item">
-                  <span class="config-key">deployment</span>
-                  <span class="config-value">Dokploy / Vercel</span>
-                </div>
-                <div class="config-item">
-                  <span class="config-key">ai_stack</span>
-                  <span class="config-value">Ollama + LangChain / n8n</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Extra Skills -->
-        <div class="terminal-section" in:fade={getAnimation(1200)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="command">./show-extras.sh</span>
-          </div>
-          <div class="extras-grid">
-            <div class="extras-section">
-              <h3 class="extras-title">🎵 Instruments</h3>
-              <div class="extras-list">
-                {#each instruments as instrument}
-                  <div class="extra-item">
-                    <img src={instrument.img} alt={instrument.text} />
-                    <span>{instrument.text}</span>
-                  </div>
-                {/each}
-              </div>
-            </div>
-            <div class="extras-section">
-              <h3 class="extras-title">🌍 Languages</h3>
-              <div class="extras-list">
-                {#each language as lang}
-                  <div class="extra-item">
-                    <img src={lang.img} alt={lang.text} />
-                    <span>{lang.text}</span>
-                  </div>
-                {/each}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Resume Link -->
-        <div class="terminal-section" in:fade={getAnimation(1400)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="command">ls -la resume/</span>
-          </div>
-          <div class="file-list">
-            <a
-              href="/other/Stephen Okita Resume 2024.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="file-item file"
-              aria-label="Download resume PDF (opens in new tab)"
-            >
-              <span class="file-permissions" aria-hidden="true">-rw-r--r--</span>
-              <span class="file-size" aria-hidden="true">245K</span>
-              <span class="file-name">resume-2024.pdf</span>
-              <span class="file-description"
-                >Full resume with detailed experience</span
-              >
-            </a>
-          </div>
-        </div>
-
-        <!-- Cursor prompt -->
-        <div
-          class="terminal-section current-prompt"
-          in:fade={getAnimation(1600)}
+    <!-- Category tabs -->
+    <div class="tabs" role="tablist" aria-label="Skill categories">
+      {#each Object.entries(categories) as [key, cat]}
+        <button
+          class="tab"
+          class:active={currentCategory === key}
+          on:click={() => (currentCategory = key)}
+          role="tab"
+          aria-selected={currentCategory === key}
         >
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~/skills</span>
-            <span class="cursor-blink">_</span>
+          {cat.name}
+          <span class="tab-count">{cat.data.length}</span>
+        </button>
+      {/each}
+    </div>
+
+    <!-- Skills display -->
+    <div
+      class="skills-grid"
+      role="tabpanel"
+      aria-label="{categories[currentCategory].name} skills"
+    >
+      {#key currentCategory}
+        {#each categories[currentCategory].data as skill}
+          <div class="skill" in:fade={{ duration: 200 }}>
+            <img src={skill.img} alt="" aria-hidden="true" />
+            <span class="skill-name">{skill.text}</span>
+            {#if skill.level}
+              <div
+                class="skill-bar"
+                role="progressbar"
+                aria-valuenow={skill.level}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-label="{skill.text} proficiency: {skill.level}%"
+              >
+                <div class="skill-fill" style="width: {skill.level}%"></div>
+              </div>
+            {/if}
           </div>
+        {/each}
+      {/key}
+    </div>
+  </section>
+
+  <!-- Other Skills -->
+  <section class="section">
+    <div class="other-grid">
+      <div>
+        <h2 class="section-label">Instruments</h2>
+        <div class="pill-list">
+          {#each instruments as item}
+            <span class="pill">{item.text}</span>
+          {/each}
         </div>
       </div>
-    </main>
-  {/if}
+      <div>
+        <h2 class="section-label">Languages</h2>
+        <div class="pill-list">
+          {#each spokenLanguages as lang}
+            <span class="pill">{lang.text}</span>
+          {/each}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section class="section">
+    <a
+      href="/other/Stephen Okita Resume 2024.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="resume-link"
+    >
+      Resume (PDF) →
+    </a>
+  </section>
 </div>
 
 <style>
-  .terminal-container {
-    min-height: 100vh;
-    background: var(--bg-primary);
-    font-family: var(--font-family-mono);
-    padding: var(--space-lg);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
   }
 
-  .terminal-main {
-    max-width: 1200px;
-    width: 100%;
-    background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-primary);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
-    margin-top: var(--space-xl);
-  }
-
-  /* Terminal Header */
-  .terminal-header {
-    background: var(--bg-tertiary);
+  /* Hero */
+  .hero {
+    padding-bottom: var(--space-xl);
     border-bottom: 1px solid var(--border-primary);
-    padding: var(--space-sm) var(--space-md);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: var(--font-size-sm);
-  }
-
-  .terminal-controls {
-    display: flex;
-    gap: var(--space-xs);
-  }
-
-  .control-button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid var(--border-secondary);
-  }
-
-  .control-button.close {
-    background: var(--status-error);
-  }
-  .control-button.minimize {
-    background: var(--status-warning);
-  }
-  .control-button.maximize {
-    background: var(--status-success);
-  }
-
-  .terminal-title {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .terminal-menu {
-    display: flex;
-    gap: var(--space-md);
-  }
-
-  .menu-item {
-    color: var(--text-secondary);
-    font-size: var(--font-size-xs);
-  }
-
-  /* Terminal Body */
-  .terminal-body {
-    padding: var(--space-lg);
-    background: var(--bg-primary);
-    min-height: 80vh;
-  }
-
-  .terminal-section {
     margin-bottom: var(--space-xl);
   }
 
-  .prompt-line {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-base);
-  }
-
-  .prompt {
-    color: var(--accent-primary);
-    font-weight: bold;
-  }
-
-  .path {
-    color: var(--accent-secondary);
-  }
-
-  .command {
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
     color: var(--text-primary);
-  }
-
-  /* Neofetch Style */
-  .neofetch-output {
-    display: flex;
-    gap: var(--space-xl);
-    margin-left: var(--space-lg);
-    padding: var(--space-md);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-primary);
-  }
-
-  .ascii-art {
-    color: var(--accent-primary);
-    font-size: var(--font-size-xs);
-    line-height: 1.2;
-  }
-
-  .ascii-art pre {
-    margin: 0;
     font-family: var(--font-family-mono);
+    margin: 0 0 var(--space-sm);
   }
 
-  .system-info {
-    flex: 1;
-  }
-
-  .info-line {
-    display: flex;
-    gap: var(--space-md);
-    margin-bottom: var(--space-xs);
-    font-size: var(--font-size-sm);
-  }
-
-  .info-label {
-    color: var(--accent-primary);
-    font-weight: bold;
-    min-width: 100px;
-  }
-
-  .info-value {
-    color: var(--text-primary);
-  }
-
-  /* Output Content */
-  .output-content {
-    margin-left: var(--space-lg);
-    color: var(--text-primary);
-  }
-
-  .section-title {
-    color: var(--accent-tertiary);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-    font-family: var(--font-family-mono);
-  }
-
-  .readme-text {
+  .summary {
     color: var(--text-secondary);
+    font-size: var(--font-size-sm);
     line-height: 1.6;
-    max-width: 800px;
+    margin: 0;
+    max-width: 600px;
   }
 
-  /* File List */
-  .file-list {
-    margin-left: var(--space-lg);
+  /* Sections */
+  .section {
+    margin-bottom: var(--space-2xl);
   }
 
-  .file-item {
-    display: grid;
-    grid-template-columns: 120px 60px 200px 1fr;
-    gap: var(--space-md);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
-    text-decoration: none;
-    color: inherit;
-    font-size: var(--font-size-sm);
-    align-items: center;
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
+  .section-label {
+    font-size: var(--font-size-xs);
     font-family: var(--font-family-mono);
-  }
-
-  .file-item:hover {
-    background: var(--bg-tertiary);
-    transform: translateX(var(--space-sm));
-  }
-
-  .file-item:focus {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
-    background: var(--bg-tertiary);
-  }
-
-  .file-item.active {
-    background: var(--bg-tertiary);
-    border-left: 3px solid var(--accent-primary);
-  }
-
-  .file-permissions {
     color: var(--text-tertiary);
-    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    font-weight: 600;
   }
 
-  .file-size {
-    color: var(--text-secondary);
-    font-size: var(--font-size-xs);
+  /* Environment */
+  .env-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xs) var(--space-xl);
   }
 
-  .file-name {
+  .env-item {
+    display: flex;
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) 0;
+  }
+
+  .env-key {
     color: var(--accent-primary);
-    font-weight: 500;
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+    min-width: 80px;
+    flex-shrink: 0;
   }
 
-  .file-description {
+  .env-val {
     color: var(--text-secondary);
-    font-style: italic;
   }
 
-  /* Skills Grid */
+  /* Tabs */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+  }
+
+  .tab {
+    background: none;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-xs) var(--space-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .tab:hover {
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+  }
+
+  .tab.active {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+  }
+
+  .tab-count {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+  }
+
+  .tab.active .tab-count {
+    color: var(--text-secondary);
+  }
+
+  /* Skills grid */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: var(--space-md);
-    margin-left: var(--space-lg);
-  }
-
-  .skill-item {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    text-align: center;
-    transition: all var(--transition-normal);
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: var(--space-sm);
   }
 
-  .skill-item:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow-medium);
+  .skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+    text-align: center;
   }
 
-  .skill-icon img {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
-      hue-rotate(343deg) brightness(94%) contrast(90%);
-    opacity: 0.8;
+  .skill:hover {
+    background: var(--bg-secondary);
+  }
+
+  .skill img {
+    width: 36px;
+    height: 36px;
+    opacity: 0.7;
+    filter: grayscale(0.3);
     transition: all var(--transition-fast);
   }
 
-  .skill-item:hover .skill-icon img {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
-      hue-rotate(343deg) brightness(110%) contrast(90%);
+  .skill:hover img {
     opacity: 1;
-    transform: scale(1.1);
+    filter: grayscale(0);
   }
 
   .skill-name {
     color: var(--text-primary);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: 500;
   }
 
-  .skill-level {
+  .skill-bar {
     width: 100%;
-    height: 4px;
+    height: 3px;
     background: var(--bg-tertiary);
     border-radius: 2px;
     overflow: hidden;
   }
 
-  .level-bar {
-    width: 100%;
-    height: 100%;
-    background: var(--bg-tertiary);
-  }
-
-  .level-fill {
+  .skill-fill {
     height: 100%;
     background: var(--accent-primary);
-    transition: width var(--transition-normal);
+    border-radius: 2px;
   }
 
-  /* Config Content */
-  .config-content {
-    margin-left: var(--space-lg);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-  }
-
-  .config-section {
-    margin-bottom: var(--space-lg);
-  }
-
-  .config-section:last-child {
-    margin-bottom: 0;
-  }
-
-  .config-header {
-    color: var(--accent-tertiary);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-md);
-    font-family: var(--font-family-mono);
-  }
-
-  .config-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-sm);
-  }
-
-  .config-item {
-    display: flex;
-    gap: var(--space-md);
-    font-size: var(--font-size-sm);
-  }
-
-  .config-key {
-    color: var(--accent-secondary);
-    min-width: 100px;
-  }
-
-  .config-key::after {
-    content: "=";
-    margin-left: var(--space-xs);
-  }
-
-  .config-value {
-    color: var(--text-primary);
-  }
-
-  /* Extras */
-  .extras-grid {
+  /* Other skills */
+  .other-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-    margin-left: var(--space-lg);
+    gap: var(--space-xl);
   }
 
-  .extras-section {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-  }
-
-  .extras-title {
-    color: var(--text-primary);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-md);
-  }
-
-  .extras-list {
+  .pill-list {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
-  }
-
-  .extra-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: var(--space-xs);
-    text-align: center;
   }
 
-  .extra-item img {
-    width: 32px;
-    height: 32px;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
-      hue-rotate(343deg) brightness(94%) contrast(90%);
-    opacity: 0.8;
+  .pill {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+  }
+
+  /* Resume */
+  .resume-link {
+    display: inline-block;
+    color: var(--accent-primary);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
     transition: all var(--transition-fast);
   }
 
-  .extra-item:hover img {
-    opacity: 1;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
-      hue-rotate(343deg) brightness(110%) contrast(90%);
+  .resume-link:hover {
+    border-color: var(--accent-primary);
+    background: var(--bg-secondary);
   }
 
-  .extra-item span {
-    color: var(--text-secondary);
-    font-size: var(--font-size-xs);
-  }
-
-  /* Current Prompt */
-  .current-prompt .cursor-blink {
-    animation: blink 1s infinite;
-    color: var(--text-primary);
-  }
-
-  @keyframes blink {
-    0%,
-    50% {
-      opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
-    }
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .terminal-container {
-      padding: var(--space-sm);
+  /* Responsive */
+  @media (max-width: 640px) {
+    .page {
+      padding: var(--space-lg) var(--space-md);
     }
 
-    .terminal-header {
-      flex-direction: column;
-      gap: var(--space-sm);
-      text-align: center;
-    }
-
-    .terminal-menu {
-      display: none;
-    }
-
-    .neofetch-output {
-      flex-direction: column;
-    }
-
-    .file-item {
-      grid-template-columns: 1fr;
-      gap: var(--space-xs);
-    }
-
-    .file-permissions,
-    .file-size {
-      display: none;
-    }
-
-    .config-grid {
+    .env-grid {
       grid-template-columns: 1fr;
     }
 
-    .extras-grid {
+    .other-grid {
       grid-template-columns: 1fr;
     }
 
     .skills-grid {
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>

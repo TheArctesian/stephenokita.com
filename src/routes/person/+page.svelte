@@ -1,536 +1,459 @@
 <script lang="ts">
   import "../../app.css";
-  import { fade, scale, slide, fly } from "svelte/transition";
-  import { modernAnimations, STAGGER, getAnimation } from "$lib/utils/animations";
   import { getSocialIcon } from "$lib/utils/icons";
   import Icon from "@iconify/svelte";
   import me from "./imgs/me&kim.jpg";
 
   let showEasterEgg = false;
 
-  function toggleEasterEgg() {
-    showEasterEgg = !showEasterEgg;
-  }
-
-  function handleImageKeydown(event: KeyboardEvent) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      toggleEasterEgg();
-    }
-  }
-
-  // Social links with YouTube channels
   const socialLinks = [
     {
       name: "YouTube (General)",
       service: "youtube",
       url: "https://www.youtube.com/@stephenokita",
-      color: "hover:border-red-600"
     },
     {
       name: "YouTube (Music)",
       service: "youtube",
       url: "https://www.youtube.com/@StephenOkitasMusicalMusings",
-      color: "hover:border-red-600"
     },
     {
       name: "YouTube (Videos)",
       service: "youtube",
       url: "https://www.youtube.com/@StephenOkitasVideos",
-      color: "hover:border-red-600"
     },
     {
       name: "Spotify",
       service: "spotify",
       url: "https://open.spotify.com/user/b3oj8mjbyq5cfs26vp6c41ujr",
-      color: "hover:border-green-500"
     },
     {
       name: "Goodreads",
       service: "goodreads",
       url: "https://www.goodreads.com/user/show/155512706-stephen-okita",
-      color: "hover:border-yellow-700"
     },
     {
       name: "Letterboxd",
       service: "letterboxd",
       url: "https://letterboxd.com/danielOkita/",
-      color: "hover:border-orange-500"
     },
   ];
 </script>
 
 <svelte:head>
   <title>Person - Stephen Okita</title>
-  <meta name="description" content="The personal side of Stephen Okita - musician, philosopher, developer, and professional overthinker." />
+  <meta
+    name="description"
+    content="The personal side of Stephen Okita - musician, philosopher, developer."
+  />
 </svelte:head>
 
-<div out:slide>
-  <!-- Simple intro -->
-  <div class="intro-section" in:fly={getAnimation(modernAnimations.slideUp(0))}>
-    <h1 class="intro-title">About Me</h1>
-    <p class="intro-text">
-      This is the more personal side of the website - the human behind the code.
-    </p>
-  </div>
-
-  <!-- Main Bio Section -->
-  <div class="bio-container" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
-    <div class="bio-image-wrapper">
-      <button
-        class="bio-image-button"
-        on:click={toggleEasterEgg}
-        on:keydown={handleImageKeydown}
-        aria-label="Photo of Stephen with Kim. Click to reveal a surprise!"
-        aria-pressed={showEasterEgg}
-      >
-        <img
-          src={me}
-          alt=""
-          class="bio-image"
-          aria-hidden="true"
-        />
-      </button>
+<div class="page">
+  <!-- Hero with photo -->
+  <header class="hero">
+    <button
+      class="photo-btn"
+      on:click={() => (showEasterEgg = !showEasterEgg)}
+      on:keydown={(e) =>
+        (e.key === "Enter" || e.key === " ") &&
+        (e.preventDefault(), (showEasterEgg = !showEasterEgg))}
+      aria-label="Photo of Stephen. Click for a surprise!"
+      aria-pressed={showEasterEgg}
+    >
+      <img src={me} alt="" class="photo" aria-hidden="true" />
       {#if showEasterEgg}
-        <p class="easter-egg" role="status" aria-live="polite" in:scale={getAnimation(modernAnimations.celebration(0))}>
-          You found the easter egg! 🥚
-        </p>
+        <span class="easter-egg">You found the easter egg!</span>
       {/if}
-    </div>
-
-    <div class="bio-intro">
-      <p class="intro-description">
-        This side of the website is an insight to who I am as a person, not a laborer.
-        I'm interested in lots of things and try to learn as much as I can.
-      </p>
-    </div>
-
-    <!-- Simplified single-column layout for better balance -->
-    <div class="bio-info">
-      <!-- Basic Info -->
-      <div class="info-section">
-        <h3 class="section-header">Background</h3>
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="label">Born:</span> London, UK
-          </div>
-          <div class="info-item">
-            <span class="label">Raised:</span> Hong Kong
-          </div>
-          <div class="info-item">
-            <span class="label">Currently:</span> Berkeley, CA
-          </div>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="info-section">
-        <h3 class="section-header">Education</h3>
-        <div class="info-grid">
-          <div class="info-item">Chinese International School (IB)</div>
-          <div class="info-item">UC Berkeley - CS & Philosophy</div>
-        </div>
-      </div>
-
-      <!-- Current Work -->
-      <div class="info-section">
-        <h3 class="section-header">What I Do</h3>
-        <div class="work-list">
-          <div class="work-item">Co-founder @ <a href="https://www.auracarehealth.com/" class="link">Aura Care Health</a></div>
-          <div class="work-item">Co-founder @ <a href="https://www.techjusticelab.org/" class="link">Tech & Justice Lab</a></div>
-          <div class="work-item">Student Researcher @ UC Berkeley</div>
-          <div class="work-item">Writer @ <a href="/blog" class="link">This Blog</a></div>
-        </div>
-      </div>
-
-      <!-- Languages -->
-      <div class="info-section">
-        <h3 class="section-header">Languages</h3>
-        <div class="info-grid">
-          <div class="info-item">English (Native)</div>
-          <div class="info-item">中文 Mandarin (Fluent)</div>
-          <div class="info-item">廣東話 Cantonese (Fluent)</div>
-          <div class="info-item">Français (Semi-conversational)</div>
-          <div class="info-item">Español (Semi-conversational)</div>
-        </div>
-      </div>
-
-      <!-- Personality Traits -->
-      <div class="info-section">
-        <h3 class="section-header">Personality Traits</h3>
-        <div class="info-grid">
-          <div class="info-item">Curious</div>
-          <div class="info-item">Passionate</div>
-          <div class="info-item">Organised</div>
-          <div class="info-item">Engaging</div>
-          <div class="info-item">Resourceful</div>
-        </div>
-      </div>
-
-      <!-- Sports & Outdoors -->
-      <div class="info-section">
-        <h3 class="section-header">Interests (Sports)</h3>
-        <div class="info-grid">
-          <div class="info-item">Football (Soccer), Arsenal</div>
-          <div class="info-item">Rugby (Ireland & Munster)</div>
-          <div class="info-item">Whatever sport Berkeley is contending in</div>
-          <div class="info-item">Hiking</div>
-        </div>
-      </div>
-
-      <!-- Hobbies/Interests -->
-      <div class="info-section">
-        <h3 class="section-header">Hobbies/Interests</h3>
-        <div class="interest-tags">
-          <span class="tag">Socialising</span>
-          <span class="tag">Reading</span>
-          <span class="tag">Movies</span>
-          <span class="tag">Music</span>
-          <span class="tag">Philosophy</span>
-          <span class="tag">Politics</span>
-          <span class="tag">Economics</span>
-          <span class="tag">History</span>
-          <span class="tag">Open Source</span>
-          <span class="tag">Really anything</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Simple interests section -->
-  <div class="simple-section" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.wide))}>
-    <div class="simple-content">
+    </button>
+    <div class="hero-text">
+      <h1>About Me</h1>
       <p>
-        I think of music like Plato as practicing the harmony of the soul. I play
-        7 instruments: Electric Bass, Contrabass, Guitar, Ukulele, Piano, Harmonica and Drums.
-        I also like to create music, both spontaneously with friends in jam sessions or by myself.
-      </p>
-      <p>
-        I enjoy reading books and watching videos. I have a
-        <a href="https://letterboxd.com/danielOkita/" class="link">Letterboxd</a> account where I keep track
-        of movies and a Goodreads account for books.
+        This is meant to be a bit more personal but has turned into more demographic.
       </p>
     </div>
-  </div>
+  </header>
 
-  <!-- Social Links Section with YouTube -->
-  <section class="social-section" aria-labelledby="social-links-heading" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
-    <h2 id="social-links-heading" class="section-title">Social Links</h2>
-    <div class="social-grid">
+  <!-- Background -->
+  <section class="section">
+    <h2 class="section-label">Background</h2>
+    <div class="kv-grid">
+      <div class="kv"><span class="kv-key">Born</span> London, UK</div>
+      <div class="kv"><span class="kv-key">Raised</span> Hong Kong</div>
+      <div class="kv"><span class="kv-key">Currently</span> Berkeley, CA & London, UK</div>
+      <div class="kv"><span class="kv-key">Other places I have been</span> <a href="https://world.stephenokita.com" target="_blank" rel="noopener noreferrer" class="inline-link">world.stephenokita.com</a></div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <h2 class="section-label">Education</h2>
+    <div class="list">
+      <div class="list-row">Chinese International School (IB)</div>
+      <div class="list-row">UC Berkeley -- CS & Philosophy</div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="section">
+    <h2 class="section-label">What I Do</h2>
+    <div class="list">
+      <div class="list-row">
+        Co-founder @
+        <a
+          href="https://www.auracarehealth.com/"
+          target="_blank"
+          rel="noopener noreferrer">Aura Care Health</a
+        >
+      </div>
+      <div class="list-row">Student Researcher @ UC Berkeley</div>
+      <div class="list-row">
+        Writer @ <a href="/blog">This Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section class="section">
+    <h2 class="section-label">Languages</h2>
+    <div class="kv-grid">
+      <div class="kv">English <span class="kv-note">native</span></div>
+      <div class="kv">中文 Mandarin <span class="kv-note">fluent</span></div>
+      <div class="kv">廣東話 Cantonese <span class="kv-note">fluent</span></div>
+      <div class="kv">Français <span class="kv-note">semi</span></div>
+      <div class="kv">Español <span class="kv-note">semi</span></div>
+    </div>
+  </section>
+
+  <!-- Music -->
+  <section class="section">
+    <h2 class="section-label">Music</h2>
+    <p class="prose-text">
+      I play
+      7 instruments: Electric Bass, Contrabass, Guitar, Ukulele, Piano,
+      Harmonica and Drums. I also like to create music, both spontaneously with
+      friends in jam sessions or by myself.
+    </p>
+  </section>
+
+  <!-- Interests -->
+  <section class="section">
+    <h2 class="section-label">Interests</h2>
+    <div class="two-col">
+      <div>
+        <h3 class="subsection">Sports</h3>
+        <div class="list">
+          <div class="list-row">Football</div>
+          <div class="list-row">Rugby</div>
+          <div class="list-row">Hiking</div>
+          <div class="list-row">Sailing</div>
+          <div class="list-row">Skiing</div>
+        </div>
+      </div>
+      <div>
+        <h3 class="subsection">Hobbies</h3>
+        <div class="pill-list">
+          <span class="pill">Socialising</span>
+          <span class="pill">Reading</span>
+          <span class="pill">Movies</span>
+          <span class="pill">Music</span>
+          <span class="pill">Philosophy</span>
+          <span class="pill">Politics</span>
+          <span class="pill">History</span>
+          <span class="pill">Open Source</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="section">
+    <h2 class="section-label">Elsewhere</h2>
+    <div class="social-row">
       {#each socialLinks as link}
         <a
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="social-card"
+          class="social-link"
           aria-label="{link.name} (opens in new tab)"
         >
-          <Icon icon={getSocialIcon(link.service)} class="social-icon" aria-hidden="true" />
-          <span class="social-name">{link.name}</span>
+          <Icon
+            icon={getSocialIcon(link.service)}
+            class="social-icon"
+            aria-hidden="true"
+          />
+          <span>{link.name}</span>
         </a>
       {/each}
     </div>
   </section>
-
-
-
-
 </div>
 
 <style>
-  /* Simple intro section */
-  .intro-section {
-    @apply text-center py-8 px-4;
-    background: var(--bg-secondary);
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  }
+
+  /* Hero */
+  .hero {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
     border-bottom: 1px solid var(--border-primary);
+    margin-bottom: var(--space-xl);
   }
 
-  .intro-title {
-    @apply text-3xl font-bold mb-4;
-    color: var(--text-primary);
-  }
-
-  .intro-text {
-    @apply text-lg;
-    color: var(--text-secondary);
-  }
-
-  /* Bio Section */
-  .bio-container {
-    @apply max-w-4xl mx-auto p-6 space-y-8;
-  }
-
-  .bio-image-wrapper {
-    @apply flex justify-center mb-8;
-    position: relative;
-  }
-
-  .bio-image-button {
+  .photo-btn {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    border-radius: 0.5rem;
-    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
   }
 
-  .bio-image-button:hover .bio-image {
-    border-color: var(--accent-primary);
-    transform: scale(1.02);
-  }
-
-  .bio-image-button:focus {
-    outline: 3px solid var(--accent-primary);
+  .photo-btn:focus-visible {
+    outline: 2px solid var(--accent-primary);
     outline-offset: 4px;
-    border-radius: 0.5rem;
   }
 
-  .bio-image-button:focus .bio-image {
-    border-color: var(--accent-primary);
-  }
-
-  .bio-image {
-    @apply w-64 h-64 object-cover rounded-lg shadow-lg;
-    border: 2px solid var(--border-primary);
-    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  .photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-primary);
     display: block;
+    transition: border-color var(--transition-fast);
+  }
+
+  .photo-btn:hover .photo {
+    border-color: var(--accent-primary);
   }
 
   .easter-egg {
-    @apply absolute bottom-4 left-1/2 transform -translate-x-1/2;
-    @apply bg-bg-tertiary text-text-primary px-4 py-2 rounded-full text-sm;
-    border: 1px solid var(--accent-primary);
-  }
-
-  .bio-intro {
-    @apply mb-8 text-center;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    @apply p-md rounded-lg;
-  }
-
-  .intro-description {
-    @apply text-base leading-relaxed;
-    color: var(--text-secondary);
-  }
-
-  /* Simple section */
-  .simple-section {
-    @apply py-8 px-6 max-w-4xl mx-auto;
-  }
-
-  .simple-content {
-    @apply space-y-4;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    @apply p-md rounded-lg;
-  }
-
-  .simple-content p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  /* New balanced bio layout */
-  .bio-info {
-    @apply space-y-8;
-  }
-
-  .info-section {
-    @apply p-md rounded-lg;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-  }
-
-  .section-header {
-    @apply text-lg font-semibold mb-4 pb-3;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--border-secondary);
-  }
-
-  .info-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3;
-  }
-
-  .info-item {
-    @apply py-2;
-    color: var(--text-secondary);
-  }
-
-  .work-list {
-    @apply space-y-3;
-  }
-
-  .work-item {
-    @apply py-2;
-    color: var(--text-secondary);
-  }
-
-  .label {
-    @apply font-semibold;
-    color: var(--text-primary);
-  }
-
-  .link {
+    position: absolute;
+    bottom: -var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: var(--font-size-xs);
     color: var(--accent-primary);
-    text-decoration: underline;
-    transition: color 0.2s;
+    white-space: nowrap;
+    bottom: -24px;
   }
 
-  .link:hover {
-    color: var(--accent-cyan);
+  .hero-text {
+    flex: 1;
   }
 
-  .interest-tags {
-    @apply flex flex-wrap gap-2;
-  }
-
-  .tag {
-    @apply px-3 py-1 rounded-full text-sm;
-    background: var(--bg-tertiary);
+  .hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
     color: var(--text-primary);
-    border: 1px solid var(--border-secondary);
-    transition: all 0.2s;
+    font-family: var(--font-family-mono);
+    margin: 0 0 var(--space-sm);
   }
 
-  .tag:hover {
-    border-color: var(--accent-primary);
-    transform: scale(1.05) rotate(-1deg);
-    background: var(--accent-primary);
-    color: var(--bg-primary);
-    transition: all 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  .hero-text p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 0;
   }
 
-  /* Instruments Section */
-  .instruments-section {
-    @apply py-12 px-4 max-w-6xl mx-auto;
+  /* Sections */
+  .section {
+    margin-bottom: var(--space-2xl);
   }
 
-  .section-title {
-    @apply text-3xl font-bold text-center mb-8;
+  .section-label {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .subsection {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Key-value grid */
+  .kv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .kv {
+    font-size: var(--font-size-sm);
     color: var(--text-primary);
   }
 
-  .instruments-grid {
-    @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4;
+  .kv-key {
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    display: block;
+    margin-bottom: 2px;
   }
 
-  .instrument-card {
-    @apply p-4 text-center rounded-lg;
+  .kv-note {
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+  }
+
+  .inline-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .inline-link:hover {
+    color: var(--text-primary);
+  }
+
+  /* Lists */
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .list-row {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .list-row:last-child {
+    border-bottom: none;
+  }
+
+  .list-row a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .list-row a:hover {
+    color: var(--text-primary);
+  }
+
+  /* Prose */
+  .prose-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  /* Pills */
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .pill {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-secondary);
     background: var(--bg-secondary);
     border: 1px solid var(--border-primary);
-    transition: all 0.3s;
-    cursor: default;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
   }
 
-  .instrument-card:hover {
-    transform: rotate(-2deg) scale(1.05);
-    border-color: var(--accent-primary);
-    background: var(--bg-tertiary);
+  /* Social */
+  .social-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
   }
 
-  /* Social Section */
-  .social-section {
-    @apply py-8 px-6 max-w-4xl mx-auto;
-  }
-
-  .social-grid {
-    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
-  }
-
-  .social-card {
-    @apply flex flex-col items-center justify-center p-md rounded-lg;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border-primary);
-    transition: all 0.3s;
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
     text-decoration: none;
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
   }
 
-  .social-card:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  .social-link:hover {
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
   }
 
-  .social-card:focus {
-    outline: 3px solid var(--accent-primary);
-    outline-offset: 2px;
-    transform: translateY(-4px) scale(1.02);
-  }
-
-  .social-icon {
-    @apply w-12 h-12 mb-3;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%)
-            hue-rotate(343deg) brightness(94%) contrast(90%);
-    transition: all 0.3s;
-  }
-
-  .social-card:hover .social-icon {
-    transform: scale(1.2) rotate(5deg);
-    transition: all 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .social-name {
-    @apply text-sm font-medium text-center;
+  :global(.social-icon) {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
     color: var(--text-secondary);
   }
 
+  .social-link:hover :global(.social-icon) {
+    color: var(--accent-primary);
+  }
 
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .bio-container {
-      @apply p-4;
+  /* Responsive */
+  @media (max-width: 640px) {
+    .page {
+      padding: var(--space-lg) var(--space-md);
     }
 
-    .bio-image {
-      @apply w-48 h-48;
+    .hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .bio-image-button {
-      border-radius: 0.5rem;
+    .photo {
+      width: 120px;
+      height: 120px;
     }
 
-    .info-grid {
-      @apply grid-cols-1;
+    .kv-grid {
+      grid-template-columns: 1fr;
     }
 
-    .section-header {
-      @apply text-base;
+    .two-col {
+      grid-template-columns: 1fr;
     }
 
-    .info-section {
-      @apply p-md;
-    }
-
-    .intro-section {
-      @apply py-6 px-4;
-    }
-
-    .intro-title {
-      @apply text-2xl;
-    }
-
-    .social-grid {
-      @apply grid-cols-2;
+    .social-row {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  @media (max-width: 480px) {
-    .bio-image {
-      @apply w-40 h-40;
-    }
-
-    .bio-image-button {
-      border-radius: 0.5rem;
-    }
-
-    .intro-section {
-      @apply py-4 px-3;
-    }
-
-    .bio-container {
-      @apply p-3;
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>

@@ -1,15 +1,13 @@
 <script>
   import "../app.css";
-  import { fade, fly } from "svelte/transition";
+  import { fade } from "svelte/transition";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
-  // Import type for data prop
+
   export let data;
 
-  let isLoaded = false;
   let prefersReducedMotion = false;
-  let nameElement;
   let typedText = "";
   let showCursor = true;
 
@@ -17,7 +15,6 @@
   const japanese = "沖田勇";
 
   onMount(() => {
-    // Check for reduced motion preference
     if (browser) {
       prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
@@ -25,799 +22,306 @@
     }
 
     if (!prefersReducedMotion) {
-      // Type out name animation
       typeAnimation();
     } else {
       typedText = fullName;
     }
-
-    isLoaded = true;
   });
 
   async function typeAnimation() {
-    // Cursor blink
     const cursorInterval = setInterval(() => {
       showCursor = !showCursor;
     }, 500);
 
-    // Type out name
     for (let i = 0; i <= fullName.length; i++) {
       typedText = fullName.slice(0, i);
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 80));
     }
 
-    // Stop cursor blinking after typing
     setTimeout(() => {
       clearInterval(cursorInterval);
       showCursor = false;
-    }, 1000);
+    }, 800);
   }
 
-  // Simple, elegant animations that respect user preferences
-  const getAnimation = (type = "fade", delay = 0) => {
-    if (prefersReducedMotion) {
-      return { duration: 1 }; // Minimal animation
-    }
-
-    switch (type) {
-      case "fly":
-        return { delay, duration: 600, y: 20 };
-      case "fade":
-      default:
-        return { delay, duration: 600 };
-    }
-  };
+  function formatDate(dateStr) {
+    if (!dateStr) return "";
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
 </script>
 
 <svelte:head>
   <title>Stephen Daniel Okita</title>
-  <meta name="description" content="Personal website of Stephen Daniel Okita" />
+  <meta
+    name="description"
+    content="Personal website of Stephen Daniel Okita"
+  />
 </svelte:head>
 
-<div class="terminal-container">
-  {#if browser && isLoaded}
-    <main class="terminal-main">
-      <!-- Terminal Header -->
-      <div class="terminal-header">
-        <div class="terminal-controls" aria-hidden="true">
-          <div class="control-button close"></div>
-          <div class="control-button minimize"></div>
-          <div class="control-button maximize"></div>
-        </div>
-        <div class="terminal-title">stephen@okita:~</div>
-        <div class="terminal-menu" aria-hidden="true">
-          <span class="menu-item">File</span>
-          <span class="menu-item">Edit</span>
-          <span class="menu-item">View</span>
-        </div>
-      </div>
+<div class="page">
+  <!-- Hero -->
+  <section class="hero">
+    <h1>
+      {#if browser}{typedText}<span class="cursor" class:visible={showCursor}
+          >_</span
+        >{:else}{fullName}{/if}
+    </h1>
+    <p class="subtitle">{japanese}</p>
 
-      <!-- Terminal Body -->
-      <div class="terminal-body">
-        <!-- Name Section with Animation -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 200)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~</span>
-            <span class="command">whoami</span>
+    <div class="roles">
+      <a
+        href="https://www.auracarehealth.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="role"
+      >
+        <span class="role-position">CTO & Co-founder</span>
+        <span class="role-at">Auracare Health</span>
+      </a>
+      <span class="role-sep" aria-hidden="true">/</span>
+      <a
+        href="https://www.ucinvestments.info/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="role"
+      >
+        <span class="role-position">Student Researcher</span>
+        <span class="role-at">UC Investments</span>
+      </a>
+      <span class="role-sep" aria-hidden="true">/</span>
+      <span class="role">
+        <span class="role-position">Philosophy</span>
+        <span class="role-at">UC Berkeley</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- Recent -->
+  <section class="recent">
+    <div class="activity-grid">
+      {#if data.latestPost}
+        <a href="/blog/{data.latestPost.slug}" class="card">
+          <div class="card-top">
+            <span class="card-tag blog-tag">Latest Post</span>
+            <span class="card-date">{formatDate(data.latestPost.date)}</span>
           </div>
-          <div class="output-line">
-            <h1 class="name-display" bind:this={nameElement}>
-              {typedText}<span class="cursor" class:visible={showCursor}>_</span
-              >
-            </h1>
-          </div>
-          <div
-            class="output-line japanese"
-            in:fade={getAnimation("fade", 1000)}
-          >
-            {japanese}
-          </div>
-        </div>
+          <h3>{data.latestPost.title}</h3>
+          <p>{data.latestPost.description}</p>
+          {#if data.latestPost.location}
+            <span class="card-location">{data.latestPost.location}</span>
+          {/if}
+        </a>
+      {/if}
 
-        <!-- Professional Roles -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 1100)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~</span>
-            <span class="command">cat ~/.roles</span>
-          </div>
-          <div class="roles-output">
-            <div class="role-badges">
-              <a
-                href="https://www.auracarehealth.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="role-badge"
-              >
-                <Icon icon="mdi:office-building" class="role-icon" />
-                <div class="role-content">
-                  <span class="role-position">CTO & Co-founder</span>
-                  <span class="role-org">Auracare Health</span>
-                </div>
-              </a>
-
-              <a
-                href="https://www.techjusticelab.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="role-badge"
-              >
-                <Icon icon="mdi:gavel" class="role-icon" />
-                <div class="role-content">
-                  <span class="role-position"
-                    >Head of Technology & Co-founder</span
-                  >
-                  <span class="role-org">Berkeley Tech & Justice Lab</span>
-                </div>
-              </a>
-
-              <a
-                href="https://www.ucinvestments.info/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="role-badge"
-              >
-                <Icon icon="mdi:chart-line" class="role-icon" />
-                <div class="role-content">
-                  <span class="role-position">Student Researcher</span>
-                  <span class="role-org">UC Investments</span>
-                </div>
-              </a>
-
-              <div class="role-badge">
-                <Icon icon="mdi:school" class="role-icon" />
-                <div class="role-content">
-                  <span class="role-position">3rd Year Philosophy Student</span>
-                  <span class="role-org">UC Berkeley</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation Cards -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 1300)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~</span>
-            <span class="command">ls -la</span>
-          </div>
-          <div class="file-list">
-            <a href="/skills" class="file-item directory">
-              <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.skills || "1.5K"}</span>
-              <span class="file-name">skills/</span>
-              <span class="file-description">technical expertise</span>
-            </a>
-            <a href="/person" class="file-item directory">
-              <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.person || "3.2K"}</span>
-              <span class="file-name">person/</span>
-              <span class="file-description">personal information</span>
-            </a>
-
-            <a href="/projects" class="file-item directory">
-              <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.projects || "2.1K"}</span
-              >
-              <span class="file-name">projects/</span>
-              <span class="file-description">software and research</span>
-            </a>
-            <a href="/blog" class="file-item directory">
-              <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.blog || "4.0K"}</span>
-              <span class="file-name">blog/</span>
-              <span class="file-description">thoughts and writings</span>
-            </a>
-
-            <a href="/meta" class="file-item directory">
-              <span class="file-permissions">drwxr-xr-x</span>
-              <span class="file-size">{data.fileSizes?.meta || "3.2K"}</span>
-              <span class="file-name">meta/</span>
-              <span class="file-description">telemetry and stack</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Recent Activity -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 1700)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~</span>
-            <span class="command">tail -f activity.log</span>
-          </div>
-          <div class="log-output">
-            <div class="log-grid">
-              <!-- Latest Blog Post -->
-              <div class="log-entry blog-entry">
-                <div class="log-header">
-                  <span class="log-timestamp">[BLOG]</span>
-                  <span class="log-status">LATEST</span>
-                </div>
-                <div class="log-content">
-                  {#if data.latestPost}
-                    <h3 class="log-title">{data.latestPost.title}</h3>
-                    <p class="log-description">{data.latestPost.description}</p>
-                    <div class="log-meta">
-                      <span class="log-date"
-                        >{new Date(
-                          data.latestPost.date,
-                        ).toLocaleDateString()}</span
-                      >
-                      <span class="log-location"
-                        >{data.latestPost.location}</span
-                      >
-                    </div>
-                    <a href="/blog/{data.latestPost.slug}" class="log-link"
-                      >read post →</a
-                    >
-                  {:else}
-                    <h3 class="log-title">Recent Post</h3>
-                    <p class="log-description">Loading latest thoughts...</p>
-                    <a href="/blog" class="log-link">cd blog/ →</a>
-                  {/if}
-                </div>
-              </div>
-
-              <!-- Latest Project -->
-              <div class="log-entry project-entry">
-                <div class="log-header">
-                  <span class="log-timestamp">[PROJECT]</span>
-                  <span class="log-status">ACTIVE</span>
-                </div>
-                <div class="log-content">
-                  {#if data.latestProject}
-                    <h3 class="log-title">{data.latestProject.title}</h3>
-                    <p class="log-description">
-                      {data.latestProject.description}
-                    </p>
-                    <div class="log-meta">
-                      {#if data.latestProject.status}
-                        <span class="project-status"
-                          >{data.latestProject.status}</span
-                        >
-                      {/if}
-                      {#if data.latestProject.technologies && data.latestProject.technologies.length > 0}
-                        <span class="project-tech"
-                          >{data.latestProject.technologies
-                            .slice(0, 2)
-                            .join(", ")}</span
-                        >
-                      {/if}
-                    </div>
-                    {#if data.latestProject.github_url}
-                      <a href={data.latestProject.github_url} class="log-link"
-                        >view code →</a
-                      >
-                    {:else}
-                      <a href="/projects" class="log-link">view projects →</a>
-                    {/if}
-                  {:else}
-                    <h3 class="log-title">Latest Project</h3>
-                    <p class="log-description">Current development work...</p>
-                    <a href="/projects" class="log-link">cd projects/ →</a>
-                  {/if}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact -->
-        <div class="terminal-section" in:fade={getAnimation("fade", 2100)}>
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~</span>
-            <span class="command">contact --help</span>
-          </div>
-          <div class="output-line">
-            <div class="contact-info">
-              <div class="contact-line">
-                <span class="contact-label">email:</span>
-                <a href="mailto:me@stephenokita.com" class="contact-value"
-                  >me@stephenokita.com</a
-                >
-              </div>
-              <div class="contact-line">
-                <span class="contact-label">calendar:</span>
-                <a href="https://cal.com/stephenokita" class="contact-value"
-                  >cal.com/stephenokita</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cursor prompt -->
-        <div
-          class="terminal-section current-prompt"
-          in:fade={getAnimation("fade", 2500)}
+      {#if data.latestProject}
+        <a
+          href={data.latestProject.github_url || "/projects"}
+          class="card"
+          target={data.latestProject.github_url ? "_blank" : undefined}
+          rel={data.latestProject.github_url
+            ? "noopener noreferrer"
+            : undefined}
         >
-          <div class="prompt-line">
-            <span class="prompt">➜</span>
-            <span class="path">~</span>
-            <span class="cursor-blink">_</span>
+          <div class="card-top">
+            <span class="card-tag project-tag">Latest Project</span>
+            {#if data.latestProject.status}
+              <span class="card-status">{data.latestProject.status}</span>
+            {/if}
           </div>
-        </div>
-      </div>
-    </main>
-  {/if}
+          <h3>{data.latestProject.title}</h3>
+          <p>{data.latestProject.description}</p>
+          {#if data.latestProject.technologies && data.latestProject.technologies.length > 0}
+            <div class="card-tech">
+              {#each data.latestProject.technologies.slice(0, 4) as tech}
+                <span class="tech-pill">{tech}</span>
+              {/each}
+            </div>
+          {/if}
+        </a>
+      {/if}
+    </div>
+  </section>
 </div>
 
 <style>
-  .terminal-container {
-    min-height: 100vh;
-    background: var(--bg-primary);
-    font-family: var(--font-family-mono);
-    padding: var(--space-lg);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
   }
 
-  .terminal-main {
-    max-width: 1000px;
-    width: 100%;
-    background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-primary);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
-    margin-top: var(--space-xl);
-  }
-
-  /* Terminal Header */
-  .terminal-header {
-    background: var(--bg-tertiary);
+  /* ── Hero ── */
+  .hero {
+    padding-bottom: var(--space-2xl);
     border-bottom: 1px solid var(--border-primary);
-    padding: var(--space-sm) var(--space-md);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xl);
   }
 
-  .terminal-controls {
-    display: flex;
-    gap: var(--space-xs);
-  }
-
-  .control-button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid var(--border-secondary);
-  }
-
-  .control-button.close {
-    background: var(--status-error);
-  }
-  .control-button.minimize {
-    background: var(--status-warning);
-  }
-  .control-button.maximize {
-    background: var(--status-success);
-  }
-
-  .terminal-title {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .terminal-menu {
-    display: flex;
-    gap: var(--space-md);
-  }
-
-  .menu-item {
-    color: var(--text-secondary);
-    font-size: var(--font-size-xs);
-  }
-
-  /* Terminal Body */
-  .terminal-body {
-    padding: var(--space-lg);
-    background: var(--bg-primary);
-    min-height: 80vh;
-  }
-
-  .terminal-section {
-    margin-bottom: var(--space-md);
-  }
-
-  .prompt-line {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-base);
-  }
-
-  .prompt {
-    color: var(--accent-primary);
-    font-weight: bold;
-  }
-
-  .path {
-    color: var(--accent-secondary);
-  }
-
-  .command {
-    color: var(--text-primary);
-  }
-
-  .output-line {
-    margin-left: var(--space-lg);
-    margin-bottom: var(--space-sm);
-  }
-
-  /* Name Animation */
-  .name-display {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: bold;
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
     color: var(--text-primary);
     font-family: var(--font-family-mono);
-    line-height: 1.2;
+    line-height: 1.15;
+    margin: 0 0 var(--space-xs);
   }
 
   .cursor {
     opacity: 0;
     transition: opacity 0.1s ease;
   }
-
   .cursor.visible {
     opacity: 1;
   }
 
-  .japanese {
+  .subtitle {
     color: var(--text-secondary);
-    font-size: var(--font-size-lg);
-    margin-top: var(--space-sm);
+    font-size: var(--font-size-base);
+    margin: 0 0 var(--space-lg);
   }
 
-  /* File List */
-  .file-list {
-    margin-left: var(--space-lg);
+  /* Roles — inline flow */
+  .roles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-xs) var(--space-sm);
+    line-height: 1.6;
   }
 
-  .file-item {
-    display: grid;
-    grid-template-columns: 120px 60px 1fr 2fr;
-    gap: var(--space-md);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-fast);
+  .role {
     text-decoration: none;
     color: inherit;
-    font-size: var(--font-size-sm);
-    align-items: center;
   }
 
-  .file-item:hover {
-    background: var(--bg-tertiary);
-    transform: translateX(var(--space-sm));
-  }
-
-  .file-permissions {
-    color: var(--text-tertiary);
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-xs);
-  }
-
-  .file-size {
-    color: var(--text-secondary);
-    font-family: var(--font-family-mono);
-    font-size: var(--font-size-xs);
-  }
-
-  .file-name {
+  a.role:hover .role-position {
     color: var(--accent-primary);
-    font-weight: 500;
-  }
-
-  .file-description {
-    color: var(--text-secondary);
-    font-style: italic;
-  }
-
-  /* Log Output */
-  .log-output {
-    margin-left: var(--space-lg);
-  }
-
-  .log-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
-  }
-
-  .log-entry {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    transition: all var(--transition-normal);
-  }
-
-  .log-entry:hover {
-    border-color: var(--border-accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
-  }
-
-  .log-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-  }
-
-  .log-timestamp {
-    color: var(--accent-primary);
-    font-weight: bold;
-  }
-
-  .log-status {
-    color: var(--status-success);
-    background: var(--bg-tertiary);
-    padding: 2px var(--space-xs);
-    border-radius: var(--radius-sm);
-  }
-
-  .log-content h3 {
-    color: var(--text-primary);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-xs);
-  }
-
-  .log-description {
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-sm);
-    line-height: 1.4;
-  }
-
-  .log-link {
-    color: var(--accent-primary);
-    text-decoration: none;
-    font-size: var(--font-size-sm);
-    font-family: var(--font-family-mono);
-    transition: color var(--transition-fast);
-  }
-
-  .log-link:hover {
-    color: var(--accent-cyan);
-  }
-
-  .log-meta {
-    display: flex;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-mono);
-  }
-
-  .log-date,
-  .log-location,
-  .project-status,
-  .project-tech {
-    background: var(--bg-tertiary);
-    color: var(--text-tertiary);
-    padding: 2px var(--space-xs);
-    border-radius: var(--radius-sm);
-  }
-
-  .project-status {
-    color: var(--status-info);
-  }
-
-  .project-tech {
-    color: var(--accent-tertiary);
-  }
-
-  /* Contact Info */
-  .contact-info {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-  }
-
-  .contact-line {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-xs);
-  }
-
-  .contact-line:last-child {
-    margin-bottom: 0;
-  }
-
-  .contact-label {
-    color: var(--text-tertiary);
-    min-width: 80px;
-    font-size: var(--font-size-sm);
-  }
-
-  .contact-value {
-    color: var(--accent-primary);
-    text-decoration: none;
-    font-size: var(--font-size-sm);
-    transition: color var(--transition-fast);
-  }
-
-  .contact-value:hover {
-    color: var(--accent-cyan);
-  }
-
-  /* Professional Roles */
-  .roles-output {
-    margin-left: var(--space-lg);
-  }
-
-  .role-badges {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: var(--space-md);
-  }
-
-  .role-badge {
-    display: flex;
-    align-items: center;
-    gap: var(--space-md);
-    padding: var(--space-md);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .role-badge::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(136, 192, 208, 0.1),
-      transparent
-    );
-    transition: left 0.5s;
-  }
-
-  .role-badge:hover::before {
-    left: 100%;
-  }
-
-  .role-badge:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow-medium);
-  }
-
-  .role-icon {
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    color: var(--accent-primary);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  }
-
-  .role-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
   }
 
   .role-position {
     color: var(--text-primary);
     font-weight: 600;
     font-size: var(--font-size-sm);
-    line-height: 1.2;
+    transition: color var(--transition-fast);
   }
 
-  .role-org {
+  .role-at {
     color: var(--text-secondary);
     font-size: var(--font-size-xs);
-    font-weight: 400;
   }
 
-  /* Current Prompt */
-  .current-prompt .cursor-blink {
-    animation: blink 1s infinite;
+  .role-at::before {
+    content: "@ ";
+    color: var(--text-muted);
+  }
+
+  .role-sep {
+    color: var(--text-muted);
+    user-select: none;
+  }
+
+  /* ── Recent Activity ── */
+  .activity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: var(--space-md) var(--space-lg);
+    border-left: 3px solid var(--border-primary);
+    transition: border-color var(--transition-fast);
+  }
+
+  .card:hover {
+    border-left-color: var(--accent-primary);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+  }
+
+  .card-tag {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-tag {
+    color: var(--status-success);
+  }
+
+  .project-tag {
+    color: var(--accent-primary);
+  }
+
+  .card-date,
+  .card-status {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    font-family: var(--font-family-mono);
+  }
+
+  .card h3 {
     color: var(--text-primary);
+    font-size: var(--font-size-base);
+    margin: 0 0 var(--space-xs);
+    font-weight: 600;
+    line-height: 1.3;
   }
 
-  @keyframes blink {
-    0%,
-    50% {
-      opacity: 1;
-    }
-    51%,
-    100% {
-      opacity: 0;
-    }
+  .card p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0 0 var(--space-sm);
   }
 
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .terminal-main {
-      margin-top: var(--space-md);
-    }
+  .card-location {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
   }
 
-  @media (max-width: 768px) {
-    .terminal-container {
-      padding: var(--space-md);
+  .card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tech-pill {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    padding: 1px var(--space-sm);
+    border-radius: var(--radius-sm);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .page {
+      padding: var(--space-lg) var(--space-md);
     }
 
-    .terminal-header {
-      flex-direction: column;
-      gap: var(--space-sm);
-      text-align: center;
-    }
-
-    .terminal-menu {
-      display: none;
-    }
-
-    .file-item {
-      grid-template-columns: 1fr;
-      gap: var(--space-xs);
-    }
-
-    .file-permissions,
-    .file-size {
-      display: none;
-    }
-
-    .log-grid {
+    .activity-grid {
       grid-template-columns: 1fr;
     }
-
-    .name-display {
-      font-size: clamp(1.5rem, 8vw, 2.5rem);
-    }
-
-    .role-badges {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
-
-    .role-badge {
-      padding: var(--space-sm);
-    }
-
-    .role-icon {
-      width: 28px;
-      height: 28px;
-    }
-
-    .role-position {
-      font-size: var(--font-size-xs);
-    }
-
-    .role-org {
-      font-size: 10px;
-    }
   }
 
-  /* Respect reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
-    .cursor-blink {
-      animation: none;
-    }
-
     * {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;

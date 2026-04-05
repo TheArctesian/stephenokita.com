@@ -15,10 +15,10 @@
   <link rel="alternate" type="application/rss+xml" title="Stephen Daniel Okita's Blog RSS Feed" href="/rss.xml" />
 </svelte:head>
 
-<div class="min-h-screen bg-bg-primary text-text-primary transition-colors duration-normal">
+<div class="min-h-screen bg-bg-primary text-text-primary transition-colors duration-normal flex flex-col">
   <Navigation />
 
-  <main>
+  <main class="flex-1">
     <slot />
   </main>
 

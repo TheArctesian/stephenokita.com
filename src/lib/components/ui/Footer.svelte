@@ -1,114 +1,126 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
-  import { getSocialIcon } from "$lib/utils/icons";
   import Icon from "@iconify/svelte";
 
-  const socialLinks = [
+  const links = [
+    {
+      href: "mailto:me@stephenokita.com",
+      icon: "mdi:email-outline",
+      label: "Email",
+    },
+    {
+      href: "https://cal.com/stephenokita",
+      icon: "mdi:calendar-outline",
+      label: "Calendar",
+      external: true,
+    },
     {
       href: "https://www.linkedin.com/in/stephen-okita/",
-      service: "linkedin",
-      alt: "LinkedIn",
+      icon: "mdi:linkedin",
+      label: "LinkedIn",
+      external: true,
     },
     {
       href: "https://github.com/TheArctesian",
-      service: "github",
-      alt: "GitHub",
+      icon: "mdi:github",
+      label: "GitHub",
+      external: true,
     },
     {
       href: "https://pixelfed.social/thearctesian",
-      service: "pixelfed",
-      alt: "Pixelfed",
+      icon: "mdi:camera-outline",
+      label: "Pixelfed",
+      external: true,
     },
     {
       href: "https://x.com/StephenOkita",
-      service: "x",
-      alt: "X (Twitter)",
+      icon: "simple-icons:x",
+      label: "X",
+      external: true,
     },
   ];
 </script>
 
-<footer class="w-full px-4 box-border text-text-primary" transition:fade={{ delay: 500 }}>
-  <div class="nord-surface p-md w-full">
-    <div class="text-center space-y-md">
-      <h2 class="text-base">
-        Email me at <a href="mailto:me@stephenokita.com" class="text-accent-primary hover:text-accent-cyan transition-all duration-fast">me@stephenokita.com</a>
-      </h2>
-      
-      <h2 class="text-base">
-        Schedule a meeting with me 
-        <a href="https://cal.com/stephenokita" class="text-accent-primary hover:text-accent-cyan transition-all duration-fast underline">cal.com/stephenokita</a>
-      </h2>
-
-      <div class="social-links flex justify-between items-center gap-xl p-xl">
-        {#each socialLinks as link}
-          <div class="social-link flex-1 flex justify-center">
-            <a href={link.href} aria-label={link.alt} class="w-full flex justify-center">
-              <Icon icon={getSocialIcon(link.service)} class="social-icon w-full hover:scale-110" />
-            </a>
-          </div>
-        {/each}
-      </div>
-
-      <p class="text-base">
-        source code for this website 
-        <a 
-          class="text-accent-primary hover:text-accent-cyan transition-all duration-fast italic underline" 
-          href="https://github.com/TheArctesian/danielokita.com"
+<footer>
+  <div class="footer-inner">
+    <nav class="footer-links" aria-label="Contact and social links">
+      {#each links as link}
+        <a
+          href={link.href}
+          aria-label={link.label}
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
         >
-          here
+          <Icon icon={link.icon} />
         </a>
-      </p>
-    </div>
+      {/each}
+    </nav>
+    <a
+      href="https://github.com/TheArctesian/danielokita.com"
+      class="source-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      source
+    </a>
   </div>
 </footer>
 
 <style>
-  .social-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(94%) contrast(90%);
-    opacity: 0.8;
-    transition: filter var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
-  }
-  
-  .social-icon:hover {
-    filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(933%) hue-rotate(343deg) brightness(110%) contrast(90%);
-    opacity: 1;
+  footer {
+    border-top: 1px solid var(--border-primary);
+    padding: var(--space-lg) var(--space-lg);
   }
 
-  @media (max-width: 900px) {
-    .social-links {
-      gap: var(--space-lg) !important;
-      padding: var(--space-lg) 0 !important;
-    }
-
-    .social-icon {
-      width: 3rem;
-      height: 3rem;
-    }
+  .footer-inner {
+    max-width: 740px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  @media (max-width: 500px) {
-    .social-icon {
-      width: 3.5rem;
-      height: 3.5rem;
-    }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
   }
 
-  @media (max-width: 350px) {
-    .social-links {
-      flex-direction: column !important;
-      gap: var(--space-md) !important;
+  .footer-links a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent-primary);
+  }
+
+  .footer-links a :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .source-link {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .source-link:hover {
+    color: var(--accent-primary);
+  }
+
+  @media (max-width: 640px) {
+    .footer-links {
+      gap: var(--space-md);
     }
 
-    .social-link {
-      width: 100% !important;
-    }
-
-    .social-icon {
-      width: 4rem;
-      height: 4rem;
+    .footer-links a :global(svg) {
+      width: 22px;
+      height: 22px;
     }
   }
 </style>

@@ -15,28 +15,28 @@ This codebase follows Unix philosophy:
 - **Styling**: Modular CSS design system with TailwindCSS
 - **Content**: MDSvex for markdown processing + Database for dynamic content
 - **Deployment**: Vercel (configured with @sveltejs/adapter-vercel)
-- **Package Manager**: Yarn
+- **Package Manager**: Bun
 
 ## Development Commands
 ```bash
 # Start development server
-yarn dev
+bun dev
 
 # Build for production
-yarn build
+bun run build
 
 # Preview production build
-yarn preview
+bun run preview
 
 # Type checking and linting
-yarn check
-yarn check:watch
+bun run check
+bun run check:watch
 
 # Database operations
-yarn db:generate    # Generate migrations
-yarn db:push       # Push schema to database
-yarn db:studio     # Open Drizzle Studio
-yarn migrate-data  # Migrate JSON data to database
+bun run db:generate    # Generate migrations
+bun run db:push       # Push schema to database
+bun run db:studio     # Open Drizzle Studio
+bun run migrate-data  # Migrate JSON data to database
 ```
 
 ## Clean Architecture Overview

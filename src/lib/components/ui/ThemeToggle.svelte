@@ -52,10 +52,6 @@
         return 'moon';
       case 'sketched':
         return 'pencil';
-      case 'whiteboard':
-        return 'presentation';
-      case 'cthulhu':
-        return 'tentacle';
       default:
         return 'computer';
     }
@@ -82,15 +78,6 @@
         return `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-        </svg>`;
-      case 'presentation':
-        return `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M7 21h10M3 7h18M5 3h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
-        </svg>`;
-      case 'tentacle':
-        return `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C10.5 2 9 2.5 8 3.5C7 4.5 6.5 6 6.5 7.5C6.5 8 6.6 8.5 6.7 9C5.8 9.3 5 9.9 4.5 10.7C4 11.5 3.7 12.5 3.7 13.5C3.7 14 3.8 14.5 3.9 15C3.1 15.3 2.4 15.9 2 16.7C1.6 17.5 1.5 18.4 1.5 19.3C1.5 20.5 2 21.6 2.8 22.4C3.6 23.2 4.7 23.7 5.9 23.7C6.5 23.7 7.1 23.6 7.6 23.4C8.5 23 9.2 22.3 9.6 21.4C10 20.5 10 19.5 9.8 18.5C10.5 18.8 11.2 19 12 19C12.8 19 13.5 18.8 14.2 18.5C14 19.5 14 20.5 14.4 21.4C14.8 22.3 15.5 23 16.4 23.4C16.9 23.6 17.5 23.7 18.1 23.7C19.3 23.7 20.4 23.2 21.2 22.4C22 21.6 22.5 20.5 22.5 19.3C22.5 18.4 22.4 17.5 22 16.7C21.6 15.9 20.9 15.3 20.1 15C20.2 14.5 20.3 14 20.3 13.5C20.3 12.5 20 11.5 19.5 10.7C19 9.9 18.2 9.3 17.3 9C17.4 8.5 17.5 8 17.5 7.5C17.5 6 17 4.5 16 3.5C15 2.5 13.5 2 12 2M12 4C12.8 4 13.5 4.3 14 4.8C14.5 5.3 14.8 6 14.8 6.8C14.8 7.2 14.7 7.6 14.5 8C14.3 8.4 14 8.7 13.6 8.9C13.2 9.1 12.8 9.2 12.4 9.2C12 9.2 11.6 9.1 11.2 8.9C10.8 8.7 10.5 8.4 10.3 8C10.1 7.6 10 7.2 10 6.8C10 6 10.3 5.3 10.8 4.8C11.3 4.3 12 4 12 4Z"/>
         </svg>`;
       default:
         return `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
