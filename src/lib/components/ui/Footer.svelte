@@ -8,7 +8,7 @@
       label: "Email",
     },
     {
-      href: "https://cal.com/stephenokita",
+      href: "https://calendar.proton.me/bookings#PVqgFrFtZK25gLCOFvvVe5Sh3HWfK-_gSIWJLICwztU=",
       icon: "mdi:calendar-outline",
       label: "Calendar",
       external: true,

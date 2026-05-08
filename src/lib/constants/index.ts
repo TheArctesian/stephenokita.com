@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   github: 'https://github.com/TheArctesian',
   linkedin: 'https://www.linkedin.com/in/stephen-okita/',
   instagram: 'https://www.instagram.com/stephen.okita/',
-  calendar: 'https://cal.com/stephenokita',
+  calendar: 'https://calendar.proton.me/bookings#PVqgFrFtZK25gLCOFvvVe5Sh3HWfK-_gSIWJLICwztU=',
 } as const;
 
 export const ROUTES = {
