@@ -12,7 +12,7 @@ language:
   - English
 ---
 
-CVEs (Common Vulnerabilities and Exposures) is a list of publicly known vulnrebailies. The chart below stacks the count for each year by CVSS rating range. Hover for the per-range and per-year totals.
+CVE (Common Vulnerabilities and Exposures) is a list of publicly known vulnerabilities. The chart below stacks the count for each year by CVSS rating range. Hover for the per-range and per-year totals.
 
 <script>
 	import CVEMap from "../../../lib/components/blog/maps/cvemap.svelte"

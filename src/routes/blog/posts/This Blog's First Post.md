@@ -17,9 +17,9 @@ language:
 
 Hello World! Welcome to my blog. 
 
-This is not really a welcome as I have had different implementations of blog over time but I think this one will stick. 
+This is not really a welcome as I have had different implementations of a blog over time but I think this one will stick. 
 
-I am a svelte zealot. For a while I had this blog set up where all I would do is manually convert my `.md` files into `json` and built another manual render for that. That was a lot of pain and the amount of pain it took to manually convert markdown to `json` was keeping publishing any posts. It also meant that embedding other assets would be impossible as I would have to create a custom render for all of that, and writing and `code` with syntax would require me to build my own parser which is not very fun.  
+I am a Svelte zealot. For a while I had this blog set up where all I would do is manually convert my `.md` files into `json` and build another manual render for that. That was a lot of pain and the amount of pain it took to manually convert markdown to `json` was keeping me from publishing any posts. It also meant that embedding other assets would be impossible as I would have to create a custom render for all of that, and writing any `code` with syntax would require me to build my own parser which is not very fun.  
 
 I am using [this guide](https://joyofcode.xyz/sveltekit-markdown-blog#project-setup) with [mdsvex](https://mdsvex.com/) now and we will see how that does. But hopefully I can now do things like: 
 
@@ -50,7 +50,7 @@ hello_world:
     .asciz "Hello, World!\n"
 ```
 
-I am restarting this because of a [video](https://www.youtube.com/watch?v=bJQj1uKtnus) I saw today on *The Cult of Done*. *The Cult of done* as stated in it's [manifesto](https://thomasdeneuville.com/cult-of-done-manifesto/) is a simple 13 rules to get shit done. 
+I am restarting this because of a [video](https://www.youtube.com/watch?v=bJQj1uKtnus) I saw today on *The Cult of Done*. *The Cult of Done* as stated in its [manifesto](https://thomasdeneuville.com/cult-of-done-manifesto/) is a simple set of 13 rules to get shit done. 
 
 1. There are three states of being. Not knowing, action and completion.
 2. Accept that everything is a draft. It helps to get it done.
@@ -66,10 +66,10 @@ I am restarting this because of a [video](https://www.youtube.com/watch?v=bJQj1u
 12. If you have an idea and publish it on the internet, that counts as a ghost of done.
 13. Done is the engine of more.
 
-While there are certain principles I can disagree with in here I in general like it. So following rule 12 I shall revive this blog. 
+While there are certain principles I can disagree with in here, I generally like it. So following rule 12 I shall revive this blog. 
 
 Thank you for your time and I hope you enjoy it. 
 <br>
 <hr>
 
-This is me writing it after I am done implementing the feature took about 2 hours of pain. I did not have fun and it still is not perfect but you know what is, **DONE.**
+This is me writing it after I am done implementing the feature; it took about 2 hours of pain. I did not have fun and it still is not perfect but you know what is, **DONE.**

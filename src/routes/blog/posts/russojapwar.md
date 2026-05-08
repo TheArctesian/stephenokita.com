@@ -1,6 +1,6 @@
 ---
-title: Russo Japanese war
-description: Presentation my history class from school
+title: Russo-Japanese War
+description: Presentation for my history class from school
 date: "2021-02-04"
 location: Hong Kong
 categories:

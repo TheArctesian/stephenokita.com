@@ -21,7 +21,7 @@ language:
 
 Both Frankfurt and Watson develop compatibilist accounts of freedom that preserve a notion of agency within determinism by examining the relations of the agents' mental states, or their experience of the will, though they differ significantly in their approach.
 
-Firstly, desire or to want are "elusive" (324) terms; they can range from intensely needing an act in a certain way to having no emotional response in relation to the action. The want F\&W explore is the abstract quality of desire, not its intensity or direction.
+Firstly, desire or to want are "elusive" (324) terms; they can range from intensely needing to act in a certain way to having no emotional response in relation to the action. The want F\&W explore is the abstract quality of desire, not its intensity or direction.
 
 Frankfurt posits that the human will is unique because we can have desires about desires, which he calls second-order desires. An n-1 desire could be wanting to smoke a cigarette, while an n-2 desire would be wanting to want to smoke. Frankfurt places no limit on these hierarchical orders, allowing for theoretically infinite dimensions of desires about desires. For Frankfurt, freedom involves having the will one wants to have, meaning all of the agent's orders of desire are in harmony with the action itself.
 
@@ -31,7 +31,7 @@ Watson, while agreeing that free will involves different modes of desire, reject
 
 Both philosophers conceive freedom as getting what one most wants, but differ crucially in how they identify what one "most wants." For Frankfurt, what we most want is determined by our second-order volitions--our desires about which first-order desires should be effective. Freedom means having the will one wants to have and acting on it.
 
-For Watson, what we most want is determined by what we value--our ethical or aesthetic judgements of good. Freedom means acting from our evaluative system rather than being controlled by our motivational system. This mirrors Frankfurt's system but articulates it with a degree more confinement, not letting higher-order desires be anything but only what the agent values.
+For Watson, what we most want is determined by what we value--our ethical or aesthetic judgements of good. Freedom means acting from our evaluative system rather than being controlled by our motivational system. This mirrors Frankfurt's system but articulates it with a degree more confinement, not letting higher-order desires be anything but what the agent values.
 
 ## **Explain the implications of these approaches for Frankfurt's cases of the unwilling and willing addicts.**
 
@@ -41,7 +41,7 @@ Under Watson's approach, the unwilling addict similarly lacks freedom because th
 
 The willing addict has both a first-order desire for drugs and a second-order volition that affirms this desire. Frankfurt argues this agent has freedom of will (their will is what they want it to be) but lacks freedom of action (they cannot do otherwise).
 
-From Watson's perspective, the willing addict appears free only if their evaluative judgement genuinely affirms drug use as valuable. However, Watson could question whether addiction has corrupted the evaluative system itself, suggesting that what appears to be evaluative endorsement might actually be rationalization driven by addiction.
+From Watson's perspective, the willing addict appears free only if their evaluative judgement genuinely affirms drug use as valuable. However, Watson could question whether addiction has corrupted the evaluative system itself, suggesting that what appears to be evaluative endorsement might actually be rationalisation driven by addiction.
 
 ## **Do you agree that the willing addict acts freely, even though they lack freedom of will?**
 
@@ -65,7 +65,7 @@ Weak-willed agents retain substantial freedom of will despite momentary lapses. 
 
 ## **Is this idea better conceptualised in terms of higher-order volitions, or in terms of the agent's valuation system?**
 
-Within the binary bounds of Watson and Frankfurt's description of free agency, Watson's valuation system offers a more compelling conceptualisation. Frankfurt's hierarchical model faces an infinite regress problem--authenticity of subordinate orders of desire are dependent on their n+1 order of desire. If we are to say the unwilling addict doesn't want to take the drug, who is to say the second order is legitimate--this process is repeated for the third, on the second to n∞-1 legitimising n∞. This makes it impossible to truly determine if a will is free, as infinity is impossible to calculate and grasp. Watson binds the orders to rationale (evaluative) and appetitive without a hierarchy of legitimising, making harmony between the two the condition for free will.
+Within the binary bounds of Watson and Frankfurt's description of free agency, Watson's valuation system offers a more compelling conceptualisation. Frankfurt's hierarchical model faces an infinite regress problem--the authenticity of subordinate orders of desire is dependent on their n+1 order of desire. If we are to say the unwilling addict doesn't want to take the drug, who is to say the second order is legitimate--this process is repeated for the third, on the second to n∞-1 legitimising n∞. This makes it impossible to truly determine if a will is free, as infinity is impossible to calculate and grasp. Watson binds the orders to rational (evaluative) and appetitive without a hierarchy of legitimising, making harmony between the two the condition for free will.
 
 This system seems more functional; however, it still has its own flaws. Free will under compatibilism is only true in the agent's eyes, and for the sake of moral blame. However, everything is necessitated and the laws behind human nature are still largely unknown. As action is a necessitated reaction to antecedent events, does it not help to understand why that action is necessitated? Both philosophers operate under the presupposition that the social self or the perceived self is the correct self. The tension of wanting to act in accordance with convention (morality and what society deems valuable), and wanting to act in accordance with myself is not resolved. Both Frankfurt and Watson place value on morality rather than desire or the will of the body; the correct self is the self in the context of their embodied social.
 
@@ -73,7 +73,7 @@ To use another personal example, Bitches Brew by Miles Davis is an album I strug
 
 In this sense, Diogenes and Crates may be the only truly free men in history. Athens did not bind them to action like the psychiatrist acting against his first-order desires for excellence in his social identity (arete). They acted independently of good and evil to venerate the higher nature. Their actions are still under the command of the spectacle; however, it seems to be in agreement with the only good truly part of our constitution, that being nature. In this sense, I feel the infinite examination of will Frankfurt demands is a better conception of free will. Diogenes wants to eat, Diogenes wants to want to satisfy his natural desires, Diogenes wants to only want to want to want to satisfy his natural desires. Thus, Diogenes freely chooses his asceticism, eating without a bowl and eating plainly, outside of the pageantry/spectacle of dining.
 
-Watson and Frankfurt are in a sense dishonest to the determinism they slate to believe. Spinoza is a brand of the cynics, with the metaphysical backing the ancients had no time for. Freedom through acknowledging the limitations of the will is the only way to grade and understand agency. However, the end of this venture will be complete harmony of will and determinism, or Dionysian veneration of the sublime command of nature.
+Watson and Frankfurt are in a sense dishonest to the determinism they claim to believe. Spinoza is a brand of the cynics, with the metaphysical backing the ancients had no time for. Freedom through acknowledging the limitations of the will is the only way to grade and understand agency. However, the end of this venture will be complete harmony of will and determinism, or Dionysian veneration of the sublime command of nature.
 
 ## **References**
 

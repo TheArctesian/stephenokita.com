@@ -93,9 +93,9 @@ Linux began with this message and now runs something like 90% of all computers i
 
 > "Hello everybody out there using minix - I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones."
 >
-> - 25th August 1991, when Linus Torvalds
+> - 25th August 1991, by Linus Torvalds
 
-Linux did not want the distro to be named after him, but a collaborator uploaded it to an FTP server under that name and the name stuck.
+Linus did not want the distro to be named after him, but a collaborator uploaded it to an FTP server under that name and the name stuck.
 
 Technically speaking, "Linux" refers specifically to the kernel—the core component that manages system resources, facilitates communication between hardware and software, and provides essential services for computer programs. In discourse, Linux refers to Linux Operating Systems or distributions (distros). These package Linux and the GNU utils with whatever else the distro maker wants to make a complete computing environment.
 
@@ -109,7 +109,7 @@ UNIX was first developed at AT&T's Bell Labs in 1969 by legendary computer scien
 
 ### The GNU Project
 
-In 1983, Richard Stallman launched the GNU Project (recursive acronym GNU's Not UNIX) to create a completely free UNIX-like operating system (this is still an ongoing project they are trying to replace all of the Linux kernel; it's funny but useless). By 1990, GNU had developed most of the essential components needed for a complete operating system—compilers, text editors, shells, libraries—but did not have a kernel.
+In 1983, Richard Stallman launched the GNU Project (recursive acronym GNU's Not UNIX) to create a completely free UNIX-like operating system (this is still an ongoing project they are trying to replace the Linux kernel; it's funny but useless). By 1990, GNU had developed most of the essential components needed for a complete operating system—compilers, text editors, shells, libraries—but did not have a kernel.
 
 ### Minix as Inspiration
 
@@ -123,7 +123,7 @@ On 25th August 1991, Linus Torvalds posted his now-famous message to the comp.os
 
 Torvalds had begun by writing a terminal emulator to connect to the university's computers. This project gradually evolved into a kernel. He initially wanted to call his creation "Freax" (combining "free," "freak," and "UNIX"), but when his friend Ari Lemmke created a directory for it on the FTP server at the Helsinki University of Technology, he named it "Linux" without consulting Torvalds. Despite Torvalds' initial reluctance, the name stuck.
 
-On 17th September 1991, Torvalds released Linux version 0.01, comprising 10,239 lines of code. In October, version 0.02 was released with the ability to run Bash and GCC (the GNU compiler for the C and C++), creating the first functional Linux system.
+On 17th September 1991, Torvalds released Linux version 0.01, comprising 10,239 lines of code. In October, version 0.02 was released with the ability to run Bash and GCC (the GNU compiler for C and C++), creating the first functional Linux system.
 
 ## The GNU/Linux Combination (1992-1993)
 
@@ -185,7 +185,7 @@ Linux found tremendous success beyond traditional computing:
 - **Android** (2008): Google's Linux-based mobile OS became the world's most widely used operating system
 - **Chrome OS** (2011): Google's lightweight, Linux-based operating system for Chromebooks
 - **Embedded Linux**: Powering routers, smart TVs, in-vehicle infotainment systems, and industrial controllers
-- **Internet of Things**: Linux became the foundation for pretty much all IoT devices, i.e., thermostats, toasters, fridges or anything with 'smart' before it is running Linux.
+- **Internet of Things**: Linux became the foundation for pretty much all IoT devices, e.g., thermostats, toasters, fridges, or anything with 'smart' before it, is running Linux.
 - **Raspberry Pi** (2012): These low-cost, Linux-powered computers popularised tinkering and education
 
 ## The Cloud Revolution (2010-Present)
@@ -199,7 +199,7 @@ Linux became the dominant platform for cloud computing:
 
 ## Linux now
 
-Linux is everywhere in our lives, yet we don't even know it. From Torvalds' humble announcement to powering roughly 90% of the world's computing infrastructure (including Android devices, servers, supercomputers, embedded systems, desktops (now [4%](https://gs.statcounter.com/os-market-share/desktop/worldwide/)) and cloud platforms. What began as "just a hobby" has become the foundation of all modern digital infrastructure. The best thing about it is it is all open source and developed for the purpose of progressing humanity, not for profit.
+Linux is everywhere in our lives, yet we don't even know it. Linux has gone from Torvalds' humble announcement to powering roughly 90% of the world's computing infrastructure (including Android devices, servers, supercomputers, embedded systems, desktops (now [4%](https://gs.statcounter.com/os-market-share/desktop/worldwide/)) and cloud platforms). What began as "just a hobby" has become the foundation of all modern digital infrastructure. The best thing about it is it is all open source and developed for the purpose of progressing humanity, not for profit.
 
 Without Linux we would be decades behind in our technological growth and computing would only be for those who can afford it.
 
@@ -207,7 +207,7 @@ Without Linux we would be decades behind in our technological growth and computi
 
 As it is systems which force immoral actions, not individuals, switching to Linux for your desktop is undoubtedly the correct "ethical" thing to do. I will write a longer piece on why later, but for now imagine it like going vegan, not using Amazon, buying fair trade coffee, recycling, donating to charity or voting. These are all things that have become supererogatory; no one is a moral saint, but we can make little consumer choices to help humanity reclaim its independence from the machine.
 
-Beyond the morality of it, Linux is objectively a better operating system. In fact, most major developments in Windows and Mac have been designs that they stole from Linux distros. With Flatpak, Snap and Steam software support has become almost universal, even [PewDiePie has switched over](https://www.youtube.com/watch?v=pVI_smLgTY0).
+Beyond the morality of it, Linux is objectively a better operating system. In fact, most major developments in Windows and Mac have been designs that they stole from Linux distros. With Flatpak, Snap and Steam, software support has become almost universal, even [PewDiePie has switched over](https://www.youtube.com/watch?v=pVI_smLgTY0).
 
 Linux is also really fun to use, being able to contribute to something as well as tinker so that your computer is tailored to your needs. You can do some crazy things (check out [r/unixporn](https://www.reddit.com/r/unixporn/) for examples) and have access to the cutting edge of software.
 

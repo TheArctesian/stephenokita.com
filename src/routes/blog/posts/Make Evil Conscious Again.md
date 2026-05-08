@@ -27,7 +27,7 @@ Contents:
 - I: Silly Wisdom, the fabric of the banal,
 - II: it makes your silly clothes.
 - III: You were born naked no?
-- IV: So Take of your clothes.
+- IV: So Take off your clothes.
 
 ## I. Silly Wisdom, the fabric of the banal,
 
@@ -72,7 +72,7 @@ You look silly.
 
 What is to be done?
 You are an agent of god.
-The god the pope delcared to be true, that which:
+The god the pope declared to be true, that which:
 
 > is produced in man and in the world exalt the future,  
 > all things are God and have the very substance of God
@@ -84,12 +84,12 @@ The god the pope delcared to be true, that which:
 >
 > \- The Syllabus of Errors, Pope Pius IX [4]
 
-Be imminently good, exalt the future in every word and deed.  
+Be eminently good, exalt the future in every word and deed.  
 Retard evil with good.  
 Forget your past, do you even actually remember?
 
 _When they dress you for war, must you wear what they offer?_
-Are you so fragile? So scared of of harm?
+Are you so fragile? So scared of harm?
 So petrified that you enact violence upon others?  
 They hand you a uniform and expect your conscience to be folded away?
 Have you no spine?  
@@ -116,7 +116,7 @@ be conscious of your evil,
 unravel the costumes of complicity, thread by thread
 breed hope into your discordant march of life,  
 feel the spirit of your terror and channel it (see footnote 7),
-live for your future not someone else's past.
+live for your future, not someone else's past.
 
 Let evil not be banal, only you can Make Evil Conscious Again.
 

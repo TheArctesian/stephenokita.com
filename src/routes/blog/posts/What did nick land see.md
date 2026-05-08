@@ -1,6 +1,6 @@
 ---
 title: What Did Nick Land See?
-description: My attempt to execute the madness brought about by Fanged Neuomena. I needed to make this artistic, to try and plug a little more holes.
+description: My attempt to execute the madness brought about by Fanged Noumena. I needed to make this artistic, to try and plug a few more holes.
 date: "2025-05-08"
 location: Berkeley
 categories:
@@ -40,9 +40,9 @@ Yet there was no light at the end of the tunnel, the enlightenment was subsumed 
 
 he fell into the infinity, consumed by the vacuum of nature, the fate we are told to love, that of the inadvisable zero.
 
-The Dark Enlightenment is not an aesthetic modifier, its the consequence of knowledge's prescriptions on reality.
+The Dark Enlightenment is not an aesthetic modifier, it's the consequence of knowledge's prescriptions on reality.
 
-The Noumenal world is fanged, the weapons of Ouroborus biting closer to it's sleep.
+The Noumenal world is fanged, the weapons of Ouroboros biting closer to its sleep.
 
 Gnawing for the cosmic reset.
 
@@ -52,7 +52,7 @@ he got beyond good and evil, and saw nothing.
 
 What is to be done? Nothing? <span class="font-bold">NOTHING?</span>
 
-The sublime was deaf to any music, it's deaf cries gripped him.
+The sublime was deaf to any music, its deaf cries gripped him.
 
 </div>
 <br>
@@ -85,9 +85,9 @@ oh what joy to be a clever goldfish
 
 </div>
 
-## Words from Lovecraft's call to Cthulhu to be pensive about
+## Words from Lovecraft's Call of Cthulhu to be pensive about
 
-“The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents. We live on a placid island of ignorance in the midst of black seas of the infinity, and it was not meant that we should voyage far.”
+“The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents. We live on a placid island of ignorance in the midst of black seas of infinity, and it was not meant that we should voyage far.”
 
 “It is a mistake to fancy that horror is associated inextricably with darkness, silence, and solitude.”
 

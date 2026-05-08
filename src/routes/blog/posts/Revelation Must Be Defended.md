@@ -28,7 +28,7 @@ This is meant to be critique and art combined, I don't know if this is possible 
 
 This is a mostly secular essay, though allusion to Abrahamic faith is there. I have not invented/found a good enough vernacular to talk about these ideas outside of these traditions (at least in English).
 
-Without further ado, let's rebuild the link between humanity with reality.
+Without further ado, let's rebuild the link between humanity and reality.
 
 # REVELATION MUST BE DEFENDED
 
@@ -40,7 +40,7 @@ Experience reality with all the passion our corporeal form allows us to. DARE TO
 
 Bathe in the lucidity of its love, listen to the harmony of its dissonance. Embody the psychedelic phronesis, glimpse into the universe beyond dimensionality. This is knowledge.
 
-This knowledge is universal yet we have yet to invent the epistemic tools to confer it, apart from art. Concrete ways of capturing its beauty are impossible, only through embodying it, through interacting with it can we know it.
+This knowledge is universal yet we have yet to invent the epistemic tools to confer it, apart from art. Concrete ways of capturing its beauty are impossible; only through embodying it, through interacting with it can we know it.
 
 That knowledge is fundamental, it's the teleology of necessity, of univocity. It is the chorus (not course) of nature's serenade. It brushes that fundamental of good, that of expanding relations, the seemingly futile fight against entropy.
 
@@ -48,7 +48,7 @@ Beyond good and evil we see it, pleasure simply does not belong in the same onto
 
 Its divinity is blinding, like something that mere mortals were never meant to see. That which the minute of knowledge hid away from us. As Nietzsche wrote: "In some remote corner of the sprawling universe, twinkling among the countless solar systems, there was once a star on which some clever animals invented knowledge. It was the most arrogant, most mendacious minute in world history, but it was only a minute."
 
-I leave you to ponder on these aphorisms.
+I leave you to ponder these aphorisms.
 
 "The Law of God is written in our hearts." - Romans 2:15  
 "We will show them Our signs in the horizons and within themselves until it becomes clear to them that it is the truth." - Quran 41:53  
@@ -57,7 +57,7 @@ I leave you to ponder on these aphorisms.
 
 ## Sources
 
-This is kinda off the dome but I think this is where I am drawing my ideas from. Maybe more or less but this is what I think I am taking from
+This is kinda off the dome but I think this is where I am drawing my ideas from. Maybe more or less but this is what I think I am taking from.
 
 - Society Must Be Defended - Michel Foucault
 - On Truth and Lies in a Nonmoral Sense - Nietzsche

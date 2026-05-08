@@ -1,6 +1,6 @@
 ---
-title: The Marketplace of Emotions? 感情商品化 english version
-description: This is claude-3.7 Sonnets translation of my 感情商品化 article, so that international audiences can understand
+title: The Marketplace of Emotions? 感情商品化 English version
+description: This is Claude 3.7 Sonnet's translation of my 感情商品化 article, so that international audiences can understand
 date: "2025-02-12"
 location: Berkeley
 categories:

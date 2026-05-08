@@ -1,6 +1,6 @@
 ---
 title: Divine Will and the Dance of Being
-description: Conway and Leibniz on God's Agency in Creation. Another philosophy essay for class, this ones not to bad pretty boring IMO.
+description: Conway and Leibniz on God's Agency in Creation. Another philosophy essay for class, this one's not too bad, pretty boring IMO.
 date: "2025-05-07"
 location: Berkeley
 categories:
@@ -22,13 +22,13 @@ Conway and Leibniz present sophisticated attempts to reconceptualise the relatio
 
 ## Conway's Position: God as Perpetual Actor
 
-Conway's God is not an omniscient clockmaker who winds creation and abandons it to the ticking of necessity, but an unrelenting eternal artist forever perfecting his masterpiece! For Conway, divine will pulses through existence as an unbroken current, sustaining and transforming all for eternity. As she proclaims this: 'God's goodness towards his creatures always remains the same, and his keeping them in existence is a constant act of creation' (Conway, Principles, VI).
+Conway's God is not an omniscient clockmaker who winds creation and abandons it to the ticking of necessity, but an unrelenting eternal artist forever perfecting his masterpiece! For Conway, divine will pulses through existence as an unbroken current, sustaining and transforming all for eternity. As she proclaims: 'God's goodness towards his creatures always remains the same, and his keeping them in existence is a constant act of creation' (Conway, Principles, VI).
 
-This vision of continuous divine action manifests through Conway's three pronged metaphysical architecture. Between God and creation stands a 'Middle Substance'—simultaneously a divine plan and its implementation. This Middle Substance embodies the 'logos ousios ('the essential word of the Father')... Like a plan or musical score' which unfolds in time as the 'logos proforikos ('the word which is expressed and revealed')... The plan unfolding in time, the playing of a symphony' (Conway, Principles, IV.2). Through this structure, God's will operates both as transcendent design and immanent execution—a true auteur who not only composes but conducts and plays every instrument in our cosmic orchestra.
+This vision of continuous divine action manifests through Conway's three-pronged metaphysical architecture. Between God and creation stands a 'Middle Substance'—simultaneously a divine plan and its implementation. This Middle Substance embodies the 'logos ousios ('the essential word of the Father')... Like a plan or musical score' which unfolds in time as the 'logos proforikos ('the word which is expressed and revealed')... The plan unfolding in time, the playing of a symphony' (Conway, Principles, IV.2). Through this structure, God's will operates both as transcendent design and immanent execution—a true auteur who not only composes but conducts and plays every instrument in our cosmic orchestra.
 
 The active nature of God's will enables the miraculous transmutation of substances. Unlike the rigid categories of Cartesian thought, Conway envisions a fluid creation where 'all creatures, or the whole of creation, are also a single species in substance or essence, although it includes many individuals gathered into subordinate species and distinguished from each other modally and gradually, but not substantially or essentially' (Conway, Principles, VI.4). God's ceaseless creative action enables transformation along this spectrum of being, guiding all creatures toward their ultimate perfection as 'all creatures will eventually become conscious moral beings and attain the excellent attributes of 'spirit and light'' (Conway, Principles, IX).
 
-While Spinoza's God is stripped of will and purpose, Conway's divinity actively intervenes to guide creation's development. Her system permits creatures to temporarily deviation of divine plan—like musicians who 'may not be attending to the score as they play or may not have practised enough, so they may mess up' (Conway, Principles, IV.2)—but God's persistent action marches toward the teleological end of harmonisation with divine intention. This intimate, responsive deity reflects Conway's conviction that creation is, at its heart, a moral enterprise guided by divine goodness.
+While Spinoza's God is stripped of will and purpose, Conway's divinity actively intervenes to guide creation's development. Her system permits creatures to temporarily deviate from the divine plan—like musicians who 'may not be attending to the score as they play or may not have practised enough, so they may mess up' (Conway, Principles, IV.2)—but God's persistent action marches toward the teleological end of harmonisation with divine intention. This intimate, responsive deity reflects Conway's conviction that creation is, at its heart, a moral enterprise guided by divine goodness.
 
 ## Leibniz's Points of Agreement: The Priority of Goodness
 
@@ -38,7 +38,7 @@ This shared commitment to piety extends to their metaphysical systems. Both reje
 
 ## The Great Divergence: God's Mode of Action
 
-While Conway envisions God's will operating through direct, Leibniz believes that idea to be both inelegant and potentially demeaning to divine wisdom. For Leibniz, God's true magnificence lies not in constant tinkering with creation but in the perfection of creation from Genesis and 'saw that it was good' (Genesis KJV, I)
+While Conway envisions God's will operating through direct intervention, Leibniz believes that idea to be both inelegant and potentially demeaning to divine wisdom. For Leibniz, God's true magnificence lies not in constant tinkering with creation but in the perfection of creation from Genesis, when God 'saw that it was good' (Genesis KJV, I).
 
 This vision crystallises in his doctrine of pre-established harmony, where 'God originally created the soul [substance] in such a way that everything must arise from it from its own depths, through a perfect spontaneity relative to itself, and yet with a perfect conformity relative to external things' (Leibniz, New System). Conway's God plays every note of the cosmic symphony in real time; Leibniz's God composes a score of such mathematical perfection that it unfolds with flawless precision without further intervention.
 
@@ -52,7 +52,7 @@ This philosophical elegance extends to Leibniz's account of divine choice. While
 
 ## Conclusion: Two Visions of Divine Artistry
 
-In summary, Both philosophers depart from the mechanical universe of Descartes, the amoral necessity of Spinoza, and the materialism of Hobbes. Both affirm that divine goodness governs creation. Yet their different conceptions of how divine will operates manifests itself as a transcendental dichotomy, that of the acting god or the perfect god.
+In summary, both philosophers depart from the mechanical universe of Descartes, the amoral necessity of Spinoza, and the materialism of Hobbes. Both affirm that divine goodness governs creation. Yet their different conceptions of how divine will operates manifest themselves as a transcendental dichotomy, that of the acting God or the perfect God.
 
 ## Bibliography
 

@@ -1,5 +1,5 @@
 ---
-title: The Hypersonic Effect and it's Effect on Cognition
+title: The Hypersonic Effect and its Effect on Cognition
 description: Presentation for Cog-Sci 1B
 date: "2024-3-11"
 location: Berkeley
