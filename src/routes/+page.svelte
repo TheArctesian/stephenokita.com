@@ -73,6 +73,17 @@
     </h1>
     <p class="subtitle">{japanese}</p>
 
+    {#if data.location && (data.location.district || data.location.city)}
+      <p class="location">
+        <span class="location-marker" aria-hidden="true"></span>
+        <span class="location-text"
+          >Currently in {#if data.location.district}<span class="location-district"
+              >{data.location.district}</span
+            >{/if}{#if data.location.city}, {data.location.city}{/if}{#if data.location.country}, {data.location.country}{/if}</span
+        >
+      </p>
+    {/if}
+
     <div class="roles">
       <a
         href="https://www.auracarehealth.com/"
@@ -82,16 +93,6 @@
       >
         <span class="role-position">CTO & Co-founder</span>
         <span class="role-at">Auracare Health</span>
-      </a>
-      <span class="role-sep" aria-hidden="true">/</span>
-      <a
-        href="https://www.ucinvestments.info/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="role"
-      >
-        <span class="role-position">Student Researcher</span>
-        <span class="role-at">UC Investments</span>
       </a>
       <span class="role-sep" aria-hidden="true">/</span>
       <span class="role">
@@ -223,6 +224,33 @@
   .role-sep {
     color: var(--text-muted);
     user-select: none;
+  }
+
+  .location {
+    margin: 0 0 var(--space-lg);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    line-height: 1.6;
+    font-size: var(--font-size-sm);
+  }
+
+  .location-marker {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--status-success);
+    transform: translateY(-1px);
+    flex-shrink: 0;
+  }
+
+  .location-text {
+    color: var(--text-secondary);
+  }
+
+  .location-district {
+    color: var(--text-primary);
   }
 
   /* ── Recent Activity ── */
