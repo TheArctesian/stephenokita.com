@@ -1,30 +1,37 @@
 [
     {
         "text": "English",
-        "img": "https://cdn-icons-png.flaticon.com/512/197/197374.png"
+        "img": "https://cdn-icons-png.flaticon.com/512/197/197374.png",
+        "tier": "fluent"
     },
     {
         "text": "Mandarin (中文)",
-        "img": "https://cdn-icons-png.flaticon.com/512/5372/5372696.png"
+        "img": "https://cdn-icons-png.flaticon.com/512/5372/5372696.png",
+        "tier": "native"
     },
     {
         "text": "Cantonese (廣東話)",
-        "img": "https://cdn-icons-png.flaticon.com/512/197/197570.png"
+        "img": "https://cdn-icons-png.flaticon.com/512/197/197570.png",
+        "tier": "native"
     },
     {
-        "text": "French semi",
-        "img": "https://cdn-icons-png.flaticon.com/512/197/197560.png"
+        "text": "French",
+        "img": "https://cdn-icons-png.flaticon.com/512/197/197560.png",
+        "tier": "conversational"
     },
     {
-        "text": "Spanish semi",
-        "img": "https://cdn-icons-png.flaticon.com/512/10601/10601048.png"
+        "text": "Spanish",
+        "img": "https://cdn-icons-png.flaticon.com/512/10601/10601048.png",
+        "tier": "conversational"
     },
     {
-        "text": "Turkish barley",
-        "img": "https://cdn-icons-png.flaticon.com/512/4628/4628673.png"
+        "text": "Turkish",
+        "img": "https://cdn-icons-png.flaticon.com/512/4628/4628673.png",
+        "tier": "conversational"
     },
     {
-        "text": "German barley",
-        "img": "https://cdn-icons-png.flaticon.com/512/4855/4855806.png"
+        "text": "German",
+        "img": "https://cdn-icons-png.flaticon.com/512/4855/4855806.png",
+        "tier": "basic"
     }
 ]

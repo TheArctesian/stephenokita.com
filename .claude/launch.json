@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev"],
+      "port": 5173
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "preview"],
+      "port": 4173
+    },
+    {
+      "name": "db:studio",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "db:studio"],
+      "port": 4983
+    },
+    {
+      "name": "check:watch",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "check:watch"],
+      "port": 0
+    }
+  ]
+}

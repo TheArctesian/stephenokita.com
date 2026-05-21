@@ -1,9 +1,10 @@
-import { DAWARICH_API_URL, DAWARICH_API_KEY } from '$env/static/private';
+import { DAWARICH_BASE_URL, DAWARICH_API_KEY } from '$env/static/private';
 
 export interface Location {
   district: string | null;
   city: string | null;
   country: string | null;
+  timestamp: number | null;
 }
 
 interface CacheEntry {
@@ -22,8 +23,8 @@ function roundCoord(value: number): number {
   return Math.round(value * 10 ** COORD_PRECISION) / 10 ** COORD_PRECISION;
 }
 
-async function fetchLatestDawarichPoint(): Promise<{ lat: number; lon: number } | null> {
-  const url = `${DAWARICH_API_URL}/api/v1/points?api_key=${DAWARICH_API_KEY}&order_by=timestamp&order_direction=desc&per_page=1`;
+async function fetchLatestDawarichPoint(): Promise<{ lat: number; lon: number; timestamp: number } | null> {
+  const url = `${DAWARICH_BASE_URL}/api/v1/points?api_key=${DAWARICH_API_KEY}&order_by=timestamp&order_direction=desc&per_page=1`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Dawarich responded ${response.status}`);
@@ -33,11 +34,13 @@ async function fetchLatestDawarichPoint(): Promise<{ lat: number; lon: number } 
   const point = data[0];
   const lat = parseFloat(point.latitude);
   const lon = parseFloat(point.longitude);
-  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
-  return { lat, lon };
+  const rawTimestamp = Number(point.timestamp);
+  if (!Number.isFinite(lat) || !Number.isFinite(lon) || !Number.isFinite(rawTimestamp)) return null;
+  const timestamp = rawTimestamp < 1e12 ? rawTimestamp * 1000 : rawTimestamp;
+  return { lat, lon, timestamp };
 }
 
-async function reverseGeocode(lat: number, lon: number): Promise<Location> {
+async function reverseGeocode(lat: number, lon: number): Promise<Omit<Location, 'timestamp'>> {
   const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=16&addressdetails=1`;
   const response = await fetch(url, { headers: { 'User-Agent': NOMINATIM_USER_AGENT } });
   if (!response.ok) {
@@ -65,11 +68,13 @@ export class LocationService {
 
       const cached = reverseGeocodeCache.get(cacheKey);
       if (cached && Date.now() - cached.fetchedAt < CACHE_TTL_MS) {
-        lastKnown = cached.location;
-        return cached.location;
+        const location = { ...cached.location, timestamp: point.timestamp };
+        lastKnown = location;
+        return location;
       }
 
-      const location = await reverseGeocode(lat, lon);
+      const geocoded = await reverseGeocode(lat, lon);
+      const location: Location = { ...geocoded, timestamp: point.timestamp };
       reverseGeocodeCache.set(cacheKey, { location, fetchedAt: Date.now() });
       lastKnown = location;
       return location;

@@ -53,13 +53,25 @@
       year: "numeric",
     });
   }
+
+  function formatRelative(timestamp) {
+    if (!timestamp) return "";
+    const diffSec = Math.max(0, Math.floor((Date.now() - timestamp) / 1000));
+    if (diffSec < 60) return "just now";
+    const mins = Math.floor(diffSec / 60);
+    if (mins < 60) return `${mins} min${mins === 1 ? "" : "s"} ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
+    const days = Math.floor(hours / 24);
+    return `${days} day${days === 1 ? "" : "s"} ago`;
+  }
 </script>
 
 <svelte:head>
   <title>Stephen Daniel Okita</title>
   <meta
     name="description"
-    content="Personal website of Stephen Daniel Okita"
+    content="Stephen Daniel Okita — CTO & Co-founder at Auracare Health, Philosophy at UC Berkeley. Notes on software, security, and systems."
   />
 </svelte:head>
 
@@ -67,19 +79,21 @@
   <!-- Hero -->
   <section class="hero">
     <h1>
-      {#if browser}{typedText}<span class="cursor" class:visible={showCursor}
+      {#if browser}{typedText}<span class="cursor" class:visible={showCursor} aria-hidden="true"
           >_</span
         >{:else}{fullName}{/if}
     </h1>
-    <p class="subtitle">{japanese}</p>
+    <p class="subtitle" lang="ja">{japanese}</p>
 
     {#if data.location && (data.location.district || data.location.city)}
       <p class="location">
         <span class="location-marker" aria-hidden="true"></span>
         <span class="location-text"
-          >Currently in {#if data.location.district}<span class="location-district"
+          >In {#if data.location.district}<span class="location-district"
               >{data.location.district}</span
-            >{/if}{#if data.location.city}, {data.location.city}{/if}{#if data.location.country}, {data.location.country}{/if}</span
+            >{/if}{#if data.location.city}, {data.location.city}{/if}{#if data.location.country}, {data.location.country}{/if}{#if data.location.timestamp}
+            <span class="location-time">{formatRelative(data.location.timestamp)}</span>
+          {/if}</span
         >
       </p>
     {/if}
@@ -94,11 +108,10 @@
         <span class="role-position">CTO & Co-founder</span>
         <span class="role-at">Auracare Health</span>
       </a>
-      <span class="role-sep" aria-hidden="true">/</span>
-      <span class="role">
+      <a href="/person" class="role">
         <span class="role-position">Philosophy</span>
         <span class="role-at">UC Berkeley</span>
-      </span>
+      </a>
     </div>
   </section>
 
@@ -221,8 +234,10 @@
     color: var(--text-muted);
   }
 
-  .role-sep {
+  .role + .role::before {
+    content: "/";
     color: var(--text-muted);
+    margin-right: var(--space-sm);
     user-select: none;
   }
 
@@ -243,6 +258,25 @@
     background: var(--status-success);
     transform: translateY(-1px);
     flex-shrink: 0;
+    box-shadow: 0 0 0 0 rgba(163, 190, 140, 0.6);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .location-marker {
+      animation: location-pulse 2.4s ease-in-out infinite;
+    }
+  }
+
+  @keyframes location-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(163, 190, 140, 0.55);
+    }
+    70% {
+      box-shadow: 0 0 0 7px rgba(163, 190, 140, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(163, 190, 140, 0);
+    }
   }
 
   .location-text {
@@ -251,6 +285,13 @@
 
   .location-district {
     color: var(--text-primary);
+  }
+
+  .location-time {
+    color: var(--accent-secondary);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    margin-left: var(--space-sm);
   }
 
   /* ── Recent Activity ── */
@@ -266,11 +307,18 @@
     color: inherit;
     padding: var(--space-md) var(--space-lg);
     border-left: 3px solid var(--border-primary);
-    transition: border-color var(--transition-fast);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: transparent;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
   }
 
   .card:hover {
     border-left-color: var(--accent-primary);
+    background: var(--bg-secondary);
+    transform: translateX(2px);
   }
 
   .card-top {
@@ -289,18 +337,27 @@
   }
 
   .blog-tag {
-    color: var(--status-success);
+    color: var(--accent-tertiary);
   }
 
   .project-tag {
     color: var(--accent-primary);
   }
 
-  .card-date,
-  .card-status {
+  .card-date {
     font-size: var(--font-size-xs);
     color: var(--text-secondary);
     font-family: var(--font-family-mono);
+  }
+
+  .card-status {
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    padding: 1px var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-transform: lowercase;
   }
 
   .card h3 {
@@ -319,8 +376,13 @@
   }
 
   .card-location {
+    display: inline-block;
     font-size: var(--font-size-xs);
-    color: var(--text-secondary);
+    font-family: var(--font-family-mono);
+    color: var(--text-tertiary);
+    background: var(--bg-tertiary);
+    padding: 1px var(--space-sm);
+    border-radius: var(--radius-sm);
   }
 
   .card-tech {
