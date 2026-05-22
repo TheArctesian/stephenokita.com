@@ -1,11 +1,20 @@
 <script>
   import "../app.css";
-  import { fade } from "svelte/transition";
+  import { fade, fly } from "svelte/transition";
+  import { cubicOut } from "svelte/easing";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
 
   export let data;
+
+  const UPCOMING_PAGE_SIZE = 5;
+  let upcomingVisible = UPCOMING_PAGE_SIZE;
+  let upcomingMounted = false;
+  $: upcomingShown =
+    data.upcoming?.slice(0, upcomingVisible) ?? [];
+  $: upcomingHasMore =
+    (data.upcoming?.length ?? 0) > upcomingVisible;
 
   let prefersReducedMotion = false;
   let typedText = "";
@@ -26,6 +35,8 @@
     } else {
       typedText = fullName;
     }
+
+    upcomingMounted = true;
   });
 
   async function typeAnimation() {
@@ -64,6 +75,63 @@
     if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
     const days = Math.floor(hours / 24);
     return `${days} day${days === 1 ? "" : "s"} ago`;
+  }
+
+  function formatEventDate(start, allDay) {
+    if (!start) return "";
+    const d = new Date(start);
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      ...(allDay ? {} : { hour: "numeric", minute: "2-digit" }),
+    });
+  }
+
+  function formatEventRange(event) {
+    if (!event?.start) return "";
+    const start = new Date(event.start);
+    const startStr = formatEventDate(event.start, event.allDay);
+    if (!event.end) return startStr;
+    const end = new Date(event.end);
+    const sameDay =
+      start.getFullYear() === end.getFullYear() &&
+      start.getMonth() === end.getMonth() &&
+      start.getDate() === end.getDate();
+    if (sameDay && !event.allDay) {
+      return `${startStr} – ${end.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}`;
+    }
+    const endStr = event.allDay
+      ? new Date(event.end - 24 * 60 * 60 * 1000).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+        })
+      : formatEventDate(event.end, false);
+    return `${startStr} – ${endStr}`;
+  }
+
+  function isCurrent(event) {
+    if (!event?.start) return false;
+    const now = Date.now();
+    if (event.start > now) return false;
+    const fallback = event.allDay ? 24 * 60 * 60 * 1000 : 60 * 60 * 1000;
+    const end = event.end ?? event.start + fallback;
+    return end > now;
+  }
+
+  function eventCountdown(start) {
+    if (!start) return "";
+    const diffMs = start - Date.now();
+    if (diffMs <= 0) return "now";
+    const days = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+    if (days === 0) return "today";
+    if (days === 1) return "tomorrow";
+    if (days < 7) return `in ${days} days`;
+    if (days < 30) {
+      const weeks = Math.floor(days / 7);
+      return `in ${weeks} week${weeks === 1 ? "" : "s"}`;
+    }
+    const months = Math.round(days / 30);
+    return `in ${months} month${months === 1 ? "" : "s"}`;
   }
 </script>
 
@@ -114,6 +182,72 @@
       </a>
     </div>
   </section>
+
+  {#if data.upcoming && data.upcoming.length > 0}
+    <section class="upcoming">
+      <div class="upcoming-header">
+        <span class="upcoming-label">Where I'll be</span>
+        <span class="upcoming-count">{data.upcoming.length} upcoming</span>
+      </div>
+      <ul class="upcoming-list">
+        {#each upcomingShown as event, i (event.uid || event.start + event.summary)}
+          <li
+            class="upcoming-item"
+            class:tentative={event.tentative && !isCurrent(event)}
+            class:current={isCurrent(event)}
+            in:fly|local={{
+              duration: upcomingMounted && !prefersReducedMotion ? 320 : 0,
+              delay:
+                upcomingMounted && !prefersReducedMotion
+                  ? (i % UPCOMING_PAGE_SIZE) * 40
+                  : 0,
+              y: 8,
+              easing: cubicOut,
+            }}
+            out:fade|local={{
+              duration: prefersReducedMotion ? 0 : 160,
+            }}
+          >
+            <span class="upcoming-when">{formatEventRange(event)}</span>
+            <span class="upcoming-where">
+              <span class="upcoming-summary">{event.summary}</span>
+              {#if event.tentative}<span
+                  class="upcoming-tentative"
+                  title="Tentative — may not be there">tentative</span
+                >{/if}
+              {#if event.location}<span class="upcoming-location">· {event.location}</span>{/if}
+            </span>
+            <span class="upcoming-countdown">{eventCountdown(event.start)}</span>
+          </li>
+        {/each}
+      </ul>
+      {#if upcomingHasMore || upcomingVisible > UPCOMING_PAGE_SIZE}
+        <div class="upcoming-actions">
+          {#if upcomingHasMore}
+            <button
+              type="button"
+              class="upcoming-more"
+              on:click={() => (upcomingVisible += UPCOMING_PAGE_SIZE)}
+            >
+              Load more
+              <span class="upcoming-more-meta"
+                >({data.upcoming.length - upcomingVisible} remaining)</span
+              >
+            </button>
+          {/if}
+          {#if upcomingVisible > UPCOMING_PAGE_SIZE}
+            <button
+              type="button"
+              class="upcoming-more upcoming-less"
+              on:click={() => (upcomingVisible = UPCOMING_PAGE_SIZE)}
+            >
+              Show less
+            </button>
+          {/if}
+        </div>
+      {/if}
+    </section>
+  {/if}
 
   <!-- Recent -->
   <section class="recent">
@@ -292,6 +426,191 @@
     font-family: var(--font-family-mono);
     font-size: var(--font-size-xs);
     margin-left: var(--space-sm);
+  }
+
+  /* ── Upcoming travel ── */
+  .upcoming {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .upcoming-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-md);
+  }
+
+  .upcoming-label {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-tertiary);
+  }
+
+  .upcoming-count {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+  }
+
+  .upcoming-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .upcoming-item {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, auto) 1fr auto;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: var(--space-xs) 0;
+    border-left: 3px solid var(--border-primary);
+    padding-left: var(--space-md);
+    transition: border-color var(--transition-fast);
+  }
+
+  .upcoming-item:hover {
+    border-left-color: var(--accent-tertiary);
+  }
+
+  .upcoming-item.current {
+    border-left-color: var(--status-success);
+  }
+
+  .upcoming-item.current .upcoming-summary {
+    color: var(--status-success);
+  }
+
+  .upcoming-item.current .upcoming-countdown {
+    color: var(--status-success);
+  }
+
+  .upcoming-item.tentative {
+    border-left-color: var(--status-info);
+    border-left-style: dashed;
+  }
+
+  .upcoming-item.tentative .upcoming-summary {
+    color: var(--status-info);
+  }
+
+  .upcoming-item.tentative .upcoming-countdown {
+    color: var(--status-info);
+  }
+
+  .upcoming-tentative {
+    display: inline-block;
+    margin-left: var(--space-xs);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--status-info);
+    border: 1px solid var(--status-info);
+    border-radius: var(--radius-sm);
+    padding: 0 var(--space-xs);
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    opacity: 0.85;
+  }
+
+  .upcoming-when {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .upcoming-where {
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    min-width: 0;
+  }
+
+  .upcoming-summary {
+    font-weight: 600;
+  }
+
+  .upcoming-location {
+    color: var(--text-secondary);
+    margin-left: var(--space-xs);
+  }
+
+  .upcoming-countdown {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--accent-secondary);
+    white-space: nowrap;
+  }
+
+  .upcoming-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    margin-left: var(--space-md);
+    margin-right: var(--space-md);
+  }
+
+  .upcoming-actions .upcoming-less:only-child {
+    margin-left: auto;
+  }
+
+  .upcoming-more {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-xs);
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--accent-secondary);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color var(--transition-fast);
+  }
+
+  .upcoming-more:hover {
+    color: var(--accent-primary);
+  }
+
+  .upcoming-less {
+    color: var(--text-tertiary);
+  }
+
+  .upcoming-less:hover {
+    color: var(--text-secondary);
+  }
+
+  .upcoming-more-meta {
+    color: var(--text-tertiary);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 640px) {
+    .upcoming-item {
+      grid-template-columns: 1fr;
+      gap: 2px;
+      padding-left: var(--space-sm);
+    }
+    .upcoming-countdown {
+      justify-self: start;
+    }
+    .upcoming-actions {
+      margin-left: var(--space-sm);
+    }
   }
 
   /* ── Recent Activity ── */

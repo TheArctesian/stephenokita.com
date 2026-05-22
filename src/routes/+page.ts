@@ -3,11 +3,12 @@ import type { Post } from '$lib/types';
 
 export const load: PageLoad = async ({ fetch }) => {
   try {
-    const [postsResponse, projectsResponse, fileSizesResponse, locationResponse] = await Promise.all([
+    const [postsResponse, projectsResponse, fileSizesResponse, locationResponse, calendarResponse] = await Promise.all([
       fetch('/api/posts'),
       fetch('/api/projects'),
       fetch('/api/file-sizes'),
       fetch('/api/location'),
+      fetch('/api/calendar'),
     ]);
 
     const posts: Post[] = await postsResponse.json();
@@ -21,12 +22,14 @@ export const load: PageLoad = async ({ fetch }) => {
 
     const fileSizes = await fileSizesResponse.json();
     const location = await locationResponse.json();
+    const upcoming = await calendarResponse.json();
 
     return {
       latestPost,
       latestProject,
       fileSizes,
-      location
+      location,
+      upcoming: Array.isArray(upcoming) ? upcoming : []
     };
   } catch (error) {
     console.error('Error loading homepage data:', error);
@@ -40,7 +43,8 @@ export const load: PageLoad = async ({ fetch }) => {
         person: '3.2K',
         meta: '3.2K'
       },
-      location: null
+      location: null,
+      upcoming: []
     };
   }
 };
