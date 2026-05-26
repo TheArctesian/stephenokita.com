@@ -116,16 +116,103 @@
     <h2 class="section-label">What I Do</h2>
     <div class="list">
       <div class="list-row">
-        Co-founder @
+        CTO &amp; Co-Founder @
         <a
           href="https://www.auracarehealth.com/"
           target="_blank"
           rel="noopener noreferrer">Aura Care Health</a
         >
       </div>
-      <div class="list-row">Student Researcher @ UC Berkeley</div>
       <div class="list-row">
         Writer @ <a href="/blog">This Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where I've Worked -->
+  <section class="section">
+    <h2 class="section-label">Where I've Worked</h2>
+    <div class="timeline">
+      <div class="timeline-row">
+        <span class="timeline-place">
+          CTO &amp; Co-Founder @
+          <a href="https://auracare.org.uk" target="_blank" rel="noopener noreferrer" class="inline-link">Auracare</a>
+        </span>
+        <span class="timeline-dates">Jun 2024&ndash;</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Member @
+          <a href="https://asiasociety.org" target="_blank" rel="noopener noreferrer" class="inline-link">Asia Society</a>
+        </span>
+        <span class="timeline-dates">Jun 2024&ndash;</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          CTO &amp; Co-Founder @
+          <a href="https://techjusticelab.org" target="_blank" rel="noopener noreferrer" class="inline-link">Berkeley Tech &amp; Justice Lab</a>
+        </span>
+        <span class="timeline-dates">Feb 2025&ndash;Jan 2026</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Full Stack Developer @
+          <a href="https://launchedtech.io" target="_blank" rel="noopener noreferrer" class="inline-link">Launchedtech</a>
+        </span>
+        <span class="timeline-dates">Jun 2024&ndash;Feb 2025</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">Student Researcher &amp; Teacher @ UC Berkeley</span>
+        <span class="timeline-dates">Jan 2024&ndash;Jan 2026</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Full Stack Developer @
+          <a href="https://link-health.org" target="_blank" rel="noopener noreferrer" class="inline-link">Link Health</a>
+        </span>
+        <span class="timeline-dates">Sep 2023&ndash;Jan 2024</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Blockchain Developer @
+          <a href="https://voiijer.com" target="_blank" rel="noopener noreferrer" class="inline-link">Voiijer</a>
+        </span>
+        <span class="timeline-dates">Nov 2021&ndash;Sep 2022</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Web3 Developer @
+          <a href="https://klimadao.finance" target="_blank" rel="noopener noreferrer" class="inline-link">Klima DAO</a>
+        </span>
+        <span class="timeline-dates">Oct 2021&ndash;Oct 2022</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Web3 Intern @
+          <a href="https://trustednode.io" target="_blank" rel="noopener noreferrer" class="inline-link">Trusted Node</a>
+        </span>
+        <span class="timeline-dates">Nov 2021</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Software Developer @
+          <a href="https://whub.io" target="_blank" rel="noopener noreferrer" class="inline-link">WHub</a>
+        </span>
+        <span class="timeline-dates">Jul&ndash;Sep 2021</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Video Editor @
+          <a href="https://www.motherschoice.org" target="_blank" rel="noopener noreferrer" class="inline-link">Mother's Choice</a>
+        </span>
+        <span class="timeline-dates">Mar&ndash;Sep 2021</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">
+          Reporter @
+          <a href="https://www.scmp.com" target="_blank" rel="noopener noreferrer" class="inline-link">South China Morning Post</a>
+        </span>
+        <span class="timeline-dates">Jul&ndash;Dec 2020</span>
       </div>
     </div>
   </section>
@@ -595,6 +682,11 @@
   /* YouTube channel avatars are circular */
   .works-group[data-service="youtube"] .work-cover-wrap {
     border-radius: 50%;
+  }
+
+  /* Steam header art is a landscape banner (460x215) */
+  .works-group[data-service="steam"] .work-cover-wrap {
+    aspect-ratio: 460 / 215;
   }
 
   /* Social */

@@ -61,7 +61,7 @@ function decodeHtmlEntities(s: string): string {
 function cleanTitle(raw: string | null): string | null {
   if (!raw) return null;
   return raw
-    .replace(/\s*[-–|]\s*(Goodreads|Letterboxd|IMDb|Spotify).*$/i, '')
+    .replace(/\s*[-–|]\s*(Goodreads|Letterboxd|IMDb|Spotify|Wikipedia).*$/i, '')
     .replace(/\s*\((?:TV (?:Series|Mini Series|Movie)|Video|Short)[^)]*\).*$/i, '')
     .replace(/\s*\(\d{4}\).*$/, '')
     .replace(/^Watch\s+/i, '')

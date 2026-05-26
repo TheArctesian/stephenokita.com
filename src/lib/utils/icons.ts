@@ -150,6 +150,8 @@ export function getSocialIcon(service: string): string {
     'goodreads': 'simple-icons:goodreads',
     'letterboxd': 'simple-icons:letterboxd',
     'imdb': 'simple-icons:imdb',
+    'steam': 'simple-icons:steam',
+    'wikipedia': 'simple-icons:wikipedia',
     'pixelfed': 'simple-icons:pixelfed',
     'mastodon': 'simple-icons:mastodon',
     'reddit': 'simple-icons:reddit',

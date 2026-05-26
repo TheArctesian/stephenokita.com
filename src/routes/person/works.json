@@ -12,14 +12,36 @@
       ]
     },
     {
-      "label": "Top Philosophy Books",
+      "label": "Ancient Philosophy",
       "service": "goodreads",
       "items": [
-        { "url": "https://www.goodreads.com/book/show/25248.Elements_of_the_Philosophy_of_Right", "title": "Elements of the Philosophy of Right" },
-        { "url": "https://www.goodreads.com/book/show/381440.The_Society_of_the_Spectacle", "title": "The Society of the Spectacle" },
         { "url": "https://www.goodreads.com/book/show/67896.Tao_Te_Ching", "title": "Tao Te Ching" },
-        { "url": "https://www.goodreads.com/book/show/2823.The_Birth_of_Tragedy", "title": "The Birth of Tragedy" },
-        { "url": "https://www.goodreads.com/book/show/118317.Anti_Oedipus", "title": "Anti-Oedipus" }
+        { "url": "https://www.goodreads.com/book/show/134891.Fragments", "title": "Fragments" },
+        { "url": "https://www.goodreads.com/book/show/30300.The_Last_Days_of_Socrates", "title": "The Last Days of Socrates" },
+        { "url": "https://www.goodreads.com/book/show/13112139-diogenes-the-cynic", "title": "Diogenes the Cynic" },
+        { "url": "https://www.goodreads.com/book/show/19068.The_Nicomachean_Ethics", "title": "The Nicomachean Ethics" }
+      ]
+    },
+    {
+      "label": "Modern Philosophy",
+      "service": "goodreads",
+      "items": [
+        { "url": "https://www.goodreads.com/book/show/205218.Ethics", "title": "Ethics" },
+        { "url": "https://www.goodreads.com/book/show/60080.Groundwork_of_the_Metaphysics_of_Morals", "title": "Groundwork of the Metaphysics of Morals" },
+        { "url": "https://www.goodreads.com/book/show/9454.Phenomenology_of_Spirit", "title": "Phenomenology of Spirit" },
+        { "url": "https://www.goodreads.com/book/show/25248.Elements_of_the_Philosophy_of_Right", "title": "Elements of the Philosophy of Right" },
+        { "url": "https://www.goodreads.com/book/show/2823.The_Birth_of_Tragedy", "title": "The Birth of Tragedy" }
+      ]
+    },
+    {
+      "label": "Contemporary Philosophy",
+      "service": "goodreads",
+      "items": [
+        { "url": "https://www.goodreads.com/book/show/164184258-in-praise-of-idelness-and-other-essays", "title": "In Praise of Idleness and Other Essays" },
+        { "url": "https://www.goodreads.com/book/show/127227.The_Human_Condition", "title": "The Human Condition" },
+        { "url": "https://www.goodreads.com/book/show/381440.The_Society_of_the_Spectacle", "title": "The Society of the Spectacle" },
+        { "url": "https://www.goodreads.com/book/show/118317.Anti_Oedipus", "title": "Anti-Oedipus" },
+        { "url": "https://www.goodreads.com/book/show/6763725-capitalist-realism", "title": "Capitalist Realism" }
       ]
     },
     {
@@ -27,7 +49,7 @@
       "service": "goodreads",
       "items": [
         { "url": "https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning", "title": "Man's Search for Meaning" },
-        { "url": "https://www.goodreads.com/book/show/11324722-the-righteous-mind", "title": "The Righteous Mind" },
+        { "url": "https://goodreads.com/book/show/16284965", "title": "The Righteous Mind" },
         { "url": "https://www.goodreads.com/book/show/6617037-debt", "title": "Debt: The First 5,000 Years" },
         { "url": "https://www.goodreads.com/book/show/37327.The_Spirit_of_Terrorism_and_Other_essays", "title": "The Spirit of Terrorism and Other Essays" },
         { "url": "https://www.goodreads.com/book/show/203979.The_Long_Loneliness", "title": "The Long Loneliness" }
@@ -56,6 +78,17 @@
       ]
     },
     {
+      "label": "Rom Coms",
+      "service": "imdb",
+      "items": [
+        { "url": "https://www.imdb.com/title/tt0314331/", "title": "Love Actually" },
+        { "url": "https://www.imdb.com/title/tt0332280/" },
+        { "url": "https://www.imdb.com/title/tt3783958/" },
+        { "url": "https://www.imdb.com/title/tt1570728/" },
+        { "url": "https://www.imdb.com/title/tt0120338/", "title": "Titanic" }
+      ]
+    },
+    {
       "label": "Documentaries",
       "service": "imdb",
       "items": [
@@ -78,14 +111,47 @@
       ]
     },
     {
-      "label": "Rom Coms",
-      "service": "imdb",
+      "label": "Sports Players",
+      "service": "wikipedia",
       "items": [
-        { "url": "https://www.imdb.com/title/tt0314331/", "title": "Love Actually" },
-        { "url": "https://www.imdb.com/title/tt0332280/" },
-        { "url": "https://www.imdb.com/title/tt3783958/" },
-        { "url": "https://www.imdb.com/title/tt1570728/" },
-        { "url": "https://www.imdb.com/title/tt0120338/", "title": "Titanic" }
+        { "url": "https://en.wikipedia.org/wiki/Thierry_Henry", "title": "Thierry Henry" },
+        { "url": "https://en.wikipedia.org/wiki/Lionel_Messi", "title": "Lionel Messi" },
+        { "url": "https://en.wikipedia.org/wiki/Roy_Keane", "title": "Roy Keane" },
+        { "url": "https://en.wikipedia.org/wiki/Kobe_Bryant", "title": "Kobe Bryant" },
+        { "url": "https://en.wikipedia.org/wiki/Zlatan_Ibrahimovi%C4%87", "title": "Zlatan Ibrahimović" }
+      ]
+    },
+    {
+      "label": "Arsenal Players",
+      "service": "wikipedia",
+      "items": [
+        { "url": "https://en.wikipedia.org/wiki/Mesut_%C3%96zil", "title": "Mesut Özil" },
+        { "url": "https://en.wikipedia.org/wiki/Aaron_Ramsey", "title": "Aaron Ramsey" },
+        { "url": "https://en.wikipedia.org/wiki/Bukayo_Saka", "title": "Bukayo Saka" },
+        { "url": "https://en.wikipedia.org/wiki/David_Raya", "title": "David Raya" },
+        { "url": "https://en.wikipedia.org/wiki/Declan_Rice", "title": "Declan Rice" }
+      ]
+    },
+    {
+      "label": "Football Managers",
+      "service": "wikipedia",
+      "items": [
+        { "url": "https://en.wikipedia.org/wiki/Jos%C3%A9_Mourinho", "title": "José Mourinho" },
+        { "url": "https://en.wikipedia.org/wiki/Carlo_Ancelotti", "title": "Carlo Ancelotti" },
+        { "url": "https://en.wikipedia.org/wiki/Ars%C3%A8ne_Wenger", "title": "Arsène Wenger" },
+        { "url": "https://en.wikipedia.org/wiki/Mikel_Arteta", "title": "Mikel Arteta" },
+        { "url": "https://en.wikipedia.org/wiki/Sean_Dyche", "title": "Sean Dyche" }
+      ]
+    },
+    {
+      "label": "Video Games",
+      "service": "steam",
+      "items": [
+        { "url": "https://store.steampowered.com/app/1174180/", "title": "Red Dead Redemption 2" },
+        { "url": "https://store.steampowered.com/app/33230/", "title": "Assassin's Creed II" },
+        { "url": "https://store.steampowered.com/app/220240/", "title": "Far Cry 3" },
+        { "url": "https://store.steampowered.com/app/1703340/", "title": "The Stanley Parable: Ultra Deluxe" },
+        { "url": "https://store.steampowered.com/app/1082430/", "title": "Before Your Eyes" }
       ]
     },
     {
