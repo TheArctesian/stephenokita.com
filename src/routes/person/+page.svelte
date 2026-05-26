@@ -3,6 +3,9 @@
   import { getSocialIcon } from "$lib/utils/icons";
   import Icon from "@iconify/svelte";
   import me from "./imgs/me&kim.jpg";
+  import type { PageData } from "./$types";
+
+  export let data: PageData;
 
   let showEasterEgg = false;
 
@@ -163,6 +166,58 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Works: things I love -->
+  <section class="section">
+    <h2 class="section-label">Things I Love</h2>
+    <p class="prose-text section-intro">
+      A loose, occasionally-updated collection of media in random categories that I like.
+    </p>
+
+    {#each data.works as category}
+      <div class="works-group">
+        <div class="works-header">
+          <h3 class="subsection">{category.label}</h3>
+          <Icon
+            icon={getSocialIcon(category.service)}
+            class="works-service-icon"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="works-grid">
+          {#each category.items as item}
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-card"
+              aria-label="{item.title} (opens in new tab)"
+            >
+              <div class="work-cover-wrap">
+                {#if item.cover}
+                  <img
+                    src={item.cover}
+                    alt=""
+                    class="work-cover"
+                    loading="lazy"
+                    referrerpolicy="no-referrer"
+                  />
+                {:else}
+                  <div class="work-cover work-cover--placeholder" aria-hidden="true">
+                    <Icon
+                      icon={getSocialIcon(category.service)}
+                      class="work-placeholder-icon"
+                    />
+                  </div>
+                {/if}
+              </div>
+              <span class="work-title">{item.title}</span>
+            </a>
+          {/each}
+        </div>
+      </div>
+    {/each}
   </section>
 
   <!-- Social -->
@@ -381,6 +436,104 @@
     border: 1px solid var(--border-primary);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-md);
+  }
+
+  /* Works */
+  .section-intro {
+    margin-bottom: var(--space-lg);
+  }
+
+  .works-group {
+    margin-bottom: var(--space-xl);
+  }
+
+  .works-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .works-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .works-header .subsection {
+    margin-bottom: 0;
+  }
+
+  :global(.works-service-icon) {
+    width: 14px;
+    height: 14px;
+    color: var(--text-tertiary);
+  }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .work-card:hover {
+    color: var(--text-primary);
+    transform: translateY(-2px);
+  }
+
+  .work-cover-wrap {
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+    transition: border-color var(--transition-fast);
+  }
+
+  .work-card:hover .work-cover-wrap {
+    border-color: var(--accent-primary);
+  }
+
+  .work-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .work-cover--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+  }
+
+  :global(.work-placeholder-icon) {
+    width: 32px;
+    height: 32px;
+  }
+
+  .work-title {
+    font-size: var(--font-size-xs);
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Spotify playlists are square covers */
+  .works-group:last-of-type .work-cover-wrap {
+    aspect-ratio: 1 / 1;
   }
 
   /* Social */

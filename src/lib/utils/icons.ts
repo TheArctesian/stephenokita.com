@@ -149,6 +149,7 @@ export function getSocialIcon(service: string): string {
     'spotify': 'simple-icons:spotify',
     'goodreads': 'simple-icons:goodreads',
     'letterboxd': 'simple-icons:letterboxd',
+    'imdb': 'simple-icons:imdb',
     'pixelfed': 'simple-icons:pixelfed',
     'mastodon': 'simple-icons:mastodon',
     'reddit': 'simple-icons:reddit',

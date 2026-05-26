@@ -1,0 +1,92 @@
+{
+  "categories": [
+    {
+      "label": "Top Fiction Books",
+      "service": "goodreads",
+      "items": [
+        { "url": "https://www.goodreads.com/book/show/52036.Siddhartha", "title": "Siddhartha" },
+        { "url": "https://www.goodreads.com/book/show/40611328-ishmael", "title": "Ishmael" },
+        { "url": "https://www.goodreads.com/book/show/18144590-the-alchemist", "title": "The Alchemist" },
+        { "url": "https://www.goodreads.com/book/show/3836.Don_Quixote", "title": "Don Quixote" },
+        { "url": "https://www.goodreads.com/book/show/338798.Ulysses", "title": "Ulysses" }
+      ]
+    },
+    {
+      "label": "Top Philosophy Books",
+      "service": "goodreads",
+      "items": [
+        { "url": "https://www.goodreads.com/book/show/25248.Elements_of_the_Philosophy_of_Right", "title": "Elements of the Philosophy of Right" },
+        { "url": "https://www.goodreads.com/book/show/381440.The_Society_of_the_Spectacle", "title": "The Society of the Spectacle" },
+        { "url": "https://www.goodreads.com/book/show/67896.Tao_Te_Ching", "title": "Tao Te Ching" },
+        { "url": "https://www.goodreads.com/book/show/2823.The_Birth_of_Tragedy", "title": "The Birth of Tragedy" },
+        { "url": "https://www.goodreads.com/book/show/118317.Anti_Oedipus", "title": "Anti-Oedipus" }
+      ]
+    },
+    {
+      "label": "Top Modern Non-Fiction",
+      "service": "goodreads",
+      "items": [
+        { "url": "https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning", "title": "Man's Search for Meaning" },
+        { "url": "https://www.goodreads.com/book/show/11324722-the-righteous-mind", "title": "The Righteous Mind" },
+        { "url": "https://www.goodreads.com/book/show/6617037-debt", "title": "Debt: The First 5,000 Years" },
+        { "url": "https://www.goodreads.com/book/show/37327.The_Spirit_of_Terrorism_and_Other_essays", "title": "The Spirit of Terrorism and Other Essays" },
+        { "url": "https://www.goodreads.com/book/show/203979.The_Long_Loneliness", "title": "The Long Loneliness" }
+      ]
+    },
+    {
+      "label": "Movies",
+      "service": "letterboxd",
+      "items": [
+        { "url": "https://letterboxd.com/film/ray-2004/", "title": "Ray" },
+        { "url": "https://letterboxd.com/film/django-unchained/", "title": "Django Unchained" },
+        { "url": "https://letterboxd.com/film/the-godfather-part-ii/", "title": "The Godfather Part II" },
+        { "url": "https://letterboxd.com/film/che-part-one/", "title": "Che: Part One" },
+        { "url": "https://letterboxd.com/film/infernal-affairs/", "title": "Infernal Affairs" }
+      ]
+    },
+    {
+      "label": "Documentaries",
+      "service": "imdb",
+      "items": [
+        { "url": "https://www.imdb.com/title/tt2375605/", "title": "The Act of Killing" },
+        { "url": "https://www.imdb.com/title/tt2125608/", "title": "Searching for Sugar Man" },
+        { "url": "https://www.imdb.com/title/tt0363510/", "title": "The Revolution Will Not Be Televised" },
+        { "url": "https://www.imdb.com/title/tt9253866/" },
+        { "url": "https://www.imdb.com/title/tt11318602/" }
+      ]
+    },
+    {
+      "label": "TV Shows",
+      "service": "imdb",
+      "items": [
+        { "url": "https://www.imdb.com/title/tt31938062/", "title": "The Pitt" },
+        { "url": "https://www.imdb.com/title/tt9253284/", "title": "Andor" },
+        { "url": "https://www.imdb.com/title/tt7366338/", "title": "Chernobyl" },
+        { "url": "https://www.imdb.com/title/tt1475582/", "title": "Sherlock" },
+        { "url": "https://www.imdb.com/title/tt0080306/" }
+      ]
+    },
+    {
+      "label": "Rom Coms",
+      "service": "imdb",
+      "items": [
+        { "url": "https://www.imdb.com/title/tt0314331/", "title": "Love Actually" },
+        { "url": "https://www.imdb.com/title/tt0332280/" },
+        { "url": "https://www.imdb.com/title/tt3783958/" },
+        { "url": "https://www.imdb.com/title/tt1570728/" },
+        { "url": "https://www.imdb.com/title/tt0120338/", "title": "Titanic" }
+      ]
+    },
+    {
+      "label": "Spotify Playlists",
+      "service": "spotify",
+      "items": [
+        { "url": "https://open.spotify.com/playlist/4D7neBUHNiW5BThUNefKG1" },
+        { "url": "https://open.spotify.com/playlist/6C1hCfQFZ5KYrBTs2SMAGB" },
+        { "url": "https://open.spotify.com/playlist/7zzHZl6PcMxctvI3uQ1JLc" },
+        { "url": "https://open.spotify.com/playlist/7hlyChkHx8L9C9OHyDapBj" },
+        { "url": "https://open.spotify.com/playlist/4V3DrUYL8g4jkwNFaRg6hZ" }
+      ]
+    }
+  ]
+}
