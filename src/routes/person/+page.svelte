@@ -79,12 +79,27 @@
   <!-- Background -->
   <section class="section">
     <h2 class="section-label">Background</h2>
-    <div class="kv-grid">
-      <div class="kv"><span class="kv-key">Born</span> London, UK</div>
-      <div class="kv"><span class="kv-key">Raised</span> Hong Kong</div>
-      <div class="kv"><span class="kv-key">Currently</span> Berkeley, CA & London, UK</div>
-      <div class="kv"><span class="kv-key">Other places I have been</span> <a href="https://world.stephenokita.com" target="_blank" rel="noopener noreferrer" class="inline-link">world.stephenokita.com</a></div>
+    <div class="timeline">
+      <div class="timeline-row">
+        <span class="timeline-place">London, UK</span>
+        <span class="timeline-dates">2004&ndash;2007 · 2026&ndash;</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">Hong Kong</span>
+        <span class="timeline-dates">2007&ndash;2019 · 2020&ndash;2023</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">Hangzhou, China</span>
+        <span class="timeline-dates">2019&ndash;2020</span>
+      </div>
+      <div class="timeline-row">
+        <span class="timeline-place">Berkeley, California</span>
+        <span class="timeline-dates">2023&ndash;</span>
+      </div>
     </div>
+    <p class="prose-text timeline-footer">
+      Other places I've been: <a href="https://world.stephenokita.com" target="_blank" rel="noopener noreferrer" class="inline-link">world.stephenokita.com</a>
+    </p>
   </section>
 
   <!-- Education -->
@@ -124,6 +139,10 @@
       <div class="kv">廣東話 Cantonese <span class="kv-note">fluent</span></div>
       <div class="kv">Français <span class="kv-note">semi</span></div>
       <div class="kv">Español <span class="kv-note">semi</span></div>
+      <div class="kv">Deutsch <span class="kv-note">beginner</span></div>
+      <div class="kv">Türkçe <span class="kv-note">beginner</span></div>
+      <div class="kv">Italiano <span class="kv-note">beginner</span></div>
+      <div class="kv">日本語 Japanese <span class="kv-note">beginner</span></div>
     </div>
   </section>
 
@@ -172,11 +191,11 @@
   <section class="section">
     <h2 class="section-label">Things I Love</h2>
     <p class="prose-text section-intro">
-      A loose, occasionally-updated collection of media in random categories that I like.
+      A loose, occasionally-updated collection of media in random categories that I like. We are what we consume and that.
     </p>
 
     {#each data.works as category}
-      <div class="works-group">
+      <div class="works-group" data-service={category.service}>
         <div class="works-header">
           <h3 class="subsection">{category.label}</h3>
           <Icon
@@ -378,6 +397,42 @@
     color: var(--text-primary);
   }
 
+  /* Timeline (where I've lived) */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--border-primary);
+    font-size: var(--font-size-sm);
+  }
+
+  .timeline-row:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-place {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .timeline-dates {
+    color: var(--text-secondary);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+  }
+
+  .timeline-footer {
+    margin-top: var(--space-md);
+  }
+
   /* Lists */
   .list {
     display: flex;
@@ -531,9 +586,15 @@
     overflow: hidden;
   }
 
-  /* Spotify playlists are square covers */
-  .works-group:last-of-type .work-cover-wrap {
+  /* Square covers for services where the artwork is square */
+  .works-group[data-service="spotify"] .work-cover-wrap,
+  .works-group[data-service="youtube"] .work-cover-wrap {
     aspect-ratio: 1 / 1;
+  }
+
+  /* YouTube channel avatars are circular */
+  .works-group[data-service="youtube"] .work-cover-wrap {
+    border-radius: 50%;
   }
 
   /* Social */

@@ -35,13 +35,24 @@
     },
     {
       "label": "Movies",
-      "service": "letterboxd",
+      "service": "imdb",
       "items": [
-        { "url": "https://letterboxd.com/film/ray-2004/", "title": "Ray" },
-        { "url": "https://letterboxd.com/film/django-unchained/", "title": "Django Unchained" },
-        { "url": "https://letterboxd.com/film/the-godfather-part-ii/", "title": "The Godfather Part II" },
-        { "url": "https://letterboxd.com/film/che-part-one/", "title": "Che: Part One" },
-        { "url": "https://letterboxd.com/film/infernal-affairs/", "title": "Infernal Affairs" }
+        { "url": "https://www.imdb.com/title/tt0350258/", "title": "Ray" },
+        { "url": "https://www.imdb.com/title/tt1853728/", "title": "Django Unchained" },
+        { "url": "https://www.imdb.com/title/tt0071562/", "title": "The Godfather Part II" },
+        { "url": "https://www.imdb.com/title/tt0892255/", "title": "Che: Part One" },
+        { "url": "https://www.imdb.com/title/tt0338564/", "title": "Infernal Affairs" }
+      ]
+    },
+    {
+      "label": "Superhero Movies",
+      "service": "imdb",
+      "items": [
+        { "url": "https://www.imdb.com/title/tt0468569/" },
+        { "url": "https://www.imdb.com/title/tt2395427/" },
+        { "url": "https://www.imdb.com/title/tt3498820/" },
+        { "url": "https://www.imdb.com/title/tt0409459/" },
+        { "url": "https://www.imdb.com/title/tt4633694/" }
       ]
     },
     {
@@ -75,6 +86,27 @@
         { "url": "https://www.imdb.com/title/tt3783958/" },
         { "url": "https://www.imdb.com/title/tt1570728/" },
         { "url": "https://www.imdb.com/title/tt0120338/", "title": "Titanic" }
+      ]
+    },
+    {
+      "label": "YouTube Channels",
+      "service": "youtube",
+      "items": [
+        { "url": "https://www.youtube.com/JacobGeller" },
+        { "url": "https://www.youtube.com/@ArtOfTheProblem" },
+        { "url": "https://www.youtube.com/@Fireship" },
+        { "url": "https://www.youtube.com/@Geopoldd" },
+        { "url": "https://www.youtube.com/@FinTaylorcomedy" },
+        { "url": "https://www.youtube.com/@BennJordan" },
+        { "url": "https://www.youtube.com/@MDVL_mindset" },
+        { "url": "https://www.youtube.com/@hankschannel" },
+        { "url": "https://www.youtube.com/@WelchLabs" },
+        { "url": "https://www.youtube.com/@AdamNeely" },
+        { "url": "https://www.youtube.com/@AltShiftX" },
+        { "url": "https://www.youtube.com/@NoBoilerplate" },
+        { "url": "https://www.youtube.com/@CorridorCrew" },
+        { "url": "https://www.youtube.com/@PBoyle" },
+        { "url": "https://www.youtube.com/@InternetHistorian" }
       ]
     },
     {
