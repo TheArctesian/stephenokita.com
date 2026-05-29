@@ -16,7 +16,7 @@ interface CacheEntry {
   fetchedAt: number;
 }
 
-const CACHE_TTL_MS = 60 * 60 * 1000;
+const CACHE_TTL_MS = 5 * 60 * 1000;
 const UPCOMING_WINDOW_MS = 365 * 24 * 60 * 60 * 1000;
 const MAX_EVENTS = 50;
 
