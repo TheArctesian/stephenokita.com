@@ -278,7 +278,7 @@
   <section class="section">
     <h2 class="section-label">Things I Love</h2>
     <p class="prose-text section-intro">
-      A loose, occasionally-updated collection of media in random categories that I like. We are what we consume and that.
+      A loose, occasionally-updated collection of media in random categories that I like. We are what we consume and that. Recomendations are very welcome send me an email at me@stephenokita.com. 
     </p>
 
     {#each data.works as category}
