@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { fade } from "svelte/transition";
-  import ThemeToggle from "./ThemeToggle.svelte";
+  import ThemeToggle from "./theme_toggle.svelte";
 
   let mobileMenuOpen = false;
 
@@ -24,7 +24,7 @@
 
   function getActiveRoute(pathname: string) {
     if (pathname.startsWith("/meta"))
-      return routes.find((r) => r.path === "/meta/you");
+      return routes.find((r) => r.path === "/meta");
     return routes.find((r) => r.path === pathname) || routes[0];
   }
 

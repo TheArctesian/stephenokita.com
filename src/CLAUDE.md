@@ -58,7 +58,7 @@ The `src/` directory contains all source code for the SvelteKit application incl
 ## Key Conventions
 
 ### File Naming
-- Components: PascalCase (e.g., `ThemeToggle.svelte`)
+- Components: snake_case (e.g., `theme_toggle.svelte`). The imported identifier stays PascalCase per Svelte (`import ThemeToggle from './theme_toggle.svelte'`).
 - Utilities: camelCase (e.g., `formatDate.ts`)
 - Routes: kebab-case matching URL structure
 

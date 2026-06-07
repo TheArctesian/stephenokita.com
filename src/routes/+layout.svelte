@@ -4,8 +4,9 @@
   import { inject } from "@vercel/analytics";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
   
-  import Navigation from "$lib/components/ui/Navigation.svelte";
-  import Footer from "$lib/components/ui/Footer.svelte";
+  import Navigation from "$lib/components/ui/navigation.svelte";
+  import Footer from "$lib/components/ui/footer.svelte";
+  import LinkPreview from "$lib/components/ui/link_preview.svelte";
 
   inject({ mode: dev ? "development" : "production" });
   injectSpeedInsights();
@@ -24,3 +25,5 @@
 
   <Footer />
 </div>
+
+<LinkPreview />

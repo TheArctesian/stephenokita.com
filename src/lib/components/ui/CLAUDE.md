@@ -1,13 +1,28 @@
 # CLAUDE.md - src/lib/components/ui/
 
-This file provides guidance for working with the core UI components that form the foundation of the design system.
+This file provides guidance for working with the core UI / app-chrome components that form the foundation of the design system.
 
 ## Directory Overview
-The `ui/` directory contains reusable interface components that implement the design system patterns and provide consistent user experiences across the application.
+The `ui/` directory contains the app-chrome / interface components (navigation, footer, theme toggle, comments, etc.) that implement the design system patterns and provide consistent experiences across the application.
+
+## Naming convention
+All component **filenames are `snake_case`** (e.g. `navigation.svelte`, `theme_toggle.svelte`). The imported identifier stays PascalCase per Svelte (`import Navigation from "./navigation.svelte"`).
+
+## Reusable building blocks live in `shared/`
+Cross-page building blocks now live in `src/lib/components/shared/`, **not** here. Reach for those before writing new markup:
+- `hero.svelte` - Page hero (title + lede + bottom border)
+- `section.svelte` - Section wrapper with eyebrow label + optional meta
+- `card.svelte` - Base card (`.nord-card` / border-left variants), optional `href`
+- `key_value_grid.svelte` - Responsive label→value(→note) grid
+- `pill_list.svelte` - Flex-wrap tag/pill list
+- `search_input.svelte` - Search field with icon + clear button
+- `empty_state.svelte` - Icon + title + description placeholder
+
+For content grouping, use `shared/card.svelte` rather than adding a card to `ui/`.
 
 ## Component Inventory
 
-### Navigation.svelte
+### navigation.svelte
 **Purpose**: Main site navigation with responsive behavior
 - Horizontal desktop layout
 - Mobile hamburger menu
@@ -18,7 +33,7 @@ The `ui/` directory contains reusable interface components that implement the de
 **Props**: None (navigation items are hardcoded)
 **Dependencies**: Theme store, animation utilities
 
-### Footer.svelte  
+### footer.svelte
 **Purpose**: Site footer with social links and information
 - Social media icon links
 - Contact information display
@@ -29,44 +44,7 @@ The `ui/` directory contains reusable interface components that implement the de
 **Props**: None (content is static)
 **Dependencies**: Social media icons, design tokens
 
-### Card.svelte
-**Purpose**: Flexible container component for content grouping
-- Multiple visual variants
-- Consistent spacing and borders
-- Hover and focus states
-- Accessibility features
-- Slot-based content insertion
-
-**Props**:
-```typescript
-interface CardProps {
-  variant?: 'default' | 'elevated' | 'outlined';
-  padding?: 'sm' | 'md' | 'lg';
-  clickable?: boolean;
-}
-```
-
-### AnimatedText.svelte
-**Purpose**: Text animations with performance optimization
-- Multiple animation types (fadeIn, slideIn, typewriter)
-- Intersection observer integration
-- Configurable timing and delays
-- Reduced motion support
-- Memory leak prevention
-
-**Props**:
-```typescript
-interface AnimatedTextProps {
-  animation: 'fadeIn' | 'slideIn' | 'typewriter' | 'scramble';
-  delay?: number;
-  duration?: number;
-  trigger?: 'immediate' | 'intersection';
-}
-```
-
-**Dependencies**: Animation utilities, intersection observer
-
-### ThemeToggle.svelte
+### theme_toggle.svelte
 **Purpose**: Theme switching interface component
 - Cycle through available themes (nord-light, nord-dark, system)
 - System preference detection
@@ -76,6 +54,18 @@ interface AnimatedTextProps {
 
 **Props**: None (uses theme store)
 **Dependencies**: Theme store, browser APIs
+
+### comments.svelte / comment_item.svelte / auth_form.svelte
+**Purpose**: Comment system (thread display, individual comment rendering, and the auth form for posting)
+- Threaded comment rendering
+- Theme-aware styling
+- Accessible form controls
+
+### link_preview.svelte
+**Purpose**: Hover link previews
+
+### scroll_to_top.svelte
+**Purpose**: Scroll-to-top affordance
 
 ## Design System Integration
 
@@ -120,7 +110,7 @@ All components use TypeScript:
     variant?: 'default' | 'primary';
     disabled?: boolean;
   }
-  
+
   // Destructure props with defaults
   let { variant = 'default', disabled = false }: Props = $props();
 </script>
@@ -153,7 +143,7 @@ Components use mobile-first responsive design:
 .navigation {
   /* Mobile styles */
   @apply flex-col;
-  
+
   /* Tablet and desktop */
   @media (min-width: 768px) {
     @apply flex-row;
@@ -166,12 +156,12 @@ All animations follow consistent patterns:
 ```css
 .interactive-element {
   transition: all var(--transition-normal);
-  
+
   &:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-soft);
   }
-  
+
   &:active {
     transform: translateY(0);
     box-shadow: var(--shadow-none);
@@ -181,7 +171,7 @@ All animations follow consistent patterns:
 
 ## Component Usage Guidelines
 
-### Navigation Component
+### Navigation
 ```svelte
 <!-- Place in layout -->
 <Navigation />
@@ -192,44 +182,7 @@ Best practices:
 - Place in consistent location
 - Ensure proper semantic structure
 
-### Card Component
-```svelte
-<!-- Basic usage -->
-<Card>
-  <h2>Card Title</h2>
-  <p>Card content goes here.</p>
-</Card>
-
-<!-- With variants -->
-<Card variant="elevated" padding="lg">
-  <slot />
-</Card>
-```
-
-Best practices:
-- Use for content grouping
-- Apply consistent variants
-- Consider accessibility for clickable cards
-
-### AnimatedText Component
-```svelte
-<!-- Fade in animation -->
-<AnimatedText animation="fadeIn" delay={200}>
-  Welcome to the site
-</AnimatedText>
-
-<!-- Typewriter effect -->
-<AnimatedText animation="typewriter" duration={2000}>
-  This text types out slowly
-</AnimatedText>
-```
-
-Best practices:
-- Respect reduced motion preferences
-- Use appropriate delays
-- Don't overuse animations
-
-### ThemeToggle Component
+### ThemeToggle
 ```svelte
 <!-- Minimal usage -->
 <ThemeToggle />
@@ -239,6 +192,23 @@ Best practices:
 - Place in consistent location (header/nav)
 - Ensure theme persistence works
 - Test theme switching thoroughly
+
+### Cards and other reusable patterns
+For content grouping and other cross-page patterns, import from `shared/`:
+```svelte
+<script lang="ts">
+  import Card from '$lib/components/shared/card.svelte';
+</script>
+
+<Card href="/blog/some-post">
+  <h2>Card Title</h2>
+  <p>Card content goes here.</p>
+</Card>
+```
+
+Best practices:
+- Use for content grouping
+- Consider accessibility for clickable cards
 
 ## Styling Guidelines
 
@@ -282,7 +252,7 @@ Ensure all components work in both light and dark themes:
 .component {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
-  
+
   /* Use theme-aware colors */
   border: 1px solid var(--border-primary);
 }
@@ -316,22 +286,6 @@ Each component should have:
 - Accessibility tests
 - Visual regression tests
 - Cross-browser compatibility tests
-
-### Testing Examples
-```typescript
-// Example component test
-describe('Card Component', () => {
-  test('renders with default variant', () => {
-    render(Card, { props: {} });
-    expect(screen.getByRole('article')).toHaveClass('card--default');
-  });
-  
-  test('applies elevated variant correctly', () => {
-    render(Card, { props: { variant: 'elevated' } });
-    expect(screen.getByRole('article')).toHaveClass('card--elevated');
-  });
-});
-```
 
 ## Maintenance Guidelines
 

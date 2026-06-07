@@ -33,14 +33,16 @@ export const load: PageLoad = async ({ params, fetch }) => {
 			return 0;
 		});
 
-	// Step 5: Return clean result
+	// Step 5: Return clean result. `viewCount` is nested under `streamed` so
+	// SvelteKit streams it instead of blocking the page render on the analytics
+	// fetch (top-level promises are no longer auto-awaited in SvelteKit 2.0).
 	return {
 		content: result.post,
-		meta: { 
-			...result.metadata, 
+		meta: {
+			...result.metadata,
 			slug: result.slug,
 			readingTime
 		},
-		viewCount: viewCountPromise
+		streamed: { viewCount: viewCountPromise }
 	};
 }

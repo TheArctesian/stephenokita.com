@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fade, slide } from "svelte/transition";
-  import AuthForm from "./AuthForm.svelte";
-  import CommentItem from "./CommentItem.svelte";
+  import AuthForm from "./auth_form.svelte";
+  import CommentItem from "./comment_item.svelte";
   import type { Comment } from "$lib/services/comments";
 
   export let postSlug: string;

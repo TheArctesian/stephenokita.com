@@ -1,286 +1,334 @@
 <script lang="ts">
-  import AnimatedText from '$lib/components/ui/AnimatedText.svelte';
-  import { fade, slide, fly } from "svelte/transition";
-  import { modernAnimations, STAGGER, getAnimation, animationHelpers } from "$lib/utils/animations";
+    import "../../app.css";
+    import { onMount } from "svelte";
+    import { browser } from "$app/environment";
+    import { fade } from "svelte/transition";
+    import Hero from "$lib/components/shared/hero.svelte";
+    import Section from "$lib/components/shared/section.svelte";
+    import Colophon from "./colophon.svelte";
+    import RssRow from "./rss_row.svelte";
+    import WatchCard from "./watch_card.svelte";
+    import RequestHeaders from "./request_headers.svelte";
+    import TrackerItem from "./tracker_item.svelte";
+    import FingerprintBanner from "./fingerprint_banner.svelte";
+    import FingerprintResults from "./fingerprint_results.svelte";
+    import { collectFingerprint } from "./fingerprint";
+    import type { PageData } from "./$types";
 
-  let showRssInstructions = false;
-  let copyStatus = '';
-  let copyTimeout: ReturnType<typeof setTimeout>;
+    export let data: PageData;
 
-  async function copyToClipboard() {
-    try {
-      await navigator.clipboard.writeText('https://stephenokita.com/rss.xml');
-      copyStatus = 'Copied!';
-      // Clear any existing timeout
-      if (copyTimeout) clearTimeout(copyTimeout);
-      // Reset status after 2 seconds
-      copyTimeout = setTimeout(() => {
-        copyStatus = '';
-      }, 2000);
-    } catch (err) {
-      copyStatus = 'Failed to copy';
+    // ── Peel-back state ──────────────────────────────────────────────
+    // The page reveals in layers: server data is there on load, the deep
+    // client fingerprint only runs once the visitor asks for it.
+    let revealed = false;
+    let collecting = false;
+    let fp: any = null;
+    let fingerprintHash = "";
+    let canvasImage = "";
+
+    // ── Live trackers ────────────────────────────────────────────────
+    let trackers: {
+        posthog: {
+            active: boolean;
+            distinctId: string | null;
+            sessionId: string | null;
+            recording: boolean;
+            replayUrl: string | null;
+        };
+        umami: boolean;
+        vercel: boolean;
+    } = {
+        posthog: {
+            active: false,
+            distinctId: null,
+            sessionId: null,
+            recording: false,
+            replayUrl: null,
+        },
+        umami: false,
+        vercel: false,
+    };
+
+    // RSS copy
+    let copyStatus = "";
+    let copyTimeout: ReturnType<typeof setTimeout>;
+
+    const g = data.server.geo;
+    $: geoLine = [g.city, g.region, g.country].filter(Boolean).join(", ");
+
+    // PostHog id rows for the tracker inspector.
+    $: posthogIds = [
+        trackers.posthog.distinctId && {
+            key: "distinct_id",
+            value: trackers.posthog.distinctId,
+        },
+        trackers.posthog.sessionId && {
+            key: "session_id",
+            value: trackers.posthog.sessionId,
+        },
+        trackers.posthog.replayUrl && {
+            key: "replay",
+            value: "this session is being recorded",
+        },
+    ].filter(Boolean) as { key: string; value: string }[];
+
+    onMount(() => {
+        detectTrackers();
+    });
+
+    function detectTrackers() {
+        if (!browser) return;
+        const ph: any = (window as any).posthog;
+        // The dev stub only has `capture`; the real SDK has these getters.
+        const phLive = ph && typeof ph.get_distinct_id === "function";
+        if (phLive) {
+            try {
+                const recording =
+                    typeof ph.sessionRecordingStarted === "function"
+                        ? ph.sessionRecordingStarted()
+                        : false;
+                trackers.posthog = {
+                    active: true,
+                    distinctId: ph.get_distinct_id?.() ?? null,
+                    sessionId: ph.get_session_id?.() ?? null,
+                    recording,
+                    replayUrl:
+                        recording &&
+                        typeof ph.get_session_replay_url === "function"
+                            ? ph.get_session_replay_url()
+                            : null,
+                };
+            } catch {
+                trackers.posthog = { ...trackers.posthog, active: true };
+            }
+        } else if (ph) {
+            // Stub present (local dev) — say so honestly.
+            trackers.posthog = { ...trackers.posthog, active: false };
+        }
+
+        trackers.umami =
+            typeof (window as any).umami !== "undefined" ||
+            !!document.querySelector("script[data-website-id]");
+        trackers.vercel =
+            !!document.querySelector('script[src*="/_vercel/insights"]') ||
+            !!document.querySelector('script[src*="va.vercel-scripts"]') ||
+            typeof (window as any).va !== "undefined";
+        trackers = trackers;
     }
-  }
 
-  // Create staggered animations for the 6 tech stack cards
-  const cardAnimations = animationHelpers.staggerCards(6, STAGGER.wide);
+    async function reveal() {
+        revealed = true;
+        if (fp) return;
+        collecting = true;
+        try {
+            const result = await collectFingerprint();
+            fp = result.details;
+            fingerprintHash = result.hash;
+            canvasImage = fp.canvasFingerprint;
+        } catch (e) {
+            console.error("fingerprint error", e);
+        } finally {
+            collecting = false;
+        }
+    }
+
+    async function copyRss() {
+        try {
+            await navigator.clipboard.writeText(
+                "https://stephenokita.com/rss.xml",
+            );
+            copyStatus = "Copied";
+            if (copyTimeout) clearTimeout(copyTimeout);
+            copyTimeout = setTimeout(() => (copyStatus = ""), 2000);
+        } catch {
+            copyStatus = "Failed";
+        }
+    }
 </script>
 
 <svelte:head>
-  <title>Meta | Stephen Daniel Okita</title>
-  <meta name="description" content="Technical details about this website, including the technology stack and RSS feed information" />
+    <title>Meta | Stephen Daniel Okita</title>
+    <meta
+        name="description"
+        content="How this site is built — and a live look at what it knows about you."
+    />
 </svelte:head>
 
-<main class="min-h-screen px-4 py-8" out:slide>
-  <div class="max-w-6xl mx-auto">
-    <div class="flex items-center justify-between mb-8">
-      <AnimatedText element="h1" text="Meta" animation="hero" className="text-4xl font-bold text-accent-primary" />
-      <a 
-        href="/meta/you" 
-        class="nord-button text-sm px-4 py-2"
-      >
-        Browser Detective →
-      </a>
-    </div>
-    
-    <section class="mb-xl" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.normal))}>
-      <h2 class="text-2xl font-semibold text-text-primary mb-6 pb-2 border-b border-border-primary">
-        Technology Stack
-      </h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[0])}>
-          <h3 class="text-lg font-semibold text-accent-primary mb-3">Frontend Framework</h3>
-          <ul class="space-y-2">
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">SvelteKit</span> - Full-stack web framework with SSR/SSG
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">TypeScript</span> - Type-safe JavaScript
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">MDSvex</span> - Markdown processing with Svelte components
-            </li>
-          </ul>
+<div class="page-shell">
+    <Hero title="Meta" subtitle="The colophon for this website." />
+
+    <!-- ── Colophon ────────────────────────────────────────────────── -->
+    <Section label="How this site is built">
+        <Colophon />
+    </Section>
+
+    <!-- ── RSS ─────────────────────────────────────────────────────── -->
+    <Section label="RSS">
+        <RssRow {copyStatus} onCopy={copyRss} />
+    </Section>
+
+    <!-- ── What I already know ─────────────────────────────────────── -->
+    <Section label="What I already know about you">
+        <div class="watch-grid">
+            <WatchCard
+                key="IP address"
+                value={data.server.ip ?? "hidden"}
+                note="sent with every request"
+            />
+
+            <WatchCard key="Location" value={geoLine || "unresolved"}>
+                {#if data.server.hasGeo}
+                    resolved from your IP at the edge
+                {:else}
+                    (run this on the live site to see your city)
+                {/if}
+            </WatchCard>
+
+            {#if g.timezone}
+                <WatchCard key="Timezone" value={g.timezone} />
+            {/if}
+
+            {#if g.latitude && g.longitude}
+                <WatchCard
+                    key="Coordinates"
+                    value={`${g.latitude}, ${g.longitude}`}
+                    note="city-level"
+                />
+            {/if}
         </div>
 
-        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[1])}>
-          <h3 class="text-lg font-semibold text-accent-primary mb-3">Database & ORM</h3>
-          <ul class="space-y-2">
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Neon PostgreSQL</span> - Serverless Postgres
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Drizzle ORM</span> - TypeScript-first ORM
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Dynamic Content</span> - Database-driven management
-            </li>
-          </ul>
-        </div>
+        <!-- Request headers the browser sent -->
+        {#if data.server.spotlight.length > 0}
+            <RequestHeaders
+                spotlight={data.server.spotlight}
+                allHeaders={data.server.allHeaders}
+                headerCount={data.server.headerCount}
+            />
+        {/if}
+    </Section>
 
-        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[2])}>
-          <h3 class="text-lg font-semibold text-accent-primary mb-3">Styling & Design</h3>
-          <ul class="space-y-2">
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Modular CSS</span> - Component-based architecture
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">TailwindCSS</span> - Utility-first framework
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Nord Theme</span> - Arctic-inspired palette
-            </li>
-          </ul>
-        </div>
-
-        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[3])}>
-          <h3 class="text-lg font-semibold text-accent-primary mb-3">Deployment</h3>
-          <ul class="space-y-2">
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Vercel</span> - Edge deployment with CI/CD
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Analytics</span> - PostHog & Umami tracking
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Environment</span> - Secure configuration
-            </li>
-          </ul>
-        </div>
-
-        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[4])}>
-          <h3 class="text-lg font-semibold text-accent-primary mb-3">Development Tools</h3>
-          <ul class="space-y-2">
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Yarn</span> - Package management
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Vite</span> - Lightning-fast build tool
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">ESLint & Prettier</span> - Code quality
-            </li>
-          </ul>
-        </div>
-
-        <div class="nord-card p-md" in:fly={getAnimation(cardAnimations[5])}>
-          <h3 class="text-lg font-semibold text-accent-primary mb-3">Architecture</h3>
-          <ul class="space-y-2">
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">Clean Architecture</span> - Separation of concerns
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">UNIX Philosophy</span> - Do one thing well
-            </li>
-            <li class="text-text-secondary">
-              <span class="text-text-primary font-medium">RESTful APIs</span> - Consistent patterns
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="mb-xl" in:fly={getAnimation(modernAnimations.slideUp(STAGGER.dramatic))}>
-      <h2 class="text-2xl font-semibold text-text-primary mb-6 pb-2 border-b border-border-primary">
-        RSS Feed
-      </h2>
-      
-      <div class="space-y-6">
-        <p class="text-text-secondary text-lg leading-relaxed">
-          Stay updated with my latest blog posts by subscribing to the RSS feed. RSS (Really Simple Syndication) 
-          allows you to follow websites without constantly checking for new content.
+    <!-- ── Peel back: the deep fingerprint ─────────────────────────── -->
+    <Section label="And that’s just the front door">
+        <p class="prose">
+            Everything above arrived with your very first request.
         </p>
 
-        <div class="nord-surface p-6 rounded-lg border-2 border-accent-primary">
-          <h3 class="text-lg font-semibold text-text-primary mb-3">Feed URL</h3>
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <code class="flex-1 p-3 bg-bg-tertiary rounded font-mono text-accent-tertiary text-sm sm:text-base overflow-x-auto" id="rss-url">
-              https://stephenokita.com/rss.xml
-            </code>
-            <button
-              class="nord-button whitespace-nowrap flex-shrink-0"
-              on:click={copyToClipboard}
-              aria-label="Copy RSS feed URL to clipboard"
-            >
-              {copyStatus || 'Copy'}
+        {#if !revealed}
+            <button class="reveal-btn" on:click={reveal}>
+                Show me what else I&rsquo;m leaking &rarr;
             </button>
-            <span class="sr-only" role="status" aria-live="polite">
-              {copyStatus}
-            </span>
-          </div>
-        </div>
-
-        <div class="space-y-6">
-          <button
-            class="w-full text-left flex items-center justify-between p-4 bg-bg-secondary rounded-lg hover:bg-bg-tertiary transition-colors duration-200 focus:outline-2 focus:outline-accent-primary focus:outline-offset-2"
-            on:click={() => showRssInstructions = !showRssInstructions}
-            aria-expanded={showRssInstructions}
-            aria-controls="rss-instructions"
-          >
-            <span class="text-xl font-semibold text-text-primary">How to Subscribe</span>
-            <span class="text-2xl text-accent-primary transform transition-transform duration-200 {showRssInstructions ? 'rotate-180' : ''}" aria-hidden="true">
-              ↓
-            </span>
-          </button>
-          
-          {#if showRssInstructions}
-          <div id="rss-instructions" class="space-y-6" in:slide={{ duration: 300 }} out:slide={{ duration: 200 }}>
-          
-          <div class="nord-surface p-md rounded-lg">
-            <h4 class="text-lg font-medium text-accent-secondary mb-3">iOS (iPhone/iPad)</h4>
-            <ol class="list-decimal list-inside space-y-2 text-text-secondary">
-              <li>Download <strong class="text-text-primary">Feeder</strong> from the App Store (free and privacy-focused)</li>
-              <li>Open Feeder and tap the "+" button</li>
-              <li>Paste the RSS feed URL: <code class="text-accent-tertiary">https://stephenokita.com/rss.xml</code></li>
-              <li>Tap "Add Feed" to subscribe</li>
-            </ol>
-            <p class="mt-3 text-sm text-text-tertiary italic">
-              Alternative apps: NetNewsWire (free, open-source), Reeder 5 (premium)
-            </p>
-          </div>
-
-          <div class="nord-surface p-md rounded-lg">
-            <h4 class="text-lg font-medium text-accent-secondary mb-3">Android</h4>
-            <ol class="list-decimal list-inside space-y-2 text-text-secondary">
-              <li>Download <strong class="text-text-primary">Feedly</strong> or <strong class="text-text-primary">Inoreader</strong> from Google Play</li>
-              <li>Create a free account if required</li>
-              <li>Tap "Add Content" or the "+" button</li>
-              <li>Search for "stephenokita.com" or paste the RSS URL</li>
-              <li>Select the feed and tap "Follow"</li>
-            </ol>
-            <p class="mt-3 text-sm text-text-tertiary italic">
-              Alternative apps: Palabre, FeedMe, RSS Reader
-            </p>
-          </div>
-
-          <div class="nord-surface p-md rounded-lg">
-            <h4 class="text-lg font-medium text-accent-secondary mb-3">Desktop (Windows/Mac/Linux)</h4>
-            <ol class="list-decimal list-inside space-y-2 text-text-secondary">
-              <li>Use a web-based reader like <strong class="text-text-primary">Feedly</strong> (feedly.com) or <strong class="text-text-primary">The Old Reader</strong></li>
-              <li>Or install a desktop app like <strong class="text-text-primary">Thunderbird</strong> (free, cross-platform)</li>
-              <li>Add a new feed subscription</li>
-              <li>Enter the RSS URL: <code class="text-accent-tertiary">https://stephenokita.com/rss.xml</code></li>
-            </ol>
-            <p class="mt-3 text-sm text-text-tertiary italic">
-              Alternative apps: Vienna (macOS), QuiteRSS (cross-platform), Fluent Reader
-            </p>
-          </div>
-
-          <div class="nord-surface p-md rounded-lg">
-            <h4 class="text-lg font-medium text-accent-secondary mb-3">Browser Extensions</h4>
-            <ul class="list-disc list-inside space-y-2 text-text-secondary">
-              <li><strong class="text-text-primary">Firefox:</strong> Built-in Live Bookmarks or Feedbro extension</li>
-              <li><strong class="text-text-primary">Chrome:</strong> RSS Feed Reader, Feeder, or RSS Subscription Extension</li>
-              <li><strong class="text-text-primary">Safari:</strong> RSS Button for Safari or NetNewsWire integration</li>
-            </ul>
-          </div>
-        </div>
+        {:else if collecting}
+            <p class="collecting">Reading your device&hellip;</p>
+        {:else if fp}
+            <div in:fade={{ duration: 300 }}>
+                <FingerprintBanner hash={fingerprintHash} {canvasImage} />
+                <FingerprintResults {fp} />
+            </div>
         {/if}
+    </Section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="nord-surface p-md rounded-lg">
-            <h3 class="text-lg font-semibold text-accent-primary mb-3">What's in the Feed?</h3>
-            <ul class="list-disc list-inside space-y-1 text-text-secondary">
-              <li>Full blog post titles and descriptions</li>
-              <li>Publication dates for chronological sorting</li>
-              <li>Direct links to each blog post</li>
-              <li>Category tags for content organization</li>
-              <li>Automatic updates when new posts are published</li>
-            </ul>
-          </div>
+    <!-- ── Who else is watching ────────────────────────────────────── -->
+    <Section label="And I’m not the only one watching">
+        <span slot="meta" class="watching-meta">live, right now</span>
+        <p class="prose">
+            Three analytics tools run on this page. Here&rsquo;s what each one
+            sees:
+        </p>
 
-          <div class="nord-surface p-md rounded-lg">
-            <h3 class="text-lg font-semibold text-accent-primary mb-3">Why Use RSS?</h3>
-            <ul class="list-disc list-inside space-y-1 text-text-secondary">
-              <li><strong class="text-text-primary">Privacy:</strong> No tracking, no algorithms</li>
-              <li><strong class="text-text-primary">Control:</strong> You decide what to read</li>
-              <li><strong class="text-text-primary">Efficiency:</strong> All sites in one place</li>
-              <li><strong class="text-text-primary">No Distractions:</strong> Just the content</li>
-              <li><strong class="text-text-primary">Offline:</strong> Cache for later reading</li>
-            </ul>
-          </div>
+        <div class="tracker-list">
+            <TrackerItem
+                name="PostHog"
+                active={trackers.posthog.active}
+                state={trackers.posthog.active
+                    ? "tracking you"
+                    : "stubbed (local dev)"}
+                ids={trackers.posthog.active ? posthogIds : []}
+            >
+                Product analytics &mdash; events, funnels, and session data,
+                with a full person profile the moment anything identifies you{#if trackers.posthog.recording}
+                    <strong
+                        >&mdash; and session replay is recording your screen
+                        right now.</strong
+                    >
+                {:else}.{/if}
+            </TrackerItem>
+
+            <TrackerItem
+                name="Umami"
+                active={trackers.umami}
+                state={trackers.umami ? "loaded" : "not detected"}
+            >
+                Page analytics &mdash; pageviews, referrers, and device class,
+                no cookies.
+            </TrackerItem>
+
+            <TrackerItem
+                name="Vercel Analytics + Speed Insights"
+                active={trackers.vercel}
+                state={trackers.vercel ? "loaded" : "not detected"}
+            >
+                Traffic and Core Web Vitals, measured per visit.
+            </TrackerItem>
         </div>
-      </div>
-    </section>
-  </div>
-</main>
+    </Section>
+</div>
 
 <style>
-  code {
-    font-family: var(--font-family-mono);
-  }
+    .prose {
+        color: var(--text-secondary);
+        font-size: var(--font-size-sm);
+        line-height: 1.7;
+        margin: 0 0 var(--space-lg);
+        max-width: 62ch;
+    }
 
-  /* Screen reader only - visually hidden but accessible */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
+    /* ── Watch grid (the "I see you" cards) ── */
+    .watch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: var(--space-sm);
+    }
+
+    /* ── Reveal button ── */
+    .reveal-btn {
+        display: inline-block;
+        padding: var(--space-sm) var(--space-lg);
+        background: transparent;
+        border: 1px solid var(--accent-primary);
+        border-radius: var(--radius-md);
+        color: var(--accent-primary);
+        font-family: var(--font-family-mono);
+        font-size: var(--font-size-sm);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+    }
+
+    .reveal-btn:hover {
+        background: var(--accent-primary);
+        color: var(--bg-primary);
+    }
+
+    .collecting {
+        color: var(--text-tertiary);
+        font-family: var(--font-family-mono);
+        font-size: var(--font-size-sm);
+    }
+
+    /* ── Trackers ── */
+    .watching-meta {
+        color: var(--status-warning);
+    }
+
+    .tracker-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
 </style>

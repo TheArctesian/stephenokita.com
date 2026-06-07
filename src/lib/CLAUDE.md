@@ -140,8 +140,8 @@ Manages application theming:
 
 ### Internal Imports
 ```typescript
-// From components
-import Card from '$lib/components/ui/Card.svelte';
+// From shared components (snake_case filenames, PascalCase identifiers)
+import Card from '$lib/components/shared/card.svelte';
 
 // From services  
 import { skillsService } from '$lib/services/skills';

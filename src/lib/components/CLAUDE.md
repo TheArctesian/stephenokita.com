@@ -5,31 +5,43 @@ This file provides guidance for working with the components directory containing
 ## Directory Overview
 The `components/` directory contains reusable Svelte components organized by purpose and complexity level.
 
+## Naming convention
+All component **filenames are `snake_case`** (e.g. `theme_toggle.svelte`, `key_value_grid.svelte`). The imported identifier stays PascalCase per Svelte (`import ThemeToggle from "./theme_toggle.svelte"`).
+
+## Where components live
+- **`shared/`** — cross-page building blocks reused by 2+ routes. Prefer reusing these before writing new markup.
+- **`ui/`** — app-chrome / interface components (navigation, footer, theme toggle, comments, link preview, scroll-to-top).
+- **`blog/`** — content-specific visualizations embedded in markdown posts.
+- **Page-local sub-components live in the route folder**, not here (e.g. `routes/blog/blog_card.svelte`, `routes/meta/tracker_item.svelte`). Promote to `shared/` only once a second route needs the same piece.
+
 ## Directory Structure
 
+### Shared Components (`shared/`)
+Cross-page building blocks (consume these before duplicating markup):
+- `hero.svelte` - Page hero (title + lede + bottom border)
+- `section.svelte` - Section wrapper with eyebrow label + optional meta
+- `card.svelte` - Base card (`.nord-card` / border-left variants), optional `href`
+- `key_value_grid.svelte` - Responsive label→value(→note) grid
+- `pill_list.svelte` - Flex-wrap tag/pill list
+- `search_input.svelte` - Search field with icon + clear button
+- `empty_state.svelte` - Icon + title + description placeholder
+
 ### UI Components (`ui/`)
-Core reusable interface elements:
-- `Navigation.svelte` - Responsive navigation system
-- `Footer.svelte` - Social links and contact information
-- `Card.svelte` - Flexible card component with variants
-- `AnimatedText.svelte` - Text animation utilities
-- `ThemeToggle.svelte` - Theme switching interface
+Core interface / app-chrome elements:
+- `navigation.svelte` - Responsive navigation system
+- `footer.svelte` - Social links and contact information
+- `theme_toggle.svelte` - Theme switching interface
+- `comments.svelte` / `comment_item.svelte` / `auth_form.svelte` - Comment system
+- `link_preview.svelte` - Hover link previews
+- `scroll_to_top.svelte` - Scroll-to-top affordance
 
 ### Blog Components (`blog/`)
-Content-specific components:
-- `hyper.svelte` - Hypertext content display
-- `instaphoto.svelte` - Instagram-style photo component
+Content-specific components embedded in markdown posts:
+- `hyper.svelte` - Hypersonic-effect visualization
 - `maslos.svelte` / `maslos2.svelte` - Maslow's hierarchy visualizations
 - `philmap.svelte` - Philosophy concept mapping
-- `erg.svelte` - Ergonomic content layout
-- `maps/distromap.svelte` - Linux distribution timeline diagram
-
-### Legacy Components (Root Level)
-Direct component files (being phased out):
-- `blogEntery.svelte` - Blog entry display
-- `pagetransition.svelte` - Page transition effects
-- `post-card.svelte` - Post card layout
-- `Collapsible.svelte` - Collapsible content container
+- `erg.svelte` - Maslow ERG visualization
+- `maps/distromap.svelte` / `maps/cvemap.svelte` - Timeline diagrams
 
 ## Component Architecture
 

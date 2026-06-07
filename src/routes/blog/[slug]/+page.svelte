@@ -1,7 +1,8 @@
 <script lang="ts">
   import { formatDate } from "$lib/utils";
   import { fade, slide } from "svelte/transition";
-  import Comments from "$lib/components/ui/Comments.svelte";
+  import Comments from "$lib/components/ui/comments.svelte";
+  import ScrollToTop from "$lib/components/ui/scroll_to_top.svelte";
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
 
@@ -12,8 +13,8 @@
   
   // Track page view with PostHog and our custom analytics
   onMount(async () => {
-    // Get initial view count from load function
-    viewCount = await data.viewCount;
+    // Get initial view count from load function (streamed, non-blocking)
+    viewCount = await data.streamed.viewCount;
     
     // Track view if in browser and not already tracked
     if (browser && !hasTrackedView) {
@@ -50,6 +51,13 @@
   <title>{data.meta.title}</title>
   <meta property="og:type" content="article" />
   <meta property="og:title" content={data.meta.title} />
+  {#if data.meta.description}
+    <meta name="description" content={data.meta.description} />
+    <meta property="og:description" content={data.meta.description} />
+  {/if}
+  {#if data.meta.img}
+    <meta property="og:image" content={data.meta.img} />
+  {/if}
 </svelte:head>
 
 <div class="min-h-screen" out:slide>
@@ -101,6 +109,9 @@
       <Comments postSlug={data.meta.slug} />
     </div>
   </div>
+
+  <!-- Floating navigation: back to blog + scroll to top -->
+  <ScrollToTop backHref="/blog" backLabel="Back to blog" />
 </div>
 
 <style>

@@ -18,7 +18,7 @@ export const ROUTES = {
   PERSON: '/person',
   PROJECTS: '/projects',
   BLOG: '/blog',
-  META: '/meta/you',
+  META: '/meta',
 } as const;
 
 export const API_ENDPOINTS = {

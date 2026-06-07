@@ -1,0 +1,152 @@
+/* Cross-page visual patterns - UNIX Philosophy: shared rhythm for the
+ * page-scaffolding the six top-level pages all repeat (hero, section
+ * eyebrow, pills, key→value grids). Token-based and theme-aware; no
+ * hardcoded colours. Component-local layout still lives in the
+ * components themselves via Tailwind utilities.
+ */
+
+/* ── Page shell ────────────────────────────────────────────────────
+ * Every top-level page wraps its content in a centred, narrow column.
+ */
+.page-shell {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────
+ * h1 + lede with an optional bottom border. Mirrors the `.hero`
+ * blocks on meta / person / skills / home.
+ */
+.pattern-hero {
+  margin-bottom: var(--space-xl);
+}
+
+.pattern-hero--bordered {
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.pattern-hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  line-height: 1.15;
+  margin: 0 0 var(--space-sm);
+}
+
+.pattern-hero__lede {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Section eyebrow ───────────────────────────────────────────────
+ * Small uppercase mono label that heads each section across pages
+ * (.section-label / .category-label).
+ */
+.section-eyebrow {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin: 0 0 var(--space-md);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.section-head .section-eyebrow {
+  margin-bottom: 0;
+}
+
+.section-head__meta {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* ── Pills ─────────────────────────────────────────────────────────
+ * Flex-wrap tag list. Matches `.pill-list` / `.pill` on person + skills.
+ */
+.pattern-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.pattern-pill {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-mono);
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+a.pattern-pill:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+/* ── Key → value grid ──────────────────────────────────────────────
+ * Responsive grid of label / value (/ note) cells. Generalises the
+ * meta `.watch-grid`, person `.kv-grid` and skills `.env-grid`.
+ */
+.kv-grid {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--kv-grid-min, 210px), 1fr)
+  );
+}
+
+.kv-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kv-cell__label {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-primary);
+}
+
+.kv-cell__value {
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  word-break: break-word;
+}
+
+.kv-cell__note {
+  color: var(--text-tertiary);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: var(--space-lg) var(--space-md);
+  }
+}

@@ -17,6 +17,9 @@
 /* 4. Composed components */
 @import './styles/components.css';
 
+/* 4b. Cross-page visual patterns */
+@import './styles/patterns.css';
+
 /* 5. Content typography */
 @import './styles/prose.css';
 
