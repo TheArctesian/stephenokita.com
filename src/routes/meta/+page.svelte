@@ -15,6 +15,7 @@
     import PosthogReplay from "./posthog_replay.svelte";
     import PosthogFeed from "./posthog_feed.svelte";
     import PosthogProfile from "./posthog_profile.svelte";
+    import VisitorTwin from "./visitor_twin.svelte";
     import { collectFingerprint } from "./fingerprint";
     import type { PageData } from "./$types";
 
@@ -32,6 +33,7 @@
     // PostHog "feed it your fingerprint" state.
     let linkedInPostHog = false;
     let profileRef: PosthogProfile;
+    let twinRef: VisitorTwin;
 
     // ── Live trackers ────────────────────────────────────────────────
     let trackers: {
@@ -159,8 +161,11 @@
         linkedInPostHog = true;
         trackers.posthog.distinctId = fingerprintHash;
         trackers = trackers;
-        // Re-pull the profile once PostHog has had a moment to ingest.
-        setTimeout(() => profileRef?.refresh(), 4000);
+        // Re-pull the profile + similarity once PostHog has ingested the event.
+        setTimeout(() => {
+            profileRef?.refresh();
+            twinRef?.refresh();
+        }, 4000);
     }
 
     async function copyRss() {
@@ -341,6 +346,16 @@
                 <p class="closeup-label">What PostHog already has on you</p>
                 <PosthogProfile
                     bind:this={profileRef}
+                    distinctId={trackers.posthog.distinctId}
+                />
+
+                <p class="closeup-label">Who you remind me of</p>
+                <p class="closeup-hint">
+                    From everyone PostHog has seen, here&rsquo;s who you most
+                    resemble &mdash; and how much you stand out.
+                </p>
+                <VisitorTwin
+                    bind:this={twinRef}
                     distinctId={trackers.posthog.distinctId}
                 />
             {/if}
