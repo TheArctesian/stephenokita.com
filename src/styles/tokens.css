@@ -67,7 +67,7 @@
   --yellow: var(--color-yellow);
 
   /* Typography */
-  --font-family-mono: "Fira Code", monospace;
+  --font-family-mono: "Fira Code", "Fira Code Fallback", monospace;
   --font-size-xs: clamp(0.7rem, 1.5vw, 0.8rem);
   --font-size-sm: clamp(0.8rem, 2vw, 1rem);
   --font-size-base: clamp(1rem, 2.5vw, 1.2rem);
@@ -205,7 +205,7 @@
   --shadow-medium: 0 2px 6px var(--sketch-shadow);
 
   /* Sketched font styling */
-  --font-family-sketch: "Kalam", "Caveat", "Comic Sans MS", cursive;
+  --font-family-sketch: "Kalam", "Kalam Fallback", "Comic Sans MS", cursive;
 }
 
 /* System Theme - follows OS preference */

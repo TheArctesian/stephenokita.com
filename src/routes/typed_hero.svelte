@@ -9,15 +9,20 @@
   import { onMount } from "svelte";
   import { formatRelative } from "$lib/utils/dates";
 
+  type Location = {
+    district?: string;
+    city?: string;
+    country?: string;
+    timestamp?: number;
+  };
+
+  // Accepts a resolved location object or a streamed promise — the
+  // location line is awaited in-place so it never blocks the hero/LCP.
   export let location:
-    | {
-        district?: string;
-        city?: string;
-        country?: string;
-        timestamp?: number;
-      }
+    | Location
     | null
-    | undefined = null;
+    | undefined
+    | Promise<Location | null | undefined> = null;
 
   const fullName = "Stephen Daniel Okita";
   const japanese = "沖田勇";
@@ -59,26 +64,40 @@
 
 <section class="mb-xl">
   <h1 class="hero-title mb-xs">
-    {#if browser}{typedText}<span
-        class="cursor"
-        class:visible={showCursor}
-        aria-hidden="true">_</span
-      >{:else}{fullName}{/if}
+    <!-- Invisible sizing layer keeps the heading at its final size so the
+         typed text animating on top of it never shifts layout. -->
+    <span class="hero-sizer" aria-hidden="true">{fullName}</span>
+    <span class="hero-typed"
+      >{#if browser}{typedText}<span
+          class="cursor"
+          class:visible={showCursor}
+          aria-hidden="true">_</span
+        >{:else}{fullName}{/if}</span
+    >
   </h1>
   <p class="subtitle mb-lg" lang="ja">{japanese}</p>
 
-  {#if location && (location.district || location.city)}
-    <p class="location mb-lg">
-      <span class="location-marker" aria-hidden="true"></span>
-      <span class="location-text"
-        >In {#if location.district}<span class="location-district"
-            >{location.district}</span
-          >{/if}{#if location.city}, {location.city}{/if}{#if location.country}, {location.country}{/if}{#if location.timestamp}
-          <span class="location-time">{formatRelative(location.timestamp)}</span>
-        {/if}</span
-      >
-    </p>
-  {/if}
+  <!-- While the location streams in, a one-line placeholder reserves space
+       so the (usually present) location line slots in without pushing the
+       roles below it down. Collapses cleanly if location is absent. -->
+  <div class="location-slot">
+    {#await location}
+      <div class="location-placeholder" aria-hidden="true"></div>
+    {:then loc}
+      {#if loc && (loc.district || loc.city)}
+        <p class="location">
+          <span class="location-marker" aria-hidden="true"></span>
+          <span class="location-text"
+            >In {#if loc.district}<span class="location-district"
+                >{loc.district}</span
+              >{/if}{#if loc.city}, {loc.city}{/if}{#if loc.country}, {loc.country}{/if}{#if loc.timestamp}
+              <span class="location-time">{formatRelative(loc.timestamp)}</span>
+            {/if}</span
+          >
+        </p>
+      {/if}
+    {/await}
+  </div>
 
   <div class="roles">
     <a
@@ -99,11 +118,23 @@
 
 <style>
   .hero-title {
+    position: relative;
     font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 700;
     color: var(--text-primary);
     font-family: var(--font-family-mono);
     line-height: 1.15;
+  }
+
+  /* Hidden full-name layer establishes the heading's final box so the
+     animated typed text on top never changes layout (no CLS, no LCP hit). */
+  .hero-sizer {
+    visibility: hidden;
+  }
+
+  .hero-typed {
+    position: absolute;
+    inset: 0;
   }
 
   .cursor {
@@ -117,6 +148,15 @@
   .subtitle {
     color: var(--text-secondary);
     font-size: var(--font-size-base);
+  }
+
+  /* Reserve one line while location streams in (see markup). */
+  .location-slot {
+    margin-bottom: var(--space-lg);
+  }
+
+  .location-placeholder {
+    min-height: calc(var(--font-size-sm) * 1.6);
   }
 
   .roles {

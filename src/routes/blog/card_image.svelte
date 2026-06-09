@@ -9,7 +9,15 @@
 </script>
 
 <div class="card-image-container">
-  <img {src} {alt} class="card-image" loading="lazy" />
+  <img
+    {src}
+    {alt}
+    class="card-image"
+    width="320"
+    height="180"
+    loading="lazy"
+    decoding="async"
+  />
   <div class="image-overlay">
     <span class="read-more">Read Article →</span>
   </div>

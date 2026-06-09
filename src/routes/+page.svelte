@@ -13,9 +13,6 @@
   let upcomingMounted = false;
   let prefersReducedMotion = false;
 
-  $: upcomingShown = data.upcoming?.slice(0, upcomingVisible) ?? [];
-  $: upcomingHasMore = (data.upcoming?.length ?? 0) > upcomingVisible;
-
   onMount(() => {
     if (browser) {
       prefersReducedMotion = window.matchMedia(
@@ -35,53 +32,55 @@
 </svelte:head>
 
 <div class="page-shell">
-  <TypedHero location={data.location} />
+  <TypedHero location={data.streamed.location} />
 
-  {#if data.upcoming && data.upcoming.length > 0}
-    <section class="upcoming">
-      <div class="upcoming-header">
-        <span class="upcoming-label">Where I'll be</span>
-        <span class="upcoming-count">{data.upcoming.length} upcoming</span>
-      </div>
-      <ul class="upcoming-list">
-        {#each upcomingShown as event, i (event.uid || event.start + event.summary)}
-          <UpcomingEvent
-            {event}
-            index={i}
-            pageSize={UPCOMING_PAGE_SIZE}
-            mounted={upcomingMounted}
-            {prefersReducedMotion}
-          />
-        {/each}
-      </ul>
-
-      {#if upcomingHasMore || upcomingVisible > UPCOMING_PAGE_SIZE}
-        <div class="upcoming-actions">
-          {#if upcomingHasMore}
-            <button
-              type="button"
-              class="upcoming-more"
-              on:click={() => (upcomingVisible += UPCOMING_PAGE_SIZE)}
-            >
-              Load more
-              <span class="upcoming-more-meta"
-                >({data.upcoming.length - upcomingVisible} remaining)</span
-              >
-            </button>
-          {/if}
-          {#if upcomingVisible > UPCOMING_PAGE_SIZE}
-            <button
-              type="button"
-              class="upcoming-more upcoming-less"
-              on:click={() => (upcomingVisible = UPCOMING_PAGE_SIZE)}
-            >
-              Show less
-            </button>
-          {/if}
+  {#await data.streamed.upcoming then upcoming}
+    {#if upcoming && upcoming.length > 0}
+      <section class="upcoming">
+        <div class="upcoming-header">
+          <span class="upcoming-label">Where I'll be</span>
+          <span class="upcoming-count">{upcoming.length} upcoming</span>
         </div>
-      {/if}
-    </section>
-  {/if}
+        <ul class="upcoming-list">
+          {#each upcoming.slice(0, upcomingVisible) as event, i (event.uid || event.start + event.summary)}
+            <UpcomingEvent
+              {event}
+              index={i}
+              pageSize={UPCOMING_PAGE_SIZE}
+              mounted={upcomingMounted}
+              {prefersReducedMotion}
+            />
+          {/each}
+        </ul>
+
+        {#if upcoming.length > upcomingVisible || upcomingVisible > UPCOMING_PAGE_SIZE}
+          <div class="upcoming-actions">
+            {#if upcoming.length > upcomingVisible}
+              <button
+                type="button"
+                class="upcoming-more"
+                on:click={() => (upcomingVisible += UPCOMING_PAGE_SIZE)}
+              >
+                Load more
+                <span class="upcoming-more-meta"
+                  >({upcoming.length - upcomingVisible} remaining)</span
+                >
+              </button>
+            {/if}
+            {#if upcomingVisible > UPCOMING_PAGE_SIZE}
+              <button
+                type="button"
+                class="upcoming-more upcoming-less"
+                on:click={() => (upcomingVisible = UPCOMING_PAGE_SIZE)}
+              >
+                Show less
+              </button>
+            {/if}
+          </div>
+        {/if}
+      </section>
+    {/if}
+  {/await}
 
   <section class="recent">
     <div class="activity-grid">

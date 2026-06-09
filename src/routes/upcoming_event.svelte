@@ -4,7 +4,7 @@
    * location) / countdown. Carries its own enter/leave transition so
    * the parent list can stagger items by index.
    */
-  import { fade, fly } from "svelte/transition";
+  import { fade } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
   import {
     formatEventRange,
@@ -26,10 +26,9 @@
   class="upcoming-item"
   class:tentative={event.tentative && !current}
   class:current
-  in:fly|local={{
+  in:fade|local={{
     duration: mounted && !prefersReducedMotion ? 320 : 0,
     delay: mounted && !prefersReducedMotion ? (index % pageSize) * 40 : 0,
-    y: 8,
     easing: cubicOut,
   }}
   out:fade|local={{ duration: prefersReducedMotion ? 0 : 160 }}

@@ -35,6 +35,13 @@
   function open() {
     dispatch("open", project);
   }
+
+  // Hide a favicon that fails to load, keeping its reserved slot so the
+  // title doesn't reflow.
+  function hideBrokenFavicon(e: Event) {
+    const img = e.currentTarget as HTMLImageElement;
+    img.style.visibility = "hidden";
+  }
 </script>
 
 <button
@@ -46,14 +53,19 @@
   aria-label="View details for {project.name}"
 >
   <div class="mb-sm flex items-center gap-sm">
-    {#if getFaviconUrl(project.link)}
-      <img
-        src={getFaviconUrl(project.link)}
-        alt=""
-        class="favicon"
-        aria-hidden="true"
-      />
-    {/if}
+    <span class="favicon-slot" aria-hidden="true">
+      {#if getFaviconUrl(project.link)}
+        <img
+          src={getFaviconUrl(project.link)}
+          alt=""
+          width="18"
+          height="18"
+          decoding="async"
+          class="favicon"
+          on:error={hideBrokenFavicon}
+        />
+      {/if}
+    </span>
     <h3 class="card-title m-0 font-semibold leading-[1.3] text-text-primary">
       {project.name}
     </h3>
@@ -98,6 +110,15 @@
   .card:focus-visible {
     outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
+  }
+
+  /* Fixed slot reserves the favicon's box up front so the title never
+     shifts sideways when the (late-loading) favicon arrives. */
+  .favicon-slot {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
   }
 
   .favicon {

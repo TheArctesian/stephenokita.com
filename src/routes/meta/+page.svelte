@@ -12,6 +12,9 @@
     import TrackerItem from "./tracker_item.svelte";
     import FingerprintBanner from "./fingerprint_banner.svelte";
     import FingerprintResults from "./fingerprint_results.svelte";
+    import PosthogReplay from "./posthog_replay.svelte";
+    import PosthogFeed from "./posthog_feed.svelte";
+    import PosthogProfile from "./posthog_profile.svelte";
     import { collectFingerprint } from "./fingerprint";
     import type { PageData } from "./$types";
 
@@ -25,6 +28,10 @@
     let fp: any = null;
     let fingerprintHash = "";
     let canvasImage = "";
+
+    // PostHog "feed it your fingerprint" state.
+    let linkedInPostHog = false;
+    let profileRef: PosthogProfile;
 
     // ── Live trackers ────────────────────────────────────────────────
     let trackers: {
@@ -130,6 +137,30 @@
         } finally {
             collecting = false;
         }
+    }
+
+    function identifyInPostHog() {
+        if (!browser || !fp || !fingerprintHash) return;
+        const ph: any = (window as any).posthog;
+        if (!ph || typeof ph.identify !== "function") return;
+        const traits = {
+            fingerprint: fingerprintHash,
+            platform: fp.platform,
+            timezone: fp.timezone,
+            language: fp.language,
+            screen: `${fp.screen.width}x${fp.screen.height}`,
+            gpu: fp.gpu?.renderer ?? null,
+            fonts: fp.fonts?.length ?? null,
+        };
+        ph.identify(fingerprintHash, traits);
+        if (typeof ph.capture === "function") {
+            ph.capture("meta_fingerprint_revealed", traits);
+        }
+        linkedInPostHog = true;
+        trackers.posthog.distinctId = fingerprintHash;
+        trackers = trackers;
+        // Re-pull the profile once PostHog has had a moment to ingest.
+        setTimeout(() => profileRef?.refresh(), 4000);
     }
 
     async function copyRss() {
@@ -270,6 +301,50 @@
                 Traffic and Core Web Vitals, measured per visit.
             </TrackerItem>
         </div>
+
+        <!-- ── PostHog, up close ─────────────────────────────────── -->
+        <div class="posthog-closeup">
+            <h3 class="closeup-title">PostHog, up close</h3>
+
+            <PosthogReplay
+                recording={trackers.posthog.recording}
+                replayUrl={trackers.posthog.replayUrl}
+            />
+
+            <p class="closeup-label">Its live capture stream</p>
+            <PosthogFeed active={trackers.posthog.active} />
+
+            <p class="closeup-label">Teach it to recognise you</p>
+            {#if !fp}
+                <p class="closeup-hint">
+                    Reveal your fingerprint above first &mdash; then you can hand
+                    it to PostHog.
+                </p>
+            {:else if !trackers.posthog.active}
+                <p class="closeup-hint">
+                    PostHog is stubbed in local dev &mdash; this works on the
+                    live site.
+                </p>
+            {:else if linkedInPostHog}
+                <p class="closeup-hint linked">
+                    Done. I just called <code>identify()</code> with your
+                    fingerprint &mdash; PostHog can now re-link you across
+                    sessions, no cookie needed.
+                </p>
+            {:else}
+                <button class="reveal-btn" on:click={identifyInPostHog}>
+                    Hand PostHog my fingerprint &rarr;
+                </button>
+            {/if}
+
+            {#if trackers.posthog.active}
+                <p class="closeup-label">What PostHog already has on you</p>
+                <PosthogProfile
+                    bind:this={profileRef}
+                    distinctId={trackers.posthog.distinctId}
+                />
+            {/if}
+        </div>
     </Section>
 </div>
 
@@ -323,6 +398,46 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
+    }
+
+    /* ── PostHog close-up ── */
+    .posthog-closeup {
+        margin-top: var(--space-xl);
+        padding-top: var(--space-lg);
+        border-top: 1px solid var(--border-primary);
+    }
+
+    .closeup-title {
+        font-family: var(--font-family-mono);
+        font-size: var(--font-size-sm);
+        color: var(--status-error);
+        margin: 0 0 var(--space-md);
+    }
+
+    .closeup-label {
+        font-family: var(--font-family-mono);
+        font-size: var(--font-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--accent-secondary);
+        margin: var(--space-lg) 0 var(--space-sm);
+    }
+
+    .closeup-hint {
+        color: var(--text-tertiary);
+        font-size: var(--font-size-sm);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .closeup-hint.linked {
+        color: var(--text-secondary);
+    }
+
+    .closeup-hint code {
+        font-family: var(--font-family-mono);
+        font-size: var(--font-size-xs);
+        color: var(--status-success);
     }
 
     @media (prefers-reduced-motion: reduce) {

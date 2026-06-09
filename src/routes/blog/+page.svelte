@@ -93,7 +93,14 @@
           <span>RSS Feed</span>
         </a>
       </div>
-      <img src={Writing} alt="writing" class="max-h-48 rounded shadow" />
+      <img
+        src={Writing}
+        alt="writing"
+        width="1146"
+        height="628"
+        decoding="async"
+        class="max-h-48 rounded shadow"
+      />
     </div>
   </div>
 

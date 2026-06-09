@@ -1,9 +1,26 @@
 /* Base styles - Nord Dark theme with Hyprland aesthetics */
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+/* Web fonts (Fira Code + Kalam) are loaded via <link> in app.html with
+   preconnect — not @import — so they don't block CSSOM construction.
+   The fallback faces below match each web font's metrics so the
+   fallback→webfont swap doesn't reflow text (eliminates FOUT-driven CLS). */
+@font-face {
+  font-family: "Fira Code Fallback";
+  src: local("Menlo"), local("Consolas"), local("monospace");
+  ascent-override: 95%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
+@font-face {
+  font-family: "Kalam Fallback";
+  src: local("Comic Sans MS"), local("cursive");
+  ascent-override: 90%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+  size-adjust: 105%;
+}
 
 /* Accessibility: Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
