@@ -8,7 +8,7 @@
   export let posts: Post[] = [];
 </script>
 
-<section class="blog-grid-container" aria-label="Blog posts">
+<section class="blog-list-container" aria-label="Blog posts">
   {#if posts.length === 0}
     <div in:scale={{ duration: 300, easing: quintOut }}>
       <EmptyState
@@ -17,11 +17,11 @@
       />
     </div>
   {:else}
-    <div class="blog-grid">
+    <div class="blog-list">
       {#each posts as post, i (post.slug)}
         <article
-          class="blog-card"
-          in:fade={{ delay: Math.min(i * 50, 200), duration: 400 }}
+          class="blog-row"
+          in:fade={{ delay: Math.min(i * 40, 200), duration: 300 }}
           out:scale={{ duration: 200 }}
         >
           <BlogCard {post} />
@@ -32,48 +32,33 @@
 </section>
 
 <style>
-  .blog-grid-container {
-    padding: 0 1rem;
-    margin-top: 1rem;
-  }
-
-  .blog-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  }
-
-  .blog-card {
-    @apply bg-bg-secondary rounded-lg overflow-hidden;
-    border: 1px solid var(--border-primary);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    height: 100%;
+  .blog-list {
     display: flex;
     flex-direction: column;
+    gap: var(--space-md);
   }
 
-  .blog-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 10px 25px rgba(0, 0, 0, 0.15),
-      0 0 0 2px var(--status-error);
+  .blog-row {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition:
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
   }
 
-  @media (max-width: 1200px) {
-    .blog-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  .blog-row:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-row {
+      transition: border-color var(--transition-fast);
     }
-  }
-
-  @media (max-width: 768px) {
-    .blog-grid-container {
-      padding: 0 1rem;
-    }
-
-    .blog-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
+    .blog-row:hover {
+      transform: none;
     }
   }
 </style>

@@ -6,15 +6,15 @@
   export let post: Post;
 </script>
 
-<a href="/blog/{encodeURIComponent(post.slug)}" class="card-link">
+<a href="/blog/{encodeURIComponent(post.slug)}" class="row-link">
   {#if post.img}
-    <CardImage src={post.img} alt={post.title} />
+    <div class="row-thumb">
+      <CardImage src={post.img} alt={post.title} />
+    </div>
   {/if}
 
-  <div class="card-content" class:no-image={!post.img}>
-    <header class="card-header">
-      <h2 class="card-title">{post.title}</h2>
-    </header>
+  <div class="row-body">
+    <h2 class="row-title">{post.title}</h2>
 
     <div class="card-meta">
       <div class="meta-item">
@@ -87,11 +87,11 @@
       {/if}
     </div>
 
-    <p class="card-description">{post.description}</p>
+    <p class="row-description">{post.description}</p>
 
     {#if post.categories && post.categories.length > 0}
       <div class="card-tags">
-        {#each post.categories.slice(0, 3) as category}
+        {#each post.categories.slice(0, 4) as category}
           <span class="tag">{category}</span>
         {/each}
       </div>
@@ -100,75 +100,74 @@
 </a>
 
 <style>
-  .card-link {
+  .row-link {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    padding: var(--space-md) var(--space-lg);
     text-decoration: none;
     color: inherit;
   }
 
-  .card-content {
-    padding: 1.25rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-content.no-image {
-    padding-top: 1.5rem;
-  }
-
-  .card-header {
-    margin-bottom: 0.75rem;
-  }
-
-  .card-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--text-primary);
-    transition: color 0.2s ease;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  /* Fixed-width thumbnail column (16:9 via CardImage). */
+  .row-thumb {
+    width: 200px;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
     overflow: hidden;
   }
 
-  :global(.blog-card:hover) .card-title {
-    color: var(--status-error);
+  .row-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  /* Full-width title — wraps instead of clipping. */
+  .row-title {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin: 0;
+    transition: color var(--transition-fast);
+  }
+
+  :global(.blog-row:hover) .row-title {
+    color: var(--accent-primary);
   }
 
   .card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border-secondary);
+    gap: var(--space-md);
   }
 
   .meta-item {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    color: var(--text-secondary);
-    font-size: 0.875rem;
+    gap: var(--space-xs);
+    color: var(--text-tertiary);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
   }
 
   .meta-icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     opacity: 0.7;
   }
 
-  .card-description {
+  .row-description {
     color: var(--text-secondary);
+    font-size: var(--font-size-sm);
     line-height: 1.6;
-    margin-bottom: 1rem;
-    flex: 1;
+    margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -176,38 +175,31 @@
   .card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: auto;
+    gap: var(--space-xs);
   }
 
   .tag {
-    padding: 0.25rem 0.75rem;
+    padding: 1px var(--space-sm);
     background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    transition: color var(--transition-fast);
+  }
+
+  :global(.blog-row:hover) .tag {
     color: var(--accent-primary);
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
   }
 
-  :global(.blog-card:hover) .tag {
-    border-color: var(--accent-primary);
-    background: var(--accent-primary);
-    color: var(--bg-primary);
-  }
-
-  @media (max-width: 768px) {
-    .card-title {
-      font-size: 1.125rem;
+  @media (max-width: 640px) {
+    .row-link {
+      flex-direction: column;
+      gap: var(--space-md);
     }
 
-    .card-meta {
-      gap: 0.75rem;
-    }
-
-    .meta-item {
-      font-size: 0.8rem;
+    .row-thumb {
+      width: 100%;
     }
   }
 </style>

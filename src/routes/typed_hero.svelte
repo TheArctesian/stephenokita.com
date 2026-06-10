@@ -8,6 +8,7 @@
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
   import { formatRelative } from "$lib/utils/dates";
+  import Skeleton from "$lib/components/ui/skeleton.svelte";
 
   type Location = {
     district?: string;
@@ -77,12 +78,15 @@
   </h1>
   <p class="subtitle mb-lg" lang="ja">{japanese}</p>
 
-  <!-- While the location streams in, a one-line placeholder reserves space
-       so the (usually present) location line slots in without pushing the
-       roles below it down. Collapses cleanly if location is absent. -->
+  <!-- While the location streams in, a skeleton fills the line's space so the
+       (usually present) location slots in without pushing the roles below it
+       down. Collapses cleanly if location turns out to be absent. -->
   <div class="location-slot">
     {#await location}
-      <div class="location-placeholder" aria-hidden="true"></div>
+      <p class="location" aria-busy="true">
+        <span class="location-marker" aria-hidden="true"></span>
+        <Skeleton width="min(22rem, 70%)" height="1.05rem" />
+      </p>
     {:then loc}
       {#if loc && (loc.district || loc.city)}
         <p class="location">
@@ -150,13 +154,9 @@
     font-size: var(--font-size-base);
   }
 
-  /* Reserve one line while location streams in (see markup). */
+  /* Holds the location line / its loading skeleton (see markup). */
   .location-slot {
     margin-bottom: var(--space-lg);
-  }
-
-  .location-placeholder {
-    min-height: calc(var(--font-size-sm) * 1.6);
   }
 
   .roles {

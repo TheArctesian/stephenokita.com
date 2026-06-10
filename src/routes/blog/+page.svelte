@@ -1,5 +1,7 @@
 <script lang="ts">
+  import "../../app.css";
   import { slide, fade } from "svelte/transition";
+  import Section from "$lib/components/shared/section.svelte";
   import projects from "./unfinishedprojects.json";
   import writings from "./unfinishedwriting.json";
   import Writing from "./being.jpg";
@@ -57,182 +59,256 @@
     });
 </script>
 
-<div class="min-h-screen" out:slide>
-  <!-- Blog Header Section -->
-  <div class="text1 l flex flex-col">
-    <div class="m-auto hero mb-4 flex gap-4 items-center">
-      <div class="w-full">
-        <h1 class="font-bold text-xl mb-4">Welcome to my blog!</h1>
-        <p class="mb-4">
-          Enjoy, as I put an inordinate amount of my life into this.
-        </p>
-        <p class="mb-4">
-          I try not to remove writings once their up as I want a complete record
-          of both the growth of my ideas and my abilities as a communicator.
-        </p>
-        <p>
-          <i>Comment system is now up! Critique is <b>always always</b>
-          invited especially critiques of me, my character, knowledge, actions everything.</i>
-        </p>
-        <p class="mt-4">
-          I am still and will always be a stupid fool confidently guessing at
-          the nature and order of our world. Thus is the struggle of those who
-          venture to <i
-            >"passionately experience the weight and burden of existence"</i
-          > (BT)
-        </p>
-        <p class="font-bold mt-4">View Counts are taken from Aug 15th 2025</p>
-
-        <!-- RSS Feed Link -->
-        <a href="/rss.xml" class="rss-link" aria-label="Subscribe to RSS feed">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 11a9 9 0 0 1 9 9"></path>
-            <path d="M4 4a16 16 0 0 1 16 16"></path>
-            <circle cx="5" cy="19" r="1"></circle>
-          </svg>
-          <span>RSS Feed</span>
-        </a>
-      </div>
-      <img
-        src={Writing}
-        alt="writing"
-        width="1146"
-        height="628"
-        decoding="async"
-        class="max-h-48 rounded shadow"
-      />
+<div class="blog-page" out:slide>
+  <!-- Hero -->
+  <header class="blog-hero">
+    <div class="blog-hero__text">
+      <h1 class="pattern-hero__title">Welcome to my blog!</h1>
+      <p class="pattern-hero__lede">
+        Enjoy, as I put an inordinate amount of my life into this.
+      </p>
     </div>
+    <img
+      src={Writing}
+      alt="writing"
+      width="1146"
+      height="628"
+      decoding="async"
+      class="blog-hero__img"
+    />
+  </header>
+
+  <div class="blog-intro">
+    <p class="prose-text">
+      I try not to remove writings once their up as I want a complete record of
+      both the growth of my ideas and my abilities as a communicator.
+    </p>
+    <p class="prose-text">
+      <i>Comment system is now up! Critique is <b>always always</b>
+      invited especially critiques of me, my character, knowledge, actions everything.</i>
+    </p>
+    <p class="prose-text">
+      I am still and will always be a stupid fool confidently guessing at the
+      nature and order of our world. Thus is the struggle of those who venture to
+      <i>"passionately experience the weight and burden of existence"</i> (BT)
+    </p>
+    <p class="intro-note">View Counts are taken from Aug 15th 2025</p>
+
+    <!-- RSS Feed Link -->
+    <a href="/rss.xml" class="rss-link" aria-label="Subscribe to RSS feed">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 11a9 9 0 0 1 9 9"></path>
+        <path d="M4 4a16 16 0 0 1 16 16"></path>
+        <circle cx="5" cy="19" r="1"></circle>
+      </svg>
+      <span>RSS Feed</span>
+    </a>
   </div>
 
-  <FilterGroup
-    bind:searchTerm
-    bind:selectedCategory
-    bind:selectedLanguage
-    bind:sortBy
-    {allCategories}
-    {allLanguages}
-  />
+  <Section label="Writings">
+    <FilterGroup
+      bind:searchTerm
+      bind:selectedCategory
+      bind:selectedLanguage
+      bind:sortBy
+      {allCategories}
+      {allLanguages}
+    />
 
-  <BlogGrid posts={filteredPosts} />
-</div>
+    <BlogGrid posts={filteredPosts} />
+  </Section>
 
-<section class="mt-4" aria-labelledby="unfinished-ideas-heading">
-  <div class="wrapper">
-    <h2 id="unfinished-ideas-heading" class="font-bold">Unfinished/expired ideas</h2>
-    <p>
+  <Section label="Unfinished / expired ideas">
+    <p class="prose-text section-intro">
       Ideas for projects and essays that are no longer mine to write and that I
       wrote down to do. Look at the article of the same name for more info.
     </p>
-  </div>
-  <div class="text-center font-bold wrapper">
-    <h3>Essays that should be written</h3>
-  </div>
-  <div class="posts flex-wrap overflow-hidden">
-    {#each writings as w}
-      <article class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
-        <p class="idea-text">{w.idea}</p>
-        <p class="mt-auto ml-auto mb-4 font-bold">{w.date}</p>
-      </article>
-    {/each}
-  </div>
-  <div class="text-center font-bold wrapper">
-    <h3>Projects that should be done</h3>
-  </div>
-  <div class="posts mb-4 flex-wrap overflow-hidden">
-    {#each projects as w}
-      <article class="post flex flex-col" in:fade={{ delay: 1000, duration: 300 }}>
-        <p class="idea-text">{w.idea}</p>
-        <p class="mt-auto ml-auto mb-4 font-bold">{w.date}</p>
-      </article>
-    {/each}
-  </div>
-</section>
+
+    <h3 class="subsection">Essays that should be written</h3>
+    <div class="ideas-grid">
+      {#each writings as w}
+        <article class="idea-card" in:fade={{ delay: 1000, duration: 300 }}>
+          <p class="idea-text">{w.idea}</p>
+          <p class="idea-date">{w.date}</p>
+        </article>
+      {/each}
+    </div>
+
+    <h3 class="subsection">Projects that should be done</h3>
+    <div class="ideas-grid">
+      {#each projects as w}
+        <article class="idea-card" in:fade={{ delay: 1000, duration: 300 }}>
+          <p class="idea-text">{w.idea}</p>
+          <p class="idea-date">{w.date}</p>
+        </article>
+      {/each}
+    </div>
+  </Section>
+</div>
 
 <style>
-  .wrapper {
-    @apply bg-bg-secondary p-md rounded m-md;
-    @apply transition-all duration-normal;
+  /* ── Page container ────────────────────────────────────────────── */
+  /* Wider than the 740px .page-shell (text pages) to give the filter
+   * row and card grid room — mirrors the projects listing page. */
+  .blog-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+  }
+
+  /* ── Hero ──────────────────────────────────────────────────────── */
+  .blog-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .blog-hero__text {
+    flex: 1;
+    min-width: 0;
+    max-width: 62ch;
+  }
+
+  .blog-hero__img {
+    width: 240px;
+    max-width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-md);
     border: 1px solid var(--border-primary);
+    flex-shrink: 0;
+  }
+
+  /* ── Intro prose ───────────────────────────────────────────────── */
+  .blog-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    max-width: 68ch;
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .prose-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    margin: 0;
   }
 
   b {
-    font-weight: bold;
+    font-weight: 600;
+    color: var(--text-primary);
   }
 
-  .text1 {
-    @apply p-md rounded bg-bg-secondary mx-md;
-    border: 1px solid var(--border-primary);
-    @apply transition-all duration-normal;
+  .intro-note {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    margin: 0;
   }
 
-  .l {
-    margin-bottom: 1rem;
-  }
-
-  /* RSS Feed Link */
+  /* ── RSS Feed Link ─────────────────────────────────────────────── */
   .rss-link {
+    align-self: flex-start;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-fg);
-    border-radius: 0.375rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
     border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    text-decoration: none;
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast);
   }
 
   .rss-link:hover {
-    background-color: var(--btn-primary-hover-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(189, 147, 249, 0.3);
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
   }
 
   .rss-link svg {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
   }
 
-  @media (max-width: 1000px) {
-    .hero {
-      flex-direction: column;
-    }
-    .l {
-      margin-bottom: 1rem;
-    }
+  /* ── Section intro + subsection labels ─────────────────────────── */
+  .section-intro {
+    margin-bottom: var(--space-lg);
   }
 
-  /* Unfinished ideas section */
-  .posts {
+  .subsection {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin: var(--space-lg) 0 var(--space-sm);
+  }
+
+  .subsection:first-of-type {
+    margin-top: 0;
+  }
+
+  /* ── Unfinished ideas grid ─────────────────────────────────────── */
+  .ideas-grid {
     display: grid;
-    gap: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
 
-  .post {
-    @apply mb-md bg-bg-secondary h-full text-text-primary p-md rounded;
+  .idea-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     border: 1px solid var(--border-primary);
-    @apply transition-all duration-fast;
-    text-wrap: wrap;
+    border-left: 3px solid transparent;
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    transition:
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
   }
 
-  .post:hover {
-    @apply border-l-8 border-l-status-error;
+  .idea-card:hover {
+    border-left-color: var(--status-error);
+    transform: translateY(-2px);
   }
 
-  @media (max-width: 1000px) {
-    .posts {
-      margin-top: 1rem;
-      grid-template-columns: repeat(auto-fill, 100%);
+  .idea-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .idea-date {
+    margin: var(--space-md) 0 0 auto;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 640px) {
+    .blog-hero {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      gap: var(--space-md);
     }
 
-    .post {
-      margin-bottom: 0;
-      margin-top: 0;
+    .blog-hero__img {
+      width: 100%;
+      max-width: none;
+    }
+
+    .ideas-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

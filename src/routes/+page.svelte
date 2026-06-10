@@ -3,6 +3,7 @@
   import TypedHero from "./typed_hero.svelte";
   import UpcomingEvent from "./upcoming_event.svelte";
   import ActivityCard from "./activity_card.svelte";
+  import Skeleton from "$lib/components/ui/skeleton.svelte";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
 
@@ -34,7 +35,23 @@
 <div class="page-shell">
   <TypedHero location={data.streamed.location} />
 
-  {#await data.streamed.upcoming then upcoming}
+  {#await data.streamed.upcoming}
+    <section class="upcoming" aria-busy="true">
+      <div class="upcoming-header">
+        <span class="upcoming-label">Where I'll be</span>
+        <Skeleton width="5rem" height="0.85rem" />
+      </div>
+      <ul class="upcoming-list">
+        {#each Array(UPCOMING_PAGE_SIZE) as _, i (i)}
+          <li class="upcoming-item upcoming-item--skeleton">
+            <Skeleton width="6.5rem" height="0.8rem" />
+            <Skeleton width="min(18rem, 70%)" height="0.95rem" />
+            <Skeleton width="3.5rem" height="0.8rem" />
+          </li>
+        {/each}
+      </ul>
+    </section>
+  {:then upcoming}
     {#if upcoming && upcoming.length > 0}
       <section class="upcoming">
         <div class="upcoming-header">
@@ -147,6 +164,26 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
+  }
+
+  /* Loading rows mirror the real .upcoming-item grid (which is scoped to
+     upcoming_event.svelte) so the skeleton occupies the same space. */
+  .upcoming-item--skeleton {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, auto) 1fr auto;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    border-left: 3px solid var(--border-primary);
+  }
+
+  @media (max-width: 640px) {
+    .upcoming-item--skeleton {
+      grid-template-columns: 1fr;
+      gap: 2px;
+      padding-left: var(--space-sm);
+    }
   }
 
   .upcoming-actions {

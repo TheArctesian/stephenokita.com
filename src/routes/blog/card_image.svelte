@@ -42,7 +42,7 @@
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  :global(.blog-card:hover) .card-image {
+  :global(.blog-row:hover) .card-image {
     transform: scale(1.05);
   }
 
@@ -61,7 +61,7 @@
     transition: opacity 0.3s ease;
   }
 
-  :global(.blog-card:hover) .image-overlay {
+  :global(.blog-row:hover) .image-overlay {
     opacity: 1;
   }
 
@@ -73,7 +73,7 @@
     transition: transform 0.3s ease;
   }
 
-  :global(.blog-card:hover) .read-more {
+  :global(.blog-row:hover) .read-more {
     transform: translateX(0);
   }
 
