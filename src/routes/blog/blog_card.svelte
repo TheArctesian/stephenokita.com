@@ -103,7 +103,7 @@
   .row-link {
     display: flex;
     gap: var(--space-lg);
-    align-items: flex-start;
+    align-items: center;
     padding: var(--space-md) var(--space-lg);
     text-decoration: none;
     color: inherit;
