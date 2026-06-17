@@ -2,7 +2,7 @@
 title: The Ethic of Univocity
 description: For Berkeley's 25B, analysing Spinoza's determinism and the aura of ethics under monism.
 date: "2025-03-31"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Freedom

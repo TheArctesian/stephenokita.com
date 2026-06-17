@@ -2,7 +2,7 @@
 title: What Makes Sisyphus Happy
 description: A little reflection on mental health, this will never be fully done but for now it's here. 
 date: "2025-08-31"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Critical Theory

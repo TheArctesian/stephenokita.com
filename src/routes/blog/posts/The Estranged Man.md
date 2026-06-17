@@ -2,7 +2,7 @@
 title: Life of the Alienated Man
 description: A little plain English summary of alienation 
 date: '2024-2-18'
-location: Berkeley
+location: Berkeley, CA
 categories: 
     - Philosophy
     - Critical Theory

@@ -2,7 +2,7 @@
 title: Variations on Maslow's Hierarchy of Needs
 description: Looking for a model of human motivation
 date: "2024-3-11"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Psychology

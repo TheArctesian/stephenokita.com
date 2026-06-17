@@ -2,7 +2,7 @@
 title: Critique of Hegel's Elements of the Philosophy of Right
 description: Pretty much what the title says.
 date: "2025-12-16"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Hegel
   - Book Review

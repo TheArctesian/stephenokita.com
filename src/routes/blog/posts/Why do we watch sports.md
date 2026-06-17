@@ -2,7 +2,7 @@
 title: Why do we watch sports?
 description: This is an answer but does it really capture the whole picture?
 date: "2024-03-03"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Psychology

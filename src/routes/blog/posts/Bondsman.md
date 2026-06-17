@@ -2,7 +2,7 @@
 title: Freedom in Bondage and Oppression
 description: A class essay on the lord and bondsman, a moral formal version of Gooning through Desire kinda.
 date: "2025-11-25"
-location: London
+location: London, UK
 categories:
   - Hegel
   - Epistemology

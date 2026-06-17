@@ -72,7 +72,7 @@
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between text-text-tertiary">
             <div class="flex items-center gap-4">
               <time class="text-sm font-medium" in:fade={{ delay: 4 * 150, duration: 300 }}>
-                Published on {formatDate(data.meta.date)}
+                Published on {formatDate(data.meta.date)}{#if data.meta.location}{' '}in {data.meta.location}{/if}
               </time>
               {#if data.meta.readingTime}
                 <span class="text-sm text-text-tertiary" in:fade={{ delay: 4 * 150, duration: 300 }}>

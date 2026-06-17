@@ -2,7 +2,7 @@
 title: Russo-Japanese War
 description: Presentation for my history class from school
 date: "2021-02-04"
-location: Hong Kong
+location: Hong Kong, HK
 categories:
   - History
   - Japan 

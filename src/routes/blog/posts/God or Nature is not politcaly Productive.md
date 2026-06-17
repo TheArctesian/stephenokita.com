@@ -2,7 +2,7 @@
 title: God or Nature is not politically productive
 description: A critique to modern theories of life
 date: "2024-02-26"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Politics

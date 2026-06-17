@@ -2,7 +2,7 @@
 title: This Blog's First Post
 description: Hello World! Welcome to my blog. 
 date: '2023-9-17'
-location: Berkeley
+location: Berkeley, CA
 categories: 
     - Admin
     - Svelte

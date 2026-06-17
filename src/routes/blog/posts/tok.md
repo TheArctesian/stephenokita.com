@@ -2,7 +2,7 @@
 title: To what extent is the knowledge we produce determined by the methods with reference to history and medicine?
 description: My IB TOK essay it's not very good.
 date: "2023-03-11"
-location: Hong Kong
+location: Hong Kong, HK
 categories:
   - Epistemology
   - History

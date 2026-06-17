@@ -2,7 +2,7 @@
 title: Make Evil Conscious Again!
 description: I enjoy writing this type of critique, I don't know if anyone will understand but maybe the imagery is fun.
 date: "2025-06-12"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Politics

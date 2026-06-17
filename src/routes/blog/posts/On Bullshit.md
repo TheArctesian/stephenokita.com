@@ -2,7 +2,7 @@
 title: A Critical Commentary of Frankfurt's On Bullshit
 description: My Phil-2 end of year paper
 date: "2023-12-15"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Ethics

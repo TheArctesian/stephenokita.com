@@ -2,7 +2,7 @@
 title: Gooning Through Desire
 description: A silly reflection on the self, through Hegel, Arendt and the Buddha. All told through the metaphor of masturbation
 date: "2025-10-28"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Epistemology

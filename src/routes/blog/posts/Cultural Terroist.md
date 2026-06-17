@@ -2,7 +2,7 @@
 title: Cultural Terrorism
 description: What the term means to me
 date: "2023-10-7"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Epistemology

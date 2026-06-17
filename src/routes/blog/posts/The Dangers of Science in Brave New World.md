@@ -2,7 +2,7 @@
 title: The Dangers of Science in Brave New World
 description: Eugenics and Utopian Novels for my History 20 Final
 date: "2023-10-27"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - History

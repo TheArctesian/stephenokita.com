@@ -2,7 +2,7 @@
 title: Do Robots Deserve Rights
 description: Playing with utilitarianism, maybe be nice to machines
 date: "2024-1-20"
-location: Hong Kong
+location: Hong Kong, HK
 categories:
   - Philosophy
   - Computer Science

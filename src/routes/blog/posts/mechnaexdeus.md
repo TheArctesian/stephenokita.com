@@ -2,7 +2,7 @@
 title: Machina ex Deus
 description: A presentation on the existential risk of Gen AI
 date: "2025-11-07"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Technology

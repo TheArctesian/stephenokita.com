@@ -2,7 +2,7 @@
 title: Historical Map of Philosophies
 description: An experiment with Mermaid as well as a pretty interesting retrospection on the history of knowledge.
 date: "2025-04-03"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Ontology

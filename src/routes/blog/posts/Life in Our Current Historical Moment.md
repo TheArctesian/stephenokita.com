@@ -2,7 +2,7 @@
 title: Life in Our Current Historical Moment
 description: How modern methods of knowing answer what is life and how that expands to biopower
 date: "2024-3-24"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Post-Modernism
   - Philosophy

@@ -2,7 +2,7 @@
 title: The Issues with Empirical Analysis on Politicians
 description: A rushed together piece on the goal of politics and a random rant on epistemology
 date: "2024-02-04"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Epistemology
   - Politics

@@ -2,7 +2,7 @@
 title: Kant was right
 description: After writing about compatibilism for a while I reread the groundwork and thought I should write this up just in case anyone was lost on the answer for ethics. Sorry in advance for the jargon, it is Kant in fairness :)
 date: "2025-02-27"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Ethics

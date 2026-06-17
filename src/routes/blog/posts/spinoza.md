@@ -2,7 +2,7 @@
 title: Spinoza vs Descartes
 description: A presentation I did for Philosophy Class that I am including the link for here.
 date: "2025-03-03"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - History

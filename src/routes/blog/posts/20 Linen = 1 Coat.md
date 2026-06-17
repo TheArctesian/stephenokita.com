@@ -2,7 +2,7 @@
 title: 20 Linen = 1 Coat?
 description: Finding out the real economics of the main metaphor for the first chapter of a certain German philosopher's critique of political economy
 date: "2024-2-11"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Marxism
   - DataSci

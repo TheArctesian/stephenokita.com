@@ -2,7 +2,7 @@
 title: Using Wikipedia For the Taxonomy of Knowledge 
 description: Trying to scrape wikipedia for the root of knowledge
 date: '2023-10-17'
-location: Berkeley
+location: Berkeley, CA
 categories: 
     - Data Science
     - Taxonomy

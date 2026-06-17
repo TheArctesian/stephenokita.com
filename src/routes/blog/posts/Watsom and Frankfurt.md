@@ -2,7 +2,7 @@
 title: Free Agency for Frankfurt and Watson
 description: Very technical piece on free agency and the conceptions of the will for Frankfurt and Watson. Done for Phil 109 under R Jay Wallace
 date: "2025-03-25"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Ethics

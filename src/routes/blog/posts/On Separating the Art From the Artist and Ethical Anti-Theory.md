@@ -2,7 +2,7 @@
 title: On Separating the Art From the Artist and Ethical Anti-Theory
 description: My personal views on if ethical anti-theory is right and if it lets us be immoral
 date: '2023-10-10'
-location: Berkeley
+location: Berkeley, CA
 categories: 
     - Philosophy
     - Critical Theory

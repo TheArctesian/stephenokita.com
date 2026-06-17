@@ -2,7 +2,7 @@
 title: REVELATION MUST BE DEFENDED
 description: I know what ethics is now(ish), this is an attempt to describe it and give some didactic knowledge.
 date: "2025-05-05"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Critical Theory

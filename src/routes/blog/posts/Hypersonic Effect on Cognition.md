@@ -2,7 +2,7 @@
 title: The Hypersonic Effect and its Effect on Cognition
 description: Presentation for Cog-Sci 1B
 date: "2024-3-11"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - CogSci
   - Psychology

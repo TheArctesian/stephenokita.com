@@ -2,7 +2,7 @@
 title: The Importance of a Philosopher's Death
 description: Inspired by something James Porter said in class. Try to argue that it's not important. If you don't care about that just skip to the end and read the list it's very fun.
 date: "2025-02-28"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - History

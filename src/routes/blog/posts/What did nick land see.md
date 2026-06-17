@@ -2,7 +2,7 @@
 title: What Did Nick Land See?
 description: My attempt to execute the madness brought about by Fanged Noumena. I needed to make this artistic, to try and plug a few more holes.
 date: "2025-05-08"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Metaphysics
   - Ontology

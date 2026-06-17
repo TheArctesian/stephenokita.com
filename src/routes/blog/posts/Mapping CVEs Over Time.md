@@ -2,7 +2,7 @@
 title: Mapping CVEs Over Time
 description: A stacked view of CVE counts by year and CVSS rating range, with a year-to-date snapshot and a naive annualized projection for 2026.
 date: "2026-05-07"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Security
   - Computer Science

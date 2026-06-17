@@ -2,7 +2,7 @@
 title: Linux is cool!
 description: What is linux, brief history and what do know when you switch.
 date: "2025-06-04"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Software

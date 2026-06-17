@@ -2,7 +2,7 @@
 title: Ethical Investing
 description: My attempt at doing what *Famine, Affluence, and Morality* did for charity, for investing
 date: "2024-02-05"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Economics
   - Ethics

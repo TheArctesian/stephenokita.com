@@ -2,7 +2,7 @@
 title: CRITIQUE UNBOUND?
 description: Scitzos email I have redacted and edited a little in exploring why and maybe how we need to make the language of critique universal. I never sent this email for good reason, I sent it to my friend and decided to never publish it, but here it is!
 date: "2025-06-14"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Marxism
   - Critical Theory

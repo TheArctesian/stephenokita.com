@@ -2,7 +2,7 @@
 title: Decentralised KYC & DIDs
 description: Finally a tech article. Exploring user verification in an anonymous and decentralised social network. Pretty much anti-corruption of DAOs.
 date: "2025-03-27"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - CS
   - cybersecurity

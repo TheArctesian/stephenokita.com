@@ -2,7 +2,7 @@
 title: The Ethic of Spectacular Cynicism
 description: A follow-up on the philosophers' death article but way more technical.
 date: "2025-03-21"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Epistemology
   - Philosophy

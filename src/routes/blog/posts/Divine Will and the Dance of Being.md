@@ -2,7 +2,7 @@
 title: Divine Will and the Dance of Being
 description: Conway and Leibniz on God's Agency in Creation. Another philosophy essay for class, this one's not too bad, pretty boring IMO.
 date: "2025-05-07"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Metaphysics

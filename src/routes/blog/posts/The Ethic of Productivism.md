@@ -2,7 +2,7 @@
 title: The Ethic of Productivism
 description: A critique to modern theories of life
 date: "2024-05-05"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Politics

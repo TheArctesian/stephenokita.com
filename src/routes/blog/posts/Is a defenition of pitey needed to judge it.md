@@ -2,7 +2,7 @@
 title: Is a Definition of Piety Needed to Judge it?
 description: A critique of the Euthyphro, first text in the Last Days of Socrates
 date: "2024-10-04"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Politics

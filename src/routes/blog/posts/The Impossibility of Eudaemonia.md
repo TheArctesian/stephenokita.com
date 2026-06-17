@@ -2,7 +2,7 @@
 title: The Impossibility of Eudaemonia
 description: Another philosophy class paper on Aristotle
 date: "2024-12-01"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Ethics

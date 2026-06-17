@@ -2,7 +2,7 @@
 title: Ontological Weight
 description: My answer to what is truth and what is reality using the metaphor of space time.
 date: "2025-04-15"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Critical Theory

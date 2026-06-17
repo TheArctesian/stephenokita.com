@@ -2,7 +2,7 @@
 title: Societal Frameworks and the Restrictions of Vanguard Sexuality
 description: Film Analysis of 1993's The Wedding Banquet by Ang Lee for my R1B Final
 date: "2023-10-27"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - History

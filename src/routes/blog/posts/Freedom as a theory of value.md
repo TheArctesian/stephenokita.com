@@ -2,7 +2,7 @@
 title: Individual Value, as Determined by the Gradations of Freedom
 description: I want to apologise again for the jargon and maybe the unfamiliar mathematical/logical notation. I think this is an interesting way of valuing people, as thanks to Kant we value freedom so much.
 date: "2025-02-27"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Ethics

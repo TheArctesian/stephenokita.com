@@ -2,7 +2,7 @@
 title: The Echo in the Machine
 description: An essay on AGI for CogSci 100.
 date: "2025-07-04"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Philosophy
   - Software

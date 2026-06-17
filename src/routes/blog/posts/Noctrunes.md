@@ -2,7 +2,7 @@
 title: The harmonies of darkness
 description: This is about Nocturnes. I really wanted to write about music and write poetry. This guy at a party last night told me about Field and I have spent the morning devouring his work. These are my reflections.
 date: "2025-07-26"
-location: Berkeley
+location: Berkeley, CA
 categories:
   - Poetry
   - Music 
