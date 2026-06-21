@@ -10,6 +10,7 @@ categories:
   - Literature
   - Nietzsche
 published: true
+img: https://pixelfed.social/storage/m/_v2/509323432926307502/b5862bd14-4506fa/pkWBBLobol18/xW68g3D1QiWo6zaHoNm1OPpvD3uubqHsvzqwUIKS.png
 language:
   - English
 ---

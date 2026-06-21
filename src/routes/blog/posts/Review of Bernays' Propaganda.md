@@ -10,6 +10,7 @@ categories:
   - Philosophy
   - Media
 published: true
+img: https://pixelfed.social/storage/m/_v2/509323432926307502/b5862bd14-4506fa/YZ3qTz0GxLlv/sAWglOd1QZbtxp3rDb5AvToy9bnjDgeQ6L0RZGU2.png
 language:
   - English
 ---

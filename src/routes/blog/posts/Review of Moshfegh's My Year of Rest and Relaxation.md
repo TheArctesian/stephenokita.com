@@ -10,6 +10,7 @@ categories:
   - Fiction
   - Culture
 published: true
+img: https://pixelfed.social/storage/m/_v2/509323432926307502/b5862bd14-4506fa/BIWd30MriWEX/ryYQX8IQNLhkKhRFof86P0WOOo8XP0CnInNVL0H5.png
 language:
   - English
 ---

@@ -10,6 +10,7 @@ categories:
   - Critical Theory
   - Logic
 published: true
+img: https://pixelfed.social/storage/m/_v2/509323432926307502/b5862bd14-4506fa/f6E5X4pmR90M/ZAJmBwsQYy3rJElHT7HP92caQOWw3CiMIqNHZnub.png
 language:
   - English
 ---

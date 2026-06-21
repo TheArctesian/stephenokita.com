@@ -11,6 +11,7 @@ categories:
   - Fiction
   - Christianity
 published: true
+img: https://pixelfed.social/storage/m/_v2/509323432926307502/b5862bd14-4506fa/1NnDvFz1a0ou/ZiitfXqttwnRyiGynSTpahKryLPm72xSjcauFUpL.png
 language:
   - English
 ---
