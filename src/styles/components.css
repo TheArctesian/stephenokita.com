@@ -142,3 +142,16 @@
   gap: var(--space-md);
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
+
+/* Loading placeholders - a calm opacity pulse on a blank surface, shared by
+   the skeleton primitive, lazy images, and inline loading blocks. Defined
+   globally so scoped component styles can reference it by name. */
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}

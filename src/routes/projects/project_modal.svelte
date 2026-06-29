@@ -2,6 +2,7 @@
   import { fade, scale } from "svelte/transition";
   import { getTechIcon } from "$lib/utils/icons";
   import Icon from "@iconify/svelte";
+  import LazyImage from "$lib/components/ui/lazy_image.svelte";
   import { createEventDispatcher, onMount } from "svelte";
   import {
     type ProjectData,
@@ -87,12 +88,15 @@
       <div class="modal-details">
         <div class="modal-header">
           {#if getFaviconUrl(project.link)}
-            <img
-              src={getFaviconUrl(project.link)}
-              alt=""
-              class="modal-favicon"
-              aria-hidden="true"
-            />
+            <span class="modal-favicon">
+              <LazyImage
+                src={getFaviconUrl(project.link)}
+                alt=""
+                objectFit="contain"
+                width={24}
+                height={24}
+              />
+            </span>
           {/if}
           <h2 id="modal-title">{project.name}</h2>
         </div>
@@ -215,10 +219,12 @@
   }
 
   .modal-favicon {
+    display: block;
     width: 24px;
     height: 24px;
     border-radius: 4px;
-    object-fit: contain;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
   .modal-header h2 {

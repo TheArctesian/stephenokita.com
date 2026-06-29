@@ -4,19 +4,35 @@
    * fades in a "Read Article →" affordance on hover. Theme-aware
    * gradient + aspect-ratio handling stay scoped here.
    */
+  import { onMount } from "svelte";
+
   export let src: string;
   export let alt: string;
+
+  let loaded = false;
+  let imgEl: HTMLImageElement;
+
+  // Catch images already cached/complete before the load handler attaches.
+  onMount(() => {
+    if (imgEl?.complete && imgEl.naturalWidth > 0) loaded = true;
+  });
 </script>
 
 <div class="card-image-container">
+  {#if !loaded}
+    <span class="card-image-pulse" aria-hidden="true"></span>
+  {/if}
   <img
+    bind:this={imgEl}
     {src}
     {alt}
     class="card-image"
+    class:is-loaded={loaded}
     width="320"
     height="180"
     loading="lazy"
     decoding="async"
+    on:load={() => (loaded = true)}
   />
   <div class="image-overlay">
     <span class="read-more">Read Article →</span>
@@ -32,6 +48,13 @@
     background: var(--bg-tertiary);
   }
 
+  .card-image-pulse {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-tertiary);
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
   .card-image {
     position: absolute;
     top: 0;
@@ -39,11 +62,25 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  }
+
+  .card-image.is-loaded {
+    opacity: 1;
   }
 
   :global(.blog-row:hover) .card-image {
     transform: scale(1.05);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-image-pulse {
+      animation: none;
+    }
+    .card-image {
+      transition: none;
+    }
   }
 
   .image-overlay {

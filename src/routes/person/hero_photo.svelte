@@ -5,6 +5,8 @@
    * text reuses the shared `.pattern-hero__*` typography; the photo
    * button + easter-egg interaction stay scoped here.
    */
+  import LazyImage from "$lib/components/ui/lazy_image.svelte";
+
   export let src: string;
   export let title: string;
   export let subtitle: string;
@@ -23,7 +25,9 @@
     aria-label="Photo of Stephen. Click for a surprise!"
     aria-pressed={showEasterEgg}
   >
-    <img {src} alt="" class="photo" width="160" height="160" decoding="async" aria-hidden="true" />
+    <span class="photo">
+      <LazyImage {src} alt="" eager width={160} height={160} />
+    </span>
     {#if showEasterEgg}
       <span class="easter-egg">You found the easter egg!</span>
     {/if}
@@ -58,12 +62,12 @@
   }
 
   .photo {
+    display: block;
     width: 160px;
     height: 160px;
-    object-fit: cover;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-primary);
-    display: block;
+    overflow: hidden;
     transition: border-color var(--transition-fast);
   }
 

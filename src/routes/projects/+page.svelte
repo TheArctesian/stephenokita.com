@@ -1,9 +1,18 @@
 <script lang="ts">
   import "../../app.css";
   import Project from "./project.svelte";
+  import ProjectsSkeleton from "./projects_skeleton.svelte";
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
+  // The server load streams real Date objects (via devalue), so normalise to a
+  // YYYY-MM-DD string regardless of whether the value is a Date or ISO string.
+  function toISODate(value: unknown): string | undefined {
+    if (!value) return undefined;
+    const d = new Date(value as string | Date);
+    return isNaN(d.getTime()) ? undefined : d.toISOString().split("T")[0];
+  }
 
   function convertProjectsToComponentFormat(projects: any[]) {
     return projects.map((project) => ({
@@ -17,41 +26,35 @@
       githubUrl: project.githubUrl,
       liveUrl: project.liveUrl,
       imageUrl: project.imageUrl,
-      dateStart: project.startDate
-        ? project.startDate.toString().split("T")[0]
-        : undefined,
-      date: project.endDate
-        ? project.endDate.toString().split("T")[0]
-        : project.createdAt.toString().split("T")[0],
+      dateStart: toISODate(project.startDate),
+      date: toISODate(project.endDate) ?? toISODate(project.createdAt) ?? "",
       tags: project.technologies || [],
       featured: project.featured,
       status: project.status,
     }));
   }
 
-  $: professionalWork =
-    data.projectsByCategory.find((cat) => cat.slug === "professional-work")
-      ?.projects || [];
+  // Group the streamed projects into the four display buckets. Tolerates an
+  // undefined list (e.g. an SSR prefetch that renders before data resolves).
+  function buildSections(projectsByCategory: any[] = []) {
+    const inCategory = (...slugs: string[]) =>
+      projectsByCategory.find((cat) => slugs.includes(cat.slug))?.projects || [];
 
-  $: personalProjects =
-    data.projectsByCategory.find(
-      (cat) => cat.slug === "personal" || cat.slug === "personal-projects",
-    )?.projects || [];
-
-  $: libraries =
-    data.projectsByCategory.find(
-      (cat) => cat.slug === "libs" || cat.slug === "libraries-tools",
-    )?.projects || [];
-
-  $: schoolProjects =
-    data.projectsByCategory.find(
-      (cat) => cat.slug === "school" || cat.slug === "school-projects",
-    )?.projects || [];
-
-  $: workData = convertProjectsToComponentFormat(professionalWork);
-  $: personalData = convertProjectsToComponentFormat(personalProjects);
-  $: libsData = convertProjectsToComponentFormat(libraries);
-  $: schoolData = convertProjectsToComponentFormat(schoolProjects);
+    return {
+      workData: convertProjectsToComponentFormat(
+        inCategory("professional-work"),
+      ),
+      personalData: convertProjectsToComponentFormat(
+        inCategory("personal", "personal-projects"),
+      ),
+      libsData: convertProjectsToComponentFormat(
+        inCategory("libs", "libraries-tools"),
+      ),
+      schoolData: convertProjectsToComponentFormat(
+        inCategory("school", "school-projects"),
+      ),
+    };
+  }
 </script>
 
 <svelte:head>
@@ -71,21 +74,26 @@
     <h1>Projects</h1>
   </header>
 
-  {#if workData.length > 0}
-    <Project data={workData} name="Professional Work" />
-  {/if}
+  {#await data.deferred.projects}
+    <ProjectsSkeleton />
+  {:then resolved}
+    {@const s = buildSections(resolved?.projectsByCategory)}
+    {#if s.workData.length > 0}
+      <Project data={s.workData} name="Professional Work" />
+    {/if}
 
-  {#if personalData.length > 0}
-    <Project data={personalData} name="Personal Projects" />
-  {/if}
+    {#if s.personalData.length > 0}
+      <Project data={s.personalData} name="Personal Projects" />
+    {/if}
 
-  {#if libsData.length > 0}
-    <Project data={libsData} name="Libraries & Tools" />
-  {/if}
+    {#if s.libsData.length > 0}
+      <Project data={s.libsData} name="Libraries & Tools" />
+    {/if}
 
-  {#if schoolData.length > 0}
-    <Project data={schoolData} name="School Projects" />
-  {/if}
+    {#if s.schoolData.length > 0}
+      <Project data={s.schoolData} name="School Projects" />
+    {/if}
+  {/await}
 </div>
 
 <style>
