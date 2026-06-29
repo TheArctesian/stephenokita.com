@@ -1,6 +1,7 @@
 import { db } from '$lib/db/config';
 import { projects, projectCategories } from '$lib/db/schema';
 import { eq, desc } from 'drizzle-orm';
+import { attachCategory } from './_helpers';
 
 export interface Project {
   id: number;
@@ -40,11 +41,8 @@ export class ProjectsService {
       .from(projects)
       .leftJoin(projectCategories, eq(projects.categoryId, projectCategories.id))
       .orderBy(desc(projects.createdAt));
-    
-    return result.map(row => ({
-      ...row.projects,
-      category: row.project_categories!
-    }));
+
+    return attachCategory<Project, ProjectCategory>(result, 'projects', 'project_categories');
   }
 
   static async getFeaturedProjects(): Promise<ProjectWithCategory[]> {
@@ -54,11 +52,8 @@ export class ProjectsService {
       .leftJoin(projectCategories, eq(projects.categoryId, projectCategories.id))
       .where(eq(projects.featured, true))
       .orderBy(desc(projects.createdAt));
-    
-    return result.map(row => ({
-      ...row.projects,
-      category: row.project_categories!
-    }));
+
+    return attachCategory<Project, ProjectCategory>(result, 'projects', 'project_categories');
   }
 
   static async getProjectsByCategory(categorySlug: string): Promise<ProjectWithCategory[]> {
@@ -68,11 +63,8 @@ export class ProjectsService {
       .leftJoin(projectCategories, eq(projects.categoryId, projectCategories.id))
       .where(eq(projectCategories.slug, categorySlug))
       .orderBy(desc(projects.createdAt));
-    
-    return result.map(row => ({
-      ...row.projects,
-      category: row.project_categories!
-    }));
+
+    return attachCategory<Project, ProjectCategory>(result, 'projects', 'project_categories');
   }
 
   static async getProjectCategories(): Promise<ProjectCategory[]> {

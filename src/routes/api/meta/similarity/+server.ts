@@ -1,5 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import { jsonRoute } from '$lib/utils/api';
 import {
   isConfigured,
   isValidDistinctId,
@@ -15,17 +16,17 @@ import { rankNeighbours, computeRarity } from '$lib/utils/similarity';
  * returns the nearest neighbours plus a rarity estimate. All traits are coarse
  * geo/device-class signals; no PII about other people is returned.
  */
-export const GET: RequestHandler = async ({ url }) => {
-  if (!isConfigured()) {
-    return json({ configured: false, found: false });
-  }
+export const GET: RequestHandler = jsonRoute(
+  async ({ url }) => {
+    if (!isConfigured()) {
+      return json({ configured: false, found: false });
+    }
 
-  const distinctId = url.searchParams.get('distinct_id');
-  if (!distinctId || !isValidDistinctId(distinctId)) {
-    return json({ error: 'A valid distinct_id is required' }, { status: 400 });
-  }
+    const distinctId = url.searchParams.get('distinct_id');
+    if (!distinctId || !isValidDistinctId(distinctId)) {
+      return json({ error: 'A valid distinct_id is required' }, { status: 400 });
+    }
 
-  try {
     const [visitor, population] = await Promise.all([
       getVisitorVector(distinctId),
       getPopulationVectors(distinctId),
@@ -38,9 +39,10 @@ export const GET: RequestHandler = async ({ url }) => {
     const neighbours = rankNeighbours(visitor, population, 3);
     const rarity = computeRarity(visitor, population);
 
-    return json({ configured: true, found: true, visitor, neighbours, rarity });
-  } catch (error) {
-    console.error('Error computing visitor similarity:', error);
-    return json({ configured: true, found: false });
+    return { configured: true, found: true, visitor, neighbours, rarity };
+  },
+  {
+    label: 'Error computing visitor similarity:',
+    onError: () => json({ configured: true, found: false }),
   }
-};
+);

@@ -1,15 +1,16 @@
 import { json } from '@sveltejs/kit';
 import { db } from '$lib/db/config';
-import { comments, users } from '$lib/db/schema';
+import { comments } from '$lib/db/schema';
 import { validateSessionToken } from '$lib/auth/session';
-import { eq, and, isNull, desc } from 'drizzle-orm';
+import { eq, and, desc } from 'drizzle-orm';
+import { jsonRoute } from '$lib/utils/api';
 import type { RequestHandler } from './$types';
 
 // Get comments for a specific blog post
-export const GET: RequestHandler = async ({ url }) => {
-  try {
+export const GET: RequestHandler = jsonRoute(
+  async ({ url }) => {
     const postSlug = url.searchParams.get('postSlug');
-    
+
     if (!postSlug) {
       return json({ error: 'Post slug is required' }, { status: 400 });
     }
@@ -68,16 +69,14 @@ export const GET: RequestHandler = async ({ url }) => {
       }
     });
 
-    return json({ comments: topLevelComments });
-  } catch (error) {
-    console.error('Error fetching comments:', error);
-    return json({ error: 'Failed to fetch comments' }, { status: 500 });
-  }
-};
+    return { comments: topLevelComments };
+  },
+  { label: 'Error fetching comments:', errorMessage: 'Failed to fetch comments' }
+);
 
 // Create a new comment (supports both authenticated and anonymous users)
-export const POST: RequestHandler = async ({ request, cookies }) => {
-  try {
+export const POST: RequestHandler = jsonRoute(
+  async ({ request, cookies }) => {
     const { postSlug, content, parentId, authorName } = await request.json();
 
     // Basic validation
@@ -174,8 +173,6 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
         replies: []
       }
     }, { status: 201 });
-  } catch (error) {
-    console.error('Error creating comment:', error);
-    return json({ error: 'Failed to create comment' }, { status: 500 });
-  }
-};
+  },
+  { label: 'Error creating comment:', errorMessage: 'Failed to create comment' }
+);

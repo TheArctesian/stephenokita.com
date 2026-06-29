@@ -1,5 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import { jsonRoute } from '$lib/utils/api';
 import {
   isConfigured,
   isValidDistinctId,
@@ -13,24 +14,25 @@ import {
  * When the personal API key isn't set, returns { configured: false } so the
  * page can render an honest "unconfigured" state rather than failing.
  */
-export const GET: RequestHandler = async ({ url }) => {
-  if (!isConfigured()) {
-    return json({ configured: false, stats: null, recentEvents: [] });
-  }
+export const GET: RequestHandler = jsonRoute(
+  async ({ url }) => {
+    if (!isConfigured()) {
+      return json({ configured: false, stats: null, recentEvents: [] });
+    }
 
-  const distinctId = url.searchParams.get('distinct_id');
-  if (!distinctId || !isValidDistinctId(distinctId)) {
-    return json({ error: 'A valid distinct_id is required' }, { status: 400 });
-  }
+    const distinctId = url.searchParams.get('distinct_id');
+    if (!distinctId || !isValidDistinctId(distinctId)) {
+      return json({ error: 'A valid distinct_id is required' }, { status: 400 });
+    }
 
-  try {
     const [stats, recentEvents] = await Promise.all([
       getPersonStats(distinctId),
       getRecentEvents(distinctId),
     ]);
-    return json({ configured: true, stats, recentEvents });
-  } catch (error) {
-    console.error('Error querying PostHog:', error);
-    return json({ configured: true, stats: null, recentEvents: [] });
+    return { configured: true, stats, recentEvents };
+  },
+  {
+    label: 'Error querying PostHog:',
+    onError: () => json({ configured: true, stats: null, recentEvents: [] }),
   }
-};
+);

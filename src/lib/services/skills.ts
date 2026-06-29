@@ -1,6 +1,7 @@
 import { db } from '$lib/db/config';
 import { skills, skillCategories } from '$lib/db/schema';
 import { eq } from 'drizzle-orm';
+import { attachCategory } from './_helpers';
 
 export interface Skill {
   id: number;
@@ -33,11 +34,8 @@ export class SkillsService {
       .select()
       .from(skills)
       .leftJoin(skillCategories, eq(skills.categoryId, skillCategories.id));
-    
-    return result.map(row => ({
-      ...row.skills,
-      category: row.skill_categories!
-    }));
+
+    return attachCategory<Skill, SkillCategory>(result, 'skills', 'skill_categories');
   }
 
   static async getSkillsByCategory(categorySlug: string): Promise<SkillWithCategory[]> {
@@ -46,11 +44,8 @@ export class SkillsService {
       .from(skills)
       .leftJoin(skillCategories, eq(skills.categoryId, skillCategories.id))
       .where(eq(skillCategories.slug, categorySlug));
-    
-    return result.map(row => ({
-      ...row.skills,
-      category: row.skill_categories!
-    }));
+
+    return attachCategory<Skill, SkillCategory>(result, 'skills', 'skill_categories');
   }
 
   static async getSkillCategories(): Promise<SkillCategory[]> {
