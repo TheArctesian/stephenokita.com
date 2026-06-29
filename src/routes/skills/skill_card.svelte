@@ -22,6 +22,10 @@
   <img
     src={img}
     alt=""
+    width="36"
+    height="36"
+    loading="lazy"
+    decoding="async"
     aria-hidden="true"
     on:error|once={(e) => replaceWithFallback(e, text)}
   />

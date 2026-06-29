@@ -66,6 +66,53 @@ export async function getAllViewCounts(): Promise<Record<string, number>> {
   }
 }
 
+export async function getAllReadingTimes(): Promise<Record<string, number>> {
+  try {
+    const results = await db
+      .select({
+        postSlug: blogAnalytics.postSlug,
+        readingTime: blogAnalytics.readingTime
+      })
+      .from(blogAnalytics);
+
+    const readingTimes: Record<string, number> = {};
+    results.forEach(row => {
+      if (row.readingTime != null) readingTimes[row.postSlug] = row.readingTime;
+    });
+
+    return readingTimes;
+  } catch (error) {
+    // Tolerate a missing column (pre-migration) so the posts list keeps working.
+    console.error('Error getting reading times:', error);
+    return {};
+  }
+}
+
+/**
+ * Persist computed reading times so future requests read them from the DB
+ * instead of recomputing. Upserts on postSlug; safe to call with an empty list.
+ */
+export async function setReadingTimes(
+  entries: { slug: string; readingTime: number }[]
+): Promise<void> {
+  if (entries.length === 0) return;
+  try {
+    await Promise.all(
+      entries.map(({ slug, readingTime }) =>
+        db
+          .insert(blogAnalytics)
+          .values({ postSlug: slug, readingTime })
+          .onConflictDoUpdate({
+            target: blogAnalytics.postSlug,
+            set: { readingTime, updatedAt: new Date() }
+          })
+      )
+    );
+  } catch (error) {
+    console.error('Error saving reading times:', error);
+  }
+}
+
 export async function trackUniqueVisitor(postSlug: string, visitorId: string): Promise<void> {
   // This could be enhanced with a separate visitor tracking table
   // For now, we'll just increment the unique visitors count

@@ -7,7 +7,8 @@
   import RolesList from "./roles_list.svelte";
   import WorksGrid from "./works_grid.svelte";
   import SocialRow from "./social_row.svelte";
-  import me from "./imgs/me&kim.jpg";
+  // Optimized hero source (29 KB webp vs the original 468 KB jpg).
+  import me from "./imgs/me&kim-360.webp";
   import type { PageData } from "./$types";
   import type { TimelineRow } from "./timeline.svelte";
 

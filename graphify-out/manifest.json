@@ -1,0 +1,1232 @@
+{
+  ".claude/launch.json": {
+    "mtime": 1781169830.7756438,
+    "ast_hash": "98e5c4f3ec1655fbf8d3f176f2f0e3dc",
+    "semantic_hash": "98e5c4f3ec1655fbf8d3f176f2f0e3dc"
+  },
+  "drizzle.config.ts": {
+    "mtime": 1779311822.2788482,
+    "ast_hash": "c98e5235be51e564b5cf9babb2bb9a30",
+    "semantic_hash": "c98e5235be51e564b5cf9babb2bb9a30"
+  },
+  "drizzle/0000_worthless_rhino.sql": {
+    "mtime": 1779311822.278955,
+    "ast_hash": "11dac9f43ba103636f208819c0c4bdb9",
+    "semantic_hash": "11dac9f43ba103636f208819c0c4bdb9"
+  },
+  "drizzle/0001_puzzling_charles_xavier.sql": {
+    "mtime": 1779311822.2790184,
+    "ast_hash": "c35b71042c3f92692b2c86b14f96b875",
+    "semantic_hash": "c35b71042c3f92692b2c86b14f96b875"
+  },
+  "drizzle/0002_easy_lake.sql": {
+    "mtime": 1779311822.2790759,
+    "ast_hash": "bfde92c69c18b7f9d9036aca4f4e52f9",
+    "semantic_hash": "bfde92c69c18b7f9d9036aca4f4e52f9"
+  },
+  "drizzle/0003_melodic_layla_miller.sql": {
+    "mtime": 1779311822.27913,
+    "ast_hash": "6d5814fa5392bb222dc942c949886b4b",
+    "semantic_hash": "6d5814fa5392bb222dc942c949886b4b"
+  },
+  "drizzle/meta/0000_snapshot.json": {
+    "mtime": 1779311822.279241,
+    "ast_hash": "62ba7567bb4c5f1a1ff02ff9c5d2a97e",
+    "semantic_hash": "62ba7567bb4c5f1a1ff02ff9c5d2a97e"
+  },
+  "drizzle/meta/0001_snapshot.json": {
+    "mtime": 1779311822.2793274,
+    "ast_hash": "e43c2f461e2e1b6be626e81ae62b04db",
+    "semantic_hash": "e43c2f461e2e1b6be626e81ae62b04db"
+  },
+  "drizzle/meta/0002_snapshot.json": {
+    "mtime": 1779311822.2793987,
+    "ast_hash": "74ab463411c77791b7683ceb9eb8ead4",
+    "semantic_hash": "74ab463411c77791b7683ceb9eb8ead4"
+  },
+  "drizzle/meta/0003_snapshot.json": {
+    "mtime": 1779311822.2794862,
+    "ast_hash": "f64e2325216e8a3e31c8f4adf8b837db",
+    "semantic_hash": "f64e2325216e8a3e31c8f4adf8b837db"
+  },
+  "drizzle/meta/_journal.json": {
+    "mtime": 1779311822.2795622,
+    "ast_hash": "93c90a31b442377756e44f0c639b3a15",
+    "semantic_hash": "93c90a31b442377756e44f0c639b3a15"
+  },
+  "package.json": {
+    "mtime": 1779311822.2796345,
+    "ast_hash": "26dcbf6632319390a2c8abf51db26f28",
+    "semantic_hash": "26dcbf6632319390a2c8abf51db26f28"
+  },
+  "scripts/add-auracare.ts": {
+    "mtime": 1779311822.27989,
+    "ast_hash": "cf3a8ad7105674495a9e48598115c2cd",
+    "semantic_hash": "cf3a8ad7105674495a9e48598115c2cd"
+  },
+  "scripts/check-missing-projects.ts": {
+    "mtime": 1779311822.279959,
+    "ast_hash": "a19785d0100130d5ae9d34a0e042c769",
+    "semantic_hash": "a19785d0100130d5ae9d34a0e042c769"
+  },
+  "scripts/cleanup-published.ts": {
+    "mtime": 1779311822.280031,
+    "ast_hash": "0b49627a3b836fc0d9e86a32954e3304",
+    "semantic_hash": "0b49627a3b836fc0d9e86a32954e3304"
+  },
+  "scripts/import-work-projects.ts": {
+    "mtime": 1779311822.280086,
+    "ast_hash": "df9616b7e528de5e83346102bcdd5d74",
+    "semantic_hash": "df9616b7e528de5e83346102bcdd5d74"
+  },
+  "scripts/migrate-data.ts": {
+    "mtime": 1779311822.2801547,
+    "ast_hash": "d68d1cafd4d80ea87eacc9bef361e2ea",
+    "semantic_hash": "d68d1cafd4d80ea87eacc9bef361e2ea"
+  },
+  "scripts/migrate-projects.ts": {
+    "mtime": 1779311822.280226,
+    "ast_hash": "2e383d7d0e409120bd62e0cd1afceaa1",
+    "semantic_hash": "2e383d7d0e409120bd62e0cd1afceaa1"
+  },
+  "scripts/move-omnixy.ts": {
+    "mtime": 1779311822.2802804,
+    "ast_hash": "f1732abffd311f58dff0b5392096c49e",
+    "semantic_hash": "f1732abffd311f58dff0b5392096c49e"
+  },
+  "scripts/update-projects.ts": {
+    "mtime": 1779311822.280346,
+    "ast_hash": "3047955bb35682cc22abe1c7d7896e31",
+    "semantic_hash": "3047955bb35682cc22abe1c7d7896e31"
+  },
+  "src/app.d.ts": {
+    "mtime": 1779311822.2805486,
+    "ast_hash": "5697e612b4ede1377c4f4bc718c4682e",
+    "semantic_hash": "5697e612b4ede1377c4f4bc718c4682e"
+  },
+  "src/lib/auth/session.ts": {
+    "mtime": 1779311822.2808547,
+    "ast_hash": "719c6f596e4e4f8232db2e68363b429f",
+    "semantic_hash": "719c6f596e4e4f8232db2e68363b429f"
+  },
+  "src/lib/auth/user.ts": {
+    "mtime": 1779311822.2809114,
+    "ast_hash": "85d0eb569ae4e39d3c0e7f0db65fe757",
+    "semantic_hash": "85d0eb569ae4e39d3c0e7f0db65fe757"
+  },
+  "src/lib/components/blog/erg.svelte": {
+    "mtime": 1779311822.2812014,
+    "ast_hash": "93006415bed593bd2fea6e5f6047db9e",
+    "semantic_hash": "93006415bed593bd2fea6e5f6047db9e"
+  },
+  "src/lib/components/blog/hyper.svelte": {
+    "mtime": 1779311822.281273,
+    "ast_hash": "508a0c8c5bab1f2ac38cff380a5de436",
+    "semantic_hash": "508a0c8c5bab1f2ac38cff380a5de436"
+  },
+  "src/lib/components/blog/maps/cvemap.svelte": {
+    "mtime": 1779311822.28148,
+    "ast_hash": "7acf018e098b2e2113052721cc9135b6",
+    "semantic_hash": "7acf018e098b2e2113052721cc9135b6"
+  },
+  "src/lib/components/blog/maps/distromap.svelte": {
+    "mtime": 1779311822.2815807,
+    "ast_hash": "c42c0cf7885f4559854f1d55eb2e70e9",
+    "semantic_hash": "c42c0cf7885f4559854f1d55eb2e70e9"
+  },
+  "src/lib/components/blog/maslos.svelte": {
+    "mtime": 1779311822.2816346,
+    "ast_hash": "90ada56822c819f7e3a41efbef4cd4ea",
+    "semantic_hash": "90ada56822c819f7e3a41efbef4cd4ea"
+  },
+  "src/lib/components/blog/maslos2.svelte": {
+    "mtime": 1779311822.28169,
+    "ast_hash": "cc6c44712294b0b0f5a4d7de781e405c",
+    "semantic_hash": "cc6c44712294b0b0f5a4d7de781e405c"
+  },
+  "src/lib/components/blog/philmap.svelte": {
+    "mtime": 1779311822.2818186,
+    "ast_hash": "a8d7a78983c39b19098d681599a5a697",
+    "semantic_hash": "a8d7a78983c39b19098d681599a5a697"
+  },
+  "src/lib/components/shared/card.svelte": {
+    "mtime": 1780798142.7062783,
+    "ast_hash": "d95b0ac5554a0c13f2b95bc099709d07",
+    "semantic_hash": "d95b0ac5554a0c13f2b95bc099709d07"
+  },
+  "src/lib/components/shared/empty_state.svelte": {
+    "mtime": 1780798130.5705695,
+    "ast_hash": "a86b2bc7769ebadf2f5d80b16b9c495c",
+    "semantic_hash": "a86b2bc7769ebadf2f5d80b16b9c495c"
+  },
+  "src/lib/components/shared/hero.svelte": {
+    "mtime": 1780798103.3809624,
+    "ast_hash": "83b7fa118eaed1250f97ef6f548b64eb",
+    "semantic_hash": "83b7fa118eaed1250f97ef6f548b64eb"
+  },
+  "src/lib/components/shared/key_value_grid.svelte": {
+    "mtime": 1780798110.4968693,
+    "ast_hash": "1495e61e587d46437bceb8419be52f98",
+    "semantic_hash": "1495e61e587d46437bceb8419be52f98"
+  },
+  "src/lib/components/shared/pill_list.svelte": {
+    "mtime": 1780798172.6625988,
+    "ast_hash": "8e60cbe155d590fb3dbdc208d63e7ba3",
+    "semantic_hash": "8e60cbe155d590fb3dbdc208d63e7ba3"
+  },
+  "src/lib/components/shared/search_input.svelte": {
+    "mtime": 1780798124.406946,
+    "ast_hash": "f6e496e63a746f3ff0511d0697d10cf1",
+    "semantic_hash": "f6e496e63a746f3ff0511d0697d10cf1"
+  },
+  "src/lib/components/shared/section.svelte": {
+    "mtime": 1780798103.3842487,
+    "ast_hash": "a3234d37cc915d36bc3a30b405187051",
+    "semantic_hash": "a3234d37cc915d36bc3a30b405187051"
+  },
+  "src/lib/components/ui/auth_form.svelte": {
+    "mtime": 1779311822.2822464,
+    "ast_hash": "2d0d3758450184ee04aae3571b6d6d3a",
+    "semantic_hash": "2d0d3758450184ee04aae3571b6d6d3a"
+  },
+  "src/lib/components/ui/comment_item.svelte": {
+    "mtime": 1779311822.2824461,
+    "ast_hash": "931a594a49f207dcc3264f0a97062ef5",
+    "semantic_hash": "931a594a49f207dcc3264f0a97062ef5"
+  },
+  "src/lib/components/ui/comments.svelte": {
+    "mtime": 1780797752.553046,
+    "ast_hash": "ea46d936a5c3445009ab85df2adb7ee5",
+    "semantic_hash": "ea46d936a5c3445009ab85df2adb7ee5"
+  },
+  "src/lib/components/ui/footer.svelte": {
+    "mtime": 1779311822.2825866,
+    "ast_hash": "ef515308cc2b2675c66d23f06c3140c6",
+    "semantic_hash": "ef515308cc2b2675c66d23f06c3140c6"
+  },
+  "src/lib/components/ui/link_preview.svelte": {
+    "mtime": 1780793238.9362369,
+    "ast_hash": "3a72ce8de78b2e51e595b1005783e1df",
+    "semantic_hash": "3a72ce8de78b2e51e595b1005783e1df"
+  },
+  "src/lib/components/ui/navigation.svelte": {
+    "mtime": 1780797753.4698653,
+    "ast_hash": "57cce10588beca73f63db98005f760b6",
+    "semantic_hash": "57cce10588beca73f63db98005f760b6"
+  },
+  "src/lib/components/ui/scroll_to_top.svelte": {
+    "mtime": 1780794340.8135717,
+    "ast_hash": "7ed3fea1ff8d0a261990bd96a80ed853",
+    "semantic_hash": "7ed3fea1ff8d0a261990bd96a80ed853"
+  },
+  "src/lib/components/ui/skeleton.svelte": {
+    "mtime": 1781099368.615238,
+    "ast_hash": "5eb698e1c83ffd053d7c06d5e34445ab",
+    "semantic_hash": "5eb698e1c83ffd053d7c06d5e34445ab"
+  },
+  "src/lib/components/ui/theme_toggle.svelte": {
+    "mtime": 1779311822.2827284,
+    "ast_hash": "bb36bae60d617ec3f9eb8ed403bb4773",
+    "semantic_hash": "bb36bae60d617ec3f9eb8ed403bb4773"
+  },
+  "src/lib/constants/index.ts": {
+    "mtime": 1780795096.3125815,
+    "ast_hash": "3328bec66df3409e597031f746dd96a7",
+    "semantic_hash": "3328bec66df3409e597031f746dd96a7"
+  },
+  "src/lib/data/philmap.json": {
+    "mtime": 1779311822.2829652,
+    "ast_hash": "b484d853eb7b7ca6533212522f4571fd",
+    "semantic_hash": "b484d853eb7b7ca6533212522f4571fd"
+  },
+  "src/lib/db/config.ts": {
+    "mtime": 1779311822.2830784,
+    "ast_hash": "d438a04aee7cb28b4b5a62cc9947f98f",
+    "semantic_hash": "d438a04aee7cb28b4b5a62cc9947f98f"
+  },
+  "src/lib/db/schema.ts": {
+    "mtime": 1779311822.2831454,
+    "ast_hash": "12e80e1ff389f19ba6cc8aa91e0b18b9",
+    "semantic_hash": "12e80e1ff389f19ba6cc8aa91e0b18b9"
+  },
+  "src/lib/services/blogAnalytics.ts": {
+    "mtime": 1779311822.2833073,
+    "ast_hash": "1b85fbcf3ffb2d3f1652130f0b6741a3",
+    "semantic_hash": "1b85fbcf3ffb2d3f1652130f0b6741a3"
+  },
+  "src/lib/services/calendar.ts": {
+    "mtime": 1780084577.0546925,
+    "ast_hash": "14c4d61dedb986e227c4eef1f0294ba1",
+    "semantic_hash": "14c4d61dedb986e227c4eef1f0294ba1"
+  },
+  "src/lib/services/comments.ts": {
+    "mtime": 1779311822.2833712,
+    "ast_hash": "bf97bdf59eb1d67f42350ce01d8629f8",
+    "semantic_hash": "bf97bdf59eb1d67f42350ce01d8629f8"
+  },
+  "src/lib/services/location.ts": {
+    "mtime": 1779312345.0157425,
+    "ast_hash": "30a6ef62501811a6d9f34c9d9fdd7495",
+    "semantic_hash": "30a6ef62501811a6d9f34c9d9fdd7495"
+  },
+  "src/lib/services/personal.ts": {
+    "mtime": 1779311822.2834952,
+    "ast_hash": "e434b91aaae15f290f1768eae51414e7",
+    "semantic_hash": "e434b91aaae15f290f1768eae51414e7"
+  },
+  "src/lib/services/posthog.ts": {
+    "mtime": 1780972248.4929812,
+    "ast_hash": "6f3876c6a0abdaa7d6267ada9b7d1222",
+    "semantic_hash": "6f3876c6a0abdaa7d6267ada9b7d1222"
+  },
+  "src/lib/services/projects.ts": {
+    "mtime": 1779311822.2835536,
+    "ast_hash": "166d8830cc4609d2d986cd6cf3ad9382",
+    "semantic_hash": "166d8830cc4609d2d986cd6cf3ad9382"
+  },
+  "src/lib/services/skills.ts": {
+    "mtime": 1779311822.2836134,
+    "ast_hash": "c21efb5fc990d06762049f619f461c9a",
+    "semantic_hash": "c21efb5fc990d06762049f619f461c9a"
+  },
+  "src/lib/stores/theme.ts": {
+    "mtime": 1779311822.283711,
+    "ast_hash": "55c2e10bf166ecd27dd1c838f8c0ee6b",
+    "semantic_hash": "55c2e10bf166ecd27dd1c838f8c0ee6b"
+  },
+  "src/lib/types.ts": {
+    "mtime": 1779311822.2837627,
+    "ast_hash": "3e9f9b32de2064813ecbe3fe6f4a11e9",
+    "semantic_hash": "3e9f9b32de2064813ecbe3fe6f4a11e9"
+  },
+  "src/lib/types/global.d.ts": {
+    "mtime": 1779311822.2838488,
+    "ast_hash": "da06db8518603db0a8a5fdd6d7fb3f01",
+    "semantic_hash": "da06db8518603db0a8a5fdd6d7fb3f01"
+  },
+  "src/lib/utils.ts": {
+    "mtime": 1779311822.283903,
+    "ast_hash": "4ad435bae8643f3f85777a1e07e8ca79",
+    "semantic_hash": "4ad435bae8643f3f85777a1e07e8ca79"
+  },
+  "src/lib/utils/animations.ts": {
+    "mtime": 1779311822.284001,
+    "ast_hash": "62852e9bdd17331d35bd6abfbe5e05ae",
+    "semantic_hash": "62852e9bdd17331d35bd6abfbe5e05ae"
+  },
+  "src/lib/utils/dates.ts": {
+    "mtime": 1780798325.315218,
+    "ast_hash": "acd5db1873c4c98d7c2e5477c3052199",
+    "semantic_hash": "acd5db1873c4c98d7c2e5477c3052199"
+  },
+  "src/lib/utils/format.ts": {
+    "mtime": 1779311822.2840579,
+    "ast_hash": "4f2de28a74be8df24679f31a5cb63b5d",
+    "semantic_hash": "4f2de28a74be8df24679f31a5cb63b5d"
+  },
+  "src/lib/utils/http.ts": {
+    "mtime": 1779311822.2841134,
+    "ast_hash": "c572331e468fbc8a68933da2ec1632ba",
+    "semantic_hash": "c572331e468fbc8a68933da2ec1632ba"
+  },
+  "src/lib/utils/icons.ts": {
+    "mtime": 1779810827.3779213,
+    "ast_hash": "5b9dba346d1c54914d228d99302d9f73",
+    "semantic_hash": "5b9dba346d1c54914d228d99302d9f73"
+  },
+  "src/lib/utils/index.ts": {
+    "mtime": 1779311822.2842424,
+    "ast_hash": "07c4343bceed190e6d8e59628a5768b0",
+    "semantic_hash": "07c4343bceed190e6d8e59628a5768b0"
+  },
+  "src/lib/utils/postLoader.ts": {
+    "mtime": 1779311822.2842958,
+    "ast_hash": "d1b90da97b3f5805aea9afddef7c8f3f",
+    "semantic_hash": "d1b90da97b3f5805aea9afddef7c8f3f"
+  },
+  "src/lib/utils/rss.ts": {
+    "mtime": 1779311822.284369,
+    "ast_hash": "05a6bffb51d56c11dc88774761e44d71",
+    "semantic_hash": "05a6bffb51d56c11dc88774761e44d71"
+  },
+  "src/lib/utils/similarity.ts": {
+    "mtime": 1780972206.8132088,
+    "ast_hash": "c40ceed0ca9ef6c7bb96de465742404c",
+    "semantic_hash": "c40ceed0ca9ef6c7bb96de465742404c"
+  },
+  "src/lib/utils/slugResolver.ts": {
+    "mtime": 1779311822.2844236,
+    "ast_hash": "098c564fa98bba941c2eb864c20755ef",
+    "semantic_hash": "098c564fa98bba941c2eb864c20755ef"
+  },
+  "src/routes/+layout.svelte": {
+    "mtime": 1780797750.7143915,
+    "ast_hash": "6e431a689e3f9b97933187e0765fe05f",
+    "semantic_hash": "6e431a689e3f9b97933187e0765fe05f"
+  },
+  "src/routes/+page.svelte": {
+    "mtime": 1781099460.5359182,
+    "ast_hash": "00a7ff2707042a3e72be1c28bd9f6754",
+    "semantic_hash": "00a7ff2707042a3e72be1c28bd9f6754"
+  },
+  "src/routes/+page.ts": {
+    "mtime": 1781099788.5315049,
+    "ast_hash": "70bf9ddc95cd7ada99a8de6dcf441b9a",
+    "semantic_hash": "70bf9ddc95cd7ada99a8de6dcf441b9a"
+  },
+  "src/routes/activity_card.svelte": {
+    "mtime": 1780798379.8984401,
+    "ast_hash": "29f33c68bf2eba1d6e73fbfbda814739",
+    "semantic_hash": "29f33c68bf2eba1d6e73fbfbda814739"
+  },
+  "src/routes/api/auth/login/+server.ts": {
+    "mtime": 1779311822.2849488,
+    "ast_hash": "d2c236471c6e573ebbb6ec40efff63fe",
+    "semantic_hash": "d2c236471c6e573ebbb6ec40efff63fe"
+  },
+  "src/routes/api/auth/logout/+server.ts": {
+    "mtime": 1779311822.2850428,
+    "ast_hash": "f992ff6cfdcb8f4d7037dc3fbe279174",
+    "semantic_hash": "f992ff6cfdcb8f4d7037dc3fbe279174"
+  },
+  "src/routes/api/auth/me/+server.ts": {
+    "mtime": 1779311822.2851317,
+    "ast_hash": "9d85119a6ca3f89033e91a8a3a85291d",
+    "semantic_hash": "9d85119a6ca3f89033e91a8a3a85291d"
+  },
+  "src/routes/api/auth/register/+server.ts": {
+    "mtime": 1779311822.2852325,
+    "ast_hash": "f122fc5d74696552eaad66a129c3aff8",
+    "semantic_hash": "f122fc5d74696552eaad66a129c3aff8"
+  },
+  "src/routes/api/blog-analytics/+server.ts": {
+    "mtime": 1779311822.285358,
+    "ast_hash": "cdbb6f205916cbd93ec9bcb278b889bd",
+    "semantic_hash": "cdbb6f205916cbd93ec9bcb278b889bd"
+  },
+  "src/routes/api/calendar/+server.ts": {
+    "mtime": 1779454339.1917725,
+    "ast_hash": "73f3bb2c75cdcaaee9768093613c204e",
+    "semantic_hash": "73f3bb2c75cdcaaee9768093613c204e"
+  },
+  "src/routes/api/comments/+server.ts": {
+    "mtime": 1779311822.285555,
+    "ast_hash": "ebfdbd050cdd80f7b2885bf2812692fe",
+    "semantic_hash": "ebfdbd050cdd80f7b2885bf2812692fe"
+  },
+  "src/routes/api/file-sizes/+server.ts": {
+    "mtime": 1779311822.2856562,
+    "ast_hash": "4946002ff4fac17425cda8bed6153a4d",
+    "semantic_hash": "4946002ff4fac17425cda8bed6153a4d"
+  },
+  "src/routes/api/instagram-image/+server.ts": {
+    "mtime": 1779311822.2857943,
+    "ast_hash": "d20728dd6e3f46057b3af141f7b22413",
+    "semantic_hash": "d20728dd6e3f46057b3af141f7b22413"
+  },
+  "src/routes/api/link-preview/+server.ts": {
+    "mtime": 1780793348.9651356,
+    "ast_hash": "4aaf7a2b1e28a4366f703044b89c4898",
+    "semantic_hash": "4aaf7a2b1e28a4366f703044b89c4898"
+  },
+  "src/routes/api/location/+server.ts": {
+    "mtime": 1779311822.285897,
+    "ast_hash": "47fcbe5144119d39998d51a0bae3c902",
+    "semantic_hash": "47fcbe5144119d39998d51a0bae3c902"
+  },
+  "src/routes/api/meta/posthog/+server.ts": {
+    "mtime": 1780970206.0243049,
+    "ast_hash": "832e81fe965485d32f74ca3813e161f2",
+    "semantic_hash": "832e81fe965485d32f74ca3813e161f2"
+  },
+  "src/routes/api/meta/similarity/+server.ts": {
+    "mtime": 1780972261.2296255,
+    "ast_hash": "5a6fab7ef8299612cb7a9493f015fe19",
+    "semantic_hash": "5a6fab7ef8299612cb7a9493f015fe19"
+  },
+  "src/routes/api/personal/quotes/+server.ts": {
+    "mtime": 1779311822.286081,
+    "ast_hash": "48e3623d9a9fe4e5cc2e10cd37c14c82",
+    "semantic_hash": "48e3623d9a9fe4e5cc2e10cd37c14c82"
+  },
+  "src/routes/api/posts/+server.ts": {
+    "mtime": 1779311822.2862098,
+    "ast_hash": "a571b91c174408c7d1305a9b1e9cd851",
+    "semantic_hash": "a571b91c174408c7d1305a9b1e9cd851"
+  },
+  "src/routes/api/projects/+server.ts": {
+    "mtime": 1779311822.2863545,
+    "ast_hash": "005b31c266f706cab7b209ebdacddd5a",
+    "semantic_hash": "005b31c266f706cab7b209ebdacddd5a"
+  },
+  "src/routes/api/projects/categories/+server.ts": {
+    "mtime": 1779311822.2864757,
+    "ast_hash": "1988bacb4f5cd0ccca138ef43d539482",
+    "semantic_hash": "1988bacb4f5cd0ccca138ef43d539482"
+  },
+  "src/routes/api/skills/+server.ts": {
+    "mtime": 1779311822.2865896,
+    "ast_hash": "aa955f2deeb5a55a07926b1f8f36b663",
+    "semantic_hash": "aa955f2deeb5a55a07926b1f8f36b663"
+  },
+  "src/routes/api/skills/categories/+server.ts": {
+    "mtime": 1779311822.2867358,
+    "ast_hash": "e0514e016c8e08b3a9141790584dfc75",
+    "semantic_hash": "e0514e016c8e08b3a9141790584dfc75"
+  },
+  "src/routes/api/user/userinfo.ts": {
+    "mtime": 1779311822.286818,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "src/routes/blog/+page.svelte": {
+    "mtime": 1781100236.9822664,
+    "ast_hash": "1abce8bf728534b5c342ac2feadfb603",
+    "semantic_hash": "1abce8bf728534b5c342ac2feadfb603"
+  },
+  "src/routes/blog/+page.ts": {
+    "mtime": 1779311822.2871583,
+    "ast_hash": "af59309ea9597b0bcdfcef0656e8ca9a",
+    "semantic_hash": "af59309ea9597b0bcdfcef0656e8ca9a"
+  },
+  "src/routes/blog/[slug]/+page.svelte": {
+    "mtime": 1781692588.2919674,
+    "ast_hash": "4ecdae31cd473b083dfc218e4a69ae1a",
+    "semantic_hash": "4ecdae31cd473b083dfc218e4a69ae1a"
+  },
+  "src/routes/blog/[slug]/+page.ts": {
+    "mtime": 1780800076.6252577,
+    "ast_hash": "919b01b1943115dbc843d9899a8b23be",
+    "semantic_hash": "919b01b1943115dbc843d9899a8b23be"
+  },
+  "src/routes/blog/blog_card.svelte": {
+    "mtime": 1781169778.6000733,
+    "ast_hash": "6c470f291f22f15d4c45e75ba809b3cf",
+    "semantic_hash": "6c470f291f22f15d4c45e75ba809b3cf"
+  },
+  "src/routes/blog/blog_grid.svelte": {
+    "mtime": 1781101165.0091405,
+    "ast_hash": "ed71c4ec1bbc2573efc66055be6bb871",
+    "semantic_hash": "ed71c4ec1bbc2573efc66055be6bb871"
+  },
+  "src/routes/blog/card_image.svelte": {
+    "mtime": 1781101205.4817884,
+    "ast_hash": "29cb771a8e34450db717bcc145ee79c5",
+    "semantic_hash": "29cb771a8e34450db717bcc145ee79c5"
+  },
+  "src/routes/blog/filter_group.svelte": {
+    "mtime": 1781101273.279223,
+    "ast_hash": "7f6fad4c9949e1f81c00f53fd8e9ef8e",
+    "semantic_hash": "7f6fad4c9949e1f81c00f53fd8e9ef8e"
+  },
+  "src/routes/blog/unfinishedprojects.json": {
+    "mtime": 1779311822.2938883,
+    "ast_hash": "3ef02cb33784517248986ced57a22751",
+    "semantic_hash": "3ef02cb33784517248986ced57a22751"
+  },
+  "src/routes/blog/unfinishedwriting.json": {
+    "mtime": 1779311822.2939625,
+    "ast_hash": "4d3b82bc6740a97c0effb5bf1df756b0",
+    "semantic_hash": "4d3b82bc6740a97c0effb5bf1df756b0"
+  },
+  "src/routes/meta/+page.server.ts": {
+    "mtime": 1780794829.2608721,
+    "ast_hash": "1b8dc20307c7fcb8591fdc8a9b1f49a2",
+    "semantic_hash": "1b8dc20307c7fcb8591fdc8a9b1f49a2"
+  },
+  "src/routes/meta/+page.svelte": {
+    "mtime": 1780972490.5336611,
+    "ast_hash": "fcf4f563bf3e2e9bea511c96a5884583",
+    "semantic_hash": "fcf4f563bf3e2e9bea511c96a5884583"
+  },
+  "src/routes/meta/colophon.svelte": {
+    "mtime": 1780798737.6387036,
+    "ast_hash": "83708a3b2460f340f128b1838bc6e99f",
+    "semantic_hash": "83708a3b2460f340f128b1838bc6e99f"
+  },
+  "src/routes/meta/fingerprint.ts": {
+    "mtime": 1780798858.5463965,
+    "ast_hash": "6ba634254feea00a8a64dbf40f66b786",
+    "semantic_hash": "6ba634254feea00a8a64dbf40f66b786"
+  },
+  "src/routes/meta/fingerprint_banner.svelte": {
+    "mtime": 1780798604.1045656,
+    "ast_hash": "277ba1856cb2fc6f3911d0b4bb7ce878",
+    "semantic_hash": "277ba1856cb2fc6f3911d0b4bb7ce878"
+  },
+  "src/routes/meta/fingerprint_results.svelte": {
+    "mtime": 1780798623.5372164,
+    "ast_hash": "9a4c69e62dad29a0194fe1834c218e3d",
+    "semantic_hash": "9a4c69e62dad29a0194fe1834c218e3d"
+  },
+  "src/routes/meta/posthog_feed.svelte": {
+    "mtime": 1780970340.2790816,
+    "ast_hash": "b5783007e69d1ea982e64f4852903a08",
+    "semantic_hash": "b5783007e69d1ea982e64f4852903a08"
+  },
+  "src/routes/meta/posthog_profile.svelte": {
+    "mtime": 1780970368.0429077,
+    "ast_hash": "17e21796e15acc98cc44559a8376385b",
+    "semantic_hash": "17e21796e15acc98cc44559a8376385b"
+  },
+  "src/routes/meta/posthog_replay.svelte": {
+    "mtime": 1780970229.856684,
+    "ast_hash": "c8be7290ba4c757823c011e30266b1a8",
+    "semantic_hash": "c8be7290ba4c757823c011e30266b1a8"
+  },
+  "src/routes/meta/request_headers.svelte": {
+    "mtime": 1780799093.4519453,
+    "ast_hash": "448bc8949d323b9485e24511855e8cf5",
+    "semantic_hash": "448bc8949d323b9485e24511855e8cf5"
+  },
+  "src/routes/meta/rss_row.svelte": {
+    "mtime": 1780798742.8294144,
+    "ast_hash": "b35691b1d24bdf9a0473d5e7b0cd2767",
+    "semantic_hash": "b35691b1d24bdf9a0473d5e7b0cd2767"
+  },
+  "src/routes/meta/tracker_item.svelte": {
+    "mtime": 1780798594.3611474,
+    "ast_hash": "59d02c8c2c7998a44c927fc76fddebb5",
+    "semantic_hash": "59d02c8c2c7998a44c927fc76fddebb5"
+  },
+  "src/routes/meta/visitor_twin.svelte": {
+    "mtime": 1780972332.1666293,
+    "ast_hash": "fad808fb85e0dc00139f21ad2f3b756c",
+    "semantic_hash": "fad808fb85e0dc00139f21ad2f3b756c"
+  },
+  "src/routes/meta/watch_card.svelte": {
+    "mtime": 1780798577.4497273,
+    "ast_hash": "c6bbb88cd4a125ddad2b81f5decdccae",
+    "semantic_hash": "c6bbb88cd4a125ddad2b81f5decdccae"
+  },
+  "src/routes/meta/you/+page.ts": {
+    "mtime": 1780794967.4970028,
+    "ast_hash": "e3d1bfdb8cc09ca05539b3d926972163",
+    "semantic_hash": "e3d1bfdb8cc09ca05539b3d926972163"
+  },
+  "src/routes/person/+page.server.ts": {
+    "mtime": 1779810832.4585783,
+    "ast_hash": "1f841daa5f57b4f099fb6a3cd3160fa2",
+    "semantic_hash": "1f841daa5f57b4f099fb6a3cd3160fa2"
+  },
+  "src/routes/person/+page.svelte": {
+    "mtime": 1780798646.788066,
+    "ast_hash": "9b187c3fad56c7c01c27dd6f05513f7c",
+    "semantic_hash": "9b187c3fad56c7c01c27dd6f05513f7c"
+  },
+  "src/routes/person/animations.json": {
+    "mtime": 1779311822.2944899,
+    "ast_hash": "ec03196a34af210f0f69a50bf181d2b2",
+    "semantic_hash": "ec03196a34af210f0f69a50bf181d2b2"
+  },
+  "src/routes/person/hero_photo.svelte": {
+    "mtime": 1780799970.203722,
+    "ast_hash": "cfc3fe9e2eacfd884134375f4c28728f",
+    "semantic_hash": "cfc3fe9e2eacfd884134375f4c28728f"
+  },
+  "src/routes/person/latin.json": {
+    "mtime": 1779311822.2967677,
+    "ast_hash": "b34f1d1530eb8c61ecc3972582b00d31",
+    "semantic_hash": "b34f1d1530eb8c61ecc3972582b00d31"
+  },
+  "src/routes/person/music.json": {
+    "mtime": 1779311822.296826,
+    "ast_hash": "7409a8f3b0c4ebc994c62835294f4c5b",
+    "semantic_hash": "7409a8f3b0c4ebc994c62835294f4c5b"
+  },
+  "src/routes/person/poems.json": {
+    "mtime": 1779311822.2968872,
+    "ast_hash": "add0d3d24aad4500cc5b9c926342b19b",
+    "semantic_hash": "add0d3d24aad4500cc5b9c926342b19b"
+  },
+  "src/routes/person/quotes.json": {
+    "mtime": 1779311822.2969716,
+    "ast_hash": "a2d3f53e09f63180144b6f24d72fbdae",
+    "semantic_hash": "a2d3f53e09f63180144b6f24d72fbdae"
+  },
+  "src/routes/person/roles_list.svelte": {
+    "mtime": 1780798582.3236148,
+    "ast_hash": "23525b30c2f06de01f68f065557585a9",
+    "semantic_hash": "23525b30c2f06de01f68f065557585a9"
+  },
+  "src/routes/person/social_row.svelte": {
+    "mtime": 1780798607.760207,
+    "ast_hash": "f928ce649051deb308795a165e2e2120",
+    "semantic_hash": "f928ce649051deb308795a165e2e2120"
+  },
+  "src/routes/person/timeline.svelte": {
+    "mtime": 1780798575.0787363,
+    "ast_hash": "ea964ec9f7ce4a762f579c87ffc2905a",
+    "semantic_hash": "ea964ec9f7ce4a762f579c87ffc2905a"
+  },
+  "src/routes/person/works.json": {
+    "mtime": 1782396644.504707,
+    "ast_hash": "e707ed80806ae9cd6f072f09e6dce46c",
+    "semantic_hash": "e707ed80806ae9cd6f072f09e6dce46c"
+  },
+  "src/routes/person/works_grid.svelte": {
+    "mtime": 1780799971.6046607,
+    "ast_hash": "7060d7d22001da04b7ac1c8d038c0d83",
+    "semantic_hash": "7060d7d22001da04b7ac1c8d038c0d83"
+  },
+  "src/routes/projects/+page.svelte": {
+    "mtime": 1779311822.297081,
+    "ast_hash": "47c00ae2d6f77f39197fe650066258c1",
+    "semantic_hash": "47c00ae2d6f77f39197fe650066258c1"
+  },
+  "src/routes/projects/+page.ts": {
+    "mtime": 1779311822.297134,
+    "ast_hash": "d278b6da19ac358883a0d9034520f719",
+    "semantic_hash": "d278b6da19ac358883a0d9034520f719"
+  },
+  "src/routes/projects/project.svelte": {
+    "mtime": 1780798382.2749546,
+    "ast_hash": "fd34a28d673040600e0ace285e5f3796",
+    "semantic_hash": "fd34a28d673040600e0ace285e5f3796"
+  },
+  "src/routes/projects/project_card.svelte": {
+    "mtime": 1780971363.7342284,
+    "ast_hash": "eceaada4564c2bdecf253f24d440359f",
+    "semantic_hash": "eceaada4564c2bdecf253f24d440359f"
+  },
+  "src/routes/projects/project_modal.svelte": {
+    "mtime": 1780798373.0565236,
+    "ast_hash": "bd7743fc5422bcf6e9a14930fbdf4d0f",
+    "semantic_hash": "bd7743fc5422bcf6e9a14930fbdf4d0f"
+  },
+  "src/routes/rss.xml/+server.ts": {
+    "mtime": 1779311822.2973053,
+    "ast_hash": "ae7a697d25946a467accb85f56242830",
+    "semantic_hash": "ae7a697d25946a467accb85f56242830"
+  },
+  "src/routes/skills/+page.svelte": {
+    "mtime": 1780798431.0121431,
+    "ast_hash": "f2c6afd09f870c2e35c349b15fdabf5d",
+    "semantic_hash": "f2c6afd09f870c2e35c349b15fdabf5d"
+  },
+  "src/routes/skills/analytics.json": {
+    "mtime": 1779311822.2974646,
+    "ast_hash": "77f734304aeaa16ad7994d8abb6d8b56",
+    "semantic_hash": "77f734304aeaa16ad7994d8abb6d8b56"
+  },
+  "src/routes/skills/api.json": {
+    "mtime": 1779311822.2975173,
+    "ast_hash": "19d9ed5dbd4f368b295849b318e1ae8d",
+    "semantic_hash": "19d9ed5dbd4f368b295849b318e1ae8d"
+  },
+  "src/routes/skills/creative.json": {
+    "mtime": 1779311822.2975783,
+    "ast_hash": "5105b42738d487452647881a8ae4945e",
+    "semantic_hash": "5105b42738d487452647881a8ae4945e"
+  },
+  "src/routes/skills/database.json": {
+    "mtime": 1779311822.2976398,
+    "ast_hash": "acfa09afaf75d0717b731e28bdbb27f3",
+    "semantic_hash": "acfa09afaf75d0717b731e28bdbb27f3"
+  },
+  "src/routes/skills/datasci.json": {
+    "mtime": 1779311822.2976668,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "src/routes/skills/gamedev.json": {
+    "mtime": 1779311822.2977333,
+    "ast_hash": "d4744db091985ebf77429d787d050f15",
+    "semantic_hash": "d4744db091985ebf77429d787d050f15"
+  },
+  "src/routes/skills/instrument.json": {
+    "mtime": 1779311822.2977896,
+    "ast_hash": "81efc29f9d7f4f8f2b75e0d812be306d",
+    "semantic_hash": "81efc29f9d7f4f8f2b75e0d812be306d"
+  },
+  "src/routes/skills/language.json": {
+    "mtime": 1779353505.6501083,
+    "ast_hash": "6932010b49f77712371ead4d2c546787",
+    "semantic_hash": "6932010b49f77712371ead4d2c546787"
+  },
+  "src/routes/skills/languages.json": {
+    "mtime": 1779311822.2978957,
+    "ast_hash": "496c73c381738d185ffbf3bba82d3746",
+    "semantic_hash": "496c73c381738d185ffbf3bba82d3746"
+  },
+  "src/routes/skills/os.json": {
+    "mtime": 1779311822.2979462,
+    "ast_hash": "88aea54ac7ca1693a9d01a1601ba0585",
+    "semantic_hash": "88aea54ac7ca1693a9d01a1601ba0585"
+  },
+  "src/routes/skills/server.json": {
+    "mtime": 1779311822.2979913,
+    "ast_hash": "1a66ddcf78bebf83df27cb7caa5d603c",
+    "semantic_hash": "1a66ddcf78bebf83df27cb7caa5d603c"
+  },
+  "src/routes/skills/skill_card.svelte": {
+    "mtime": 1780798334.1489093,
+    "ast_hash": "7e0eaeef027c008f3a03c6b90adb6e84",
+    "semantic_hash": "7e0eaeef027c008f3a03c6b90adb6e84"
+  },
+  "src/routes/skills/skills_grid.svelte": {
+    "mtime": 1780798427.8045437,
+    "ast_hash": "8cfa9b7114e06950a806556bafbffcc3",
+    "semantic_hash": "8cfa9b7114e06950a806556bafbffcc3"
+  },
+  "src/routes/skills/tab_nav.svelte": {
+    "mtime": 1780798347.1480567,
+    "ast_hash": "4e8dcf2b5436722fff6acf44affb7673",
+    "semantic_hash": "4e8dcf2b5436722fff6acf44affb7673"
+  },
+  "src/routes/skills/web.json": {
+    "mtime": 1779311822.298048,
+    "ast_hash": "416a110b26d043b048b15033eb47916b",
+    "semantic_hash": "416a110b26d043b048b15033eb47916b"
+  },
+  "src/routes/typed_hero.svelte": {
+    "mtime": 1781099399.5546672,
+    "ast_hash": "063da86e633c1c0ff16900e88761737e",
+    "semantic_hash": "063da86e633c1c0ff16900e88761737e"
+  },
+  "src/routes/upcoming_event.svelte": {
+    "mtime": 1780971238.4266534,
+    "ast_hash": "ff565396d4793f2c59baae15b4dbd335",
+    "semantic_hash": "ff565396d4793f2c59baae15b4dbd335"
+  },
+  "svelte.config.js": {
+    "mtime": 1779311822.3020806,
+    "ast_hash": "cf3a88aa7a943a8e8a48d93a2f040b73",
+    "semantic_hash": "cf3a88aa7a943a8e8a48d93a2f040b73"
+  },
+  "tsconfig.json": {
+    "mtime": 1779311822.3023071,
+    "ast_hash": "04e32cc5687925b64f17097b42c56b90",
+    "semantic_hash": "04e32cc5687925b64f17097b42c56b90"
+  },
+  "vite.config.ts": {
+    "mtime": 1779311822.3024704,
+    "ast_hash": "8da1c52840b11069f010de6197bd6e52",
+    "semantic_hash": "8da1c52840b11069f010de6197bd6e52"
+  },
+  "CLAUDE.md": {
+    "mtime": 1779311822.2781336,
+    "ast_hash": "07ab346f858814f7bb08b00387460aff",
+    "semantic_hash": "07ab346f858814f7bb08b00387460aff"
+  },
+  "README.md": {
+    "mtime": 1779311822.278339,
+    "ast_hash": "dfd05fa5033ca1a0b98dc60de1e13196",
+    "semantic_hash": "dfd05fa5033ca1a0b98dc60de1e13196"
+  },
+  "scripts/CLAUDE.md": {
+    "mtime": 1779311822.279814,
+    "ast_hash": "ed5875a2784044595423199c21c17eb4",
+    "semantic_hash": "ed5875a2784044595423199c21c17eb4"
+  },
+  "src/CLAUDE.md": {
+    "mtime": 1780797923.5640008,
+    "ast_hash": "552fa78e9cd5eaba4970825de7a191ce",
+    "semantic_hash": "552fa78e9cd5eaba4970825de7a191ce"
+  },
+  "src/app.html": {
+    "mtime": 1780970995.2590349,
+    "ast_hash": "0c8b50afe155bdb9b058a4b58d77b5a8",
+    "semantic_hash": "0c8b50afe155bdb9b058a4b58d77b5a8"
+  },
+  "src/lib/CLAUDE.md": {
+    "mtime": 1780799501.484506,
+    "ast_hash": "370b1ef061445b1b2f0e9058762644aa",
+    "semantic_hash": "370b1ef061445b1b2f0e9058762644aa"
+  },
+  "src/lib/components/CLAUDE.md": {
+    "mtime": 1780799484.6477506,
+    "ast_hash": "e512337101991e8b8be91ac8dc9166e8",
+    "semantic_hash": "e512337101991e8b8be91ac8dc9166e8"
+  },
+  "src/lib/components/blog/CLAUDE.md": {
+    "mtime": 1779311822.281127,
+    "ast_hash": "4148dd2881036dd75267d34bed08c11e",
+    "semantic_hash": "4148dd2881036dd75267d34bed08c11e"
+  },
+  "src/lib/components/ui/CLAUDE.md": {
+    "mtime": 1780799867.001787,
+    "ast_hash": "e184782b4befc585eb4aa5ee829c0e15",
+    "semantic_hash": "e184782b4befc585eb4aa5ee829c0e15"
+  },
+  "src/lib/services/CLAUDE.md": {
+    "mtime": 1779311822.2832496,
+    "ast_hash": "ddc2d28ad3c01b1c0c42c3509d2f77f2",
+    "semantic_hash": "ddc2d28ad3c01b1c0c42c3509d2f77f2"
+  },
+  "src/routes/CLAUDE.md": {
+    "mtime": 1779311822.2847748,
+    "ast_hash": "513bbb06e5b475087a77b1c35a007b17",
+    "semantic_hash": "513bbb06e5b475087a77b1c35a007b17"
+  },
+  "src/routes/blog/posts/20 Linen = 1 Coat.md": {
+    "mtime": 1781692498.3664076,
+    "ast_hash": "b4f6fa0d2a9e76721e92331ff8b2e7dc",
+    "semantic_hash": "b4f6fa0d2a9e76721e92331ff8b2e7dc"
+  },
+  "src/routes/blog/posts/Bondsman.md": {
+    "mtime": 1781692498.3667064,
+    "ast_hash": "4cc3ffcf35d1f7ef81ef2c7e03203aa3",
+    "semantic_hash": "4cc3ffcf35d1f7ef81ef2c7e03203aa3"
+  },
+  "src/routes/blog/posts/Critque of the Philosophy of Right.md": {
+    "mtime": 1781692498.3669355,
+    "ast_hash": "f13c379d1fb562428f9b21c2eae2f601",
+    "semantic_hash": "f13c379d1fb562428f9b21c2eae2f601"
+  },
+  "src/routes/blog/posts/Crypto Based KYC.md": {
+    "mtime": 1781692498.3674343,
+    "ast_hash": "c436de507c0b95455af5d462f32f1eec",
+    "semantic_hash": "c436de507c0b95455af5d462f32f1eec"
+  },
+  "src/routes/blog/posts/Cultural Terroist.md": {
+    "mtime": 1781692498.3676724,
+    "ast_hash": "ae95fb52f963826fd60dde09d31de711",
+    "semantic_hash": "ae95fb52f963826fd60dde09d31de711"
+  },
+  "src/routes/blog/posts/Divine Will and the Dance of Being.md": {
+    "mtime": 1781692498.3679523,
+    "ast_hash": "e188507066503caf24e668c5dcf4b477",
+    "semantic_hash": "e188507066503caf24e668c5dcf4b477"
+  },
+  "src/routes/blog/posts/Do Robots Deserve Rights.md": {
+    "mtime": 1781692498.3681846,
+    "ast_hash": "2ea9bece285d949cc4ba7c42c1595eac",
+    "semantic_hash": "2ea9bece285d949cc4ba7c42c1595eac"
+  },
+  "src/routes/blog/posts/Echo in the machine.md": {
+    "mtime": 1781692498.3692322,
+    "ast_hash": "f1017ac95e17d6d07436b648de942d14",
+    "semantic_hash": "f1017ac95e17d6d07436b648de942d14"
+  },
+  "src/routes/blog/posts/Ethic of Spectacular Cynicism.md": {
+    "mtime": 1781692498.369491,
+    "ast_hash": "ed3612d69c1a0ca3dfc6db4f0a3559c3",
+    "semantic_hash": "ed3612d69c1a0ca3dfc6db4f0a3559c3"
+  },
+  "src/routes/blog/posts/Ethical Investing.md": {
+    "mtime": 1781692498.3697066,
+    "ast_hash": "fa555e3e5e97989a1654924be3b8c361",
+    "semantic_hash": "fa555e3e5e97989a1654924be3b8c361"
+  },
+  "src/routes/blog/posts/Freedom as a theory of value.md": {
+    "mtime": 1781692498.369922,
+    "ast_hash": "e232c3093dc281bff9586657aeb0ec72",
+    "semantic_hash": "e232c3093dc281bff9586657aeb0ec72"
+  },
+  "src/routes/blog/posts/God or Nature is not politcaly Productive.md": {
+    "mtime": 1781692498.3701565,
+    "ast_hash": "357d04dadbbbad544d4f7b0225daa3ed",
+    "semantic_hash": "357d04dadbbbad544d4f7b0225daa3ed"
+  },
+  "src/routes/blog/posts/Gooning through desire.md": {
+    "mtime": 1781692498.3703194,
+    "ast_hash": "d6e27c73906090344f4d033fd3db3a30",
+    "semantic_hash": "d6e27c73906090344f4d033fd3db3a30"
+  },
+  "src/routes/blog/posts/Hetronormativity in asian cinema.md": {
+    "mtime": 1781692498.370553,
+    "ast_hash": "e80d4d08340b900669110290f2fe770a",
+    "semantic_hash": "e80d4d08340b900669110290f2fe770a"
+  },
+  "src/routes/blog/posts/How did thinkers die.md": {
+    "mtime": 1781692498.3709254,
+    "ast_hash": "4f1031fa2aad37579d5224ff267d280f",
+    "semantic_hash": "4f1031fa2aad37579d5224ff267d280f"
+  },
+  "src/routes/blog/posts/Hypersonic Effect on Cognition.md": {
+    "mtime": 1781692498.371104,
+    "ast_hash": "9311690d224ff317d4d2d868eb29581c",
+    "semantic_hash": "9311690d224ff317d4d2d868eb29581c"
+  },
+  "src/routes/blog/posts/Is a defenition of pitey needed to judge it.md": {
+    "mtime": 1781692498.371285,
+    "ast_hash": "c3e3b92e2a221fa2daad95aaaaba7e26",
+    "semantic_hash": "c3e3b92e2a221fa2daad95aaaaba7e26"
+  },
+  "src/routes/blog/posts/Kant was right.md": {
+    "mtime": 1781692498.371519,
+    "ast_hash": "7fdb0678715a59eb6bf77b6542c74079",
+    "semantic_hash": "7fdb0678715a59eb6bf77b6542c74079"
+  },
+  "src/routes/blog/posts/Life in Our Current Historical Moment.md": {
+    "mtime": 1781692498.371774,
+    "ast_hash": "dfe766a4ede0df828825639bc310eb6c",
+    "semantic_hash": "dfe766a4ede0df828825639bc310eb6c"
+  },
+  "src/routes/blog/posts/Linux is cool.md": {
+    "mtime": 1781692498.3720498,
+    "ast_hash": "9311c4b3c12f1c89105ea14080b0b4d7",
+    "semantic_hash": "9311c4b3c12f1c89105ea14080b0b4d7"
+  },
+  "src/routes/blog/posts/Make Evil Conscious Again.md": {
+    "mtime": 1781692498.3722668,
+    "ast_hash": "d3122645e1aa0a11b6b91b45cb12aa74",
+    "semantic_hash": "d3122645e1aa0a11b6b91b45cb12aa74"
+  },
+  "src/routes/blog/posts/Map of Phil.md": {
+    "mtime": 1781692498.3725243,
+    "ast_hash": "4000a055d3fde5a1a50d38dba0397829",
+    "semantic_hash": "4000a055d3fde5a1a50d38dba0397829"
+  },
+  "src/routes/blog/posts/Mapping CVEs Over Time.md": {
+    "mtime": 1781692498.3728237,
+    "ast_hash": "87f0f245c2c854d7aaca771f4bc2100b",
+    "semantic_hash": "87f0f245c2c854d7aaca771f4bc2100b"
+  },
+  "src/routes/blog/posts/Mass Produced Individualism.md": {
+    "mtime": 1781692498.3730268,
+    "ast_hash": "908165cd15f5051a240a5017d6d007c0",
+    "semantic_hash": "908165cd15f5051a240a5017d6d007c0"
+  },
+  "src/routes/blog/posts/Natrual Determinism.md": {
+    "mtime": 1781692498.3732042,
+    "ast_hash": "a523b37b8aba3c390ca4c93fd05c2bfb",
+    "semantic_hash": "a523b37b8aba3c390ca4c93fd05c2bfb"
+  },
+  "src/routes/blog/posts/Noctrunes.md": {
+    "mtime": 1781692498.3735867,
+    "ast_hash": "382aac020fbb492be92a48bf918c4b5a",
+    "semantic_hash": "382aac020fbb492be92a48bf918c4b5a"
+  },
+  "src/routes/blog/posts/On Bullshit.md": {
+    "mtime": 1781692498.3738973,
+    "ast_hash": "06bb898e5b23378fc167e1b07eba0354",
+    "semantic_hash": "06bb898e5b23378fc167e1b07eba0354"
+  },
+  "src/routes/blog/posts/On Separating the Art From the Artist and Ethical Anti-Theory.md": {
+    "mtime": 1781692498.3741248,
+    "ast_hash": "36bdf5516e9e3ceada375c379358a056",
+    "semantic_hash": "36bdf5516e9e3ceada375c379358a056"
+  },
+  "src/routes/blog/posts/Ontological Weight.md": {
+    "mtime": 1781692498.3744075,
+    "ast_hash": "b7e04ade895553c1541f557b5f565281",
+    "semantic_hash": "b7e04ade895553c1541f557b5f565281"
+  },
+  "src/routes/blog/posts/Revelation Must Be Defended.md": {
+    "mtime": 1781692498.374657,
+    "ast_hash": "804bc26048dcd414213225c898429e3d",
+    "semantic_hash": "804bc26048dcd414213225c898429e3d"
+  },
+  "src/routes/blog/posts/Review of Barnett's Tito.md": {
+    "mtime": 1781692498.3749924,
+    "ast_hash": "f542a6bfc31bc56422f2c76c99aee6a6",
+    "semantic_hash": "f542a6bfc31bc56422f2c76c99aee6a6"
+  },
+  "src/routes/blog/posts/Review of Bernays' Propaganda.md": {
+    "mtime": 1782041316.1471539,
+    "ast_hash": "fbcbc92ed021daddb24e4aa98d91d60e",
+    "semantic_hash": "fbcbc92ed021daddb24e4aa98d91d60e"
+  },
+  "src/routes/blog/posts/Review of Byung-Chul Han's Shanzhai.md": {
+    "mtime": 1782041645.2521794,
+    "ast_hash": "4d1682f8c44f9764e00e1c02265216a0",
+    "semantic_hash": "4d1682f8c44f9764e00e1c02265216a0"
+  },
+  "src/routes/blog/posts/Review of Christelow's Five Little Monkeys.md": {
+    "mtime": 1782041751.7155952,
+    "ast_hash": "04c96d7964eb9a17a7bc3eec0d2c70a7",
+    "semantic_hash": "04c96d7964eb9a17a7bc3eec0d2c70a7"
+  },
+  "src/routes/blog/posts/Review of King's Letter from Birmingham Jail.md": {
+    "mtime": 1782041145.4164433,
+    "ast_hash": "2f54e607630568afc9301d8049b4b161",
+    "semantic_hash": "2f54e607630568afc9301d8049b4b161"
+  },
+  "src/routes/blog/posts/Review of Moshfegh's My Year of Rest and Relaxation.md": {
+    "mtime": 1782041259.6523578,
+    "ast_hash": "222d50183a76a0295db9d9a8cb5fbeaa",
+    "semantic_hash": "222d50183a76a0295db9d9a8cb5fbeaa"
+  },
+  "src/routes/blog/posts/Review of Russell's History of Western Philosophy.md": {
+    "mtime": 1782041561.5444283,
+    "ast_hash": "4db4f0fda451e43218f427761dae58e1",
+    "semantic_hash": "4db4f0fda451e43218f427761dae58e1"
+  },
+  "src/routes/blog/posts/Review of Russell's In Praise of Idleness.md": {
+    "mtime": 1781692498.3770924,
+    "ast_hash": "5aad25ca8f7f4b1cb2ec82be70b170cc",
+    "semantic_hash": "5aad25ca8f7f4b1cb2ec82be70b170cc"
+  },
+  "src/routes/blog/posts/Review of Smith's Berkeley and the New Deal.md": {
+    "mtime": 1781692498.3773851,
+    "ast_hash": "dd0fa7a970b78f27ff5510c66bbfde42",
+    "semantic_hash": "dd0fa7a970b78f27ff5510c66bbfde42"
+  },
+  "src/routes/blog/posts/Review of Tolstoy's Anna Karenina.md": {
+    "mtime": 1782041470.888292,
+    "ast_hash": "0067947f82fb7a30a849ee4a53617a79",
+    "semantic_hash": "0067947f82fb7a30a849ee4a53617a79"
+  },
+  "src/routes/blog/posts/The Dangers of Science in Brave New World.md": {
+    "mtime": 1781692498.3777902,
+    "ast_hash": "35a3208b30d2a3a76766892033fb2c0e",
+    "semantic_hash": "35a3208b30d2a3a76766892033fb2c0e"
+  },
+  "src/routes/blog/posts/The Estranged Man.md": {
+    "mtime": 1781692498.3780277,
+    "ast_hash": "c1e94462359b57c614297dbc22912274",
+    "semantic_hash": "c1e94462359b57c614297dbc22912274"
+  },
+  "src/routes/blog/posts/The Ethic of Productivism.md": {
+    "mtime": 1781692498.3782454,
+    "ast_hash": "4f179d66372ecb4c13bc48839b4615f6",
+    "semantic_hash": "4f179d66372ecb4c13bc48839b4615f6"
+  },
+  "src/routes/blog/posts/The Impossibility of Eudaemonia.md": {
+    "mtime": 1781692498.3784587,
+    "ast_hash": "07bce4c9338d2a811cd6cb4e2cc779a7",
+    "semantic_hash": "07bce4c9338d2a811cd6cb4e2cc779a7"
+  },
+  "src/routes/blog/posts/The Issues with Empirical Analysis on Politicians.md": {
+    "mtime": 1781692498.3786318,
+    "ast_hash": "59d12a4bf7df38a5ea6d71b47a436691",
+    "semantic_hash": "59d12a4bf7df38a5ea6d71b47a436691"
+  },
+  "src/routes/blog/posts/This Blog's First Post.md": {
+    "mtime": 1781692498.3788116,
+    "ast_hash": "6254fcfdc7bf15360579b0816daedf3d",
+    "semantic_hash": "6254fcfdc7bf15360579b0816daedf3d"
+  },
+  "src/routes/blog/posts/Unfinished.md": {
+    "mtime": 1781692498.3790312,
+    "ast_hash": "cb6180ee4e98099535bd5e00e73cc9e1",
+    "semantic_hash": "cb6180ee4e98099535bd5e00e73cc9e1"
+  },
+  "src/routes/blog/posts/Variations on Maslow's Hierarchy of Needs.md": {
+    "mtime": 1781692498.3792257,
+    "ast_hash": "ab503984e0555d9420d71e3f2cddf61a",
+    "semantic_hash": "ab503984e0555d9420d71e3f2cddf61a"
+  },
+  "src/routes/blog/posts/Watsom and Frankfurt.md": {
+    "mtime": 1781692498.3794215,
+    "ast_hash": "5f8e4fea22512bfc54f7f74f412ac95b",
+    "semantic_hash": "5f8e4fea22512bfc54f7f74f412ac95b"
+  },
+  "src/routes/blog/posts/What did nick land see.md": {
+    "mtime": 1781692498.3798115,
+    "ast_hash": "11b5ddb448731c3ef4f6eb9fea12bd15",
+    "semantic_hash": "11b5ddb448731c3ef4f6eb9fea12bd15"
+  },
+  "src/routes/blog/posts/Why are we moral relativists.md": {
+    "mtime": 1781692498.3800702,
+    "ast_hash": "a1cd9945876096453e676e85840a2417",
+    "semantic_hash": "a1cd9945876096453e676e85840a2417"
+  },
+  "src/routes/blog/posts/Why do we watch sports.md": {
+    "mtime": 1781692498.3802483,
+    "ast_hash": "61176f211d7a67576d533ffd5287bb79",
+    "semantic_hash": "61176f211d7a67576d533ffd5287bb79"
+  },
+  "src/routes/blog/posts/Wikipedia for the taxonomy of knowledge.md": {
+    "mtime": 1781692498.3804796,
+    "ast_hash": "2e2341c6a542b5b91e559fabb613c8d0",
+    "semantic_hash": "2e2341c6a542b5b91e559fabb613c8d0"
+  },
+  "src/routes/blog/posts/leiho.md": {
+    "mtime": 1781692498.3811417,
+    "ast_hash": "c8bc75a1b40c596d9f9c8943d0063c89",
+    "semantic_hash": "c8bc75a1b40c596d9f9c8943d0063c89"
+  },
+  "src/routes/blog/posts/mechnaexdeus.md": {
+    "mtime": 1781692498.3813214,
+    "ast_hash": "32914d7d49e0165c9f332b6439ea8181",
+    "semantic_hash": "32914d7d49e0165c9f332b6439ea8181"
+  },
+  "src/routes/blog/posts/russojapwar.md": {
+    "mtime": 1781692498.3814657,
+    "ast_hash": "0fd1c9c08f4f2fd358d59e4bd6713847",
+    "semantic_hash": "0fd1c9c08f4f2fd358d59e4bd6713847"
+  },
+  "src/routes/blog/posts/spinoza.md": {
+    "mtime": 1781692498.381638,
+    "ast_hash": "a38d3a835b36414c9a4617ba1e924d74",
+    "semantic_hash": "a38d3a835b36414c9a4617ba1e924d74"
+  },
+  "src/routes/blog/posts/tok.md": {
+    "mtime": 1781692498.3818483,
+    "ast_hash": "d4ba1d7969e20a5a25dfd3eb93d3fe27",
+    "semantic_hash": "d4ba1d7969e20a5a25dfd3eb93d3fe27"
+  },
+  "src/routes/blog/posts/what-makes-sisyphus-happy.md": {
+    "mtime": 1781800624.115828,
+    "ast_hash": "fb4fbd4f7bcf9023936a5a21b0b5b8f1",
+    "semantic_hash": "fb4fbd4f7bcf9023936a5a21b0b5b8f1"
+  },
+  "src/routes/blog/posts/\u611f\u60c5\u5546\u54c1\u5316.md": {
+    "mtime": 1781692498.3823564,
+    "ast_hash": "cb62aa35ce7778b61ae33ff30f01459f",
+    "semantic_hash": "cb62aa35ce7778b61ae33ff30f01459f"
+  },
+  "src/routes/blog/posts/\u611f\u60c5\u5546\u54c1\u5316\u662f\u4ec0\u9ebc(en).md": {
+    "mtime": 1781692498.3825073,
+    "ast_hash": "e90056b1667524553cf3666c8ed3dc78",
+    "semantic_hash": "e90056b1667524553cf3666c8ed3dc78"
+  },
+  "src/routes/blog/posts/\u611f\u60c5\u5546\u54c1\u5316\u7b80\u5316\u7248.md": {
+    "mtime": 1781692498.382665,
+    "ast_hash": "0f8d07dc1a47b05def2ab0f046ad1ca1",
+    "semantic_hash": "0f8d07dc1a47b05def2ab0f046ad1ca1"
+  },
+  "src/styles/CLAUDE.md": {
+    "mtime": 1779311822.2981408,
+    "ast_hash": "c994d9626d68041896953a4b0ca7e669",
+    "semantic_hash": "c994d9626d68041896953a4b0ca7e669"
+  },
+  "static/CLAUDE.md": {
+    "mtime": 1779311822.299213,
+    "ast_hash": "6377e3ddf09d95f7cd08b668283331ed",
+    "semantic_hash": "6377e3ddf09d95f7cd08b668283331ed"
+  },
+  "static/other/Stephen Okita Resume 2024.pdf": {
+    "mtime": 1779311822.3013413,
+    "ast_hash": "2af89b72725e15ea6411c992636e10c7",
+    "semantic_hash": "2af89b72725e15ea6411c992636e10c7"
+  },
+  "static/other/Stephen Okita Resume 2026-1.pdf": {
+    "mtime": 1779114687.8686724,
+    "ast_hash": "f3d3cc8ce5bbfd3308cdbf6c28023ec5",
+    "semantic_hash": "f3d3cc8ce5bbfd3308cdbf6c28023ec5"
+  },
+  "static/other/Stephen_Activites_Resume.pdf": {
+    "mtime": 1779311822.3018205,
+    "ast_hash": "b011549a1d9fe39928c152151c37c8ac",
+    "semantic_hash": "b011549a1d9fe39928c152151c37c8ac"
+  },
+  "src/routes/blog/being.jpg": {
+    "mtime": 1779311822.287602,
+    "ast_hash": "4e2897b9dbf0acbb85d005dc9df61d12",
+    "semantic_hash": "4e2897b9dbf0acbb85d005dc9df61d12"
+  },
+  "src/routes/person/imgs/Caspar_David_Friedrich\u2019s_Wanderer_above_the_Sea_of_Fog_with_a_sea_of_buildings.png": {
+    "mtime": 1779311822.2950976,
+    "ast_hash": "98ffddcb6b72e85b14ff814832ed7ca5",
+    "semantic_hash": "98ffddcb6b72e85b14ff814832ed7ca5"
+  },
+  "src/routes/person/imgs/me&kim.jpg": {
+    "mtime": 1779311822.2957878,
+    "ast_hash": "c8d3dc37222dfe70f0302f5b349a4215",
+    "semantic_hash": "c8d3dc37222dfe70f0302f5b349a4215"
+  },
+  "static/favicon.png": {
+    "mtime": 1779311822.2993515,
+    "ast_hash": "3a387408ecc6cc283f724b39ca5fffb4",
+    "semantic_hash": "3a387408ecc6cc283f724b39ca5fffb4"
+  },
+  "static/images/being.jpg": {
+    "mtime": 1779311822.2995818,
+    "ast_hash": "4e2897b9dbf0acbb85d005dc9df61d12",
+    "semantic_hash": "4e2897b9dbf0acbb85d005dc9df61d12"
+  },
+  "static/images/me&kim.jpg": {
+    "mtime": 1779311822.2999291,
+    "ast_hash": "c8d3dc37222dfe70f0302f5b349a4215",
+    "semantic_hash": "c8d3dc37222dfe70f0302f5b349a4215"
+  },
+  "static/images/sillyhat.jpg": {
+    "mtime": 1779311822.3004773,
+    "ast_hash": "a70ba69afd29fc9778c2ab620adcb4f6",
+    "semantic_hash": "a70ba69afd29fc9778c2ab620adcb4f6"
+  }
+}

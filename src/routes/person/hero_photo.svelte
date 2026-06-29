@@ -23,7 +23,7 @@
     aria-label="Photo of Stephen. Click for a surprise!"
     aria-pressed={showEasterEgg}
   >
-    <img {src} alt="" class="photo" aria-hidden="true" />
+    <img {src} alt="" class="photo" width="160" height="160" decoding="async" aria-hidden="true" />
     {#if showEasterEgg}
       <span class="easter-egg">You found the easter egg!</span>
     {/if}

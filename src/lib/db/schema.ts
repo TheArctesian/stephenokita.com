@@ -188,6 +188,9 @@ export const blogAnalytics = pgTable('blog_analytics', {
   postSlug: text('post_slug').notNull().unique(),
   viewCount: integer('view_count').default(0).notNull(),
   uniqueVisitors: integer('unique_visitors').default(0).notNull(),
+  // Cached reading time (minutes) so the posts list never has to render
+  // every post just to estimate it. Populated lazily on first request.
+  readingTime: integer('reading_time'),
   lastViewed: timestamp('last_viewed').defaultNow(),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow()

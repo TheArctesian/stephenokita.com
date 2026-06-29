@@ -7,6 +7,7 @@
    */
   import Icon from "@iconify/svelte";
   import { getSocialIcon } from "$lib/utils/icons";
+  import LazyImage from "$lib/components/ui/lazy_image.svelte";
   import type { ResolvedCategory } from "./+page.server";
 
   export let category: ResolvedCategory;
@@ -32,11 +33,10 @@
       >
         <div class="work-cover-wrap">
           {#if item.cover}
-            <img
+            <LazyImage
               src={item.cover}
               alt=""
-              class="work-cover"
-              loading="lazy"
+              imgClass="work-cover"
               referrerpolicy="no-referrer"
             />
           {:else}
