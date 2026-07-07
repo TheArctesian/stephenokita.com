@@ -1,5 +1,11 @@
 <script lang="ts">
   import "../../app.css";
+  import { t } from "$lib/i18n";
+  import { locale, type LocaleCode } from "$lib/stores/locale";
+  import {
+    localizeProjectTitle,
+    localizeProjectDescription,
+  } from "$lib/i18n/data/projects";
   import Project from "./project.svelte";
   import ProjectsSkeleton from "./projects_skeleton.svelte";
   import type { PageData } from "./$types";
@@ -14,14 +20,18 @@
     return isNaN(d.getTime()) ? undefined : d.toISOString().split("T")[0];
   }
 
-  function convertProjectsToComponentFormat(projects: any[]) {
+  function convertProjectsToComponentFormat(projects: any[], loc: LocaleCode) {
     return projects.map((project) => ({
-      name: project.title,
+      name: localizeProjectTitle(project.id, project.title, loc),
       role:
         project.longDescription !== project.description
           ? project.longDescription
           : undefined,
-      description: project.description || "",
+      description: localizeProjectDescription(
+        project.id,
+        project.description || "",
+        loc,
+      ),
       link: project.liveUrl || project.githubUrl || "",
       githubUrl: project.githubUrl,
       liveUrl: project.liveUrl,
@@ -36,62 +46,63 @@
 
   // Group the streamed projects into the four display buckets. Tolerates an
   // undefined list (e.g. an SSR prefetch that renders before data resolves).
-  function buildSections(projectsByCategory: any[] = []) {
+  function buildSections(projectsByCategory: any[] = [], loc: LocaleCode) {
     const inCategory = (...slugs: string[]) =>
       projectsByCategory.find((cat) => slugs.includes(cat.slug))?.projects || [];
 
     return {
       workData: convertProjectsToComponentFormat(
         inCategory("professional-work"),
+        loc,
       ),
       personalData: convertProjectsToComponentFormat(
         inCategory("personal", "personal-projects"),
+        loc,
       ),
       libsData: convertProjectsToComponentFormat(
         inCategory("libs", "libraries-tools"),
+        loc,
       ),
       schoolData: convertProjectsToComponentFormat(
         inCategory("school", "school-projects"),
+        loc,
       ),
     };
   }
 </script>
 
 <svelte:head>
-  <title>Projects - Stephen Okita</title>
-  <meta
-    name="description"
-    content="A collection of my professional work, personal projects, and open source contributions."
-  />
+  <title>{$t('projects.pageTitle')} - Stephen Okita</title>
+  <meta name="description" content={$t('projects.metaDescription')} />
 </svelte:head>
 
 <div class="page">
   <div class="out-of-date-banner">
-    Out of date — Oct 2025
+    {$t('projects.outOfDate')}
   </div>
 
   <header class="hero">
-    <h1>Projects</h1>
+    <h1>{$t('projects.heading')}</h1>
   </header>
 
   {#await data.deferred.projects}
     <ProjectsSkeleton />
   {:then resolved}
-    {@const s = buildSections(resolved?.projectsByCategory)}
+    {@const s = buildSections(resolved?.projectsByCategory, $locale)}
     {#if s.workData.length > 0}
-      <Project data={s.workData} name="Professional Work" />
+      <Project data={s.workData} name={$t('projects.section.professionalWork')} />
     {/if}
 
     {#if s.personalData.length > 0}
-      <Project data={s.personalData} name="Personal Projects" />
+      <Project data={s.personalData} name={$t('projects.section.personalProjects')} />
     {/if}
 
     {#if s.libsData.length > 0}
-      <Project data={s.libsData} name="Libraries & Tools" />
+      <Project data={s.libsData} name={$t('projects.section.librariesTools')} />
     {/if}
 
     {#if s.schoolData.length > 0}
-      <Project data={s.schoolData} name="School Projects" />
+      <Project data={s.schoolData} name={$t('projects.section.schoolProjects')} />
     {/if}
   {/await}
 </div>

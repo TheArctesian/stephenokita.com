@@ -9,6 +9,8 @@
    * for ingestion lag).
    */
   import { formatRelativeTime } from "$lib/utils/format";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
   import WatchCard from "./watch_card.svelte";
 
   export let distinctId: string | null;
@@ -64,34 +66,47 @@
 </script>
 
 {#if state === "loading"}
-  <p class="profile-note">Asking PostHog what it has on you&hellip;</p>
+  <p class="profile-note">{$t("meta.profile.loading")}</p>
 {:else if state === "unconfigured"}
   <p class="profile-note">
-    A read-only PostHog key isn&rsquo;t configured, so I can&rsquo;t query your
-    history back here &mdash; but everything above is still live.
+    {$t("meta.profile.unconfigured")}
   </p>
 {:else if state === "error"}
-  <p class="profile-note">Couldn&rsquo;t reach PostHog just now.</p>
+  <p class="profile-note">{$t("meta.profile.error")}</p>
 {:else if state === "ready" && stats}
   <div class="watch-grid">
-    <WatchCard key="Events on you" value={stats.totalEvents} note="recorded so far" />
-    <WatchCard key="Sessions" value={stats.sessionCount} note="visits PostHog has linked" />
+    <WatchCard
+      key={$t("meta.profile.events")}
+      value={stats.totalEvents}
+      note={$t("meta.profile.eventsNote")}
+    />
+    <WatchCard
+      key={$t("meta.profile.sessions")}
+      value={stats.sessionCount}
+      note={$t("meta.profile.sessionsNote")}
+    />
     {#if stats.firstSeen}
-      <WatchCard key="First seen" value={formatRelativeTime(stats.firstSeen)} />
+      <WatchCard
+        key={$t("meta.profile.firstSeen")}
+        value={formatRelativeTime(stats.firstSeen, $locale)}
+      />
     {/if}
     {#if stats.lastSeen}
-      <WatchCard key="Last seen" value={formatRelativeTime(stats.lastSeen)} />
+      <WatchCard
+        key={$t("meta.profile.lastSeen")}
+        value={formatRelativeTime(stats.lastSeen, $locale)}
+      />
     {/if}
   </div>
 
   {#if recent.length}
-    <p class="profile-subsection">Your most recent events, straight from PostHog:</p>
+    <p class="profile-subsection">{$t("meta.profile.recent")}</p>
     <div class="event-list">
       {#each recent as e}
         <div class="event-row">
           <code class="event-name">{e.event}</code>
           {#if e.url}<span class="event-path">{path(e.url)}</span>{/if}
-          <span class="event-time">{formatRelativeTime(e.timestamp)}</span>
+          <span class="event-time">{formatRelativeTime(e.timestamp, $locale)}</span>
         </div>
       {/each}
     </div>

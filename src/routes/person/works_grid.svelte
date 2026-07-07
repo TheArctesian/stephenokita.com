@@ -8,6 +8,7 @@
   import Icon from "@iconify/svelte";
   import { getSocialIcon } from "$lib/utils/icons";
   import LazyImage from "$lib/components/ui/lazy_image.svelte";
+  import { t } from "$lib/i18n";
   import type { ResolvedCategory } from "./+page.server";
 
   export let category: ResolvedCategory;
@@ -29,7 +30,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="work-card"
-        aria-label="{item.title} (opens in new tab)"
+        aria-label={`${item.title} ${$t("person.opensInNewTab")}`}
       >
         <div class="work-cover-wrap">
           {#if item.cover}

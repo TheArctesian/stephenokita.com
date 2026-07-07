@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { t } from "$lib/i18n";
+
   /**
    * The fingerprint reveal banner: the SHA-256 hash of the collected traits
    * plus the rendered canvas-fingerprint image. Purely presentational — the
@@ -10,16 +12,14 @@
 
 <div class="fp-banner">
   <div class="fp-banner-text">
-    <span class="fp-banner-label">Your fingerprint</span>
+    <span class="fp-banner-label">{$t("meta.fp.title")}</span>
     <code class="fp-hash">{hash}</code>
     <span class="fp-banner-note">
-      A hash of the traits below. No cookies, no login &mdash; this
-      combination alone is usually enough to recognise you across the
-      web.
+      {$t("meta.fp.blurb")}
     </span>
   </div>
   {#if canvasImage}
-    <img class="fp-canvas" src={canvasImage} alt="Canvas fingerprint render" />
+    <img class="fp-canvas" src={canvasImage} alt={$t("meta.fp.alt")} />
   {/if}
 </div>
 

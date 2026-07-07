@@ -6,6 +6,8 @@
    */
   import Card from "$lib/components/shared/card.svelte";
   import { formatDate } from "$lib/utils/dates";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
 
   export let kind: "post" | "project";
   export let href: string;
@@ -26,10 +28,10 @@
 <Card {href} {target} {rel} variant="border-left">
   <div class="card-top">
     {#if kind === "post"}
-      <span class="card-tag blog-tag">Latest Post</span>
-      <span class="card-date">{formatDate(date)}</span>
+      <span class="card-tag blog-tag">{$t("home.latestPost")}</span>
+      <span class="card-date">{formatDate(date, $locale)}</span>
     {:else}
-      <span class="card-tag project-tag">Latest Project</span>
+      <span class="card-tag project-tag">{$t("home.latestProject")}</span>
       {#if status}<span class="card-status">{status}</span>{/if}
     {/if}
   </div>

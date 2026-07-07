@@ -9,7 +9,9 @@
    * which can't emit events — we say so honestly instead).
    */
   import { onMount, onDestroy } from "svelte";
+  import { get } from "svelte/store";
   import { browser } from "$app/environment";
+  import { t } from "$lib/i18n";
 
   export let active: boolean;
 
@@ -47,7 +49,7 @@
   function push(name: string, props: Record<string, any> = {}) {
     const line: FeedLine = {
       id: seq++,
-      name: name || "(unnamed)",
+      name: name || get(t)("meta.feed.unnamed"),
       detail: describe(props),
       time: new Date().toLocaleTimeString(),
     };
@@ -94,15 +96,13 @@
 
 {#if !active}
   <p class="feed-stub">
-    PostHog is stubbed in local dev &mdash; deploy to see its real capture
-    stream here.
+    {$t("meta.feed.stub")}
   </p>
 {:else}
   <div class="feed" role="log" aria-live="polite">
     {#if lines.length === 0}
       <p class="feed-waiting">
-        Listening&hellip; move your mouse, click or scroll to make PostHog fire
-        an event.
+        {$t("meta.feed.waiting")}
       </p>
     {:else}
       {#each lines as line (line.id)}

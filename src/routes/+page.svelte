@@ -6,6 +6,12 @@
   import Skeleton from "$lib/components/ui/skeleton.svelte";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
+  import {
+    localizeProjectTitle,
+    localizeProjectDescription,
+  } from "$lib/i18n/data/projects";
 
   export let data;
 
@@ -26,10 +32,7 @@
 
 <svelte:head>
   <title>Stephen Daniel Okita</title>
-  <meta
-    name="description"
-    content="Stephen Daniel Okita — CTO & Co-founder at Auracare Health, Philosophy at UC Berkeley. Notes on software, security, and systems."
-  />
+  <meta name="description" content={$t("home.metaDescription")} />
 </svelte:head>
 
 <div class="page-shell">
@@ -38,7 +41,7 @@
   {#await data.streamed.upcoming}
     <section class="upcoming" aria-busy="true">
       <div class="upcoming-header">
-        <span class="upcoming-label">Where I'll be</span>
+        <span class="upcoming-label">{$t("home.whereIllBe")}</span>
         <Skeleton width="5rem" height="0.85rem" />
       </div>
       <ul class="upcoming-list">
@@ -55,8 +58,10 @@
     {#if upcoming && upcoming.length > 0}
       <section class="upcoming">
         <div class="upcoming-header">
-          <span class="upcoming-label">Where I'll be</span>
-          <span class="upcoming-count">{upcoming.length} upcoming</span>
+          <span class="upcoming-label">{$t("home.whereIllBe")}</span>
+          <span class="upcoming-count"
+            >{$t("home.upcomingCount", { count: upcoming.length })}</span
+          >
         </div>
         <ul class="upcoming-list">
           {#each upcoming.slice(0, upcomingVisible) as event, i (event.uid || event.start + event.summary)}
@@ -78,9 +83,11 @@
                 class="upcoming-more"
                 on:click={() => (upcomingVisible += UPCOMING_PAGE_SIZE)}
               >
-                Load more
+                {$t("home.loadMore")}
                 <span class="upcoming-more-meta"
-                  >({upcoming.length - upcomingVisible} remaining)</span
+                  >{$t("home.remaining", {
+                    count: upcoming.length - upcomingVisible,
+                  })}</span
                 >
               </button>
             {/if}
@@ -90,7 +97,7 @@
                 class="upcoming-more upcoming-less"
                 on:click={() => (upcomingVisible = UPCOMING_PAGE_SIZE)}
               >
-                Show less
+                {$t("home.showLess")}
               </button>
             {/if}
           </div>
@@ -118,8 +125,16 @@
           href={data.latestProject.github_url || "/projects"}
           target={data.latestProject.github_url ? "_blank" : undefined}
           rel={data.latestProject.github_url ? "noopener noreferrer" : undefined}
-          title={data.latestProject.title}
-          description={data.latestProject.description}
+          title={localizeProjectTitle(
+            data.latestProject.id,
+            data.latestProject.title,
+            $locale,
+          )}
+          description={localizeProjectDescription(
+            data.latestProject.id,
+            data.latestProject.description,
+            $locale,
+          )}
           status={data.latestProject.status}
           technologies={data.latestProject.technologies}
         />

@@ -6,6 +6,7 @@
    * a search is active. Selecting a tab fires `select`.
    */
   import { tick, createEventDispatcher } from "svelte";
+  import { t } from "$lib/i18n";
 
   type Category = { name: string; data: { text: string; img: string }[] };
 
@@ -38,7 +39,7 @@
 <div
   class="tabs flex flex-wrap gap-xs"
   role="tablist"
-  aria-label="Skill categories"
+  aria-label={$t('skills.tabsAria')}
   class:dimmed
   on:keydown={handleTabKeydown}
 >

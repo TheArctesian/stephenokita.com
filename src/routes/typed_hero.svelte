@@ -9,6 +9,8 @@
   import { onMount } from "svelte";
   import { formatRelative } from "$lib/utils/dates";
   import Skeleton from "$lib/components/ui/skeleton.svelte";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
 
   type Location = {
     district?: string;
@@ -92,10 +94,10 @@
         <p class="location">
           <span class="location-marker" aria-hidden="true"></span>
           <span class="location-text"
-            >In {#if loc.district}<span class="location-district"
-                >{loc.district}</span
+            >{$t("home.locationLine")} {#if loc.district}<span
+                class="location-district">{loc.district}</span
               >{/if}{#if loc.city}, {loc.city}{/if}{#if loc.country}, {loc.country}{/if}{#if loc.timestamp}
-              <span class="location-time">{formatRelative(loc.timestamp)}</span>
+              <span class="location-time">{formatRelative(loc.timestamp, $locale)}</span>
             {/if}</span
           >
         </p>
@@ -110,11 +112,11 @@
       rel="noopener noreferrer"
       class="role"
     >
-      <span class="role-position">CTO & Co-founder</span>
+      <span class="role-position">{$t("home.roleCtoCoFounder")}</span>
       <span class="role-at">Auracare Health</span>
     </a>
     <a href="/person" class="role">
-      <span class="role-position">Philosophy</span>
+      <span class="role-position">{$t("home.rolePhilosophy")}</span>
       <span class="role-at">UC Berkeley</span>
     </a>
   </div>

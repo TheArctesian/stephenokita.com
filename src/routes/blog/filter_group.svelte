@@ -11,6 +11,8 @@
   export let sortBy = "newest";
   export let allCategories: string[] = [];
   export let allLanguages: string[] = [];
+
+  import { t } from "$lib/i18n";
 </script>
 
 <div class="filters">
@@ -24,11 +26,11 @@
         d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
       />
     </svg>
-    <label for="blog-search" class="sr-only">Search blog posts</label>
+    <label for="blog-search" class="sr-only">{$t('blog.searchLabel')}</label>
     <input
       id="blog-search"
       type="text"
-      placeholder="Search posts..."
+      placeholder={$t('blog.searchPlaceholder')}
       bind:value={searchTerm}
     />
   </div>
@@ -43,9 +45,9 @@
         d="M7 7h.01M7 3h5a2 2 0 011.414.586l7 7a2 2 0 010 2.828l-5 5a2 2 0 01-2.828 0l-7-7A2 2 0 014 7V5a2 2 0 012-2z"
       />
     </svg>
-    <select bind:value={selectedCategory} aria-label="Filter by category">
+    <select bind:value={selectedCategory} aria-label={$t('blog.filterCategory')}>
       {#each allCategories as category}
-        <option value={category}>{category}</option>
+        <option value={category}>{category === "All" ? $t('blog.all') : category}</option>
       {/each}
     </select>
   </div>
@@ -60,9 +62,9 @@
         d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M3 12h18 M12 3a15 15 0 010 18 M12 3a15 15 0 000 18"
       />
     </svg>
-    <select bind:value={selectedLanguage} aria-label="Filter by language">
+    <select bind:value={selectedLanguage} aria-label={$t('blog.filterLanguage')}>
       {#each allLanguages as language}
-        <option value={language}>{language}</option>
+        <option value={language}>{language === "All" ? $t('blog.all') : language}</option>
       {/each}
     </select>
   </div>
@@ -77,9 +79,9 @@
         d="M3 7h12M3 12h8M3 17h4M17 7v10m0 0l-3-3m3 3l3-3"
       />
     </svg>
-    <select bind:value={sortBy} aria-label="Sort posts">
-      <option value="newest">Newest</option>
-      <option value="oldest">Oldest</option>
+    <select bind:value={sortBy} aria-label={$t('blog.sortLabel')}>
+      <option value="newest">{$t('blog.sortNewest')}</option>
+      <option value="oldest">{$t('blog.sortOldest')}</option>
     </select>
   </div>
 </div>

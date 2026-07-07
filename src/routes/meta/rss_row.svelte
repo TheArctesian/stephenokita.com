@@ -1,15 +1,25 @@
 <script lang="ts">
+  import { t } from "$lib/i18n";
+
   /**
    * The RSS feed URL with a copy-to-clipboard button. The button label
-   * reflects copy status ("Copy" → "Copied" / "Failed"), driven by the page.
+   * reflects copy status ("copied" / "failed" token), driven by the page;
+   * empty falls back to the "Copy" label.
    */
   export let copyStatus = "";
   export let onCopy: () => void;
+
+  $: label =
+    copyStatus === "copied"
+      ? $t("meta.copied")
+      : copyStatus === "failed"
+        ? $t("meta.failed")
+        : $t("meta.copy");
 </script>
 
 <div class="rss-row">
   <code class="rss-url">https://stephenokita.com/rss.xml</code>
-  <button class="rss-copy" on:click={onCopy}>{copyStatus || "Copy"}</button>
+  <button class="rss-copy" on:click={onCopy}>{label}</button>
 </div>
 
 <style>

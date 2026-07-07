@@ -1,5 +1,6 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
+  import { t } from "$lib/i18n";
 
   /**
    * The request-header inspector: the spotlight headers the browser sent and
@@ -13,7 +14,7 @@
   let showRawHeaders = false;
 </script>
 
-<p class="subsection">Headers your browser sent:</p>
+<p class="subsection">{$t("meta.headers.label")}</p>
 <div class="header-list">
   {#each spotlight as entry}
     <div class="header-row">
@@ -24,7 +25,9 @@
 </div>
 
 <button class="link-toggle" on:click={() => (showRawHeaders = !showRawHeaders)}>
-  {showRawHeaders ? "Hide" : "Show"} all {headerCount} raw headers
+  {showRawHeaders
+    ? $t("meta.headers.hide", { count: headerCount })
+    : $t("meta.headers.show", { count: headerCount })}
   <span class="chevron" class:open={showRawHeaders}>&darr;</span>
 </button>
 {#if showRawHeaders}

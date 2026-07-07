@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+  import type { LocaleCode } from "$lib/stores/locale";
+
   export type ProjectData = {
     name: string;
     description: string;
@@ -7,9 +9,11 @@
     date: string;
   };
 
-  export function formatDate(dateStr: string): string {
+  export function formatDate(dateStr: string, locale: LocaleCode = "en-GB"): string {
     const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", {
+    // English keeps the established en-US "Jun 2024" format; zh-* renders
+    // natively (2024年6月).
+    return date.toLocaleDateString(locale.startsWith("zh") ? locale : "en-US", {
       year: "numeric",
       month: "short",
     });
@@ -27,6 +31,8 @@
 
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
 
   export let project: ProjectData;
 
@@ -50,7 +56,7 @@
   on:keydown={(e) =>
     (e.key === "Enter" || e.key === " ") && (e.preventDefault(), open())}
   role="listitem"
-  aria-label="View details for {project.name}"
+  aria-label={$t('projects.card.viewDetails', { name: project.name })}
 >
   <div class="mb-sm flex items-center gap-sm">
     <span class="favicon-slot" aria-hidden="true">
@@ -87,7 +93,7 @@
     <span
       class="card-date shrink-0 whitespace-nowrap text-text-secondary"
     >
-      {formatDate(project.date)}
+      {formatDate(project.date, $locale)}
     </span>
   </div>
 </button>

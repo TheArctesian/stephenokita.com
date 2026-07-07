@@ -1,17 +1,37 @@
 <script lang="ts">
+  import { t } from "$lib/i18n";
+
   /**
    * The "how this site is built" key → value list. Static content; its own
    * border-bottom grid styling differs from the watch cards, so it stays a
    * small page-local component rather than the shared key-value grid.
    */
-  const items: { key: string; value: string }[] = [
-    { key: "Framework", value: "SvelteKit + TypeScript, SSR/SSG via MDSvex" },
-    { key: "Data", value: "Neon Postgres + Drizzle ORM" },
-    { key: "Styling", value: "Modular CSS tokens + Tailwind, Nord palette" },
-    { key: "Hosting", value: "Vercel edge, deployed from git" },
-    { key: "Analytics", value: "PostHog, Umami & Vercel — all free tier" },
-    { key: "Build", value: "Bun + Vite" },
-  ];
+  $: items = [
+    {
+      key: $t("meta.colophon.label.framework"),
+      value: $t("meta.colophon.value.framework"),
+    },
+    {
+      key: $t("meta.colophon.label.data"),
+      value: $t("meta.colophon.value.data"),
+    },
+    {
+      key: $t("meta.colophon.label.styling"),
+      value: $t("meta.colophon.value.styling"),
+    },
+    {
+      key: $t("meta.colophon.label.hosting"),
+      value: $t("meta.colophon.value.hosting"),
+    },
+    {
+      key: $t("meta.colophon.label.analytics"),
+      value: $t("meta.colophon.value.analytics"),
+    },
+    {
+      key: $t("meta.colophon.label.build"),
+      value: $t("meta.colophon.value.build"),
+    },
+  ] as { key: string; value: string }[];
 </script>
 
 <div class="colophon">

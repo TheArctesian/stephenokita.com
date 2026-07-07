@@ -10,6 +10,8 @@
   import TabNav from "./tab_nav.svelte";
   import SkillsGrid from "./skills_grid.svelte";
 
+  import { t } from "$lib/i18n";
+
   import web from "./web.json";
   import gamedev from "./gamedev.json";
   import api from "./api.json";
@@ -25,30 +27,30 @@
   let currentCategory = "languages";
   let searchQuery = "";
 
-  const categories: Record<
+  $: categories = {
+    languages: { name: $t('skills.cat.languages'), data: languages },
+    web: { name: $t('skills.cat.web'), data: web },
+    gamedev: { name: $t('skills.cat.gamedev'), data: gamedev },
+    api: { name: $t('skills.cat.api'), data: api },
+    server: { name: $t('skills.cat.server'), data: server },
+    database: { name: $t('skills.cat.database'), data: database },
+    creative: { name: $t('skills.cat.creative'), data: creative },
+    analytics: { name: $t('skills.cat.analytics'), data: analytics },
+    os: { name: $t('skills.cat.os'), data: os },
+  } as Record<
     string,
     { name: string; data: { text: string; img: string }[] }
-  > = {
-    languages: { name: "Programming Languages", data: languages },
-    web: { name: "Web Development", data: web },
-    gamedev: { name: "Game Development", data: gamedev },
-    api: { name: "API Technologies", data: api },
-    server: { name: "Server & Hosting", data: server },
-    database: { name: "Database Systems", data: database },
-    creative: { name: "Creative Tools", data: creative },
-    analytics: { name: "Analytics Tools", data: analytics },
-    os: { name: "Operating Systems", data: os },
-  };
+  >;
 
-  const environment = [
-    { label: "os", value: "NixOS + Hyprland" },
-    { label: "editor", value: "Neovim + Claude Code" },
-    { label: "terminal", value: "Ghostty + Zellij + Fish" },
-    { label: "frontend", value: "SvelteKit + TailwindCSS" },
-    { label: "backend", value: "Go Fiber / SvelteKit SSR / Python" },
-    { label: "database", value: "Neon / Qdrant" },
-    { label: "deploy", value: "Dokploy / Vercel" },
-    { label: "ai", value: "Ollama + LangChain / n8n" },
+  $: environment = [
+    { label: $t('skills.env.os'), value: "NixOS + Hyprland" },
+    { label: $t('skills.env.editor'), value: "Neovim + Claude Code" },
+    { label: $t('skills.env.terminal'), value: "Ghostty + Zellij + Fish" },
+    { label: $t('skills.env.frontend'), value: "SvelteKit + TailwindCSS" },
+    { label: $t('skills.env.backend'), value: "Go Fiber / SvelteKit SSR / Python" },
+    { label: $t('skills.env.database'), value: "Neon / Qdrant" },
+    { label: $t('skills.env.deploy'), value: "Dokploy / Vercel" },
+    { label: $t('skills.env.ai'), value: "Ollama + LangChain / n8n" },
   ];
 
   $: trimmedQuery = searchQuery.trim().toLowerCase();
@@ -62,27 +64,27 @@
 </script>
 
 <svelte:head>
-  <title>Skills - Stephen Daniel Okita</title>
-  <meta name="description" content="Technical skills and expertise" />
+  <title>{$t('skills.pageTitle')} - Stephen Daniel Okita</title>
+  <meta name="description" content={$t('skills.metaDescription')} />
 </svelte:head>
 
 <div class="page-shell">
   <Hero
-    title="Skills"
+    title={$t('skills.heading')}
     bordered={false}
-    subtitle="Full stack developer with 7+ years of experience. DevOps, self-hosting, game development, AI/ML, and systems administration. Fast learner across the computing spectrum."
+    subtitle={$t('skills.subtitle')}
   />
 
-  <Section label="Environment" bordered>
+  <Section label={$t('skills.environment')} bordered>
     <KeyValueGrid items={environment} minWidth={250} />
   </Section>
 
-  <Section label="Technical Skills" bordered>
+  <Section label={$t('skills.technicalSkills')} bordered>
     <div class="mb-md">
       <SearchInput
         id="skill-search"
-        label="Search skills"
-        placeholder="Search across all skills…"
+        label={$t('skills.searchLabel')}
+        placeholder={$t('skills.searchPlaceholder')}
         bind:value={searchQuery}
       />
     </div>
@@ -99,7 +101,7 @@
         <SkillsGrid skills={searchResults} results ariaLabel="Search results" />
       {:else}
         <p class="search-empty" aria-live="polite">
-          No skills match <span class="search-empty-q">"{searchQuery}"</span>
+          {$t('skills.noMatch', { query: `"${searchQuery}"` })}
         </p>
       {/if}
     {:else}
@@ -113,12 +115,12 @@
   <Section bordered>
     <div class="other-grid grid gap-xl">
       <div>
-        <h2 class="section-eyebrow">Instruments</h2>
+        <h2 class="section-eyebrow">{$t('skills.instruments')}</h2>
         <PillList items={instruments.map((i) => i.text)} />
       </div>
       <div>
-        <h2 class="section-eyebrow">Languages</h2>
-        <PillList ariaLabel="Spoken languages">
+        <h2 class="section-eyebrow">{$t('skills.languages')}</h2>
+        <PillList ariaLabel={$t('skills.spokenLanguagesAria')}>
           {#each spokenLanguages as lang}
             <span class="pattern-pill pill-tier-{lang.tier}">{lang.text}</span>
           {/each}
@@ -134,7 +136,7 @@
       rel="noopener noreferrer"
       class="resume-link"
     >
-      Resume (PDF) →
+      {$t('skills.resume')}
     </a>
   </Section>
 </div>

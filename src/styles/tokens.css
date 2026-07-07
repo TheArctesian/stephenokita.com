@@ -117,6 +117,20 @@
   --bp-desktop: 1200px;
 }
 
+/* === CJK TYPOGRAPHY === */
+/* When the locale store sets <html lang="zh-*">, append CJK families to the
+   mono stack. Latin glyphs still render in Fira Code (per-glyph fallback);
+   Chinese glyphs fall through to a good system CJK face instead of a tofu box. */
+:root[lang="zh-Hant"] {
+  --font-family-mono: "Fira Code", "Fira Code Fallback", "PingFang TC",
+    "Noto Sans CJK TC", "Microsoft JhengHei", "Heiti TC", sans-serif, monospace;
+}
+
+:root[lang="zh-Hans"] {
+  --font-family-mono: "Fira Code", "Fira Code Fallback", "PingFang SC",
+    "Noto Sans CJK SC", "Microsoft YaHei", "Heiti SC", sans-serif, monospace;
+}
+
 /* === RICE CONFIGURATIONS === */
 /* UNIX Philosophy: Each theme is a separate module that can be swapped */
 

@@ -5,8 +5,14 @@
    * "nothing here" message is needed. Provide an `icon` slot for a
    * custom SVG, otherwise a neutral default is shown.
    */
-  export let title = "Nothing here";
+  import { t } from "$lib/i18n";
+
+  export let title: string | undefined = undefined;
   export let description = "";
+
+  // Fall back to the localized default only when no title prop is supplied.
+  // Reactive so it tracks locale changes.
+  $: resolvedTitle = title ?? $t("shared.emptyTitle");
 </script>
 
 <div class="empty-state" role="status">
@@ -22,7 +28,7 @@
       </svg>
     </slot>
   </span>
-  <h2 class="empty-state__title">{title}</h2>
+  <h2 class="empty-state__title">{resolvedTitle}</h2>
   {#if description || $$slots.default}
     <p class="empty-state__description">
       <slot>{description}</slot>

@@ -6,6 +6,7 @@
    * and which signals give them away. Degrades to loading / empty / unconfigured.
    */
   import type { Neighbour, Rarity } from "$lib/utils/similarity";
+  import { t } from "$lib/i18n";
 
   export let distinctId: string | null;
 
@@ -56,27 +57,28 @@
 </script>
 
 {#if state === "loading"}
-  <p class="twin-note">Comparing you to everyone else who&rsquo;s visited&hellip;</p>
+  <p class="twin-note">{$t("meta.twin.loading")}</p>
 {:else if state === "unconfigured"}
   <p class="twin-note">
-    A read-only PostHog key isn&rsquo;t configured, so I can&rsquo;t line you up
-    against the crowd.
+    {$t("meta.twin.unconfigured")}
   </p>
 {:else if state === "empty"}
   <p class="twin-note">
-    PostHog hasn&rsquo;t logged enough about this visit yet to compare you.
+    {$t("meta.twin.empty")}
   </p>
 {:else if state === "ready" && rarity}
   <div class="twin-headline">
-    <span class="twin-rarity">1 in {fmtOneInN(rarity.oneInN)}</span>
+    <span class="twin-rarity">{$t("meta.twin.rarity", { n: fmtOneInN(rarity.oneInN) })}</span>
     <span class="twin-rarity-sub">
-      of the last {rarity.populationSize} visitors look like you
-      &mdash; about {rarity.bits.toFixed(1)} bits of identifying info.
+      {$t("meta.twin.raritySub", {
+        population: rarity.populationSize,
+        bits: rarity.bits.toFixed(1),
+      })}
     </span>
   </div>
 
   {#if neighbours.length}
-    <p class="twin-subsection">Who you&rsquo;re most like:</p>
+    <p class="twin-subsection">{$t("meta.twin.mostLike")}</p>
     <div class="twin-list">
       {#each neighbours as n}
         <div class="twin-row">
@@ -86,7 +88,10 @@
             {#if place(n)}<span class="twin-place">{place(n)}</span>{/if}
           </div>
           <span class="twin-matched">
-            {n.matched.length}/{rarity.breakdown.length} signals
+            {$t("meta.twin.signals", {
+              matched: n.matched.length,
+              total: rarity.breakdown.length,
+            })}
           </span>
         </div>
       {/each}
@@ -94,13 +99,14 @@
   {/if}
 
   {#if rarity.breakdown.length}
-    <p class="twin-subsection">What gives you away:</p>
+    <p class="twin-subsection">{$t("meta.twin.givesAway")}</p>
     <div class="twin-signals">
       {#each rarity.breakdown.slice(0, 4) as sig}
         <div class="sig-row">
           <span class="sig-count">{sig.sharedBy}/{rarity.populationSize}</span>
           <span class="sig-text">
-            share your {sig.label} <code>{sig.value}</code>
+            {$t("meta.twin.share", { label: sig.label })}
+            <code>{sig.value}</code>
           </span>
         </div>
       {/each}

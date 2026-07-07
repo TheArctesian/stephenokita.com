@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../../app.css";
+  import { t } from "$lib/i18n";
   import ProjectCard, { type ProjectData } from "./project_card.svelte";
   import ProjectModal from "./project_modal.svelte";
 
@@ -28,7 +29,7 @@
 
 <section class="mb-2xl">
   <h2 class="section-eyebrow">{name}</h2>
-  <div class="grid" role="list" aria-label="{name} projects">
+  <div class="grid" role="list" aria-label={$t('projects.ariaSection', { name })}>
     {#each sortedProjects as project}
       <ProjectCard {project} on:open={(e) => openModal(e.detail)} />
     {/each}

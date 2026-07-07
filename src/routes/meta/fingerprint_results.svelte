@@ -5,6 +5,7 @@
    * the `fp` object the page collects client-side; renders nothing extra for
    * traits the browser didn't expose.
    */
+  import { t } from "$lib/i18n";
   import WatchCard from "./watch_card.svelte";
 
   export let fp: any;
@@ -12,39 +13,51 @@
 
 <div class="watch-grid">
   <WatchCard
-    key="Screen"
+    key={$t("meta.fpr.screen")}
     value={`${fp.screen.width}×${fp.screen.height} @ ${fp.screen.pixelRatio}x`}
-    note={`${fp.screen.colorDepth}-bit colour`}
+    note={$t("meta.fpr.screenNote", { depth: fp.screen.colorDepth })}
   />
   <WatchCard
-    key="Viewport"
+    key={$t("meta.fpr.viewport")}
     value={`${fp.window.innerWidth}×${fp.window.innerHeight}`}
-    note="your current window size"
+    note={$t("meta.fpr.viewportNote")}
   />
-  <WatchCard key="CPU threads" value={fp.hardwareConcurrency ?? "?"}>
-    {fp.deviceMemory ? `${fp.deviceMemory} GB RAM class` : "logical cores"}
+  <WatchCard key={$t("meta.fpr.cpu")} value={fp.hardwareConcurrency ?? "?"}>
+    {fp.deviceMemory
+      ? $t("meta.fpr.ram", { gb: fp.deviceMemory })
+      : $t("meta.fpr.cores")}
   </WatchCard>
   {#if fp.gpu}
-    <WatchCard key="GPU" value={fp.gpu.renderer ?? fp.gpu.vendor} wide />
+    <WatchCard
+      key={$t("meta.fpr.gpu")}
+      value={fp.gpu.renderer ?? fp.gpu.vendor}
+      wide
+    />
   {/if}
   {#if fp.battery}
     <WatchCard
-      key="Battery"
-      value={`${fp.battery.level}% ${fp.battery.charging ? "(charging)" : ""}`}
+      key={$t("meta.fpr.battery")}
+      value={`${fp.battery.level}% ${fp.battery.charging ? $t("meta.fpr.charging") : ""}`}
     />
   {/if}
   {#if fp.connection}
-    <WatchCard key="Connection" value={fp.connection.effectiveType}>
-      ~{fp.connection.downlink} Mbps, {fp.connection.rtt}ms RTT
+    <WatchCard key={$t("meta.fpr.connection")} value={fp.connection.effectiveType}>
+      {$t("meta.fpr.connectionNote", {
+        downlink: fp.connection.downlink,
+        rtt: fp.connection.rtt,
+      })}
     </WatchCard>
   {/if}
-  <WatchCard key="Touch points" value={fp.maxTouchPoints} />
-  <WatchCard key="Do Not Track" value={fp.doNotTrack ?? "not set"} />
+  <WatchCard key={$t("meta.fpr.touch")} value={fp.maxTouchPoints} />
+  <WatchCard
+    key={$t("meta.fpr.dnt")}
+    value={fp.doNotTrack ?? $t("meta.fpr.dntUnset")}
+  />
 </div>
 
 {#if fp.fonts?.length}
   <p class="subsection">
-    Fonts detected on your system ({fp.fonts.length}):
+    {$t("meta.fpr.fonts", { count: fp.fonts.length })}
   </p>
   <div class="chip-row">
     {#each fp.fonts as font}
@@ -54,7 +67,7 @@
 {/if}
 
 {#if fp.audioFingerprint}
-  <p class="subsection">Audio-stack fingerprint</p>
+  <p class="subsection">{$t("meta.fpr.audio")}</p>
   <code class="mono-line">{fp.audioFingerprint}&hellip;</code>
 {/if}
 

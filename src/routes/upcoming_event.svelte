@@ -6,6 +6,8 @@
    */
   import { fade } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
   import {
     formatEventRange,
     eventCountdown,
@@ -33,17 +35,17 @@
   }}
   out:fade|local={{ duration: prefersReducedMotion ? 0 : 160 }}
 >
-  <span class="upcoming-when">{formatEventRange(event)}</span>
+  <span class="upcoming-when">{formatEventRange(event, $locale)}</span>
   <span class="upcoming-where">
     <span class="upcoming-summary">{event.summary}</span>
     {#if event.tentative}<span
         class="upcoming-tentative"
-        title="Tentative — may not be there">tentative</span
+        title={$t("home.tentativeTitle")}>{$t("home.tentative")}</span
       >{/if}
     {#if event.location}<span class="upcoming-location">· {event.location}</span
       >{/if}
   </span>
-  <span class="upcoming-countdown">{eventCountdown(event.start)}</span>
+  <span class="upcoming-countdown">{eventCountdown(event.start, $locale)}</span>
 </li>
 
 <style>

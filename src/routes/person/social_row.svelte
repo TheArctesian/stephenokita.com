@@ -5,6 +5,7 @@
    */
   import Icon from "@iconify/svelte";
   import { getSocialIcon } from "$lib/utils/icons";
+  import { t } from "$lib/i18n";
 
   export let links: { name: string; service: string; url: string }[] = [];
 </script>
@@ -16,7 +17,7 @@
       target="_blank"
       rel="noopener noreferrer"
       class="social-link"
-      aria-label="{link.name} (opens in new tab)"
+      aria-label={`${link.name} ${$t("person.opensInNewTab")}`}
     >
       <Icon
         icon={getSocialIcon(link.service)}

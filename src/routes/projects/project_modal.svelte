@@ -1,5 +1,7 @@
 <script lang="ts">
   import { fade, scale } from "svelte/transition";
+  import { t } from "$lib/i18n";
+  import { locale } from "$lib/stores/locale";
   import { getTechIcon } from "$lib/utils/icons";
   import Icon from "@iconify/svelte";
   import LazyImage from "$lib/components/ui/lazy_image.svelte";
@@ -70,7 +72,7 @@
     <button
       class="modal-close"
       on:click={close}
-      aria-label="Close project details"
+      aria-label={$t('projects.modal.close')}
     >
       <span aria-hidden="true">×</span>
     </button>
@@ -79,7 +81,7 @@
       <div class="modal-iframe">
         <iframe
           src={getEmbedUrl(project.link)}
-          title="Preview of {project.name}"
+          title={$t('projects.modal.preview', { name: project.name })}
           loading="lazy"
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
         ></iframe>
@@ -104,7 +106,7 @@
         <p class="modal-desc">{project.description}</p>
 
         <div class="modal-meta">
-          <span class="modal-date">{formatDate(project.date)}</span>
+          <span class="modal-date">{formatDate(project.date, $locale)}</span>
         </div>
 
         <div class="modal-tags">
@@ -126,7 +128,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Project →
+          {$t('projects.modal.viewProject')}
         </a>
       </div>
     </div>

@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import { fade } from "svelte/transition";
   import ThemeToggle from "./theme_toggle.svelte";
+  import LanguageToggle from "./language_toggle.svelte";
 
   let mobileMenuOpen = false;
 
@@ -44,7 +45,10 @@
         </a>
       {/each}
     </div>
-    <ThemeToggle />
+    <div class="nav-controls flex items-center gap-sm">
+      <LanguageToggle />
+      <ThemeToggle />
+    </div>
   </div>
 
   <!-- Mobile Navigation -->
@@ -75,7 +79,10 @@
         >{activeRoute?.label}</span
       >
     </div>
-    <ThemeToggle />
+    <div class="nav-controls flex items-center gap-sm">
+      <LanguageToggle />
+      <ThemeToggle />
+    </div>
   </div>
 
   <!-- Mobile Menu Dropdown -->

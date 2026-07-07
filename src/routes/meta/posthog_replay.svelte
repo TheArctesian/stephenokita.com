@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { t } from "$lib/i18n";
+
   /**
    * Makes the session-recording fact visceral: a pulsing REC pill and a
    * "watch your own recording" link when PostHog's session replay is rolling.
@@ -11,20 +13,19 @@
 {#if recording}
   <div class="rec">
     <span class="rec-pill">
-      <span class="rec-dot"></span>REC
+      <span class="rec-dot"></span>{$t("meta.replay.rec")}
     </span>
     <span class="rec-text">
-      Session replay is recording your screen right now &mdash; every mouse
-      move, scroll and click.
+      {$t("meta.replay.text")}
     </span>
     {#if replayUrl}
       <a class="rec-link" href={replayUrl} target="_blank" rel="noopener noreferrer">
-        watch your own recording &rarr;
+        {$t("meta.replay.link")}
       </a>
     {/if}
   </div>
 {:else}
-  <p class="rec-idle">Session replay isn&rsquo;t recording this visit.</p>
+  <p class="rec-idle">{$t("meta.replay.idle")}</p>
 {/if}
 
 <style>

@@ -1,16 +1,19 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
+  import { t } from "$lib/i18n";
 
+  // Icon links. `labelKey` (when present) resolves through i18n for the
+  // aria-label; brand names (LinkedIn/GitHub/Pixelfed/X) stay literal.
   const links = [
     {
       href: "mailto:me@stephenokita.com",
       icon: "mdi:email-outline",
-      label: "Email",
+      labelKey: "footer.email",
     },
     {
       href: "https://calendar.proton.me/bookings#PVqgFrFtZK25gLCOFvvVe5Sh3HWfK-_gSIWJLICwztU=",
       icon: "mdi:calendar-outline",
-      label: "Calendar",
+      labelKey: "footer.calendar",
       external: true,
     },
     {
@@ -46,7 +49,7 @@
       {#each links as link}
         <a
           href={link.href}
-          aria-label={link.label}
+          aria-label={link.labelKey ? $t(link.labelKey) : link.label}
           target={link.external ? "_blank" : undefined}
           rel={link.external ? "noopener noreferrer" : undefined}
         >
@@ -60,7 +63,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      source
+      {$t("footer.source")}
     </a>
   </div>
 </footer>

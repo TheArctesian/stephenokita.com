@@ -17,6 +17,7 @@
     import PosthogProfile from "./posthog_profile.svelte";
     import VisitorTwin from "./visitor_twin.svelte";
     import { collectFingerprint } from "./fingerprint";
+    import { t } from "$lib/i18n";
     import type { PageData } from "./$types";
 
     export let data: PageData;
@@ -173,62 +174,62 @@
             await navigator.clipboard.writeText(
                 "https://stephenokita.com/rss.xml",
             );
-            copyStatus = "Copied";
+            copyStatus = "copied";
             if (copyTimeout) clearTimeout(copyTimeout);
             copyTimeout = setTimeout(() => (copyStatus = ""), 2000);
         } catch {
-            copyStatus = "Failed";
+            copyStatus = "failed";
         }
     }
 </script>
 
 <svelte:head>
-    <title>Meta | Stephen Daniel Okita</title>
-    <meta
-        name="description"
-        content="How this site is built — and a live look at what it knows about you."
-    />
+    <title>{$t("meta.pageTitle")} | Stephen Daniel Okita</title>
+    <meta name="description" content={$t("meta.pageDescription")} />
 </svelte:head>
 
 <div class="page-shell">
-    <Hero title="Meta" subtitle="The colophon for this website." />
+    <Hero title={$t("meta.heroTitle")} subtitle={$t("meta.heroSubtitle")} />
 
     <!-- ── Colophon ────────────────────────────────────────────────── -->
-    <Section label="How this site is built">
+    <Section label={$t("meta.section.built")}>
         <Colophon />
     </Section>
 
     <!-- ── RSS ─────────────────────────────────────────────────────── -->
-    <Section label="RSS">
+    <Section label={$t("meta.section.rss")}>
         <RssRow {copyStatus} onCopy={copyRss} />
     </Section>
 
     <!-- ── What I already know ─────────────────────────────────────── -->
-    <Section label="What I already know about you">
+    <Section label={$t("meta.section.know")}>
         <div class="watch-grid">
             <WatchCard
-                key="IP address"
-                value={data.server.ip ?? "hidden"}
-                note="sent with every request"
+                key={$t("meta.card.ip")}
+                value={data.server.ip ?? $t("meta.card.ipHidden")}
+                note={$t("meta.card.ipNote")}
             />
 
-            <WatchCard key="Location" value={geoLine || "unresolved"}>
+            <WatchCard
+                key={$t("meta.card.location")}
+                value={geoLine || $t("meta.card.locationUnresolved")}
+            >
                 {#if data.server.hasGeo}
-                    resolved from your IP at the edge
+                    {$t("meta.card.locationResolved")}
                 {:else}
-                    (run this on the live site to see your city)
+                    {$t("meta.card.locationDev")}
                 {/if}
             </WatchCard>
 
             {#if g.timezone}
-                <WatchCard key="Timezone" value={g.timezone} />
+                <WatchCard key={$t("meta.card.timezone")} value={g.timezone} />
             {/if}
 
             {#if g.latitude && g.longitude}
                 <WatchCard
-                    key="Coordinates"
+                    key={$t("meta.card.coordinates")}
                     value={`${g.latitude}, ${g.longitude}`}
-                    note="city-level"
+                    note={$t("meta.card.coordinatesNote")}
                 />
             {/if}
         </div>
@@ -244,17 +245,17 @@
     </Section>
 
     <!-- ── Peel back: the deep fingerprint ─────────────────────────── -->
-    <Section label="And that’s just the front door">
+    <Section label={$t("meta.section.frontDoor")}>
         <p class="prose">
-            Everything above arrived with your very first request.
+            {$t("meta.frontDoor.blurb")}
         </p>
 
         {#if !revealed}
             <button class="reveal-btn" on:click={reveal}>
-                Show me what else I&rsquo;m leaking &rarr;
+                {$t("meta.frontDoor.revealBtn")}
             </button>
         {:else if collecting}
-            <p class="collecting">Reading your device&hellip;</p>
+            <p class="collecting">{$t("meta.frontDoor.collecting")}</p>
         {:else if fp}
             <div in:fade={{ duration: 300 }}>
                 <FingerprintBanner hash={fingerprintHash} {canvasImage} />
@@ -264,11 +265,11 @@
     </Section>
 
     <!-- ── Who else is watching ────────────────────────────────────── -->
-    <Section label="And I’m not the only one watching">
-        <span slot="meta" class="watching-meta">live, right now</span>
+    <Section label={$t("meta.section.watching")}>
+        <span slot="meta" class="watching-meta">{$t("meta.watching.live")}</span
+        >
         <p class="prose">
-            Three analytics tools run on this page. Here&rsquo;s what each one
-            sees:
+            {$t("meta.watching.blurb")}
         </p>
 
         <div class="tracker-list">
@@ -276,83 +277,79 @@
                 name="PostHog"
                 active={trackers.posthog.active}
                 state={trackers.posthog.active
-                    ? "tracking you"
-                    : "stubbed (local dev)"}
+                    ? $t("meta.tracker.posthog.tracking")
+                    : $t("meta.tracker.posthog.stubbed")}
                 ids={trackers.posthog.active ? posthogIds : []}
             >
-                Product analytics &mdash; events, funnels, and session data,
-                with a full person profile the moment anything identifies you{#if trackers.posthog.recording}
-                    <strong
-                        >&mdash; and session replay is recording your screen
-                        right now.</strong
-                    >
-                {:else}.{/if}
+                {#if trackers.posthog.recording}
+                    {@html $t("meta.tracker.posthog.descRecording")}
+                {:else}
+                    {@html $t("meta.tracker.posthog.desc")}
+                {/if}
             </TrackerItem>
 
             <TrackerItem
                 name="Umami"
                 active={trackers.umami}
-                state={trackers.umami ? "loaded" : "not detected"}
+                state={trackers.umami
+                    ? $t("meta.tracker.loaded")
+                    : $t("meta.tracker.notDetected")}
             >
-                Page analytics &mdash; pageviews, referrers, and device class,
-                no cookies.
+                {$t("meta.tracker.umami.desc")}
             </TrackerItem>
 
             <TrackerItem
                 name="Vercel Analytics + Speed Insights"
                 active={trackers.vercel}
-                state={trackers.vercel ? "loaded" : "not detected"}
+                state={trackers.vercel
+                    ? $t("meta.tracker.loaded")
+                    : $t("meta.tracker.notDetected")}
             >
-                Traffic and Core Web Vitals, measured per visit.
+                {$t("meta.tracker.vercel.desc")}
             </TrackerItem>
         </div>
 
         <!-- ── PostHog, up close ─────────────────────────────────── -->
         <div class="posthog-closeup">
-            <h3 class="closeup-title">PostHog, up close</h3>
+            <h3 class="closeup-title">{$t("meta.closeup.title")}</h3>
 
             <PosthogReplay
                 recording={trackers.posthog.recording}
                 replayUrl={trackers.posthog.replayUrl}
             />
 
-            <p class="closeup-label">Its live capture stream</p>
+            <p class="closeup-label">{$t("meta.closeup.stream")}</p>
             <PosthogFeed active={trackers.posthog.active} />
 
-            <p class="closeup-label">Teach it to recognise you</p>
+            <p class="closeup-label">{$t("meta.closeup.teach")}</p>
             {#if !fp}
                 <p class="closeup-hint">
-                    Reveal your fingerprint above first &mdash; then you can hand
-                    it to PostHog.
+                    {$t("meta.closeup.needFingerprint")}
                 </p>
             {:else if !trackers.posthog.active}
                 <p class="closeup-hint">
-                    PostHog is stubbed in local dev &mdash; this works on the
-                    live site.
+                    {$t("meta.closeup.stubbed")}
                 </p>
             {:else if linkedInPostHog}
                 <p class="closeup-hint linked">
-                    Done. I just called <code>identify()</code> with your
-                    fingerprint &mdash; PostHog can now re-link you across
-                    sessions, no cookie needed.
+                    {@html $t("meta.closeup.linked")}
                 </p>
             {:else}
                 <button class="reveal-btn" on:click={identifyInPostHog}>
-                    Hand PostHog my fingerprint &rarr;
+                    {$t("meta.closeup.handBtn")}
                 </button>
             {/if}
 
             {#if trackers.posthog.active}
-                <p class="closeup-label">What PostHog already has on you</p>
+                <p class="closeup-label">{$t("meta.closeup.has")}</p>
                 <PosthogProfile
                     bind:this={profileRef}
                     distinctId={trackers.posthog.distinctId}
                 />
 
-                <p class="closeup-label">Who you remind me of</p>
+                <p class="closeup-label">{$t("meta.closeup.remind")}</p>
                 <p class="closeup-hint">
-                    From everyone PostHog has seen, here&rsquo;s who you most
-                    resemble &mdash; and how much you stand out.
+                    {$t("meta.closeup.remindBlurb")}
                 </p>
                 <VisitorTwin
                     bind:this={twinRef}

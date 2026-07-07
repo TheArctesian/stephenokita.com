@@ -7,6 +7,7 @@
   import Writing from "./being.jpg";
   import FilterGroup from "./filter_group.svelte";
   import BlogGrid from "./blog_grid.svelte";
+  import { t } from "$lib/i18n";
 
   export let data;
 
@@ -63,9 +64,9 @@
   <!-- Hero -->
   <header class="blog-hero">
     <div class="blog-hero__text">
-      <h1 class="pattern-hero__title">Welcome to my blog!</h1>
+      <h1 class="pattern-hero__title">{$t('blog.heroTitle')}</h1>
       <p class="pattern-hero__lede">
-        Enjoy, as I put an inordinate amount of my life into this.
+        {$t('blog.heroLede')}
       </p>
     </div>
     <img
@@ -80,32 +81,30 @@
 
   <div class="blog-intro">
     <p class="prose-text">
-      I try not to remove writings once their up as I want a complete record of
-      both the growth of my ideas and my abilities as a communicator.
+      {$t('blog.intro1')}
     </p>
     <p class="prose-text">
-      <i>Comment system is now up! Critique is <b>always always</b>
-      invited especially critiques of me, my character, knowledge, actions everything.</i>
+      {@html $t('blog.intro2')}
     </p>
     <p class="prose-text">
       I am still and will always be a stupid fool confidently guessing at the
       nature and order of our world. Thus is the struggle of those who venture to
       <i>"passionately experience the weight and burden of existence"</i> (BT)
     </p>
-    <p class="intro-note">View Counts are taken from Aug 15th 2025</p>
+    <p class="intro-note">{$t('blog.viewCountsNote')}</p>
 
     <!-- RSS Feed Link -->
-    <a href="/rss.xml" class="rss-link" aria-label="Subscribe to RSS feed">
+    <a href="/rss.xml" class="rss-link" aria-label={$t('blog.rssAria')}>
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M4 11a9 9 0 0 1 9 9"></path>
         <path d="M4 4a16 16 0 0 1 16 16"></path>
         <circle cx="5" cy="19" r="1"></circle>
       </svg>
-      <span>RSS Feed</span>
+      <span>{$t('blog.rssFeed')}</span>
     </a>
   </div>
 
-  <Section label="Writings">
+  <Section label={$t('blog.sectionWritings')}>
     <FilterGroup
       bind:searchTerm
       bind:selectedCategory
@@ -118,13 +117,12 @@
     <BlogGrid posts={filteredPosts} />
   </Section>
 
-  <Section label="Unfinished / expired ideas">
+  <Section label={$t('blog.sectionUnfinished')}>
     <p class="prose-text section-intro">
-      Ideas for projects and essays that are no longer mine to write and that I
-      wrote down to do. Look at the article of the same name for more info.
+      {$t('blog.unfinishedIntro')}
     </p>
 
-    <h3 class="subsection">Essays that should be written</h3>
+    <h3 class="subsection">{$t('blog.subEssays')}</h3>
     <div class="ideas-grid">
       {#each writings as w}
         <article class="idea-card" in:fade={{ delay: 1000, duration: 300 }}>
@@ -134,7 +132,7 @@
       {/each}
     </div>
 
-    <h3 class="subsection">Projects that should be done</h3>
+    <h3 class="subsection">{$t('blog.subProjects')}</h3>
     <div class="ideas-grid">
       {#each projects as w}
         <article class="idea-card" in:fade={{ delay: 1000, duration: 300 }}>

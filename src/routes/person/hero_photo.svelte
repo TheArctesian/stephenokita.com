@@ -6,6 +6,7 @@
    * button + easter-egg interaction stay scoped here.
    */
   import LazyImage from "$lib/components/ui/lazy_image.svelte";
+  import { t } from "$lib/i18n";
 
   export let src: string;
   export let title: string;
@@ -22,14 +23,14 @@
     on:click={toggle}
     on:keydown={(e) =>
       (e.key === "Enter" || e.key === " ") && (e.preventDefault(), toggle())}
-    aria-label="Photo of Stephen. Click for a surprise!"
+    aria-label={$t("person.heroPhotoAria")}
     aria-pressed={showEasterEgg}
   >
     <span class="photo">
       <LazyImage {src} alt="" eager width={160} height={160} />
     </span>
     {#if showEasterEgg}
-      <span class="easter-egg">You found the easter egg!</span>
+      <span class="easter-egg">{$t("person.easterEgg")}</span>
     {/if}
   </button>
 
