@@ -48,7 +48,9 @@ export function formatEventDate(
   return d.toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
-    ...(allDay ? {} : { hour: "numeric", minute: "2-digit" }),
+    // All-day dates are parsed as UTC midnight, so render them in UTC too —
+    // otherwise a west-of-UTC viewer sees the previous calendar day.
+    ...(allDay ? { timeZone: "UTC" } : { hour: "numeric", minute: "2-digit" }),
   });
 }
 
@@ -69,13 +71,22 @@ export function formatEventRange(event: CalendarEvent | null | undefined): strin
       minute: "2-digit",
     })}`;
   }
-  const endStr = event.allDay
-    ? new Date(event.end - 24 * 60 * 60 * 1000).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      })
-    : formatEventDate(event.end, false);
-  return `${startStr} – ${endStr}`;
+  if (event.allDay) {
+    // Google/ICS all-day end dates are exclusive, so the last day is end − 1.
+    const lastDay = new Date(event.end - 24 * 60 * 60 * 1000);
+    const singleDay =
+      start.getUTCFullYear() === lastDay.getUTCFullYear() &&
+      start.getUTCMonth() === lastDay.getUTCMonth() &&
+      start.getUTCDate() === lastDay.getUTCDate();
+    if (singleDay) return startStr;
+    const endStr = lastDay.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+    return `${startStr} – ${endStr}`;
+  }
+  return `${startStr} – ${formatEventDate(event.end, false)}`;
 }
 
 /** True while an event is currently happening (between start and end). */
