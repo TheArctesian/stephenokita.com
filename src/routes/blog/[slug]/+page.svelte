@@ -69,6 +69,14 @@
           <h1 class="text-3xl lg:text-4xl font-bold text-text-primary leading-tight">
             {data.meta.title}
           </h1>
+          {#if data.meta.description}
+            <p
+              class="w-full text-sm font-medium text-text-primary leading-relaxed"
+              in:fade={{ delay: 4 * 150, duration: 300 }}
+            >
+              {data.meta.description}
+            </p>
+          {/if}
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between text-text-tertiary">
             <div class="flex items-center gap-4">
               <time class="text-sm font-medium" in:fade={{ delay: 4 * 150, duration: 300 }}>
