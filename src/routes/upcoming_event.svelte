@@ -11,6 +11,7 @@
   import {
     formatEventRange,
     eventCountdown,
+    eventElapsed,
     isCurrent,
     type CalendarEvent,
   } from "$lib/utils/dates";
@@ -20,12 +21,18 @@
   export let pageSize = 5;
   export let mounted = false;
   export let prefersReducedMotion = false;
+  /** Render as a finished event: dimmed, with elapsed time instead of a countdown. */
+  export let past = false;
 
-  $: current = isCurrent(event);
+  $: current = !past && isCurrent(event);
+  $: timing = past
+    ? eventElapsed(event.start, $locale)
+    : eventCountdown(event.start, $locale);
 </script>
 
 <li
   class="upcoming-item"
+  class:past
   class:tentative={event.tentative && !current}
   class:current
   in:fade|local={{
@@ -45,7 +52,7 @@
     {#if event.location}<span class="upcoming-location">· {event.location}</span
       >{/if}
   </span>
-  <span class="upcoming-countdown">{eventCountdown(event.start, $locale)}</span>
+  <span class="upcoming-countdown">{timing}</span>
 </li>
 
 <style>
@@ -62,6 +69,18 @@
 
   .upcoming-item:hover {
     border-left-color: var(--accent-tertiary);
+  }
+
+  .upcoming-item.past {
+    opacity: 0.6;
+  }
+
+  .upcoming-item.past:hover {
+    opacity: 1;
+  }
+
+  .upcoming-item.past .upcoming-countdown {
+    color: var(--text-tertiary);
   }
 
   .upcoming-item.current {

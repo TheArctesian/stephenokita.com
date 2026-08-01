@@ -4,6 +4,9 @@ import { CalendarService } from '$lib/services/calendar';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = jsonRoute(
-  () => CalendarService.getUpcomingEvents(),
+  ({ url }) =>
+    url.searchParams.has('past')
+      ? CalendarService.getPastEvents()
+      : CalendarService.getUpcomingEvents(),
   { label: 'Calendar API error:', onError: () => json([]) }
 );

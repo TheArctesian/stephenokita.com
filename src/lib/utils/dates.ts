@@ -152,3 +152,29 @@ export function eventCountdown(
     ? `${months} ${hant ? "個月後" : "个月后"}`
     : `in ${months} month${months === 1 ? "" : "s"}`;
 }
+
+/** Human elapsed time for past events: "today"/"yesterday"/"N days ago" (en) or the zh equivalents. */
+export function eventElapsed(
+  start: number | null | undefined,
+  locale: LocaleCode = "en-GB",
+): string {
+  if (!start) return "";
+  const zh = isZh(locale);
+  const hant = locale === "zh-Hant";
+  const diffMs = Date.now() - start;
+  if (diffMs <= 0) return eventCountdown(start, locale);
+  const days = Math.floor(diffMs / (24 * 60 * 60 * 1000));
+  if (days === 0) return zh ? "今天" : "today";
+  if (days === 1) return zh ? (hant ? "昨天" : "昨天") : "yesterday";
+  if (days < 7) return zh ? `${days} ${hant ? "天前" : "天前"}` : `${days} days ago`;
+  if (days < 30) {
+    const weeks = Math.floor(days / 7);
+    return zh
+      ? `${weeks} ${hant ? "週前" : "周前"}`
+      : `${weeks} week${weeks === 1 ? "" : "s"} ago`;
+  }
+  const months = Math.round(days / 30);
+  return zh
+    ? `${months} ${hant ? "個月前" : "个月前"}`
+    : `${months} month${months === 1 ? "" : "s"} ago`;
+}

@@ -20,6 +20,32 @@
   let upcomingMounted = false;
   let prefersReducedMotion = false;
 
+  // Past ("previous") events are fetched lazily the first time the user asks
+  // for them, then paged the same way as upcoming events.
+  let pastShown = false;
+  let pastLoaded = false;
+  let pastLoading = false;
+  /** @type {import('$lib/utils/dates').CalendarEvent[]} */
+  let pastEvents = [];
+  let pastVisible = UPCOMING_PAGE_SIZE;
+
+  async function togglePrevious() {
+    pastShown = !pastShown;
+    if (pastShown && !pastLoaded && !pastLoading) {
+      pastLoading = true;
+      try {
+        const res = await fetch("/api/calendar?past=true");
+        const data = await res.json();
+        pastEvents = Array.isArray(data) ? data : [];
+      } catch {
+        pastEvents = [];
+      } finally {
+        pastLoaded = true;
+        pastLoading = false;
+      }
+    }
+  }
+
   onMount(() => {
     if (browser) {
       prefersReducedMotion = window.matchMedia(
@@ -63,6 +89,55 @@
             >{$t("home.upcomingCount", { count: upcoming.length })}</span
           >
         </div>
+
+        <div class="upcoming-past-toggle">
+          <button
+            type="button"
+            class="upcoming-more"
+            aria-expanded={pastShown}
+            on:click={togglePrevious}
+          >
+            {pastShown ? $t("home.hidePrevious") : $t("home.showPrevious")}
+          </button>
+        </div>
+
+        {#if pastShown}
+          {#if pastLoading}
+            <p class="upcoming-past-note">{$t("home.loadingPrevious")}</p>
+          {:else if pastEvents.length === 0}
+            <p class="upcoming-past-note">{$t("home.noPrevious")}</p>
+          {:else}
+            {#if pastEvents.length > pastVisible}
+              <div class="upcoming-actions upcoming-actions--past">
+                <button
+                  type="button"
+                  class="upcoming-more"
+                  on:click={() => (pastVisible += UPCOMING_PAGE_SIZE)}
+                >
+                  {$t("home.showEarlier")}
+                  <span class="upcoming-more-meta"
+                    >{$t("home.remaining", {
+                      count: pastEvents.length - pastVisible,
+                    })}</span
+                  >
+                </button>
+              </div>
+            {/if}
+            <ul class="upcoming-list upcoming-list--past">
+              {#each pastEvents.slice(0, pastVisible).reverse() as event, i (event.uid || event.start + event.summary)}
+                <UpcomingEvent
+                  {event}
+                  past
+                  index={i}
+                  pageSize={UPCOMING_PAGE_SIZE}
+                  mounted={upcomingMounted}
+                  {prefersReducedMotion}
+                />
+              {/each}
+            </ul>
+          {/if}
+        {/if}
+
         <ul class="upcoming-list">
           {#each upcoming.slice(0, upcomingVisible) as event, i (event.uid || event.start + event.summary)}
             <UpcomingEvent
@@ -198,6 +273,35 @@
       grid-template-columns: 1fr;
       gap: 2px;
       padding-left: var(--space-sm);
+    }
+  }
+
+  .upcoming-past-toggle {
+    margin-bottom: var(--space-sm);
+    margin-left: var(--space-md);
+  }
+
+  .upcoming-list--past {
+    margin-bottom: var(--space-sm);
+  }
+
+  .upcoming-actions--past {
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+  }
+
+  .upcoming-past-note {
+    margin: 0 0 var(--space-sm) var(--space-md);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 640px) {
+    .upcoming-past-toggle,
+    .upcoming-past-note {
+      margin-left: var(--space-sm);
     }
   }
 

@@ -136,11 +136,20 @@ function parseEvents(ics: string): CalendarEvent[] {
 
 export class CalendarService {
   static async getUpcomingEvents(): Promise<CalendarEvent[]> {
+    return CalendarService.filterUpcoming(await CalendarService.loadEvents());
+  }
+
+  static async getPastEvents(): Promise<CalendarEvent[]> {
+    return CalendarService.filterPast(await CalendarService.loadEvents());
+  }
+
+  /** Fetch (or reuse cached) parsed calendar events; never throws. */
+  private static async loadEvents(): Promise<CalendarEvent[]> {
     if (cache && Date.now() - cache.fetchedAt < CACHE_TTL_MS) {
-      return CalendarService.filterUpcoming(cache.events);
+      return cache.events;
     }
 
-    if (!PROTON_CALENDAR_URL) return [];
+    if (!PROTON_CALENDAR_URL) return cache?.events ?? [];
 
     try {
       const response = await fetch(PROTON_CALENDAR_URL);
@@ -150,22 +159,33 @@ export class CalendarService {
       const ics = await response.text();
       const events = parseEvents(ics);
       cache = { events, fetchedAt: Date.now() };
-      return CalendarService.filterUpcoming(events);
+      return events;
     } catch (error) {
       console.error('CalendarService error:', error);
-      return cache ? CalendarService.filterUpcoming(cache.events) : [];
+      return cache?.events ?? [];
     }
+  }
+
+  private static effectiveEnd(event: CalendarEvent): number {
+    return event.end ?? event.start + (event.allDay ? 24 * 60 * 60 * 1000 : 60 * 60 * 1000);
   }
 
   private static filterUpcoming(events: CalendarEvent[]): CalendarEvent[] {
     const now = Date.now();
     const horizon = now + UPCOMING_WINDOW_MS;
     return events
-      .filter((event) => {
-        const effectiveEnd = event.end ?? event.start + (event.allDay ? 24 * 60 * 60 * 1000 : 60 * 60 * 1000);
-        return effectiveEnd >= now && event.start <= horizon;
-      })
+      .filter((event) => CalendarService.effectiveEnd(event) >= now && event.start <= horizon)
       .sort((a, b) => a.start - b.start)
+      .slice(0, MAX_EVENTS);
+  }
+
+  /** Events already finished, most recent first, bounded to the same window. */
+  private static filterPast(events: CalendarEvent[]): CalendarEvent[] {
+    const now = Date.now();
+    const horizon = now - UPCOMING_WINDOW_MS;
+    return events
+      .filter((event) => CalendarService.effectiveEnd(event) < now && event.start >= horizon)
+      .sort((a, b) => b.start - a.start)
       .slice(0, MAX_EVENTS);
   }
 }
