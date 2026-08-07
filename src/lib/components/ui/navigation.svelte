@@ -3,6 +3,8 @@
   import { fade } from "svelte/transition";
   import ThemeToggle from "./theme_toggle.svelte";
   import LanguageToggle from "./language_toggle.svelte";
+  import { locale } from "$lib/stores/locale";
+  import { localizedPath, splitLocaleFromPath } from "$lib/utils/seo";
 
   let mobileMenuOpen = false;
 
@@ -29,7 +31,10 @@
     return routes.find((r) => r.path === pathname) || routes[0];
   }
 
-  $: activeRoute = getActiveRoute($page.url.pathname);
+  // Compare against the locale-stripped path so /zh-Hant/blog still highlights
+  // the blog tab, and keep every nav link inside the visitor's current locale.
+  $: activeRoute = getActiveRoute(splitLocaleFromPath($page.url.pathname).path);
+  $: localize = (path: string) => localizedPath(path, $locale);
 </script>
 
 <nav
@@ -40,7 +45,7 @@
   <div class="nav-desktop flex items-center justify-between">
     <div class="flex items-center justify-center flex-1">
       {#each routes as route, i}
-        <a href={route.path} class="{route.color} hover:tracking-wide">
+        <a href={localize(route.path)} class="{route.color} hover:tracking-wide">
           {route.label}{i < routes.length - 1 ? ", " : ""}
         </a>
       {/each}
@@ -93,7 +98,7 @@
     >
       {#each routes as route}
         <a
-          href={route.path}
+          href={localize(route.path)}
           class="{route.color} p-sm rounded-sm transition-all duration-normal hover:bg-bg-tertiary hover:tracking-wide"
           on:click={closeMobileMenu}
         >

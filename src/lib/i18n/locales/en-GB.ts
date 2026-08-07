@@ -37,6 +37,9 @@ const enGB: Dict = {
   "home.tentativeTitle": "Tentative — may not be there",
 
   // person
+  "person.pageTitle": "Person",
+  "person.metaDescription":
+    "The personal side of Stephen Okita — musician, philosopher, developer.",
   "person.aboutTitle": "About Me",
   "person.aboutSubtitle": "This is meant to be a bit more personal but has turned into more demographic.",
   "person.section.background": "Background",
@@ -89,6 +92,9 @@ const enGB: Dict = {
   "person.opensInNewTab": "(opens in new tab)",
 
   // blog
+  "blog.pageTitle": "Blog",
+  "blog.metaDescription":
+    "Essays by Stephen Daniel Okita on philosophy, critical theory, ethics, literature and technology.",
   "blog.heroTitle": "Welcome to my blog!",
   "blog.heroLede": "Enjoy, as I put an inordinate amount of my life into this.",
   "blog.intro1": "I try not to remove writings once their up as I want a complete record of both the growth of my ideas and my abilities as a communicator.",

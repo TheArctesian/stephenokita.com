@@ -33,6 +33,9 @@ const zhHant: Dict = {
   "home.tentativeTitle": "暫定 — 可能不會到場",
 
   // person
+  "person.pageTitle": "個人",
+  "person.metaDescription":
+    "Stephen Okita 比較私人的一面——音樂人、哲學人、開發者。",
   "person.aboutTitle": "關於我",
   "person.aboutSubtitle": "這本來想寫得私人一點，結果卻變成偏個人資料的東西。",
   "person.section.background": "背景",
@@ -85,6 +88,9 @@ const zhHant: Dict = {
   "person.opensInNewTab": "（在新分頁開啟）",
 
   // blog
+  "blog.pageTitle": "網誌",
+  "blog.metaDescription":
+    "Stephen Daniel Okita 關於哲學、批判理論、倫理學、文學與科技的隨筆。",
   "blog.heroTitle": "歡迎來到我的網誌！",
   "blog.heroLede": "好好享受吧，我把人生中不成比例的一大塊都投進了這裡。",
   "blog.intro1": "文章一旦發布，我盡量不去刪除，因為我想保留一份完整的紀錄，記下我想法的成長，以及我作為溝通者的能力演變。",

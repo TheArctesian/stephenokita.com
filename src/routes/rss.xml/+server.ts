@@ -1,63 +1,29 @@
 import type { RequestHandler } from './$types'
 import type { Post } from '$lib/types'
+import { listPostMeta } from '$lib/posts'
 import { generateRSSFeed } from '$lib/utils/rss'
+import { SITE_CONFIG } from '$lib/constants'
 
-export const GET: RequestHandler = async ({ url, fetch }) => {
-	try {
-		// Fetch posts from the API endpoint
-		const response = await fetch('/api/posts')
-		
-		if (!response.ok) {
-			console.error('Failed to fetch posts for RSS feed:', response.status)
-			const emptyFeed = generateRSSFeed([])
-			return new Response(emptyFeed, {
-				headers: {
-					'Content-Type': 'text/xml; charset=utf-8',
-					'Cache-Control': 'no-cache'
-				}
-			})
+// The feed is built entirely from markdown frontmatter, so it can be baked at
+// build time. It previously fetched /api/posts, which pulled view and comment
+// counts from Neon that the feed never used — and which would have forced a
+// database connection during the build.
+export const prerender = true
+
+export const GET: RequestHandler = async () => {
+	const posts: Post[] = listPostMeta().map(({ slug, meta }) => ({ ...meta, slug }))
+
+	const rssXml = generateRSSFeed(posts, {
+		title: "Stephen Daniel Okita's Blog",
+		description: 'Thoughts on philosophy, technology, and life from Stephen Daniel Okita',
+		link: SITE_CONFIG.url,
+		webMaster: `${SITE_CONFIG.email} (${SITE_CONFIG.name})`
+	})
+
+	return new Response(rssXml, {
+		headers: {
+			'Content-Type': 'application/rss+xml; charset=utf-8',
+			'Cache-Control': 'public, max-age=0, s-maxage=3600'
 		}
-		
-		const posts: Post[] = await response.json()
-		
-		// Generate RSS feed with proper XML escaping
-		// Use production URL for RSS feeds to ensure proper discovery
-		const baseUrl = process.env.NODE_ENV === 'production' || url.origin.includes('vercel') 
-			? 'https://stephenokita.com' 
-			: url.origin;
-		
-		const rssXml = generateRSSFeed(posts, {
-			title: "Stephen Daniel Okita's Blog",
-			description: "Thoughts on philosophy, technology, and life from Stephen Daniel Okita",
-			link: baseUrl,
-			webMaster: 'stephen@okita.com (Stephen Okita)'
-		})
-		
-		return new Response(rssXml, {
-			headers: {
-				'Content-Type': 'text/xml; charset=utf-8',
-				'Cache-Control': 'max-age=0, s-maxage=3600'
-			}
-		})
-	} catch (error) {
-		console.error('Error generating RSS feed:', error)
-		
-		// Return empty feed on error
-		const baseUrl = process.env.NODE_ENV === 'production' || url.origin.includes('vercel') 
-			? 'https://stephenokita.com' 
-			: url.origin;
-		
-		const emptyFeed = generateRSSFeed([], {
-			title: "Stephen Daniel Okita's Blog",
-			description: "Thoughts on philosophy, technology, and life from Stephen Daniel Okita",
-			link: baseUrl
-		})
-		
-		return new Response(emptyFeed, {
-			headers: {
-				'Content-Type': 'text/xml; charset=utf-8',
-				'Cache-Control': 'no-cache'
-			}
-		})
-	}
+	})
 }

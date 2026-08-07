@@ -1,59 +1,22 @@
-import { writable } from 'svelte/store';
-import { browser } from '$app/environment';
+import { derived } from 'svelte/store';
+import { page } from '$app/stores';
+import { AVAILABLE_LOCALES, DEFAULT_LOCALE, isLocale, type LocaleCode } from '$lib/i18n/config';
 
-// UNIX Philosophy: Simple, modular locale system — a sibling of the theme
-// store. The active locale lives in localStorage only (no URL change) and is
-// mirrored onto <html lang> so CSS/font fallbacks and a11y tools pick it up.
-export type LocaleCode = 'en-GB' | 'en-US' | 'zh-Hant' | 'zh-Hans';
+// UNIX Philosophy: Simple, modular locale system. The locale definitions live
+// in $lib/i18n/config so server endpoints and build-time generators can share
+// them without pulling in any svelte runtime.
+export { AVAILABLE_LOCALES, DEFAULT_LOCALE, type LocaleCode };
 
-// Each label is written in the language it names (self-referential native form).
-export const AVAILABLE_LOCALES = {
-  'en-GB': 'English (Traditional)',
-  'en-US': 'English (Simplified)',
-  'zh-Hant': '中文繁體',
-  'zh-Hans': '中文简体'
-} as const;
-
-const DEFAULT_LOCALE: LocaleCode = 'en-GB';
-const STORAGE_KEY = 'locale';
-
-// Single responsibility: type guard for a stored value
-function isLocale(value: string | null): value is LocaleCode {
-  return value !== null && value in AVAILABLE_LOCALES;
-}
-
-// Single responsibility: reflect the locale onto the document
-function applyLocale(code: LocaleCode) {
-  if (!browser) return;
-  document.documentElement.setAttribute('lang', code);
-}
-
-// Create the locale store following UNIX philosophy: do one thing well
-function createLocaleStore() {
-  const { subscribe, set } = writable<LocaleCode>(DEFAULT_LOCALE);
-
-  return {
-    subscribe,
-
-    // Single responsibility: set locale
-    setLocale: (code: LocaleCode) => {
-      if (browser) {
-        localStorage.setItem(STORAGE_KEY, code);
-        applyLocale(code);
-        set(code);
-      }
-    },
-
-    // Single responsibility: initialise locale from storage
-    init: () => {
-      if (browser) {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        const code = isLocale(stored) ? stored : DEFAULT_LOCALE;
-        applyLocale(code);
-        set(code);
-      }
-    }
-  };
-}
-
-export const locale = createLocaleStore();
+/**
+ * The active locale, derived from the URL.
+ *
+ * The URL is the single source of truth. This replaced a localStorage-backed
+ * store: because that value was only readable after hydration, the server
+ * always rendered en-GB and crawlers could never see the other three locales
+ * at all. Deriving from the route means the locale is known during SSR, the
+ * correct text is in the served HTML, and each locale has a real address.
+ */
+export const locale = derived<typeof page, LocaleCode>(page, ($page) => {
+  const param = $page.params.lang;
+  return isLocale(param) ? param : DEFAULT_LOCALE;
+});

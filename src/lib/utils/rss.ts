@@ -1,5 +1,6 @@
 import type { Post } from '$lib/types'
 import { COLORS, SITE_CONFIG } from '$lib/constants'
+import { escapeXml } from './xml'
 
 interface RSSConfig {
 	title: string
@@ -23,21 +24,12 @@ const defaultConfig: RSSConfig = {
 	ttl: 60
 }
 
-function escapeXml(text: string): string {
-	return text
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/"/g, '&quot;')
-		.replace(/'/g, '&apos;')
-}
-
 function generateCategories(categories?: string[]): string {
 	if (!categories || categories.length === 0) return ''
 	return categories.map(cat => `<category>${escapeXml(cat)}</category>`).join('\n')
 }
 
-function generateStyledDescription(post: Post, finalConfig: RSSConfig): string {
+function generateStyledDescription(post: Post, postUrl: string): string {
 	// Create styled HTML content that matches the website theme
 	const html = `
 		<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: ${COLORS.BACKGROUND}; color: ${COLORS.FOREGROUND}; padding: 20px; border-radius: 8px; border: 1px solid ${COLORS.SELECTION};">
@@ -52,7 +44,7 @@ function generateStyledDescription(post: Post, finalConfig: RSSConfig): string {
 				</div>
 			` : ''}
 			<div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid ${COLORS.SELECTION};">
-				<a href="${finalConfig.link}/blog/${post.slug}" style="color: ${COLORS.PRIMARY}; text-decoration: none; font-weight: 600;">Read full article →</a>
+				<a href="${escapeXml(postUrl)}" style="color: ${COLORS.PRIMARY}; text-decoration: none; font-weight: 600;">Read full article →</a>
 			</div>
 		</div>
 	`.replace(/\n\s*/g, '').trim()
@@ -77,7 +69,7 @@ export function generateRSSFeed(posts: Post[], config: Partial<RSSConfig> = {}):
 <guid isPermaLink="true">${postUrl}</guid>
 <title>${escapeXml(post.title)}</title>
 <link>${postUrl}</link>
-<description>${generateStyledDescription(post, finalConfig)}</description>
+<description>${generateStyledDescription(post, postUrl)}</description>
 <pubDate>${pubDate}</pubDate>
 ${post.img ? `<enclosure url="${escapeXml(post.img)}" type="image/jpeg" />
 <media:content url="${escapeXml(post.img)}" medium="image" />` : ''}

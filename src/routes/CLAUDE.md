@@ -18,17 +18,36 @@ The `routes/` directory contains all application routes including pages, API end
 ### Route Structure
 ```
 routes/
-├── +layout.svelte          # Root layout
-├── +page.svelte           # Home page
-├── [slug]/                # Dynamic blog posts
-├── api/                   # API endpoints
-├── blog/                  # Blog section
-├── projects/              # Projects section
-├── skills/                # Skills section
-├── person/                # About section
-├── meta/                  # Metadata pages
-└── rss.xml/              # RSS feed
+├── +layout.svelte          # Root layout (nav, footer, site-wide JSON-LD)
+├── [[lang=locale]]/        # Locale group — see below
+│   ├── +page.svelte        # Home page
+│   ├── blog/               # Blog section (+ blog/[slug]/ for posts)
+│   ├── projects/           # Projects section
+│   ├── skills/             # Skills section
+│   ├── person/             # About section
+│   └── meta/               # Colophon / diagnostics (noindex)
+├── api/                    # API endpoints (incl. api/og for social cards)
+├── rss.xml/                # RSS feed          ┐
+├── sitemap.xml/            # Sitemap           │ all prerendered,
+├── robots.txt/             # Crawler policy    │ all database-free
+├── llms.txt/               # LLM site index    │
+└── llms-full.txt/          # Full corpus       ┘
 ```
+
+### The `[[lang=locale]]` group
+Page routes live under an optional locale parameter matched by
+`src/params/locale.ts`. The matcher accepts **only** `en-US`, `zh-Hant` and
+`zh-Hans` — the default locale `en-GB` is served unprefixed and is the canonical
+form, so `/en-GB/blog` must 404 rather than duplicate `/blog`.
+
+- Locale is derived from the URL (`$lib/stores/locale`), not from storage, so it
+  is known during SSR and each locale has a real, indexable address.
+- `src/hooks.server.ts` stamps `<html lang>` per request; the root layout keeps
+  it in sync across client-side navigation.
+- Internal links must go through `localizedPath()` from `$lib/utils/seo` so a
+  visitor never falls out of their locale.
+- **Fetch API routes with an absolute path.** `fetch('api/posts')` resolves
+  relative to the current route and breaks under a locale prefix.
 
 ## Page Routes
 
@@ -70,7 +89,7 @@ routes/
 ```typescript
 // +page.ts
 export async function load({ params }) {
-  const post = await import(`../blog/posts/${params.slug}.md`);
+  const post = await import(`../../posts/${params.slug}.md`);
   return {
     post: post.default,
     metadata: post.metadata

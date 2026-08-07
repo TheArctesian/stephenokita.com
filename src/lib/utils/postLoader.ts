@@ -6,13 +6,14 @@
 import type { Post } from '$lib/types';
 import { normalizeSlug, debugSlug } from './slugResolver';
 
-export interface PostLoadResult {
-  success: boolean;
-  post?: any;
-  metadata?: Post;
-  error?: string;
-  slug?: string;
-}
+/**
+ * A discriminated union so that a `if (!result.success) throw` check narrows
+ * the success branch: callers get non-optional `metadata` and `slug` without
+ * having to re-assert them.
+ */
+export type PostLoadResult =
+  | { success: true; post: any; metadata: Post; slug: string }
+  | { success: false; error: string; slug: string };
 
 /**
  * Load a single blog post by slug
@@ -29,7 +30,7 @@ export async function loadPost(slug: string): Promise<PostLoadResult> {
     // Step 3: Attempt to load the post
     console.log(`Attempting to load: ../posts/${normalizedSlug}.md`);
     
-    const post = await import(`../../routes/blog/posts/${normalizedSlug}.md`);
+    const post = await import(`../../posts/${normalizedSlug}.md`);
     
     // Step 4: Validate the post has required properties
     if (!post.default || !post.metadata) {
@@ -64,7 +65,7 @@ export async function loadPost(slug: string): Promise<PostLoadResult> {
 export async function postExists(slug: string): Promise<boolean> {
   try {
     const normalizedSlug = normalizeSlug(slug);
-    await import(`../../routes/blog/posts/${normalizedSlug}.md`);
+    await import(`../../posts/${normalizedSlug}.md`);
     return true;
   } catch {
     return false;

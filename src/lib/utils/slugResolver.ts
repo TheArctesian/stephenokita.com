@@ -26,7 +26,7 @@ export async function validateSlug(slug: string): Promise<string | null> {
     const normalized = normalizeSlug(slug);
     
     // Test if we can import the file
-    await import(`../../routes/blog/posts/${normalized}.md`);
+    await import(`../../posts/${normalized}.md`);
     return normalized;
   } catch {
     return null;

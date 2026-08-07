@@ -3,6 +3,9 @@
   import { t } from '$lib/i18n';
   import { onMount } from 'svelte';
   import { slide } from 'svelte/transition';
+  import { goto } from '$app/navigation';
+  import { page } from '$app/stores';
+  import { localizedPath } from '$lib/utils/seo';
 
   let mounted = false;
   let isOpen = false;
@@ -10,14 +13,14 @@
   let dropdownMenu: HTMLDivElement;
 
   onMount(() => {
-    locale.init();
     mounted = true;
   });
 
-  // UNIX Philosophy: Simple function that does one thing
+  // Switching language is a navigation, not a state change: each locale has
+  // its own URL so the choice is shareable, linkable and server-rendered.
   function selectLocale(code: string) {
-    locale.setLocale(code as LocaleCode);
     isOpen = false;
+    goto(localizedPath($page.url.pathname, code as LocaleCode));
   }
 
   function toggleDropdown() {

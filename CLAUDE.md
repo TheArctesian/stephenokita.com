@@ -82,7 +82,9 @@ bun run migrate-data  # Migrate JSON data to database
 - **Status**: Successfully migrated 94 skills and 45 projects
 
 ### Content Management
-- **Blog Posts**: Still markdown-based in `src/routes/blog/posts/`
+- **Blog Posts**: Markdown in `src/posts/` (content, not routes). Enumerate them
+  via `$lib/posts` — never re-glob. That module is deliberately database-free so
+  the sitemap, llms.txt and RSS feed can prerender at build time.
 - **Dynamic Content**: Now database-driven via services layer
 - **Legacy JSON**: Being phased out in favor of database storage
 
