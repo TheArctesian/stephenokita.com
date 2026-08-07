@@ -58,7 +58,7 @@
       {/each}
     </nav>
     <a
-      href="https://github.com/TheArctesian/danielokita.com"
+      href="https://github.com/TheArctesian/stephenokita.com"
       class="source-link"
       target="_blank"
       rel="noopener noreferrer"
