@@ -87,6 +87,16 @@ const zhHant: Dict = {
   "person.easterEgg": "你找到彩蛋了！",
   "person.opensInNewTab": "（在新分頁開啟）",
 
+  // error
+  "error.404.title": "找不到這個檔案或目錄",
+  "error.404.message": "這個路徑不存在。可能已經改名，也可能從來沒寫過。",
+  "error.generic.title": "出了點問題",
+  "error.generic.message": "前往這個頁面的途中發生了非預期的錯誤。",
+  "error.metaTitle": "{status} — {title}",
+  "error.backHome": "回首頁",
+  "error.browseBlog": "去看看文章",
+  "error.commandNotFound": "找不到指令",
+
   // blog
   "blog.pageTitle": "網誌",
   "blog.metaDescription":

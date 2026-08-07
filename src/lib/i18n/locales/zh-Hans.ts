@@ -87,6 +87,16 @@ const zhHans: Dict = {
   "person.easterEgg": "你找到彩蛋了！",
   "person.opensInNewTab": "（在新标签页打开）",
 
+  // error
+  "error.404.title": "找不到这个文件或目录",
+  "error.404.message": "这个路径不存在。可能已经改名，也可能从来没写过。",
+  "error.generic.title": "出了点问题",
+  "error.generic.message": "前往这个页面的途中发生了意外错误。",
+  "error.metaTitle": "{status} — {title}",
+  "error.backHome": "回首页",
+  "error.browseBlog": "去看看文章",
+  "error.commandNotFound": "找不到命令",
+
   // blog
   "blog.pageTitle": "博客",
   "blog.metaDescription":

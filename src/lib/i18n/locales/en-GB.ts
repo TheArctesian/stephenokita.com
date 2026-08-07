@@ -91,6 +91,18 @@ const enGB: Dict = {
   "person.easterEgg": "You found the easter egg!",
   "person.opensInNewTab": "(opens in new tab)",
 
+  // error
+  "error.404.title": "No such file or directory",
+  "error.404.message":
+    "That path doesn't exist here. It may have been renamed, or never written at all.",
+  "error.generic.title": "Something went wrong",
+  "error.generic.message":
+    "An unexpected error occurred on the way to this page.",
+  "error.metaTitle": "{status} — {title}",
+  "error.backHome": "Go home",
+  "error.browseBlog": "Browse the writing",
+  "error.commandNotFound": "command not found",
+
   // blog
   "blog.pageTitle": "Blog",
   "blog.metaDescription":
