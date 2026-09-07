@@ -269,6 +269,14 @@ const projectOverrides: Record<number, Overlay> = {
     "zh-Hant": { description: "一個網頁 app，用 Floyd-Steinberg 演算法把你的圖片轉換成 Nord 配色。是為我的 hyprland 設定做的。" },
     "zh-Hans": { description: "一个网页 app，用 Floyd-Steinberg 算法把你的图片转换成 Nord 配色。是为我的 hyprland 配置做的。" }
   },
+  74: {
+    "zh-Hant": { description: "一個位於 Berkeley 的社會公益科技育成中心，支持那些做出真正服務於人的產品的創業者。" },
+    "zh-Hans": { description: "一个位于 Berkeley 的社会公益科技孵化器，支持那些做出真正服务于人的产品的创业者。" }
+  },
+  75: {
+    "zh-Hant": { description: "位於 Berkeley 的互助共同工作空間與社群，供大家一起工作、聚會與組織行動。" },
+    "zh-Hans": { description: "位于 Berkeley 的互助共享办公空间与社群，供大家一起工作、聚会与组织行动。" }
+  }
 };
 
 // Single responsibility: localise a project title, falling back to the original.

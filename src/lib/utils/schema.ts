@@ -20,6 +20,42 @@ export function toBcp47(language?: string[]): string {
 	return 'en'
 }
 
+/**
+ * Organisations the person co-founded. Each gets a stable `@id` built from its
+ * own domain so an engine can merge these nodes with the orgs' own markup
+ * rather than minting a duplicate entity per site.
+ */
+const AFFILIATIONS = [
+	{
+		'@type': 'Organization',
+		'@id': 'https://www.auracarehealth.com/#organization',
+		name: 'Auracare Health',
+		url: 'https://www.auracarehealth.com/'
+	},
+	{
+		'@type': 'Organization',
+		'@id': 'https://www.tfhumanity.org/#organization',
+		name: 'TF Humanity',
+		url: 'https://www.tfhumanity.org/',
+		description: 'A Berkeley incubator for technology that serves people.'
+	},
+	{
+		'@type': 'Organization',
+		'@id': 'https://soco.place/#organization',
+		name: 'SoCo',
+		alternateName: 'SoCo — Berkeley Solidarity Coworking',
+		url: 'https://soco.place/',
+		description:
+			'A solidarity coworking space and collective in Berkeley for shared work, gatherings and organising.',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'Berkeley',
+			addressRegion: 'CA',
+			addressCountry: 'US'
+		}
+	}
+]
+
 export function personSchema(knowsAbout?: string[]) {
 	return {
 		'@type': 'Person',
@@ -30,6 +66,7 @@ export function personSchema(knowsAbout?: string[]) {
 		email: `mailto:${SITE_CONFIG.email}`,
 		description: SITE_CONFIG.description,
 		sameAs: [SITE_CONFIG.github, SITE_CONFIG.linkedin, SITE_CONFIG.instagram],
+		affiliation: AFFILIATIONS,
 		...(knowsAbout?.length ? { knowsAbout } : {})
 	}
 }

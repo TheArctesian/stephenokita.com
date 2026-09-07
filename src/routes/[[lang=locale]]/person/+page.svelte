@@ -37,10 +37,14 @@
 
   $: whatIDo = [
     `${$t("person.role.ctoCoFounder")} @ <a href="https://www.auracarehealth.com/" target="_blank" rel="noopener noreferrer">Aura Care Health</a>`,
+    `${$t("person.role.coFounder")} @ <a href="https://www.tfhumanity.org/" target="_blank" rel="noopener noreferrer">TF Humanity</a>`,
+    `${$t("person.role.coFounder")} @ <a href="https://soco.place/" target="_blank" rel="noopener noreferrer">SoCo</a>`,
     `${$t("person.role.writer")} @ <a href="${localizedPath("/blog", $locale)}">${$t("person.thisBlog")}</a>`,
   ];
 
   $: workTimeline = [
+    { place: `${$t("person.role.coFounder")} @ ${link("TF Humanity", "https://www.tfhumanity.org")}`, dates: "Sep 2026&ndash;" },
+    { place: `${$t("person.role.coFounder")} @ ${link("SoCo", "https://soco.place")}`, dates: "Aug 2026&ndash;" },
     { place: `${$t("person.role.ctoCoFounder")} @ ${link("Auracare", "https://auracare.org.uk")}`, dates: "Jun 2024&ndash;" },
     { place: `${$t("person.role.member")} @ ${link("Asia Society", "https://asiasociety.org")}`, dates: "Jun 2024&ndash;" },
     { place: `${$t("person.role.ctoCoFounder")} @ ${link("Berkeley Tech &amp; Justice Lab", "https://techjusticelab.org")}`, dates: "Feb 2025&ndash;Jan 2026" },

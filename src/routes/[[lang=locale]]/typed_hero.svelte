@@ -116,6 +116,19 @@
       <span class="role-position">{$t("home.roleCtoCoFounder")}</span>
       <span class="role-at">Auracare Health</span>
     </a>
+    <a
+      href="https://www.tfhumanity.org/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="role"
+    >
+      <span class="role-position">{$t("home.roleCoFounder")}</span>
+      <span class="role-at">TF Humanity</span>
+    </a>
+    <a href="https://soco.place/" target="_blank" rel="noopener noreferrer" class="role">
+      <span class="role-position">{$t("home.roleCoFounder")}</span>
+      <span class="role-at">SoCo</span>
+    </a>
     <a href={localizedPath("/person", $locale)} class="role">
       <span class="role-position">{$t("home.rolePhilosophy")}</span>
       <span class="role-at">UC Berkeley</span>
