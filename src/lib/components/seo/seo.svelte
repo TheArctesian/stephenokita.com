@@ -26,6 +26,8 @@
   /** Site-relative canonical path. Defaults to the current path, locale-stripped. */
   export let canonicalPath: string | undefined = undefined;
   export let image: string | undefined = undefined;
+  /** Absolute URL of the page's prerendered card video (see ogVideoUrl). */
+  export let video: string | undefined = undefined;
   export let type: "website" | "article" | "profile" = "website";
   export let publishedTime: string | undefined = undefined;
   export let modifiedTime: string | undefined = undefined;
@@ -112,6 +114,13 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
+  {/if}
+  {#if video}
+    <meta property="og:video" content={video} />
+    <meta property="og:video:secure_url" content={video} />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:width" content="1200" />
+    <meta property="og:video:height" content="630" />
   {/if}
 
   {#if type === "article"}

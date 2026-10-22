@@ -10,6 +10,7 @@
   import TabNav from "./tab_nav.svelte";
   import SkillsGrid from "./skills_grid.svelte";
   import Seo from "$lib/components/seo/seo.svelte";
+  import { ogVideoUrl } from "$lib/utils/seo";
   import JsonLd from "$lib/components/seo/json_ld.svelte";
   import { collectionPageSchema } from "$lib/utils/schema";
 
@@ -70,6 +71,7 @@
   title={$t('skills.pageTitle')}
   description={$t('skills.metaDescription')}
   canonicalPath="/skills"
+  video={ogVideoUrl("page", "skills")}
 />
 <JsonLd
   data={collectionPageSchema({

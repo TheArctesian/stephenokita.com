@@ -8,7 +8,7 @@
   import Seo from "$lib/components/seo/seo.svelte";
   import JsonLd from "$lib/components/seo/json_ld.svelte";
   import { blogPostingSchema, breadcrumbSchema } from "$lib/utils/schema";
-  import { localizedPath, ogImageUrl, postPath } from "$lib/utils/seo";
+  import { localizedPath, ogImageUrl, ogVideoUrl, postPath } from "$lib/utils/seo";
   import { locale } from "$lib/stores/locale";
   import { t } from "$lib/i18n";
 
@@ -69,6 +69,7 @@
   publishedTime={data.meta.date}
   modifiedTime={data.meta.updated ?? data.meta.date}
   tags={data.meta.categories ?? []}
+  video={data.meta.published ? ogVideoUrl("post", data.meta.slug) : undefined}
   alternates={false}
 />
 

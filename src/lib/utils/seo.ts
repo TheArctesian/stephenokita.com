@@ -62,6 +62,14 @@ export function ogImageUrl({ title, kind = 'page', date }: OgImageOptions): stri
 	return absoluteUrl(`/api/og?${params.toString()}`)
 }
 
+/**
+ * Absolute URL of the animated card prerendered at build by routes/og/video.
+ * Only the slugs that route's `entries()` lists exist.
+ */
+export function ogVideoUrl(kind: 'post' | 'page', slug: string): string {
+	return absoluteUrl(`/og/video/${kind}/${encodeSlugForUrl(slug)}.mp4`)
+}
+
 /** Trim to a length social platforms and SERPs will actually display. */
 export function truncate(text: string, max = 160): string {
 	const clean = text.replace(/\s+/g, ' ').trim()

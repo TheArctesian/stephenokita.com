@@ -9,7 +9,7 @@
   import { onMount } from "svelte";
   import { t } from "$lib/i18n";
   import { locale } from "$lib/stores/locale";
-  import { localizedPath, postPath } from "$lib/utils/seo";
+  import { localizedPath, postPath, ogVideoUrl } from "$lib/utils/seo";
   import {
     localizeProjectTitle,
     localizeProjectDescription,
@@ -63,6 +63,7 @@
   title="Stephen Daniel Okita"
   description={$t("home.metaDescription")}
   canonicalPath="/"
+  video={ogVideoUrl("page", "home")}
   suffix={false}
 />
 

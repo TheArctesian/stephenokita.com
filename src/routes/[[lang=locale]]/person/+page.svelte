@@ -12,7 +12,7 @@
   import JsonLd from "$lib/components/seo/json_ld.svelte";
   import { profilePageSchema } from "$lib/utils/schema";
   import { locale } from "$lib/stores/locale";
-  import { localizedPath } from "$lib/utils/seo";
+  import { localizedPath, ogVideoUrl } from "$lib/utils/seo";
   // Optimized hero source (29 KB webp vs the original 468 KB jpg).
   import me from "./imgs/me&kim-360.webp";
   import type { PageData } from "./$types";
@@ -104,6 +104,7 @@
   title={$t("person.pageTitle")}
   description={$t("person.metaDescription")}
   canonicalPath="/person"
+  video={ogVideoUrl("page", "person")}
   type="profile"
 />
 <JsonLd data={profilePageSchema($t("person.metaDescription"))} />

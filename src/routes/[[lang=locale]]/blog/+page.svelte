@@ -8,6 +8,7 @@
   import FilterGroup from "./filter_group.svelte";
   import BlogGrid from "./blog_grid.svelte";
   import Seo from "$lib/components/seo/seo.svelte";
+  import { ogVideoUrl } from "$lib/utils/seo";
   import JsonLd from "$lib/components/seo/json_ld.svelte";
   import { collectionPageSchema, postListItem } from "$lib/utils/schema";
   import { t } from "$lib/i18n";
@@ -77,6 +78,7 @@
   title={$t("blog.pageTitle")}
   description={$t("blog.metaDescription")}
   canonicalPath="/blog"
+  video={ogVideoUrl("page", "blog")}
 />
 <JsonLd data={blogSchema} />
 

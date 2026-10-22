@@ -9,6 +9,7 @@
   import Project from "./project.svelte";
   import ProjectsSkeleton from "./projects_skeleton.svelte";
   import Seo from "$lib/components/seo/seo.svelte";
+  import { ogVideoUrl } from "$lib/utils/seo";
   import JsonLd from "$lib/components/seo/json_ld.svelte";
   import { collectionPageSchema, projectListItem } from "$lib/utils/schema";
   import type { PageData } from "./$types";
@@ -78,6 +79,7 @@
   title={$t('projects.pageTitle')}
   description={$t('projects.metaDescription')}
   canonicalPath="/projects"
+  video={ogVideoUrl("page", "projects")}
 />
 
 <div class="page">
